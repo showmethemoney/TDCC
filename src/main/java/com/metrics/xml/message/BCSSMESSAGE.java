@@ -41,53 +41,196 @@ public abstract class BCSSMESSAGE implements Serializable
 	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
 	protected String resend;
 	
-	public String getOrigin() {
-		return origin;
-	}
-	public String getTs() {
-		return ts;
-	}
-	public String getBcssbusdt() {
-		return bcssbusdt;
-	}
-	public String getMsgtype() {
-		return msgtype;
-	}
-	public String getNarr() {
-		return narr;
-	}
-	public String getSndrref() {
-		return sndrref;
-	}
-	public String getAction() {
-		return action;
-	}
-	public String getResend() {
-		return resend;
-	}
-	public void setOrigin(String origin) {
-		this.origin = origin;
-	}
-	public void setTs(String ts) {
-		this.ts = ts;
-	}
-	public void setBcssbusdt(String bcssbusdt) {
-		this.bcssbusdt = bcssbusdt;
-	}
-	public void setMsgtype(String msgtype) {
-		this.msgtype = msgtype;
-	}
-	public void setNarr(String narr) {
-		this.narr = narr;
-	}
-	public void setSndrref(String sndrref) {
-		this.sndrref = sndrref;
-	}
-	public void setAction(String action) {
-		this.action = action;
-	}
-	public void setResend(String resend) {
-		this.resend = resend;
-	}
+	 /**
+     * Gets the value of the origin property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getORIGIN() {
+        return origin;
+    }
+
+    /**
+     * Sets the value of the origin property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setORIGIN(String value) {
+        this.origin = value;
+    }
+
+    /**
+     * Gets the value of the ts property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTS() {
+        return ts;
+    }
+
+    /**
+     * Sets the value of the ts property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTS(String value) {
+        this.ts = value;
+    }
+
+    /**
+     * Gets the value of the bcssbusdt property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getBCSSBUSDT() {
+        return bcssbusdt;
+    }
+
+    /**
+     * Sets the value of the bcssbusdt property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setBCSSBUSDT(String value) {
+        this.bcssbusdt = value;
+    }
+
+    /**
+     * Gets the value of the msgtype property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMSGTYPE() {
+        return msgtype;
+    }
+
+    /**
+     * Sets the value of the msgtype property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMSGTYPE(String value) {
+        this.msgtype = value;
+    }
+
+    /**
+     * Gets the value of the narr property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNARR() {
+        return narr;
+    }
+
+    /**
+     * Sets the value of the narr property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNARR(String value) {
+        this.narr = value;
+    }
+
+    /**
+     * Gets the value of the sndrref property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSNDRREF() {
+        return sndrref;
+    }
+
+    /**
+     * Sets the value of the sndrref property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSNDRREF(String value) {
+        this.sndrref = value;
+    }
+
+    /**
+     * Gets the value of the action property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getACTION() {
+        return action;
+    }
+
+    /**
+     * Sets the value of the action property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setACTION(String value) {
+        this.action = value;
+    }
+
+    /**
+     * Gets the value of the resend property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRESEND() {
+        return resend;
+    }
+
+    /**
+     * Sets the value of the resend property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRESEND(String value) {
+        this.resend = value;
+    } 
 	
 }
