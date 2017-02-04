@@ -36,13 +36,13 @@
         </filter>
     </appender>
     
-<!-- 	<logger name="test.com.metrics"> -->
-<!--         <level value="INFO"/>  -->
-<!--         <appender-ref ref="STDOUT" /> -->
-<!--     </logger> -->
+	<logger name="com.metrics">
+        <level value="INFO"/> 
+        <appender-ref ref="STDOUT" />
+    </logger>
     
     <root>
-        <level value="INFO" /> 
+        <level value="ERROR" /> 
 		<appender-ref ref="STDOUT" />	
 <!-- 		<appender-ref ref="FILE-ROOT" />	 -->
     </root>

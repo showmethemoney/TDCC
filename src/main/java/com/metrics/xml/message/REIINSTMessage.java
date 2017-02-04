@@ -6,26 +6,27 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.metrics.xml.def.CSHADVICE;
+import com.metrics.xml.def.REIINST;
 
 /**
- * 兌償入帳通知：      003/RDM
- * @author Ethan Lee 
+ * 續發指令：123/RI 
+ * @author ethan
+ *
  */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "body" })
 @XmlRootElement(name = "BCSSMESSAGE")
-public class CSHADVICEMessage extends BCSSMESSAGE
+public class REIINSTMessage extends BCSSMESSAGE
 {
-    @XmlElement(name = "CSH_ADVICE")
-    protected CSHADVICE body;
+    @XmlElement(name = "REI_INST")
+    protected REIINST body;
 
-	public CSHADVICE getBody() {
+	public REIINST getBody() {
 		return body;
 	}
 
-	public void setBody(CSHADVICE body) {
+	public void setBody(REIINST body) {
 		this.body = body;
 	}
-    
 }

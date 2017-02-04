@@ -48,7 +48,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "cshlegOrSECLEG"
+    "items"
 })
 @XmlRootElement(name = "MOD_REPO")
 public class MODREPO {
@@ -57,7 +57,7 @@ public class MODREPO {
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class)
     })
-    protected List<Object> cshlegOrSECLEG;
+    protected List<Object> items;
     @XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
@@ -100,11 +100,11 @@ public class MODREPO {
      * 
      * 
      */
-    public List<Object> getCSHLEGOrSECLEG() {
-        if (cshlegOrSECLEG == null) {
-            cshlegOrSECLEG = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.cshlegOrSECLEG;
+        return this.items;
     }
 
     /**

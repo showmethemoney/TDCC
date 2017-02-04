@@ -47,7 +47,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "stlmprtyOrSECLEG"
+    "items"
 })
 @XmlRootElement(name = "MORTGAGE_RELEX")
 public class MORTGAGERELEX {
@@ -56,7 +56,7 @@ public class MORTGAGERELEX {
         @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class)
     })
-    protected List<Object> stlmprtyOrSECLEG;
+    protected List<Object> items;
     @XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
@@ -96,11 +96,11 @@ public class MORTGAGERELEX {
      * 
      * 
      */
-    public List<Object> getSTLMPRTYOrSECLEG() {
-        if (stlmprtyOrSECLEG == null) {
-            stlmprtyOrSECLEG = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.stlmprtyOrSECLEG;
+        return this.items;
     }
 
     /**

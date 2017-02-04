@@ -71,7 +71,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "prtyOrCPRTYOrCSHLEG"
+    "items"
 })
 @XmlRootElement(name = "UNDW")
 public class UNDW {
@@ -83,7 +83,7 @@ public class UNDW {
         @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class),
         @XmlElement(name = "UNDERWRITINGPART", type = UNDERWRITINGPART.class)
     })
-    protected List<Object> prtyOrCPRTYOrCSHLEG;
+    protected List<Object> items;
     @XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
@@ -147,11 +147,11 @@ public class UNDW {
      * 
      * 
      */
-    public List<Object> getPRTYOrCPRTYOrCSHLEG() {
-        if (prtyOrCPRTYOrCSHLEG == null) {
-            prtyOrCPRTYOrCSHLEG = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.prtyOrCPRTYOrCSHLEG;
+        return this.items;
     }
 
     /**

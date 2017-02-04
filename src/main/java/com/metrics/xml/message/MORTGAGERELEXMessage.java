@@ -6,26 +6,20 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.metrics.xml.def.CSHADVICE;
+import com.metrics.xml.def.MORTGAGERELEX;
 
 /**
- * 兌償入帳通知：      003/RDM
- * @author Ethan Lee 
+ * 202/MEI	實行質權指令
+ * 202/MR	質權塗銷指令
+ * @author ethan
+ *
  */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "body" })
 @XmlRootElement(name = "BCSSMESSAGE")
-public class CSHADVICEMessage extends BCSSMESSAGE
+public class MORTGAGERELEXMessage
 {
-    @XmlElement(name = "CSH_ADVICE")
-    protected CSHADVICE body;
-
-	public CSHADVICE getBody() {
-		return body;
-	}
-
-	public void setBody(CSHADVICE body) {
-		this.body = body;
-	}
-    
+    @XmlElement(name = "MORTGAGE_RELEX")
+    protected MORTGAGERELEX body;
 }

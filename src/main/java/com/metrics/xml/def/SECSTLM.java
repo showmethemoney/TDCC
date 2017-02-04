@@ -75,7 +75,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "prtyOrCPRTYOrSECLEG"
+    "items"
 })
 @XmlRootElement(name = "SEC_STLM")
 public class SECSTLM {
@@ -86,7 +86,7 @@ public class SECSTLM {
         @XmlElement(name = "SEC_LEG", type = SECLEG.class),
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
     })
-    protected List<Object> prtyOrCPRTYOrSECLEG;
+    protected List<Object> items;
     @XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
@@ -143,11 +143,11 @@ public class SECSTLM {
      * 
      * 
      */
-    public List<Object> getPRTYOrCPRTYOrSECLEG() {
-        if (prtyOrCPRTYOrSECLEG == null) {
-            prtyOrCPRTYOrSECLEG = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.prtyOrCPRTYOrSECLEG;
+        return this.items;
     }
 
     /**

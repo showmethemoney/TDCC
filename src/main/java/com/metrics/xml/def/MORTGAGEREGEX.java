@@ -56,7 +56,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "prtyOrCPRTYOrSECLEG"
+    "items"
 })
 @XmlRootElement(name = "MORTGAGE_REGEX")
 public class MORTGAGEREGEX {
@@ -66,7 +66,7 @@ public class MORTGAGEREGEX {
         @XmlElement(name = "CPRTY", type = CPRTY.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class)
     })
-    protected List<Object> prtyOrCPRTYOrSECLEG;
+    protected List<Object> items;
     @XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
@@ -104,11 +104,11 @@ public class MORTGAGEREGEX {
      * 
      * 
      */
-    public List<Object> getPRTYOrCPRTYOrSECLEG() {
-        if (prtyOrCPRTYOrSECLEG == null) {
-            prtyOrCPRTYOrSECLEG = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.prtyOrCPRTYOrSECLEG;
+        return this.items;
     }
 
     /**

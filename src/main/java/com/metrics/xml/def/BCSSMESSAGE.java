@@ -275,36 +275,29 @@ public class BCSSMESSAGE {
     protected CANCELCONF cancelconf;
     @XmlElement(name = "RES_REQ")
     protected RESREQ resreq;
-    @XmlElement(name = "REP_REQ")
-    protected REPREQ repreq;
-    @XmlElement(name = "REP")
-    protected REP rep;
+
+
     @XmlElement(name = "LC_NOTIFS")
     protected LCNOTIFS lcnotifs;
     @XmlElement(name = "RTEP")
     protected RTEP rtep;
     @XmlElement(name = "IM")
     protected IM im;
-    @XmlElement(name = "DEP")
-    protected DEP dep;
-    @XmlElement(name = "UNDW")
-    protected UNDW undw;
+
+
     @XmlElement(name = "CSH_TRANSFER")
     protected CSHTRANSFER cshtransfer;
-    @XmlElement(name = "CONSIGNT_INST")
-    protected CONSIGNTINST consigntinst;
+
     @XmlElement(name = "CONSIGNT_NOTE")
     protected CONSIGNTNOTE consigntnote;
     @XmlElement(name = "PRESENTATION_NOTE")
     protected PRESENTATIONNOTE presentationnote;
     @XmlElement(name = "RDMP_NOTE")
     protected RDMPNOTE rdmpnote;
-    @XmlElement(name = "REI_INST")
-    protected REIINST reiinst;
+
     @XmlElement(name = "REI_NOTE")
     protected REINOTE reinote;
-    @XmlElement(name = "ER_INST")
-    protected ERINST erinst;
+
     @XmlElement(name = "REM_INST")
     protected REMINST reminst;
     @XmlElement(name = "NPRDM_INST")
@@ -313,28 +306,21 @@ public class BCSSMESSAGE {
     protected NPWDINST npwdinst;
     @XmlElement(name = "INVACCTINFO_INST")
     protected INVACCTINFOINST invacctinfoinst;
-    @XmlElement(name = "MORTGAGE_REGEX")
-    protected MORTGAGEREGEX mortgageregex;
-    @XmlElement(name = "MORTGAGE_RELEX")
-    protected MORTGAGERELEX mortgagerelex;
+
+
     @XmlElement(name = "MORTGAGE_SELREG")
     protected MORTGAGESELREG mortgageselreg;
     @XmlElement(name = "MORTGAGE_BUYSEL")
     protected MORTGAGEBUYSEL mortgagebuysel;
-    @XmlElement(name = "OPEN_REPO")
-    protected OPENREPO openrepo;
-    @XmlElement(name = "CLOSE_REPO")
-    protected CLOSEREPO closerepo;
-    @XmlElement(name = "MOD_REPO")
-    protected MODREPO modrepo;
+
+
+
     @XmlElement(name = "BRK_REPO")
     protected BRKREPO brkrepo;
-    @XmlElement(name = "SEC_STLM")
-    protected SECSTLM secstlm;
+
     @XmlElement(name = "OAT")
     protected OAT oat;
-    @XmlElement(name = "SEC_BLK")
-    protected SECBLK secblk;
+
     @XmlElement(name = "CSH_NOTICE")
     protected CSHNOTICE cshnotice;
     @XmlElement(name = "LC_NOTIFA")
@@ -448,30 +434,6 @@ public class BCSSMESSAGE {
      */
     public void setRESREQ(RESREQ value) {
         this.resreq = value;
-    }
-
-    /**
-     * Gets the value of the repreq property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link REPREQ }
-     *     
-     */
-    public REPREQ getREPREQ() {
-        return repreq;
-    }
-
-    /**
-     * Sets the value of the repreq property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link REPREQ }
-     *     
-     */
-    public void setREPREQ(REPREQ value) {
-        this.repreq = value;
     }
 
     /**

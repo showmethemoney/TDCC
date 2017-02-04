@@ -6,25 +6,27 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.metrics.xml.def.CSHADVICE;
+import com.metrics.xml.def.SECSTLM;
 
 /**
- * 兌償入帳通知：      003/RDM
- * @author Ethan Lee 
+ * 買賣斷/存券匯撥指令： 401/SSI
+ * @author ethan
+ *
  */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "body" })
 @XmlRootElement(name = "BCSSMESSAGE")
-public class CSHADVICEMessage extends BCSSMESSAGE
+public class SECSTLMMessage extends BCSSMESSAGE
 {
-    @XmlElement(name = "CSH_ADVICE")
-    protected CSHADVICE body;
+    @XmlElement(name = "SEC_STLM")
+    protected SECSTLM body;
 
-	public CSHADVICE getBody() {
+	public SECSTLM getBody() {
 		return body;
 	}
 
-	public void setBody(CSHADVICE body) {
+	public void setBody(SECSTLM body) {
 		this.body = body;
 	}
     

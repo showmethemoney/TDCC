@@ -6,25 +6,26 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.metrics.xml.def.CSHADVICE;
+import com.metrics.xml.def.MODREPO;
 
 /**
- * 兌償入帳通知：      003/RDM
- * @author Ethan Lee 
+ * 附條件交易中途解約指令：303/RCMI
+ * @author ethan
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "body" })
 @XmlRootElement(name = "BCSSMESSAGE")
-public class CSHADVICEMessage extends BCSSMESSAGE
+public class MODREPOMessage extends BCSSMESSAGE
 {
-    @XmlElement(name = "CSH_ADVICE")
-    protected CSHADVICE body;
+    @XmlElement(name = "MOD_REPO")
+    protected MODREPO body;
 
-	public CSHADVICE getBody() {
+	public MODREPO getBody() {
 		return body;
 	}
 
-	public void setBody(CSHADVICE body) {
+	public void setBody(MODREPO body) {
 		this.body = body;
 	}
     

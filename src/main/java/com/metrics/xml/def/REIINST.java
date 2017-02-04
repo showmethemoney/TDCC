@@ -67,7 +67,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "seclegOrCSHLEGOrRECEIVERBANK"
+    "items"
 })
 @XmlRootElement(name = "REI_INST")
 public class REIINST {
@@ -78,7 +78,7 @@ public class REIINST {
         @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class),
         @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class)
     })
-    protected List<Object> seclegOrCSHLEGOrRECEIVERBANK;
+    protected List<Object> items;
     @XmlAttribute(name = "REI_ISIN", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String reiisin;
@@ -132,11 +132,11 @@ public class REIINST {
      * 
      * 
      */
-    public List<Object> getSECLEGOrCSHLEGOrRECEIVERBANK() {
-        if (seclegOrCSHLEGOrRECEIVERBANK == null) {
-            seclegOrCSHLEGOrRECEIVERBANK = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.seclegOrCSHLEGOrRECEIVERBANK;
+        return this.items;
     }
 
     /**

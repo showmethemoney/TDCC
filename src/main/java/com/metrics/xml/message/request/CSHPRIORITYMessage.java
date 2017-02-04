@@ -1,4 +1,4 @@
-package com.metrics.xml.message;
+package com.metrics.xml.message.request;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -6,26 +6,25 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.metrics.xml.def.CSHADVICE;
+import com.metrics.xml.def.CSHPRIORITY;
+import com.metrics.xml.message.BCSSMESSAGE;
 
 /**
- * 兌償入帳通知：      003/RDM
  * @author Ethan Lee 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "body" })
 @XmlRootElement(name = "BCSSMESSAGE")
-public class CSHADVICEMessage extends BCSSMESSAGE
+public class CSHPRIORITYMessage extends BCSSMESSAGE
 {
-    @XmlElement(name = "CSH_ADVICE")
-    protected CSHADVICE body;
+    @XmlElement(name = "CSH_PRIORITY")
+    protected CSHPRIORITY body;
 
-	public CSHADVICE getBody() {
+	public CSHPRIORITY getBody() {
 		return body;
 	}
 
-	public void setBody(CSHADVICE body) {
+	public void setBody(CSHPRIORITY body) {
 		this.body = body;
 	}
-    
 }

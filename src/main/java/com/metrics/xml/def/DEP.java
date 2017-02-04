@@ -159,7 +159,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "denominationOrENDORSEEOrAGREER"
+    "items"
 })
 @XmlRootElement(name = "DEP")
 public class DEP {
@@ -170,7 +170,7 @@ public class DEP {
         @XmlElement(name = "AGREER", type = AGREER.class),
         @XmlElement(name = "FLOATING_RATE_INFO", type = FLOATINGRATEINFO.class)
     })
-    protected List<Object> denominationOrENDORSEEOrAGREER;
+    protected List<Object> items;
     @XmlAttribute(name = "ISIN")
     @XmlSchemaType(name = "anySimpleType")
     protected String isin;
@@ -293,11 +293,11 @@ public class DEP {
      * 
      * 
      */
-    public List<Object> getDENOMINATIONOrENDORSEEOrAGREER() {
-        if (denominationOrENDORSEEOrAGREER == null) {
-            denominationOrENDORSEEOrAGREER = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.denominationOrENDORSEEOrAGREER;
+        return this.items;
     }
 
     /**

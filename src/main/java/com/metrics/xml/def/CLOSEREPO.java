@@ -63,7 +63,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "prtyOrCPRTY"
+    "items"
 })
 @XmlRootElement(name = "CLOSE_REPO")
 public class CLOSEREPO {
@@ -72,7 +72,7 @@ public class CLOSEREPO {
         @XmlElement(name = "PRTY", type = PRTY.class),
         @XmlElement(name = "CPRTY", type = CPRTY.class)
     })
-    protected List<Object> prtyOrCPRTY;
+    protected List<Object> items;
     @XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
@@ -118,11 +118,11 @@ public class CLOSEREPO {
      * 
      * 
      */
-    public List<Object> getPRTYOrCPRTY() {
-        if (prtyOrCPRTY == null) {
-            prtyOrCPRTY = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.prtyOrCPRTY;
+        return this.items;
     }
 
     /**

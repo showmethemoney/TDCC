@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.metrics.xml.def.LCNOTIFP;
-import com.metrics.xml.message.LCNOTIFPMessage;
+import com.metrics.xml.message.request.LCNOTIFPMessage;
 
 
 /**

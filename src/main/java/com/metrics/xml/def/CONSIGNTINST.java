@@ -70,7 +70,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "stlmprtyOrCSHLEGOrRECEIVERBANK"
+    "items"
 })
 @XmlRootElement(name = "CONSIGNT_INST")
 public class CONSIGNTINST {
@@ -80,7 +80,7 @@ public class CONSIGNTINST {
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
         @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class)
     })
-    protected List<Object> stlmprtyOrCSHLEGOrRECEIVERBANK;
+    protected List<Object> items;
     @XmlAttribute(name = "PRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String prtyid;
@@ -145,11 +145,11 @@ public class CONSIGNTINST {
      * 
      * 
      */
-    public List<Object> getSTLMPRTYOrCSHLEGOrRECEIVERBANK() {
-        if (stlmprtyOrCSHLEGOrRECEIVERBANK == null) {
-            stlmprtyOrCSHLEGOrRECEIVERBANK = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.stlmprtyOrCSHLEGOrRECEIVERBANK;
+        return this.items;
     }
 
     /**

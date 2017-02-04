@@ -83,7 +83,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "prtyOrCPRTYOrPCH"
+    "items"
 })
 @XmlRootElement(name = "OPEN_REPO")
 public class OPENREPO {
@@ -95,7 +95,7 @@ public class OPENREPO {
         @XmlElement(name = "RPCH", type = RPCH.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class)
     })
-    protected List<Object> prtyOrCPRTYOrPCH;
+    protected List<Object> items;
     @XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
@@ -153,11 +153,11 @@ public class OPENREPO {
      * 
      * 
      */
-    public List<Object> getPRTYOrCPRTYOrPCH() {
-        if (prtyOrCPRTYOrPCH == null) {
-            prtyOrCPRTYOrPCH = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.prtyOrCPRTYOrPCH;
+        return this.items;
     }
 
     /**
