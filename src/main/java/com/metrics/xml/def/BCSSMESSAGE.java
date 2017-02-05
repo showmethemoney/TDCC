@@ -437,30 +437,6 @@ public class BCSSMESSAGE {
     }
 
     /**
-     * Gets the value of the rep property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link REP }
-     *     
-     */
-    public REP getREP() {
-        return rep;
-    }
-
-    /**
-     * Sets the value of the rep property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link REP }
-     *     
-     */
-    public void setREP(REP value) {
-        this.rep = value;
-    }
-
-    /**
      * Gets the value of the lcnotifs property.
      * 
      * @return
@@ -533,54 +509,6 @@ public class BCSSMESSAGE {
     }
 
     /**
-     * Gets the value of the dep property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DEP }
-     *     
-     */
-    public DEP getDEP() {
-        return dep;
-    }
-
-    /**
-     * Sets the value of the dep property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DEP }
-     *     
-     */
-    public void setDEP(DEP value) {
-        this.dep = value;
-    }
-
-    /**
-     * Gets the value of the undw property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link UNDW }
-     *     
-     */
-    public UNDW getUNDW() {
-        return undw;
-    }
-
-    /**
-     * Sets the value of the undw property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link UNDW }
-     *     
-     */
-    public void setUNDW(UNDW value) {
-        this.undw = value;
-    }
-
-    /**
      * Gets the value of the cshtransfer property.
      * 
      * @return
@@ -602,30 +530,6 @@ public class BCSSMESSAGE {
      */
     public void setCSHTRANSFER(CSHTRANSFER value) {
         this.cshtransfer = value;
-    }
-
-    /**
-     * Gets the value of the consigntinst property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CONSIGNTINST }
-     *     
-     */
-    public CONSIGNTINST getCONSIGNTINST() {
-        return consigntinst;
-    }
-
-    /**
-     * Sets the value of the consigntinst property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CONSIGNTINST }
-     *     
-     */
-    public void setCONSIGNTINST(CONSIGNTINST value) {
-        this.consigntinst = value;
     }
 
     /**
@@ -701,30 +605,6 @@ public class BCSSMESSAGE {
     }
 
     /**
-     * Gets the value of the reiinst property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link REIINST }
-     *     
-     */
-    public REIINST getREIINST() {
-        return reiinst;
-    }
-
-    /**
-     * Sets the value of the reiinst property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link REIINST }
-     *     
-     */
-    public void setREIINST(REIINST value) {
-        this.reiinst = value;
-    }
-
-    /**
      * Gets the value of the reinote property.
      * 
      * @return
@@ -746,30 +626,6 @@ public class BCSSMESSAGE {
      */
     public void setREINOTE(REINOTE value) {
         this.reinote = value;
-    }
-
-    /**
-     * Gets the value of the erinst property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ERINST }
-     *     
-     */
-    public ERINST getERINST() {
-        return erinst;
-    }
-
-    /**
-     * Sets the value of the erinst property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ERINST }
-     *     
-     */
-    public void setERINST(ERINST value) {
-        this.erinst = value;
     }
 
     /**
@@ -866,55 +722,7 @@ public class BCSSMESSAGE {
      */
     public void setINVACCTINFOINST(INVACCTINFOINST value) {
         this.invacctinfoinst = value;
-    }
-
-    /**
-     * Gets the value of the mortgageregex property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MORTGAGEREGEX }
-     *     
-     */
-    public MORTGAGEREGEX getMORTGAGEREGEX() {
-        return mortgageregex;
-    }
-
-    /**
-     * Sets the value of the mortgageregex property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MORTGAGEREGEX }
-     *     
-     */
-    public void setMORTGAGEREGEX(MORTGAGEREGEX value) {
-        this.mortgageregex = value;
-    }
-
-    /**
-     * Gets the value of the mortgagerelex property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MORTGAGERELEX }
-     *     
-     */
-    public MORTGAGERELEX getMORTGAGERELEX() {
-        return mortgagerelex;
-    }
-
-    /**
-     * Sets the value of the mortgagerelex property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MORTGAGERELEX }
-     *     
-     */
-    public void setMORTGAGERELEX(MORTGAGERELEX value) {
-        this.mortgagerelex = value;
-    }
+    } 
 
     /**
      * Gets the value of the mortgageselreg property.
@@ -963,79 +771,7 @@ public class BCSSMESSAGE {
     public void setMORTGAGEBUYSEL(MORTGAGEBUYSEL value) {
         this.mortgagebuysel = value;
     }
-
-    /**
-     * Gets the value of the openrepo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OPENREPO }
-     *     
-     */
-    public OPENREPO getOPENREPO() {
-        return openrepo;
-    }
-
-    /**
-     * Sets the value of the openrepo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OPENREPO }
-     *     
-     */
-    public void setOPENREPO(OPENREPO value) {
-        this.openrepo = value;
-    }
-
-    /**
-     * Gets the value of the closerepo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CLOSEREPO }
-     *     
-     */
-    public CLOSEREPO getCLOSEREPO() {
-        return closerepo;
-    }
-
-    /**
-     * Sets the value of the closerepo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CLOSEREPO }
-     *     
-     */
-    public void setCLOSEREPO(CLOSEREPO value) {
-        this.closerepo = value;
-    }
-
-    /**
-     * Gets the value of the modrepo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MODREPO }
-     *     
-     */
-    public MODREPO getMODREPO() {
-        return modrepo;
-    }
-
-    /**
-     * Sets the value of the modrepo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MODREPO }
-     *     
-     */
-    public void setMODREPO(MODREPO value) {
-        this.modrepo = value;
-    }
-
+ 
     /**
      * Gets the value of the brkrepo property.
      * 
@@ -1061,30 +797,6 @@ public class BCSSMESSAGE {
     }
 
     /**
-     * Gets the value of the secstlm property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SECSTLM }
-     *     
-     */
-    public SECSTLM getSECSTLM() {
-        return secstlm;
-    }
-
-    /**
-     * Sets the value of the secstlm property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SECSTLM }
-     *     
-     */
-    public void setSECSTLM(SECSTLM value) {
-        this.secstlm = value;
-    }
-
-    /**
      * Gets the value of the oat property.
      * 
      * @return
@@ -1106,31 +818,7 @@ public class BCSSMESSAGE {
      */
     public void setOAT(OAT value) {
         this.oat = value;
-    }
-
-    /**
-     * Gets the value of the secblk property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SECBLK }
-     *     
-     */
-    public SECBLK getSECBLK() {
-        return secblk;
-    }
-
-    /**
-     * Sets the value of the secblk property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SECBLK }
-     *     
-     */
-    public void setSECBLK(SECBLK value) {
-        this.secblk = value;
-    }
+    } 
 
     /**
      * Gets the value of the cshnotice property.

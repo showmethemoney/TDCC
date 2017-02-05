@@ -36,7 +36,7 @@
         </filter>
     </appender>
     
-	<logger name="com.metrics">
+	<logger name="test.com.metrics">
         <level value="INFO"/> 
         <appender-ref ref="STDOUT" />
     </logger>

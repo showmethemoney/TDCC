@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan(basePackages = "com.metrics")
-@Import({ MessageQueueConfig.class })
+@Import({ MessageQueueConfig.class, DatabaseConfig.class })
 public class AppConfig
 {
 

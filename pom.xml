@@ -7,8 +7,10 @@
 
 	<properties>
 		<skip.test>true</skip.test>
-		<lib.version.spring>4.3.6.RELEASE</lib.version.spring>
+		<lib.version.springframework>4.3.6.RELEASE</lib.version.springframework>
+		<lib.version.hibernate>5.0.10.Final</lib.version.hibernate>
 		<lib.version.activemq>5.14.3</lib.version.activemq>
+		<lib.version.derby>10.8.3.0</lib.version.derby>
 	</properties>
 
 	<build>
@@ -84,18 +86,55 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${lib.version.spring}</version>
+			<version>${lib.version.springframework}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${lib.version.spring}</version>
+			<version>${lib.version.springframework}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${lib.version.springframework}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${lib.version.springframework}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jms</artifactId>
-			<version>${lib.version.spring}</version>
+			<version>${lib.version.springframework}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${lib.version.hibernate}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${lib.version.hibernate}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
 		</dependency>
 
 		<dependency>
@@ -110,16 +149,34 @@
 			<version>${lib.version.activemq}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-client</artifactId>
-			<version>${lib.version.activemq}</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.activemq</groupId> -->
+		<!-- <artifactId>activemq-client</artifactId> -->
+		<!-- <version>${lib.version.activemq}</version> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-spring</artifactId>
 			<version>${lib.version.activemq}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>${lib.version.derby}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyclient</artifactId>
+			<version>${lib.version.derby}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.9.10</version>
 		</dependency>
 
 		<!-- <dependency> -->
@@ -182,30 +239,18 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.13</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.13</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>1.7.13</version>
 		</dependency>
-
-		<!-- <dependency> -->
-		<!-- <groupId>org.slf4j</groupId> -->
-		<!-- <artifactId>slf4j-api</artifactId> -->
-		<!-- <version>1.6.1</version> -->
-		<!-- <scope>compile</scope> -->
-		<!-- </dependency> -->
-
-		<!-- <dependency> -->
-		<!-- <groupId>org.slf4j</groupId> -->
-		<!-- <artifactId>slf4j-log4j12</artifactId> -->
-		<!-- <version>1.6.1</version> -->
-		<!-- <scope>compile</scope> -->
-		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>log4j</groupId>
@@ -235,7 +280,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${lib.version.spring}</version>
+			<version>${lib.version.springframework}</version>
 			<scope>test</scope>
 		</dependency>
 
