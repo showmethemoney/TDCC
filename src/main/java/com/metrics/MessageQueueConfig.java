@@ -20,6 +20,8 @@ import com.metrics.mq.mock.MockMessageReceiver;
 /**
  * Message Queue Embedded Server Configuration.
  * 
+ * ibm mq : http://ciruk.pl/2015/04/connecting-to-ibm-mq-with-spring-boot-and-jms/
+ * 
  * @author ethan
  *
  */
