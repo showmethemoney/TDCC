@@ -35,6 +35,12 @@ public class DatabaseConfig
 		return entityManagerFactory;
 	}
 
+	/**
+	 * Derby Embedded in-Memory Database
+	 * 
+	 * @param entityManagerFactory
+	 * @return
+	 */
 	@Bean
 	public DataSource dataSource() {
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();

@@ -19,7 +19,7 @@ public class TestAnnotation
 	@Test
 	public void testAnnotation() {
 		try {
-			Reflections reflections = new Reflections( "com.metrics.xml.message" );
+			Reflections reflections = new Reflections( "com.metrics.xml.message.tdcc.response" );
 
 			Set<Class<?>> annotated = reflections.getTypesAnnotatedWith( XmlRootElement.class );
 

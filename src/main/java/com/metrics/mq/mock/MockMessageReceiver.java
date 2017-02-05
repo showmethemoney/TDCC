@@ -16,14 +16,14 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 
-import com.metrics.MessageQueueConfig;
+import com.metrics.MockMessageQueueConfig;
 
 @Component
 public class MockMessageReceiver implements MessageListener
 {
 	protected static final Logger logger = LoggerFactory.getLogger( MockMessageReceiver.class );
 
-	@Qualifier(MessageQueueConfig.NAMED_MOCK_TDCC_MESSAGE_SENDER)
+	@Qualifier(MockMessageQueueConfig.NAMED_MOCK_TDCC_MESSAGE_SENDER)
 	@Autowired
 	JmsTemplate jmsTemplate;
 
