@@ -15,7 +15,6 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.listener.MessageListenerContainer;
 
 import com.metrics.mq.MessageReceiver;
-import com.metrics.mq.mock.MockMessageReceiver;
 
 /**
  * Message Queue Embedded Server Configuration.
