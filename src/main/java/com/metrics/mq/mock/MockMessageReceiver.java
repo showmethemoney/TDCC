@@ -31,6 +31,8 @@ public class MockMessageReceiver implements MessageListener
 	public void onMessage(final Message message) {
 		try {
 			logger.info( "TDCC Receive : {}", ((TextMessage) message).getText() );
+			
+			
 			jmsTemplate.send( new MessageCreator() {
 				@Override
 				public Message createMessage(Session session) throws JMSException {

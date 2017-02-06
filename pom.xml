@@ -186,6 +186,12 @@
 			<version>0.9.10</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.formosoft</groupId>
+			<artifactId>ra</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 		<!-- <dependency> -->
 		<!-- <groupId>org.apache.activemq</groupId> -->
 		<!-- <artifactId>activemq-all</artifactId> -->

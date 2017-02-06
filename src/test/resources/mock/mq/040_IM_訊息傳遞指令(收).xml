@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="CNS11643"?><!DOCTYPE BCSSMESSAGE SYSTEM "FiscBCSS.dtd">
+<BCSSMESSAGE ORIGIN="BCSS" TS="2016-11-23T16:19:34"
+	BCSS_BUS_DT="2016-11-23" MSG_TYPE="040" SNDR_REF="0000000000018"
+	ACTION="IM" RESEND="N">
+	<IM
+		MSG="戀厙儸廎忒﹜梬丐之”丹尹遄禋丐之”丹尹瑒丐尹”丐丑魱梬丐尹”丐予﹞">
+		<SNDR>
+			<BCSS_USER PRTY_ID="BCSS" />
+		</SNDR>
+		<RCVR>
+			<BCSS_USER PRTY_ID="B0060000" />
+		</RCVR>
+	</IM>
+</BCSSMESSAGE>
