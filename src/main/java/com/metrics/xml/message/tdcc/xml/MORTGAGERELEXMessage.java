@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlType;
 import com.metrics.xml.message.tdcc.def.MORTGAGERELEX;
 
 /**
- * 202/MEI	實行質權指令
- * 202/MR	質權塗銷指令
+ * 202/MEI	撖西�釭甈�誘
+ * 202/MR	鞈芣����誘
  * @author ethan
  *
  */
@@ -22,4 +22,12 @@ public class MORTGAGERELEXMessage
 {
     @XmlElement(name = "MORTGAGE_RELEX")
     protected MORTGAGERELEX body;
+
+	public MORTGAGERELEX getBody() {
+		return body;
+	}
+
+	public void setBody(MORTGAGERELEX body) {
+		this.body = body;
+	}
 }

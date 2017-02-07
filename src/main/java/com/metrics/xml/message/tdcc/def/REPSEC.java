@@ -10,6 +10,7 @@ package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -43,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "repsecvalOrREPSEC"
+    "items"
 })
 @XmlRootElement(name = "REP_SEC")
 public class REPSEC {
@@ -52,7 +53,7 @@ public class REPSEC {
         @XmlElement(name = "REP_SEC_VAL", type = REPSECVAL.class),
         @XmlElement(name = "REP_SEC", type = REPSEC.class)
     })
-    protected List<Object> repsecvalOrREPSEC;
+    protected List<Object> items;
     @XmlAttribute(name = "SEC_NM")
     @XmlSchemaType(name = "anySimpleType")
     protected String secnm;
@@ -80,11 +81,11 @@ public class REPSEC {
      * 
      * 
      */
-    public List<Object> getREPSECVALOrREPSEC() {
-        if (repsecvalOrREPSEC == null) {
-            repsecvalOrREPSEC = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.repsecvalOrREPSEC;
+        return this.items;
     }
 
     /**

@@ -1,5 +1,7 @@
 mvn install:install-file -Dfile=H:\DevelopmentTool\workshop-eclipse-jee-indigo-SR1-win32\tdcc\lib\FSRAFacade2.jar -DgroupId=com.formosoft -DartifactId=ra -Dversion=1.0.0 -Dpackaging=jar
-mvn install:install-file -Dfile=H:\DevelopmentTool\fubon-esb-project\PRD\fubon-esb-lib-util\lib\mq-commonservices-1.0.0.jar -DgroupId=com.ibm.mq -DartifactId=mq-commonservices -Dversion=1.0.0 -Dpackaging=jar
-mvn install:install-file -Dfile=H:\DevelopmentTool\fubon-esb-project\PRD\fubon-esb-lib-util\lib\mq-headers-1.0.0.jar -DgroupId=com.ibm.mq -DartifactId=mq-headers -Dversion=1.0.0 -Dpackaging=jar
-mvn install:install-file -Dfile=H:\DevelopmentTool\fubon-esb-project\PRD\fubon-esb-lib-util\lib\mq-jmqi-1.0.0.jar -DgroupId=com.ibm.mq -DartifactId=mq-jmqi -Dversion=1.0.0 -Dpackaging=jar
-mvn install:install-file -Dfile=H:\DevelopmentTool\fubon-esb-project\PRD\fubon-esb-lib-util\lib\mq-mq-1.0.0.jar -DgroupId=com.ibm.mq -DartifactId=mq-mq -Dversion=1.0.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=H:\DevelopmentTool\workshop-eclipse-jee-indigo-SR1-win32\tdcc\lib\com.ibm.mq.jar -DgroupId=com.ibm.mq -DartifactId=mq -Dversion=1.0.0 -Dpackaging=jar
+mvn install:install-file -Dfile=H:\DevelopmentTool\workshop-eclipse-jee-indigo-SR1-win32\tdcc\lib\com.ibm.mqjms.jar -DgroupId=com.ibm.mq -DartifactId=mqjms -Dversion=1.0.0 -Dpackaging=jar
+mvn install:install-file -Dfile=H:\DevelopmentTool\workshop-eclipse-jee-indigo-SR1-win32\tdcc\lib\com.ibm.mq.pcf.jar -DgroupId=com.ibm.mq -DartifactId=pcf -Dversion=1.0.0 -Dpackaging=jar
+mvn install:install-file -Dfile=H:\DevelopmentTool\workshop-eclipse-jee-indigo-SR1-win32\tdcc\lib\com.ibm.mq.jmqi.jar -DgroupId=com.ibm.mq -DartifactId=jmqi -Dversion=1.0.0 -Dpackaging=jar
+mvn install:install-file -Dfile=H:\DevelopmentTool\workshop-eclipse-jee-indigo-SR1-win32\tdcc\lib\com.ibm.dhbcore.jar -DgroupId=com.ibm.mq -DartifactId=dhbcore -Dversion=1.0.0 -Dpackaging=jar

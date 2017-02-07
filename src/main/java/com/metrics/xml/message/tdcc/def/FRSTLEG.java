@@ -10,6 +10,7 @@ package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -40,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "cshlegOrTAXIMP"
+    "items"
 })
 @XmlRootElement(name = "FRST_LEG")
 public class FRSTLEG {
@@ -49,7 +50,7 @@ public class FRSTLEG {
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
         @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
     })
-    protected List<Object> cshlegOrTAXIMP;
+    protected List<Object> items;
 
     /**
      * Gets the value of the cshlegOrTAXIMP property.
@@ -74,11 +75,11 @@ public class FRSTLEG {
      * 
      * 
      */
-    public List<Object> getCSHLEGOrTAXIMP() {
-        if (cshlegOrTAXIMP == null) {
-            cshlegOrTAXIMP = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.cshlegOrTAXIMP;
+        return this.items;
     }
 
 }

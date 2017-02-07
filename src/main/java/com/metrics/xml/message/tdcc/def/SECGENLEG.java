@@ -10,6 +10,7 @@ package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -46,7 +47,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "secunitslegOrFRSTLEGOrSCNDLEG"
+    "items"
 })
 @XmlRootElement(name = "SEC_GEN_LEG")
 public class SECGENLEG {
@@ -57,7 +58,7 @@ public class SECGENLEG {
         @XmlElement(name = "SCND_LEG", type = SCNDLEG.class),
         @XmlElement(name = "BD_LEG", type = BDLEG.class)
     })
-    protected List<Object> secunitslegOrFRSTLEGOrSCNDLEG;
+    protected List<Object> items;
     @XmlAttribute(name = "GEN_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String genid;
@@ -90,11 +91,11 @@ public class SECGENLEG {
      * 
      * 
      */
-    public List<Object> getSECUNITSLEGOrFRSTLEGOrSCNDLEG() {
-        if (secunitslegOrFRSTLEGOrSCNDLEG == null) {
-            secunitslegOrFRSTLEGOrSCNDLEG = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.secunitslegOrFRSTLEGOrSCNDLEG;
+        return this.items;
     }
 
     /**
