@@ -5,9 +5,9 @@ package com.metrics.bean;
  */
 public class SecLeg
 {
-	protected SecGenLeg secGenLeg;
-	protected String isin;
-	protected String mgcntrid;
+	private SecGenLeg secGenLeg = null;
+	private String isin = null;
+	private String mgcntrid = null;
 
 	public SecGenLeg getSecGenLeg() {
 		return secGenLeg;

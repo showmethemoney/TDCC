@@ -5,10 +5,10 @@ package com.metrics.bean;
  */
 public class TaxImp
 {
-	protected String taxamt;
-	protected String rdmptaxamt;
-	protected String clsdtaxamt;
-	protected String futtaxamt;
+	private String taxamt = null;
+	private String rdmptaxamt = null;
+	private String clsdtaxamt = null;
+	private String futtaxamt = null;
 
 	public String getTaxamt() {
 		return taxamt;

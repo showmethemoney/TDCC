@@ -1,7 +1,7 @@
 package com.metrics.bean;
 
 /**
- * ??„æ?ä»¶äº¤æ?“åˆ°??Ÿå±¥ç´„æ?‡ä»¤ï¼?302/RCI
+ * ??ï¿½ï¿½?ï¿½ä»¶äº¤ï¿½?ï¿½åˆ°??ï¿½å±¥ç´„ï¿½?ï¿½ä»¤ï¿½?302/RCI
  * 
  * @author ethan
  *
@@ -9,7 +9,7 @@ package com.metrics.bean;
 
 public class CloseRepoBean
 {
-	protected CloseRepo body;
+	private CloseRepo body = null;
 
 	public CloseRepo getBody() {
 		return body;

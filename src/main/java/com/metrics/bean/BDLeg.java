@@ -5,10 +5,10 @@ package com.metrics.bean;
  */
 public class BDLeg
 {
-	protected String price;
-	protected String idays;
-	protected String accint;
-	protected String accinttax;
+	private String price = null;
+	private String idays = null;
+	private String accint = null;
+	private String accinttax = null;
 
 	public String getPrice() {
 		return price;

@@ -5,6 +5,21 @@ package com.metrics.bean;
  */
 public class Agreer
 {
-	protected String agrid;
-	protected String agrmref;
+	private String agrid = null;
+	private String agrmref = null;
+	
+	public String getAgrid() {
+		return agrid;
+	}
+	public void setAgrid(String agrid) {
+		this.agrid = agrid;
+	}
+	public String getAgrmref() {
+		return agrmref;
+	}
+	public void setAgrmref(String agrmref) {
+		this.agrmref = agrmref;
+	}
+	
+	
 }

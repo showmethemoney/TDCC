@@ -5,7 +5,7 @@ package com.metrics.bean;
  */
 public class Prty
 {
-	protected StlmPrty stlmprty;
+	private StlmPrty stlmprty = null;
 
 	public StlmPrty getStlmprty() {
 		return stlmprty;

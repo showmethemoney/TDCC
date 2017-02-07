@@ -5,12 +5,12 @@ package com.metrics.bean;
  */
 public class SecGenLeg
 {
-	protected SecUnitsLeg secUnitsLeg;
-	protected FrstLeg frstLeg;
-	protected ScndLeg scendLeg;
-	protected BDLeg bdLeg;
-	protected String genid;
-	protected String secamt;
+	private SecUnitsLeg secUnitsLeg = null;
+	private FrstLeg frstLeg = null;
+	private ScndLeg scendLeg = null;
+	private BDLeg bdLeg = null;
+	private String genid = null;
+	private String secamt = null;
 
 	public SecUnitsLeg getSecUnitsLeg() {
 		return secUnitsLeg;

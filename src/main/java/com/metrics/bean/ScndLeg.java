@@ -5,8 +5,8 @@ package com.metrics.bean;
  */
 public class ScndLeg
 {
-	protected CshLeg cshLeg;
-	protected TaxImp taxImp;
+	private CshLeg cshLeg = null;
+	private TaxImp taxImp = null;
 
 	public CshLeg getCshLeg() {
 		return cshLeg;

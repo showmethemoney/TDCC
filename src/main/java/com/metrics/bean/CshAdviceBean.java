@@ -5,7 +5,7 @@ package com.metrics.bean;
  */
 public class CshAdviceBean
 {
-	protected CshAdvice body;
+	private CshAdvice body = null;
 
 	public CshAdvice getBody() {
 		return body;

@@ -5,22 +5,22 @@ package com.metrics.bean;
  */
 public class ConsigntInst
 {
-	protected StlmPrty stlmprty;
-	protected CshLeg cshLeg;
-	protected ReceiverBank receiverBank;
-	protected String prtyid;
-	protected String isin;
-	protected String dbcshamt;
-	protected String cnsgfee;
-	protected String stlmdt;
-	protected String cbid;
-	protected String bsprc;
-	protected String taxamt;
-	protected String trdrt;
-	protected String cshsys;
-	protected String undfee;
-	protected String cnsfee;
-	protected String gutfee;
+	private StlmPrty stlmprty = null;
+	private CshLeg cshLeg = null;
+	private ReceiverBank receiverBank = null;
+	private String prtyid = null;
+	private String isin = null;
+	private String dbcshamt = null;
+	private String cnsgfee = null;
+	private String stlmdt = null;
+	private String cbid = null;
+	private String bsprc = null;
+	private String taxamt = null;
+	private String trdrt = null;
+	private String cshsys = null;
+	private String undfee = null;
+	private String cnsfee = null;
+	private String gutfee = null;
 
 	public StlmPrty getStlmprty() {
 		return stlmprty;

@@ -1,9 +1,18 @@
 package com.metrics.bean;
 
 /**
- * @author Ethan Lee 
+ * @author Ethan Lee
  */
 public class DepBean
 {
-	protected Dep body;
+	private Dep body = null;
+
+	public Dep getBody() {
+		return body;
+	}
+
+	public void setBody(Dep body) {
+		this.body = body;
+	}
+
 }

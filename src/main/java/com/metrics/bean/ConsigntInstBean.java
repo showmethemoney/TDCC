@@ -5,7 +5,7 @@ package com.metrics.bean;
  */
 public class ConsigntInstBean
 {
-	protected ConsigntInst body;
+	private ConsigntInst body = null;
 
 	public ConsigntInst getBody() {
 		return body;

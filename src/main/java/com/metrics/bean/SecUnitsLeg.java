@@ -5,8 +5,8 @@ package com.metrics.bean;
  */
 public class SecUnitsLeg
 {
-	protected String units;
-	protected String uval;
+	private String units = null;
+	private String uval = null;
 
 	public String getUnits() {
 		return units;

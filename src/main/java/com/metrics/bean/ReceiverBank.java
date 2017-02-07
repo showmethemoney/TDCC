@@ -5,12 +5,12 @@ package com.metrics.bean;
  */
 public class ReceiverBank
 {
-	protected CshLeg cshleg;
-	protected String id;
-	protected String bnfynm;
-	protected String acctid;
-	protected String swift;
-	protected String orgsndrref;
+	private CshLeg cshleg = null;
+	private String id = null;
+	private String bnfynm = null;
+	private String acctid = null;
+	private String swift = null;
+	private String orgsndrref = null;
 
 	public CshLeg getCshleg() {
 		return cshleg;

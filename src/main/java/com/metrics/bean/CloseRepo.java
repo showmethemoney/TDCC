@@ -6,15 +6,15 @@ package com.metrics.bean;
 
 public class CloseRepo
 {
-	protected Prty prty;
-	protected Cprty cprty;
-	protected String ref;
-	protected String cntrid;
-	protected String cshamt;
-	protected String xtrint;
-	protected String bndlref;
-	protected String bndlttl;
-	protected String cshsys;
+	private Prty prty = null;
+	private Cprty cprty = null;
+	private String ref = null;
+	private String cntrid = null;
+	private String cshamt = null;
+	private String xtrint = null;
+	private String bndlref = null;
+	private String bndlttl = null;
+	private String cshsys = null;
 
 	public Prty getPrty() {
 		return prty;

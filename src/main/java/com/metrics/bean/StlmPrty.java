@@ -5,10 +5,10 @@ package com.metrics.bean;
  */
 public class StlmPrty
 {
-	protected String prtyid;
-	protected String acctid;
-	protected String acctnm;
-	protected String invscshacct;
+	private String prtyid = null;
+	private String acctid = null;
+	private String acctnm = null;
+	private String invscshacct = null;
 
 	public String getPrtyid() {
 		return prtyid;

@@ -5,19 +5,18 @@ package com.metrics.bean;
  */
 public class CshAdvice
 {
-	protected Prty prty;
-	protected Cprty cprty;
-	protected SecLeg secLeg;
-	protected CshLeg cshLeg;
-
-	protected String ref;
-	protected String tsfside;
-	protected String ftref;
-	protected String cntrid;
-	protected String bndlref;
-	protected String rdmptaxamt;
-	protected String cshsys;
-	protected String healinsufee;
+	private Prty prty = null;
+	private Cprty cprty = null;
+	private SecLeg secLeg = null;
+	private CshLeg cshLeg = null;
+	private String ref = null;
+	private String tsfside = null;
+	private String ftref = null;
+	private String cntrid = null;
+	private String bndlref = null;
+	private String rdmptaxamt = null;
+	private String cshsys = null;
+	private String healinsufee = null;
 
 	public Prty getPrty() {
 		return prty;

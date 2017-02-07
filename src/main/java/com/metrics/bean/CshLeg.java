@@ -5,10 +5,10 @@ package com.metrics.bean;
  */
 public class CshLeg
 {
-	protected String cshccy;
-	protected String cshamt;
-	protected String afttaxamt;
-	protected String remitfee;
+	private String cshccy = null;
+	private String cshamt = null;
+	private String afttaxamt = null;
+	private String remitfee = null;
 
 	public String getCshccy() {
 		return cshccy;
