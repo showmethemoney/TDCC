@@ -18,12 +18,12 @@ public class WebInitializer implements WebApplicationInitializer
 	@Override
 	public void onStartup(ServletContext container) throws ServletException {
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-		context.register( AppConfig.class );
+		context.register( AppConfig.class, WebConfig.class );
 		context.setServletContext( container );
 
 		ServletRegistration.Dynamic registration = container.addServlet( "dispatcher", new DispatcherServlet( context ) );
 		registration.setLoadOnStartup( 1 );
-		registration.addMapping( "/*" );
+		registration.addMapping( "/" );
 	}
 
 }

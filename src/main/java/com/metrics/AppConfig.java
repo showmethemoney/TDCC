@@ -22,7 +22,6 @@ import org.springframework.context.annotation.PropertySources;
 
 @Configuration
 @ComponentScan(basePackages = "com.metrics")
-// @Import({ DatabaseConfig.class, MessageQueueConfig.class, WebConfig.class })
 @Import(
 	{ DatabaseConfig.class, MessageQueueConfig.class, MockMessageQueueConfig.class }
 )
