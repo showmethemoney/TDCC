@@ -7,7 +7,7 @@ public class SecGenLeg
 {
 	private SecUnitsLeg secUnitsLeg = null;
 	private FrstLeg frstLeg = null;
-	private ScndLeg scendLeg = null;
+	private ScndLeg scndLeg = null;
 	private BDLeg bdLeg = null;
 	private String genid = null;
 	private String secamt = null;
@@ -20,8 +20,8 @@ public class SecGenLeg
 		return frstLeg;
 	}
 
-	public ScndLeg getScendLeg() {
-		return scendLeg;
+	public ScndLeg getScndLeg() {
+		return scndLeg;
 	}
 
 	public BDLeg getBdLeg() {
@@ -44,8 +44,8 @@ public class SecGenLeg
 		this.frstLeg = frstLeg;
 	}
 
-	public void setScendLeg(ScndLeg scendLeg) {
-		this.scendLeg = scendLeg;
+	public void setScndLeg(ScndLeg scndLeg) {
+		this.scndLeg = scndLeg;
 	}
 
 	public void setBdLeg(BDLeg bdLeg) {
