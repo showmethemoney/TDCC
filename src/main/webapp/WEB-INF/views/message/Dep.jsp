@@ -21,68 +21,190 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.prtyid">Ref</form:label></td>
-					<td><form:input path="body.prty.stlmprty.prtyid" /></td>
+					<td><form:label path="body.denomination.id">Ref</form:label></td>
+					<td><form:input path="body.denomination.id" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.acctid">Ref</form:label></td>
-					<td><form:input path="body.prty.stlmprty.acctid" /></td>
+					<td><form:label path="body.denomination.fval">Ref</form:label></td>
+					<td><form:input path="body.denomination.fval" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.acctnm">Ref</form:label></td>
-					<td><form:input path="body.prty.stlmprty.acctnm" /></td>
+					<td><form:label path="body.denomination.uval">Ref</form:label></td>
+					<td><form:input path="body.denomination.uval" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.invscshacct">Ref</form:label></td>
-					<td><form:input path="body.prty.stlmprty.invscshacct" /></td>
+					<td><form:label path="body.denomination.units">Ref</form:label></td>
+					<td><form:input path="body.denomination.units" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.denomination.histtax">Ref</form:label></td>
+					<td><form:input path="body.denomination.histtax" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.prtyid">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.prtyid" /></td>
+					<td><form:label path="body.endorsee.endid">Ref</form:label></td>
+					<td><form:input path="body.endorsee.endid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctid">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.acctid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctnm">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.acctnm" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.invscshacct">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
+					<td><form:label path="body.endorsee.endaddr">Ref</form:label></td>
+					<td><form:input path="body.endorsee.endaddr" /></td>
 				</tr>
 
+				<tr>
+					<td><form:label path="body.agreer.agrid">Ref</form:label></td>
+					<td><form:input path="body.agreer.agrid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.agreer.agrmref">Ref</form:label></td>
+					<td><form:input path="body.agreer.agrmref" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.floatingRateInfo.rtind">Ref</form:label></td>
+					<td><form:input path="body.floatingRateInfo.rtind" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.floatingRateInfo.rtindmdit">Ref</form:label></td>
+					<td><form:input path="body.floatingRateInfo.rtindmdit" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.floatingRateInfo.fixprccy">Ref</form:label></td>
+					<td><form:input path="body.floatingRateInfo.fixprccy" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.floatingRateInfo.fixprcrule">Ref</form:label></td>
+					<td><form:input path="body.floatingRateInfo.fixprcrule" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.isin">Ref</form:label></td>
+					<td><form:input path="body.isin" /></td>
+				</tr>
 				<tr>
 					<td><form:label path="body.ref">Ref</form:label></td>
 					<td><form:input path="body.ref" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cntrid">Ref</form:label></td>
-					<td><form:input path="body.cntrid" /></td>
+					<td><form:label path="body.isstype">Ref</form:label></td>
+					<td><form:input path="body.isstype" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshamt">Ref</form:label></td>
-					<td><form:input path="body.cshamt" /></td>
+					<td><form:label path="body.issrnm">Ref</form:label></td>
+					<td><form:input path="body.issrnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.xtrint">Ref</form:label></td>
-					<td><form:input path="body.xtrint" /></td>
+					<td><form:label path="body.issrid">Ref</form:label></td>
+					<td><form:input path="body.issrid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.bndlref">Ref</form:label></td>
-					<td><form:input path="body.bndlref" /></td>
+					<td><form:label path="body.issrbuscode">Ref</form:label></td>
+					<td><form:input path="body.issrbuscode" /></td>
+				</tr>
+								<tr>
+					<td><form:label path="body.issrgrpid">Ref</form:label></td>
+					<td><form:input path="body.issrgrpid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.bndlttl">Ref</form:label></td>
-					<td><form:input path="body.bndlttl" /></td>
+					<td><form:label path="body.prtyid">Ref</form:label></td>
+					<td><form:input path="body.prtyid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cprtyid">Ref</form:label></td>
+					<td><form:input path="body.cprtyid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.psdbid">Ref</form:label></td>
+					<td><form:input path="body.psdbid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.brnchid">Ref</form:label></td>
+					<td><form:input path="body.brnchid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.fval">Ref</form:label></td>
+					<td><form:input path="body.fval" /></td>
+				</tr>
+								<tr>
+					<td><form:label path="body.secccy">Ref</form:label></td>
+					<td><form:input path="body.secccy" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.amttype">Ref</form:label></td>
+					<td><form:input path="body.amttype" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.issdays">Ref</form:label></td>
+					<td><form:input path="body.issdays" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.issdt">Ref</form:label></td>
+					<td><form:input path="body.issdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.depdt">Ref</form:label></td>
+					<td><form:input path="body.depdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.selldt">Ref</form:label></td>
+					<td><form:input path="body.selldt" /></td>
+				</tr>
+								<tr>
+					<td><form:label path="body.matdt">Ref</form:label></td>
+					<td><form:input path="body.matdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.issrt">Ref</form:label></td>
+					<td><form:input path="body.issrt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.intind">Ref</form:label></td>
+					<td><form:input path="body.intind" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.regind">Ref</form:label></td>
+					<td><form:input path="body.regind" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.ncdno">Ref</form:label></td>
+					<td><form:input path="body.ncdno" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.rdmpamt">Ref</form:label></td>
+					<td><form:input path="body.rdmpamt" /></td>
+				</tr>
+								<tr>
+					<td><form:label path="body.dayint">Ref</form:label></td>
+					<td><form:input path="body.dayint" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.ncdpaybank">Ref</form:label></td>
+					<td><form:input path="body.ncdpaybank" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.thmatdt">Ref</form:label></td>
+					<td><form:input path="body.thmatdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.taxrt">Ref</form:label></td>
+					<td><form:input path="body.taxrt" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="body.cshsys">Ref</form:label></td>
 					<td><form:input path="body.cshsys" /></td>
 				</tr>
-
+				<tr>
+					<td><form:label path="body.countryid">Ref</form:label></td>
+					<td><form:input path="body.countryid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.deprid">Ref</form:label></td>
+					<td><form:input path="body.deprid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.issrttype">Ref</form:label></td>
+					<td><form:input path="body.issrttype" /></td>
+				</tr>
+				
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>
