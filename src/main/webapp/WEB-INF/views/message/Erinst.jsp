@@ -11,7 +11,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CloseRepo"
+	<form:form method="POST" action="/tdcc/message/Erinst"
 		modelAttribute="model">
 		<table>
 			<thead>
