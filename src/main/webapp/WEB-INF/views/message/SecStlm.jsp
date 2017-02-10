@@ -10,11 +10,11 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CshAdvice" modelAttribute="model">
+	<form:form method="POST" action="/tdcc/message/Erinst" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
-					<th>ConsigntInst</th>
+					<th>CloseRepo</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -51,6 +51,7 @@
 					<td><form:label path="body.cprty.stlmprty.invscshacct">Ref</form:label></td>
 					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
 				</tr>
+
 
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.units">Ref</form:label></td>
@@ -157,6 +158,65 @@
 					<td><form:input path="body.secLeg.secGenLeg.mgcntrid" /></td>
 				</tr>
 
+				<tr>
+					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.cshccy" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.cshamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.afttaxamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.remitfee" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.ref">Ref</form:label></td>
+					<td><form:input path="body.ref" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cbid">Ref</form:label></td>
+					<td><form:input path="body.cbid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.bndlref">Ref</form:label></td>
+					<td><form:input path="body.bndlref" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.bndlttl">Ref</form:label></td>
+					<td><form:input path="body.bndlttl" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.dealtype">Ref</form:label></td>
+					<td><form:input path="body.dealtype" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.dealside">Ref</form:label></td>
+					<td><form:input path="body.dealside" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.stlmdt">Ref</form:label></td>
+					<td><form:input path="body.stlmdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.trddt">Ref</form:label></td>
+					<td><form:input path="body.trddt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.trdrt">Ref</form:label></td>
+					<td><form:input path="body.trdrt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshsys">Ref</form:label></td>
+					<td><form:input path="body.cshsys" /></td>
+				</tr>												
+				
+				
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>

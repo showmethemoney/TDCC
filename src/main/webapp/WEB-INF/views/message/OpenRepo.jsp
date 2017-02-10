@@ -10,11 +10,11 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CshAdvice" modelAttribute="model">
+	<form:form method="POST" action="/tdcc/message/Erinst" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
-					<th>ConsigntInst</th>
+					<th>CloseRepo</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -51,6 +51,49 @@
 					<td><form:label path="body.cprty.stlmprty.invscshacct">Ref</form:label></td>
 					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
 				</tr>
+
+				<tr>
+					<td><form:label path="body.pch.stlmdt">Ref</form:label></td>
+					<td><form:input path="body.pch.stlmdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.pch.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:input path="body.pch.cshLeg.cshccy" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.pch.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:input path="body.pch.cshLeg.cshamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.pch.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:input path="body.pch.cshLeg.afttaxamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.pch.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:input path="body.pch.cshLeg.remitfee" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.rpch.stlmdt">Ref</form:label></td>
+					<td><form:input path="body.rpch.stlmdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.rpch.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:input path="body.rpch.cshLeg.cshccy" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.rpch.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:input path="body.rpch.cshLeg.cshamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.rpch.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:input path="body.rpch.cshLeg.afttaxamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.rpch.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:input path="body.rpch.cshLeg.remitfee" /></td>
+				</tr>
+
 
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.units">Ref</form:label></td>
@@ -156,7 +199,48 @@
 					<td><form:label path="body.secLeg.secGenLeg.mgcntrid">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.mgcntrid" /></td>
 				</tr>
-
+				
+				<tr>
+					<td><form:label path="body.ref">Ref</form:label></td>
+					<td><form:input path="body.ref" /></td>
+				</tr>				
+				<tr>
+					<td><form:label path="body.cbid">Ref</form:label></td>
+					<td><form:input path="body.cbid" /></td>
+				</tr>	
+				<tr>
+					<td><form:label path="body.bndlref">Ref</form:label></td>
+					<td><form:input path="body.bndlref" /></td>
+				</tr>				
+				<tr>
+					<td><form:label path="body.bndlttl">Ref</form:label></td>
+					<td><form:input path="body.bndlttl" /></td>
+				</tr>	
+				<tr>
+					<td><form:label path="body.dealside">Ref</form:label></td>
+					<td><form:input path="body.dealside" /></td>
+				</tr>				
+				<tr>
+					<td><form:label path="body.trddt">Ref</form:label></td>
+					<td><form:input path="body.trddt" /></td>
+				</tr>	
+				<tr>
+					<td><form:label path="body.prevrepoid">Ref</form:label></td>
+					<td><form:input path="body.prevrepoid" /></td>
+				</tr>				
+				<tr>
+					<td><form:label path="body.rerepoauth">Ref</form:label></td>
+					<td><form:input path="body.rerepoauth" /></td>
+				</tr>	
+				<tr>
+					<td><form:label path="body.trdrt">Ref</form:label></td>
+					<td><form:input path="body.trdrt" /></td>
+				</tr>				
+				<tr>
+					<td><form:label path="body.cshsys">Ref</form:label></td>
+					<td><form:input path="body.cshsys" /></td>
+				</tr>													
+				
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>

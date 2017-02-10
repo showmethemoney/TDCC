@@ -10,11 +10,11 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CshAdvice" modelAttribute="model">
+	<form:form method="POST" action="/tdcc/message/Erinst" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
-					<th>ConsigntInst</th>
+					<th>CloseRepo</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -51,6 +51,7 @@
 					<td><form:label path="body.cprty.stlmprty.invscshacct">Ref</form:label></td>
 					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
 				</tr>
+
 
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.units">Ref</form:label></td>
@@ -155,6 +156,23 @@
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.mgcntrid">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.mgcntrid" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.ref">Ref</form:label></td>
+					<td><form:input path="body.ref" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.stlmdt">Ref</form:label></td>
+					<td><form:input path="body.stlmdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cntrid">Ref</form:label></td>
+					<td><form:input path="body.cntrid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.dealside">Ref</form:label></td>
+					<td><form:input path="body.dealside" /></td>
 				</tr>
 
 				<tr>

@@ -10,48 +10,14 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CshAdvice" modelAttribute="model">
+	<form:form method="POST" action="/tdcc/message/Erinst" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
-					<th>ConsigntInst</th>
+					<th>CloseRepo</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><form:label path="body.prty.stlmprty.prtyid">Ref</form:label></td>
-					<td><form:input path="body.prty.stlmprty.prtyid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.prty.stlmprty.acctid">Ref</form:label></td>
-					<td><form:input path="body.prty.stlmprty.acctid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.prty.stlmprty.acctnm">Ref</form:label></td>
-					<td><form:input path="body.prty.stlmprty.acctnm" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.prty.stlmprty.invscshacct">Ref</form:label></td>
-					<td><form:input path="body.prty.stlmprty.invscshacct" /></td>
-				</tr>
-
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.prtyid">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.prtyid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctid">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.acctid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctnm">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.acctnm" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.invscshacct">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
-				</tr>
-
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.units">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.secUnitsLeg.units" /></td>
@@ -155,6 +121,114 @@
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.mgcntrid">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.mgcntrid" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.cshccy" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.cshamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.afttaxamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.remitfee" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.receiverBank.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.cshLeg.cshccy" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.receiverBank.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.cshLeg.cshamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.receiverBank.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.cshLeg.afttaxamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.receiverBank.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.cshLeg.remitfee" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.receiverBank.id">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.id" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.receiverBank.bnfynm">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.bnfynm" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.receiverBank.acctid">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.acctid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.receiverBank.swift">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.swift" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.receiverBank.orgsndrref">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.orgsndrref" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.stlmprty.prtyid">Ref</form:label></td>
+					<td><form:input path="body.stlmprty.prtyid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.stlmprty.acctid">Ref</form:label></td>
+					<td><form:input path="body.stlmprty.acctid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.stlmprty.acctnm">Ref</form:label></td>
+					<td><form:input path="body.stlmprty.acctnm" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.stlmprty.invscshacct">Ref</form:label></td>
+					<td><form:input path="body.stlmprty.invscshacct" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.reiisin">Ref</form:label></td>
+					<td><form:input path="body.reiisin" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.stlmdt">Ref</form:label></td>
+					<td><form:input path="body.stlmdt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.bsprc">Ref</form:label></td>
+					<td><form:input path="body.bsprc" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.rdmptaxamt">Ref</form:label></td>
+					<td><form:input path="body.rdmptaxamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.trdrt">Ref</form:label></td>
+					<td><form:input path="body.trdrt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshsys">Ref</form:label></td>
+					<td><form:input path="body.cshsys" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.undfee">Ref</form:label></td>
+					<td><form:input path="body.undfee" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cnsfee">Ref</form:label></td>
+					<td><form:input path="body.cnsfee" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.gutfee">Ref</form:label></td>
+					<td><form:input path="body.gutfee" /></td>
 				</tr>
 
 				<tr>
