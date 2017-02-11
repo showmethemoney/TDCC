@@ -40,7 +40,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "stlmdtOrCSHLEG"
+    "items"
 })
 @XmlRootElement(name = "RPCH")
 public class RPCH {
@@ -49,7 +49,7 @@ public class RPCH {
         @XmlElement(name = "STLM_DT", type = String.class),
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
     })
-    protected List<Object> stlmdtOrCSHLEG;
+    protected List<Object> items;
 
     /**
      * Gets the value of the stlmdtOrCSHLEG property.
@@ -74,11 +74,11 @@ public class RPCH {
      * 
      * 
      */
-    public List<Object> getSTLMDTOrCSHLEG() {
-        if (stlmdtOrCSHLEG == null) {
-            stlmdtOrCSHLEG = new ArrayList<Object>();
+    public List<Object> getItems() {
+        if (items == null) {
+            items = new ArrayList<Object>();
         }
-        return this.stlmdtOrCSHLEG;
+        return this.items;
     }
 
 }

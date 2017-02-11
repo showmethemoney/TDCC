@@ -21,6 +21,8 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.metrics.bean.ConsigntInst;
+
 
 /**
  * <p>Java class for anonymous complex type.
@@ -120,7 +122,27 @@ public class CONSIGNTINST {
     @XmlAttribute(name = "GUT_FEE")
     @XmlSchemaType(name = "anySimpleType")
     protected String gutfee;
-
+    
+    public CONSIGNTINST(ConsigntInst consignInst) {
+    	getItems().add( new STLMPRTY( consignInst.getStlmprty() ) );
+    	getItems().add( new CSHLEG( consignInst.getCshLeg() ) );
+    	getItems().add( new RECEIVERBANK( consignInst.getReceiverBank() ) );
+    	
+    	setBSPRC( consignInst.getBsprc() );
+    	setCBID( consignInst.getCbid() );
+    	setCNSFEE( consignInst.getCnsfee() );
+    	setCNSGFEE( consignInst.getCnsgfee() );
+    	setCSHSYS( consignInst.getCshsys() );
+    	setDBCSHAMT( consignInst.getDbcshamt() );
+    	setGUTFEE( consignInst.getGutfee() );
+    	setISIN( consignInst.getIsin() );
+    	setPRTYID( consignInst.getPrtyid() );
+    	setSTLMDT( consignInst.getStlmdt() );
+    	setTAXAMT( consignInst.getTaxamt() );
+    	setTRDRT( consignInst.getTrdrt() );
+    	setUNDFEE( consignInst.getUndfee() );
+    }
+    
     /**
      * Gets the value of the stlmprtyOrCSHLEGOrRECEIVERBANK property.
      * 

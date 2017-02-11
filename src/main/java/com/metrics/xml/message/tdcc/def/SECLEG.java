@@ -42,13 +42,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "secgenleg"
+    "items"
 })
 @XmlRootElement(name = "SEC_LEG")
 public class SECLEG {
 
     @XmlElement(name = "SEC_GEN_LEG")
-    protected List<SECGENLEG> secgenleg;
+    protected List<SECGENLEG> items;
     @XmlAttribute(name = "ISIN", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String isin;
@@ -56,7 +56,14 @@ public class SECLEG {
     @XmlSchemaType(name = "anySimpleType")
     protected String mgcntrid;
 
-    /**
+    public SECLEG(List<SECGENLEG> items, String isin, String mgcntrid) {
+		super();
+		this.items = items;
+		this.isin = isin;
+		this.mgcntrid = mgcntrid;
+	}
+
+	/**
      * Gets the value of the secgenleg property.
      * 
      * <p>
@@ -78,11 +85,11 @@ public class SECLEG {
      * 
      * 
      */
-    public List<SECGENLEG> getSECGENLEG() {
-        if (secgenleg == null) {
-            secgenleg = new ArrayList<SECGENLEG>();
+    public List<SECGENLEG> getItems() {
+        if (items == null) {
+            items = new ArrayList<SECGENLEG>();
         }
-        return this.secgenleg;
+        return this.items;
     }
 
     /**

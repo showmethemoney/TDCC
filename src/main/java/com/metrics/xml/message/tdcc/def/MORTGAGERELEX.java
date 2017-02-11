@@ -10,6 +10,7 @@ package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -18,6 +19,8 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+
+import com.metrics.bean.MortgageRelex;
 
 
 /**
@@ -72,7 +75,41 @@ public class MORTGAGERELEX {
     @XmlAttribute(name = "CPRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String cprtyid;
+    
+    public MORTGAGERELEX(MortgageRelex mortgageRelex) {
+//    	 @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class),
+//       @XmlElement(name = "SEC_LEG", type = SECLEG.class)
+    	getItems().add( new STLMPRTY( mortgageRelex.getStlmPrty() ) );
 
+    	SECLEG secLeg = new SECLEG( null, mortgageRelex.getSecLeg().getIsin(), mortgageRelex.getSecLeg().getMgcntrid() );
+
+		// @XmlElement(name = "SEC_UNITS_LEG", type = SECUNITSLEG.class),
+		// @XmlElement(name = "FRST_LEG", type = FRSTLEG.class),
+		// @XmlElement(name = "SCND_LEG", type = SCNDLEG.class),
+		// @XmlElement(name = "BD_LEG", type = BDLEG.class)
+		SECGENLEG secGenLeg = new SECGENLEG( null, mortgageRelex.getSecLeg().getSecGenLeg().getGenid(), mortgageRelex.getSecLeg().getSecGenLeg().getSecamt() );
+		secGenLeg.getItems().add( new SECUNITSLEG( mortgageRelex.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
+
+		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
+		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
+		FRSTLEG frstLeg = new FRSTLEG();
+		frstLeg.getItems().add( new CSHLEG( mortgageRelex.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
+		frstLeg.getItems().add( new TAXIMP( mortgageRelex.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
+		secGenLeg.getItems().add( frstLeg );
+
+		secGenLeg.getItems().add( new BDLEG( mortgageRelex.getSecLeg().getSecGenLeg().getBdLeg() ) );
+
+		secLeg.getItems().add( secGenLeg );
+
+		getItems().add( secLeg );
+		
+		setCNTRID( mortgageRelex.getCntrid() );
+		setCPRTYID( mortgageRelex.getCprtyid() );
+		setPRTYID( mortgageRelex.getPrtyid() );
+		setREF( mortgageRelex.getRef() );
+		setSTLMDT( mortgageRelex.getStlmdt() );
+    }
+    
     /**
      * Gets the value of the stlmprtyOrSECLEG property.
      * 

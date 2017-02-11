@@ -65,8 +65,15 @@ public class SECGENLEG {
     @XmlAttribute(name = "SEC_AMT")
     @XmlSchemaType(name = "anySimpleType")
     protected String secamt;
+    
+    public SECGENLEG(List<Object> items, String genid, String secamt) {
+		super();
+		this.items = items;
+		this.genid = genid;
+		this.secamt = secamt;
+	}
 
-    /**
+	/**
      * Gets the value of the secunitslegOrFRSTLEGOrSCNDLEG property.
      * 
      * <p>

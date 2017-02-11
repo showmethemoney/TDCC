@@ -10,6 +10,7 @@ package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -20,6 +21,8 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.metrics.bean.CloseRepo;
 
 
 /**
@@ -94,7 +97,20 @@ public class CLOSEREPO {
     @XmlAttribute(name = "CSH_SYS")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String cshsys;
-
+    
+    public CLOSEREPO(CloseRepo closeRepo) {
+    	items.add( new PRTY().getSTLMPRTY().add( new STLMPRTY( closeRepo.getPrty().getStlmprty() ) ) );
+    	items.add( new CPRTY().getSTLMPRTY().add( new STLMPRTY( closeRepo.getCprty().getStlmprty() ) ) );
+    	
+    	setREF( closeRepo.getRef() );
+    	setCNTRID( closeRepo.getCntrid() );
+    	setCSHAMT( closeRepo.getCshamt() );
+    	setXTRINT( closeRepo.getXtrint() );
+    	setBNDLREF( closeRepo.getBndlref() );
+    	setBNDLTTL( closeRepo.getBndlttl() );
+    	setCSHSYS( closeRepo.getCshsys() );
+    }
+    
     /**
      * Gets the value of the prtyOrCPRTY property.
      * 

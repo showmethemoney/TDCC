@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,8 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CloseRepo"
-		modelAttribute="model">
+	<form:form method="POST" action="/tdcc/message/Dep" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
@@ -100,7 +98,7 @@
 					<td><form:label path="body.issrbuscode">Ref</form:label></td>
 					<td><form:input path="body.issrbuscode" /></td>
 				</tr>
-								<tr>
+				<tr>
 					<td><form:label path="body.issrgrpid">Ref</form:label></td>
 					<td><form:input path="body.issrgrpid" /></td>
 				</tr>
@@ -124,7 +122,7 @@
 					<td><form:label path="body.fval">Ref</form:label></td>
 					<td><form:input path="body.fval" /></td>
 				</tr>
-								<tr>
+				<tr>
 					<td><form:label path="body.secccy">Ref</form:label></td>
 					<td><form:input path="body.secccy" /></td>
 				</tr>
@@ -148,7 +146,7 @@
 					<td><form:label path="body.selldt">Ref</form:label></td>
 					<td><form:input path="body.selldt" /></td>
 				</tr>
-								<tr>
+				<tr>
 					<td><form:label path="body.matdt">Ref</form:label></td>
 					<td><form:input path="body.matdt" /></td>
 				</tr>
@@ -172,7 +170,7 @@
 					<td><form:label path="body.rdmpamt">Ref</form:label></td>
 					<td><form:input path="body.rdmpamt" /></td>
 				</tr>
-								<tr>
+				<tr>
 					<td><form:label path="body.dayint">Ref</form:label></td>
 					<td><form:input path="body.dayint" /></td>
 				</tr>
@@ -204,7 +202,7 @@
 					<td><form:label path="body.issrttype">Ref</form:label></td>
 					<td><form:input path="body.issrttype" /></td>
 				</tr>
-				
+
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>

@@ -5,11 +5,11 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -21,11 +21,14 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.metrics.bean.ReiInst;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -66,293 +69,297 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "items"
-})
+@XmlType(name = "", propOrder = { "items" })
 @XmlRootElement(name = "REI_INST")
-public class REIINST {
+public class REIINST
+{
 
-    @XmlElements({
-        @XmlElement(name = "SEC_LEG", type = SECLEG.class),
-        @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
-        @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class),
-        @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class)
-    })
-    protected List<Object> items;
-    @XmlAttribute(name = "REI_ISIN", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String reiisin;
-    @XmlAttribute(name = "STLM_DT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String stlmdt;
-    @XmlAttribute(name = "BS_PRC", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String bsprc;
-    @XmlAttribute(name = "RDMP_TAX_AMT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String rdmptaxamt;
-    @XmlAttribute(name = "TRD_RT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String trdrt;
-    @XmlAttribute(name = "CSH_SYS")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String cshsys;
-    @XmlAttribute(name = "UND_FEE")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String undfee;
-    @XmlAttribute(name = "CNS_FEE")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String cnsfee;
-    @XmlAttribute(name = "GUT_FEE")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String gutfee;
+	@XmlElements({ @XmlElement(name = "SEC_LEG", type = SECLEG.class), @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
+	        @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class), @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class) })
+	protected List<Object> items;
+	@XmlAttribute(name = "REI_ISIN", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String reiisin;
+	@XmlAttribute(name = "STLM_DT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String stlmdt;
+	@XmlAttribute(name = "BS_PRC", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String bsprc;
+	@XmlAttribute(name = "RDMP_TAX_AMT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String rdmptaxamt;
+	@XmlAttribute(name = "TRD_RT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String trdrt;
+	@XmlAttribute(name = "CSH_SYS")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String cshsys;
+	@XmlAttribute(name = "UND_FEE")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String undfee;
+	@XmlAttribute(name = "CNS_FEE")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String cnsfee;
+	@XmlAttribute(name = "GUT_FEE")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String gutfee;
 
-    /**
-     * Gets the value of the seclegOrCSHLEGOrRECEIVERBANK property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the seclegOrCSHLEGOrRECEIVERBANK property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getSECLEGOrCSHLEGOrRECEIVERBANK().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link SECLEG }
-     * {@link CSHLEG }
-     * {@link RECEIVERBANK }
-     * {@link STLMPRTY }
-     * 
-     * 
-     */
-    public List<Object> getItems() {
-        if (items == null) {
-            items = new ArrayList<Object>();
-        }
-        return this.items;
-    }
+	public REIINST(ReiInst reiInst) {
+		// @XmlElement(name = "SEC_LEG", type = SECLEG.class),
+		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
+		// @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class),
+		// @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class)
+		SECLEG secLeg = new SECLEG( null, reiInst.getSecLeg().getIsin(), reiInst.getSecLeg().getMgcntrid() );
 
-    /**
-     * Gets the value of the reiisin property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getREIISIN() {
-        return reiisin;
-    }
+		// @XmlElement(name = "SEC_UNITS_LEG", type = SECUNITSLEG.class),
+		// @XmlElement(name = "FRST_LEG", type = FRSTLEG.class),
+		// @XmlElement(name = "SCND_LEG", type = SCNDLEG.class),
+		// @XmlElement(name = "BD_LEG", type = BDLEG.class)
+		SECGENLEG secGenLeg = new SECGENLEG( null, reiInst.getSecLeg().getSecGenLeg().getGenid(), reiInst.getSecLeg().getSecGenLeg().getSecamt() );
+		secGenLeg.getItems().add( new SECUNITSLEG( reiInst.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
 
-    /**
-     * Sets the value of the reiisin property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setREIISIN(String value) {
-        this.reiisin = value;
-    }
+		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
+		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
+		FRSTLEG frstLeg = new FRSTLEG();
+		frstLeg.getItems().add( new CSHLEG( reiInst.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
+		frstLeg.getItems().add( new TAXIMP( reiInst.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
+		secGenLeg.getItems().add( frstLeg );
 
-    /**
-     * Gets the value of the stlmdt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSTLMDT() {
-        return stlmdt;
-    }
+		secGenLeg.getItems().add( new BDLEG( reiInst.getSecLeg().getSecGenLeg().getBdLeg() ) );
 
-    /**
-     * Sets the value of the stlmdt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSTLMDT(String value) {
-        this.stlmdt = value;
-    }
+		secLeg.getItems().add( secGenLeg );
 
-    /**
-     * Gets the value of the bsprc property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBSPRC() {
-        return bsprc;
-    }
+		getItems().add( secLeg );
+		getItems().add( new CSHLEG( reiInst.getCshLeg() ) );
+		getItems().add( new RECEIVERBANK( reiInst.getReceiverBank() ) );
+		getItems().add( new STLMPRTY( reiInst.getStlmPrty() ) );
+		
+		setBSPRC( reiInst.getBsprc() );
+		setCNSFEE( reiInst.getCnsfee() );
+		setCSHSYS( reiInst.getCshsys() );
+		setGUTFEE( reiInst.getGutfee() );
+		setRDMPTAXAMT( reiInst.getRdmptaxamt() );
+		setREIISIN( reiInst.getReiisin() );
+		setSTLMDT( reiInst.getStlmdt() );
+		setTRDRT( reiInst.getTrdrt() );
+		setUNDFEE( reiInst.getUndfee() );
+	}
 
-    /**
-     * Sets the value of the bsprc property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBSPRC(String value) {
-        this.bsprc = value;
-    }
+	/**
+	 * Gets the value of the seclegOrCSHLEGOrRECEIVERBANK property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present
+	 * inside the JAXB object. This is why there is not a <CODE>set</CODE> method for the seclegOrCSHLEGOrRECEIVERBANK property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getSECLEGOrCSHLEGOrRECEIVERBANK().add( newItem );
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link SECLEG } {@link CSHLEG } {@link RECEIVERBANK } {@link STLMPRTY }
+	 * 
+	 * 
+	 */
+	public List<Object> getItems() {
+		if (items == null) {
+			items = new ArrayList<Object>();
+		}
+		return this.items;
+	}
 
-    /**
-     * Gets the value of the rdmptaxamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRDMPTAXAMT() {
-        return rdmptaxamt;
-    }
+	/**
+	 * Gets the value of the reiisin property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getREIISIN() {
+		return reiisin;
+	}
 
-    /**
-     * Sets the value of the rdmptaxamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRDMPTAXAMT(String value) {
-        this.rdmptaxamt = value;
-    }
+	/**
+	 * Sets the value of the reiisin property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setREIISIN(String value) {
+		this.reiisin = value;
+	}
 
-    /**
-     * Gets the value of the trdrt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTRDRT() {
-        return trdrt;
-    }
+	/**
+	 * Gets the value of the stlmdt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSTLMDT() {
+		return stlmdt;
+	}
 
-    /**
-     * Sets the value of the trdrt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTRDRT(String value) {
-        this.trdrt = value;
-    }
+	/**
+	 * Sets the value of the stlmdt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSTLMDT(String value) {
+		this.stlmdt = value;
+	}
 
-    /**
-     * Gets the value of the cshsys property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCSHSYS() {
-        return cshsys;
-    }
+	/**
+	 * Gets the value of the bsprc property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getBSPRC() {
+		return bsprc;
+	}
 
-    /**
-     * Sets the value of the cshsys property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCSHSYS(String value) {
-        this.cshsys = value;
-    }
+	/**
+	 * Sets the value of the bsprc property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setBSPRC(String value) {
+		this.bsprc = value;
+	}
 
-    /**
-     * Gets the value of the undfee property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUNDFEE() {
-        return undfee;
-    }
+	/**
+	 * Gets the value of the rdmptaxamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRDMPTAXAMT() {
+		return rdmptaxamt;
+	}
 
-    /**
-     * Sets the value of the undfee property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUNDFEE(String value) {
-        this.undfee = value;
-    }
+	/**
+	 * Sets the value of the rdmptaxamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRDMPTAXAMT(String value) {
+		this.rdmptaxamt = value;
+	}
 
-    /**
-     * Gets the value of the cnsfee property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCNSFEE() {
-        return cnsfee;
-    }
+	/**
+	 * Gets the value of the trdrt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTRDRT() {
+		return trdrt;
+	}
 
-    /**
-     * Sets the value of the cnsfee property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCNSFEE(String value) {
-        this.cnsfee = value;
-    }
+	/**
+	 * Sets the value of the trdrt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setTRDRT(String value) {
+		this.trdrt = value;
+	}
 
-    /**
-     * Gets the value of the gutfee property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getGUTFEE() {
-        return gutfee;
-    }
+	/**
+	 * Gets the value of the cshsys property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCSHSYS() {
+		return cshsys;
+	}
 
-    /**
-     * Sets the value of the gutfee property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setGUTFEE(String value) {
-        this.gutfee = value;
-    }
+	/**
+	 * Sets the value of the cshsys property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCSHSYS(String value) {
+		this.cshsys = value;
+	}
+
+	/**
+	 * Gets the value of the undfee property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getUNDFEE() {
+		return undfee;
+	}
+
+	/**
+	 * Sets the value of the undfee property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setUNDFEE(String value) {
+		this.undfee = value;
+	}
+
+	/**
+	 * Gets the value of the cnsfee property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCNSFEE() {
+		return cnsfee;
+	}
+
+	/**
+	 * Sets the value of the cnsfee property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCNSFEE(String value) {
+		this.cnsfee = value;
+	}
+
+	/**
+	 * Gets the value of the gutfee property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getGUTFEE() {
+		return gutfee;
+	}
+
+	/**
+	 * Sets the value of the gutfee property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setGUTFEE(String value) {
+		this.gutfee = value;
+	}
 
 }

@@ -20,6 +20,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.RepSec;
+
 
 /**
  * <p>Java class for anonymous complex type.
@@ -57,7 +59,14 @@ public class REPSEC {
     @XmlAttribute(name = "SEC_NM")
     @XmlSchemaType(name = "anySimpleType")
     protected String secnm;
-
+    
+    public REPSEC(RepSec instance) {
+    	getItems().add( new REPSECVAL( instance.getRepSecVal() ) );
+    	//recuisive REPSEC..
+    	
+    	setSECNM( instance.getSecnm() );
+    }
+    
     /**
      * Gets the value of the repsecvalOrREPSEC property.
      * 

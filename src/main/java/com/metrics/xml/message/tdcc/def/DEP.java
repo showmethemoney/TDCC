@@ -5,11 +5,11 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -21,11 +21,14 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.metrics.bean.Dep;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -158,914 +161,852 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "items"
-})
+@XmlType(name = "", propOrder = { "items" })
 @XmlRootElement(name = "DEP")
-public class DEP {
-
-    @XmlElements({
-        @XmlElement(name = "DENOMINATION", type = DENOMINATION.class),
-        @XmlElement(name = "ENDORSEE", type = ENDORSEE.class),
-        @XmlElement(name = "AGREER", type = AGREER.class),
-        @XmlElement(name = "FLOATING_RATE_INFO", type = FLOATINGRATEINFO.class)
-    })
-    protected List<Object> items;
-    @XmlAttribute(name = "ISIN")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String isin;
-    @XmlAttribute(name = "REF")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String ref;
-    @XmlAttribute(name = "ISS_TYPE", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String isstype;
-    @XmlAttribute(name = "ISSR_NM", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String issrnm;
-    @XmlAttribute(name = "ISSR_ID", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String issrid;
-    @XmlAttribute(name = "ISSR_BUS_CODE")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String issrbuscode;
-    @XmlAttribute(name = "ISSR_GRP_ID")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String issrgrpid;
-    @XmlAttribute(name = "PRTY_ID", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String prtyid;
-    @XmlAttribute(name = "CPRTY_ID")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String cprtyid;
-    @XmlAttribute(name = "PSDB_ID")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String psdbid;
-    @XmlAttribute(name = "BRNCH_ID")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String brnchid;
-    @XmlAttribute(name = "FVAL", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String fval;
-    @XmlAttribute(name = "SEC_CCY")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String secccy;
-    @XmlAttribute(name = "AMT_TYPE")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String amttype;
-    @XmlAttribute(name = "ISS_DAYS", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String issdays;
-    @XmlAttribute(name = "ISS_DT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String issdt;
-    @XmlAttribute(name = "DEP_DT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String depdt;
-    @XmlAttribute(name = "SELL_DT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String selldt;
-    @XmlAttribute(name = "MAT_DT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String matdt;
-    @XmlAttribute(name = "ISS_RT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String issrt;
-    @XmlAttribute(name = "INT_IND")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String intind;
-    @XmlAttribute(name = "REG_IND")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String regind;
-    @XmlAttribute(name = "NCD_NO")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String ncdno;
-    @XmlAttribute(name = "RDMP_AMT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String rdmpamt;
-    @XmlAttribute(name = "DAY_INT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String dayint;
-    @XmlAttribute(name = "NCD_PAY_BANK")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String ncdpaybank;
-    @XmlAttribute(name = "TH_MAT_DT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String thmatdt;
-    @XmlAttribute(name = "TAX_RT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String taxrt;
-    @XmlAttribute(name = "CSH_SYS")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String cshsys;
-    @XmlAttribute(name = "COUNTRY_ID")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String countryid;
-    @XmlAttribute(name = "DEPR_ID")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String deprid;
-    @XmlAttribute(name = "ISS_RT_TYPE")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String issrttype;
-
-    /**
-     * Gets the value of the denominationOrENDORSEEOrAGREER property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the denominationOrENDORSEEOrAGREER property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getDENOMINATIONOrENDORSEEOrAGREER().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DENOMINATION }
-     * {@link ENDORSEE }
-     * {@link AGREER }
-     * {@link FLOATINGRATEINFO }
-     * 
-     * 
-     */
-    public List<Object> getItems() {
-        if (items == null) {
-            items = new ArrayList<Object>();
-        }
-        return this.items;
-    }
-
-    /**
-     * Gets the value of the isin property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISIN() {
-        return isin;
-    }
-
-    /**
-     * Sets the value of the isin property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISIN(String value) {
-        this.isin = value;
-    }
-
-    /**
-     * Gets the value of the ref property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getREF() {
-        return ref;
-    }
-
-    /**
-     * Sets the value of the ref property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setREF(String value) {
-        this.ref = value;
-    }
-
-    /**
-     * Gets the value of the isstype property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSTYPE() {
-        return isstype;
-    }
-
-    /**
-     * Sets the value of the isstype property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSTYPE(String value) {
-        this.isstype = value;
-    }
-
-    /**
-     * Gets the value of the issrnm property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSRNM() {
-        return issrnm;
-    }
-
-    /**
-     * Sets the value of the issrnm property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSRNM(String value) {
-        this.issrnm = value;
-    }
-
-    /**
-     * Gets the value of the issrid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSRID() {
-        return issrid;
-    }
-
-    /**
-     * Sets the value of the issrid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSRID(String value) {
-        this.issrid = value;
-    }
-
-    /**
-     * Gets the value of the issrbuscode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSRBUSCODE() {
-        return issrbuscode;
-    }
-
-    /**
-     * Sets the value of the issrbuscode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSRBUSCODE(String value) {
-        this.issrbuscode = value;
-    }
-
-    /**
-     * Gets the value of the issrgrpid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSRGRPID() {
-        return issrgrpid;
-    }
-
-    /**
-     * Sets the value of the issrgrpid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSRGRPID(String value) {
-        this.issrgrpid = value;
-    }
-
-    /**
-     * Gets the value of the prtyid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPRTYID() {
-        return prtyid;
-    }
-
-    /**
-     * Sets the value of the prtyid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPRTYID(String value) {
-        this.prtyid = value;
-    }
-
-    /**
-     * Gets the value of the cprtyid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCPRTYID() {
-        return cprtyid;
-    }
-
-    /**
-     * Sets the value of the cprtyid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCPRTYID(String value) {
-        this.cprtyid = value;
-    }
-
-    /**
-     * Gets the value of the psdbid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPSDBID() {
-        return psdbid;
-    }
-
-    /**
-     * Sets the value of the psdbid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPSDBID(String value) {
-        this.psdbid = value;
-    }
-
-    /**
-     * Gets the value of the brnchid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBRNCHID() {
-        return brnchid;
-    }
-
-    /**
-     * Sets the value of the brnchid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBRNCHID(String value) {
-        this.brnchid = value;
-    }
-
-    /**
-     * Gets the value of the fval property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFVAL() {
-        return fval;
-    }
-
-    /**
-     * Sets the value of the fval property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFVAL(String value) {
-        this.fval = value;
-    }
-
-    /**
-     * Gets the value of the secccy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSECCCY() {
-        return secccy;
-    }
-
-    /**
-     * Sets the value of the secccy property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSECCCY(String value) {
-        this.secccy = value;
-    }
-
-    /**
-     * Gets the value of the amttype property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAMTTYPE() {
-        return amttype;
-    }
-
-    /**
-     * Sets the value of the amttype property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAMTTYPE(String value) {
-        this.amttype = value;
-    }
-
-    /**
-     * Gets the value of the issdays property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSDAYS() {
-        return issdays;
-    }
-
-    /**
-     * Sets the value of the issdays property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSDAYS(String value) {
-        this.issdays = value;
-    }
-
-    /**
-     * Gets the value of the issdt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSDT() {
-        return issdt;
-    }
-
-    /**
-     * Sets the value of the issdt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSDT(String value) {
-        this.issdt = value;
-    }
-
-    /**
-     * Gets the value of the depdt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDEPDT() {
-        return depdt;
-    }
-
-    /**
-     * Sets the value of the depdt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDEPDT(String value) {
-        this.depdt = value;
-    }
-
-    /**
-     * Gets the value of the selldt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSELLDT() {
-        return selldt;
-    }
-
-    /**
-     * Sets the value of the selldt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSELLDT(String value) {
-        this.selldt = value;
-    }
-
-    /**
-     * Gets the value of the matdt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMATDT() {
-        return matdt;
-    }
-
-    /**
-     * Sets the value of the matdt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMATDT(String value) {
-        this.matdt = value;
-    }
-
-    /**
-     * Gets the value of the issrt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSRT() {
-        return issrt;
-    }
-
-    /**
-     * Sets the value of the issrt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSRT(String value) {
-        this.issrt = value;
-    }
-
-    /**
-     * Gets the value of the intind property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getINTIND() {
-        return intind;
-    }
-
-    /**
-     * Sets the value of the intind property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setINTIND(String value) {
-        this.intind = value;
-    }
-
-    /**
-     * Gets the value of the regind property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getREGIND() {
-        return regind;
-    }
-
-    /**
-     * Sets the value of the regind property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setREGIND(String value) {
-        this.regind = value;
-    }
-
-    /**
-     * Gets the value of the ncdno property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNCDNO() {
-        return ncdno;
-    }
-
-    /**
-     * Sets the value of the ncdno property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNCDNO(String value) {
-        this.ncdno = value;
-    }
-
-    /**
-     * Gets the value of the rdmpamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRDMPAMT() {
-        return rdmpamt;
-    }
-
-    /**
-     * Sets the value of the rdmpamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRDMPAMT(String value) {
-        this.rdmpamt = value;
-    }
-
-    /**
-     * Gets the value of the dayint property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDAYINT() {
-        return dayint;
-    }
-
-    /**
-     * Sets the value of the dayint property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDAYINT(String value) {
-        this.dayint = value;
-    }
-
-    /**
-     * Gets the value of the ncdpaybank property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNCDPAYBANK() {
-        return ncdpaybank;
-    }
-
-    /**
-     * Sets the value of the ncdpaybank property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNCDPAYBANK(String value) {
-        this.ncdpaybank = value;
-    }
-
-    /**
-     * Gets the value of the thmatdt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTHMATDT() {
-        return thmatdt;
-    }
-
-    /**
-     * Sets the value of the thmatdt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTHMATDT(String value) {
-        this.thmatdt = value;
-    }
-
-    /**
-     * Gets the value of the taxrt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTAXRT() {
-        return taxrt;
-    }
-
-    /**
-     * Sets the value of the taxrt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTAXRT(String value) {
-        this.taxrt = value;
-    }
-
-    /**
-     * Gets the value of the cshsys property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCSHSYS() {
-        return cshsys;
-    }
-
-    /**
-     * Sets the value of the cshsys property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCSHSYS(String value) {
-        this.cshsys = value;
-    }
-
-    /**
-     * Gets the value of the countryid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCOUNTRYID() {
-        return countryid;
-    }
-
-    /**
-     * Sets the value of the countryid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCOUNTRYID(String value) {
-        this.countryid = value;
-    }
-
-    /**
-     * Gets the value of the deprid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDEPRID() {
-        return deprid;
-    }
-
-    /**
-     * Sets the value of the deprid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDEPRID(String value) {
-        this.deprid = value;
-    }
-
-    /**
-     * Gets the value of the issrttype property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getISSRTTYPE() {
-        return issrttype;
-    }
-
-    /**
-     * Sets the value of the issrttype property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setISSRTTYPE(String value) {
-        this.issrttype = value;
-    }
+public class DEP
+{
+
+	@XmlElements({ @XmlElement(name = "DENOMINATION", type = DENOMINATION.class), @XmlElement(name = "ENDORSEE", type = ENDORSEE.class),
+	        @XmlElement(name = "AGREER", type = AGREER.class), @XmlElement(name = "FLOATING_RATE_INFO", type = FLOATINGRATEINFO.class) })
+	protected List<Object> items;
+	@XmlAttribute(name = "ISIN")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String isin;
+	@XmlAttribute(name = "REF")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String ref;
+	@XmlAttribute(name = "ISS_TYPE", required = true)
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String isstype;
+	@XmlAttribute(name = "ISSR_NM", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String issrnm;
+	@XmlAttribute(name = "ISSR_ID", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String issrid;
+	@XmlAttribute(name = "ISSR_BUS_CODE")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String issrbuscode;
+	@XmlAttribute(name = "ISSR_GRP_ID")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String issrgrpid;
+	@XmlAttribute(name = "PRTY_ID", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String prtyid;
+	@XmlAttribute(name = "CPRTY_ID")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String cprtyid;
+	@XmlAttribute(name = "PSDB_ID")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String psdbid;
+	@XmlAttribute(name = "BRNCH_ID")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String brnchid;
+	@XmlAttribute(name = "FVAL", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String fval;
+	@XmlAttribute(name = "SEC_CCY")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String secccy;
+	@XmlAttribute(name = "AMT_TYPE")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String amttype;
+	@XmlAttribute(name = "ISS_DAYS", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String issdays;
+	@XmlAttribute(name = "ISS_DT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String issdt;
+	@XmlAttribute(name = "DEP_DT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String depdt;
+	@XmlAttribute(name = "SELL_DT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String selldt;
+	@XmlAttribute(name = "MAT_DT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String matdt;
+	@XmlAttribute(name = "ISS_RT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String issrt;
+	@XmlAttribute(name = "INT_IND")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String intind;
+	@XmlAttribute(name = "REG_IND")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String regind;
+	@XmlAttribute(name = "NCD_NO")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String ncdno;
+	@XmlAttribute(name = "RDMP_AMT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String rdmpamt;
+	@XmlAttribute(name = "DAY_INT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String dayint;
+	@XmlAttribute(name = "NCD_PAY_BANK")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String ncdpaybank;
+	@XmlAttribute(name = "TH_MAT_DT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String thmatdt;
+	@XmlAttribute(name = "TAX_RT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String taxrt;
+	@XmlAttribute(name = "CSH_SYS")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String cshsys;
+	@XmlAttribute(name = "COUNTRY_ID")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String countryid;
+	@XmlAttribute(name = "DEPR_ID")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String deprid;
+	@XmlAttribute(name = "ISS_RT_TYPE")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String issrttype;
+
+	public DEP(Dep dep) {
+		// @XmlElement(name = "DENOMINATION", type = DENOMINATION.class),
+		// @XmlElement(name = "ENDORSEE", type = ENDORSEE.class),
+		// @XmlElement(name = "AGREER", type = AGREER.class),
+		// @XmlElement(name = "FLOATING_RATE_INFO", type = FLOATINGRATEINFO.class)
+		getItems().add( new DENOMINATION( dep.getDenomination() ) );
+		getItems().add( new ENDORSEE( dep.getEndorsee() ) );
+		getItems().add( new AGREER( dep.getAgreer() ) );
+		getItems().add( new FLOATINGRATEINFO( dep.getFloatingRateInfo() ) );
+		
+		setAMTTYPE( dep.getAmttype() );
+		setBRNCHID( dep.getBrnchid() );
+		setCOUNTRYID( dep.getCountryid() );
+		setCPRTYID( dep.getCprtyid() );
+		setCSHSYS( dep.getCshsys() );
+		setDAYINT( dep.getDayint() );
+		setDEPDT( dep.getDepdt() );
+		setDEPRID( dep.getDeprid() );
+		setFVAL( dep.getFval() );
+		setINTIND( dep.getIntind() );
+		setISIN( dep.getIsin() );
+		setISSDAYS( dep.getIssdays() );
+		setISSDT( dep.getIssdt() );
+		setISSRBUSCODE( dep.getIssrbuscode() );
+		setISSRGRPID( dep.getIssrgrpid() );
+		setISSRID( dep.getIssrid() );
+		setISSRNM( dep.getIssrnm() );
+		setISSRT( dep.getIssrt() );
+		setISSRTTYPE( dep.getIssrttype() );
+		setISSTYPE( dep.getIsstype() );
+		setMATDT( dep.getMatdt() );
+		setNCDNO( dep.getNcdno() );
+		setNCDPAYBANK( dep.getNcdpaybank() );
+		setPRTYID( dep.getPrtyid() );
+		setPSDBID( dep.getPsdbid() );
+		setRDMPAMT( dep.getRdmpamt() );
+		setREF( dep.getRef() );
+		setREGIND( dep.getRegind() );
+		setSECCCY( dep.getSecccy() );
+		setSELLDT( dep.getSelldt() );
+		setTAXRT( dep.getTaxrt() );
+		setTHMATDT( dep.getThmatdt() );
+	}
+
+	/**
+	 * Gets the value of the denominationOrENDORSEEOrAGREER property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present
+	 * inside the JAXB object. This is why there is not a <CODE>set</CODE> method for the denominationOrENDORSEEOrAGREER property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getDENOMINATIONOrENDORSEEOrAGREER().add( newItem );
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link DENOMINATION } {@link ENDORSEE } {@link AGREER } {@link FLOATINGRATEINFO }
+	 * 
+	 * 
+	 */
+	public List<Object> getItems() {
+		if (items == null) {
+			items = new ArrayList<Object>();
+		}
+		return this.items;
+	}
+
+	/**
+	 * Gets the value of the isin property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISIN() {
+		return isin;
+	}
+
+	/**
+	 * Sets the value of the isin property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISIN(String value) {
+		this.isin = value;
+	}
+
+	/**
+	 * Gets the value of the ref property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getREF() {
+		return ref;
+	}
+
+	/**
+	 * Sets the value of the ref property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setREF(String value) {
+		this.ref = value;
+	}
+
+	/**
+	 * Gets the value of the isstype property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSTYPE() {
+		return isstype;
+	}
+
+	/**
+	 * Sets the value of the isstype property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSTYPE(String value) {
+		this.isstype = value;
+	}
+
+	/**
+	 * Gets the value of the issrnm property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSRNM() {
+		return issrnm;
+	}
+
+	/**
+	 * Sets the value of the issrnm property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSRNM(String value) {
+		this.issrnm = value;
+	}
+
+	/**
+	 * Gets the value of the issrid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSRID() {
+		return issrid;
+	}
+
+	/**
+	 * Sets the value of the issrid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSRID(String value) {
+		this.issrid = value;
+	}
+
+	/**
+	 * Gets the value of the issrbuscode property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSRBUSCODE() {
+		return issrbuscode;
+	}
+
+	/**
+	 * Sets the value of the issrbuscode property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSRBUSCODE(String value) {
+		this.issrbuscode = value;
+	}
+
+	/**
+	 * Gets the value of the issrgrpid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSRGRPID() {
+		return issrgrpid;
+	}
+
+	/**
+	 * Sets the value of the issrgrpid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSRGRPID(String value) {
+		this.issrgrpid = value;
+	}
+
+	/**
+	 * Gets the value of the prtyid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPRTYID() {
+		return prtyid;
+	}
+
+	/**
+	 * Sets the value of the prtyid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setPRTYID(String value) {
+		this.prtyid = value;
+	}
+
+	/**
+	 * Gets the value of the cprtyid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCPRTYID() {
+		return cprtyid;
+	}
+
+	/**
+	 * Sets the value of the cprtyid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCPRTYID(String value) {
+		this.cprtyid = value;
+	}
+
+	/**
+	 * Gets the value of the psdbid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPSDBID() {
+		return psdbid;
+	}
+
+	/**
+	 * Sets the value of the psdbid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setPSDBID(String value) {
+		this.psdbid = value;
+	}
+
+	/**
+	 * Gets the value of the brnchid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getBRNCHID() {
+		return brnchid;
+	}
+
+	/**
+	 * Sets the value of the brnchid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setBRNCHID(String value) {
+		this.brnchid = value;
+	}
+
+	/**
+	 * Gets the value of the fval property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getFVAL() {
+		return fval;
+	}
+
+	/**
+	 * Sets the value of the fval property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setFVAL(String value) {
+		this.fval = value;
+	}
+
+	/**
+	 * Gets the value of the secccy property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSECCCY() {
+		return secccy;
+	}
+
+	/**
+	 * Sets the value of the secccy property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSECCCY(String value) {
+		this.secccy = value;
+	}
+
+	/**
+	 * Gets the value of the amttype property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAMTTYPE() {
+		return amttype;
+	}
+
+	/**
+	 * Sets the value of the amttype property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAMTTYPE(String value) {
+		this.amttype = value;
+	}
+
+	/**
+	 * Gets the value of the issdays property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSDAYS() {
+		return issdays;
+	}
+
+	/**
+	 * Sets the value of the issdays property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSDAYS(String value) {
+		this.issdays = value;
+	}
+
+	/**
+	 * Gets the value of the issdt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSDT() {
+		return issdt;
+	}
+
+	/**
+	 * Sets the value of the issdt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSDT(String value) {
+		this.issdt = value;
+	}
+
+	/**
+	 * Gets the value of the depdt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDEPDT() {
+		return depdt;
+	}
+
+	/**
+	 * Sets the value of the depdt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDEPDT(String value) {
+		this.depdt = value;
+	}
+
+	/**
+	 * Gets the value of the selldt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSELLDT() {
+		return selldt;
+	}
+
+	/**
+	 * Sets the value of the selldt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSELLDT(String value) {
+		this.selldt = value;
+	}
+
+	/**
+	 * Gets the value of the matdt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getMATDT() {
+		return matdt;
+	}
+
+	/**
+	 * Sets the value of the matdt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setMATDT(String value) {
+		this.matdt = value;
+	}
+
+	/**
+	 * Gets the value of the issrt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSRT() {
+		return issrt;
+	}
+
+	/**
+	 * Sets the value of the issrt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSRT(String value) {
+		this.issrt = value;
+	}
+
+	/**
+	 * Gets the value of the intind property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getINTIND() {
+		return intind;
+	}
+
+	/**
+	 * Sets the value of the intind property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setINTIND(String value) {
+		this.intind = value;
+	}
+
+	/**
+	 * Gets the value of the regind property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getREGIND() {
+		return regind;
+	}
+
+	/**
+	 * Sets the value of the regind property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setREGIND(String value) {
+		this.regind = value;
+	}
+
+	/**
+	 * Gets the value of the ncdno property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getNCDNO() {
+		return ncdno;
+	}
+
+	/**
+	 * Sets the value of the ncdno property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setNCDNO(String value) {
+		this.ncdno = value;
+	}
+
+	/**
+	 * Gets the value of the rdmpamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRDMPAMT() {
+		return rdmpamt;
+	}
+
+	/**
+	 * Sets the value of the rdmpamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRDMPAMT(String value) {
+		this.rdmpamt = value;
+	}
+
+	/**
+	 * Gets the value of the dayint property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDAYINT() {
+		return dayint;
+	}
+
+	/**
+	 * Sets the value of the dayint property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDAYINT(String value) {
+		this.dayint = value;
+	}
+
+	/**
+	 * Gets the value of the ncdpaybank property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getNCDPAYBANK() {
+		return ncdpaybank;
+	}
+
+	/**
+	 * Sets the value of the ncdpaybank property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setNCDPAYBANK(String value) {
+		this.ncdpaybank = value;
+	}
+
+	/**
+	 * Gets the value of the thmatdt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTHMATDT() {
+		return thmatdt;
+	}
+
+	/**
+	 * Sets the value of the thmatdt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setTHMATDT(String value) {
+		this.thmatdt = value;
+	}
+
+	/**
+	 * Gets the value of the taxrt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTAXRT() {
+		return taxrt;
+	}
+
+	/**
+	 * Sets the value of the taxrt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setTAXRT(String value) {
+		this.taxrt = value;
+	}
+
+	/**
+	 * Gets the value of the cshsys property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCSHSYS() {
+		return cshsys;
+	}
+
+	/**
+	 * Sets the value of the cshsys property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCSHSYS(String value) {
+		this.cshsys = value;
+	}
+
+	/**
+	 * Gets the value of the countryid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCOUNTRYID() {
+		return countryid;
+	}
+
+	/**
+	 * Sets the value of the countryid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCOUNTRYID(String value) {
+		this.countryid = value;
+	}
+
+	/**
+	 * Gets the value of the deprid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDEPRID() {
+		return deprid;
+	}
+
+	/**
+	 * Sets the value of the deprid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDEPRID(String value) {
+		this.deprid = value;
+	}
+
+	/**
+	 * Gets the value of the issrttype property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getISSRTTYPE() {
+		return issrttype;
+	}
+
+	/**
+	 * Sets the value of the issrttype property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setISSRTTYPE(String value) {
+		this.issrttype = value;
+	}
 
 }

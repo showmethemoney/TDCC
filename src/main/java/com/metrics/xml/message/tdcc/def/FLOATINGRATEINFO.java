@@ -5,7 +5,6 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,11 +16,14 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.metrics.bean.FloatingRateInfo;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -63,115 +65,116 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "FLOATING_RATE_INFO")
-public class FLOATINGRATEINFO {
+public class FLOATINGRATEINFO
+{
 
-    @XmlAttribute(name = "RT_IND")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String rtind;
-    @XmlAttribute(name = "RT_IND_MDIT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String rtindmdit;
-    @XmlAttribute(name = "FIX_PRC_CY")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String fixprccy;
-    @XmlAttribute(name = "FIX_PRC_RULE")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String fixprcrule;
+	@XmlAttribute(name = "RT_IND")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String rtind;
+	@XmlAttribute(name = "RT_IND_MDIT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String rtindmdit;
+	@XmlAttribute(name = "FIX_PRC_CY")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String fixprccy;
+	@XmlAttribute(name = "FIX_PRC_RULE")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String fixprcrule;
 
-    /**
-     * Gets the value of the rtind property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRTIND() {
-        return rtind;
-    }
+	public FLOATINGRATEINFO(FloatingRateInfo instance) {
+		this( instance.getRtind(), instance.getRtindmdit(), instance.getFixprccy(), instance.getFixprcrule() );
+	}
 
-    /**
-     * Sets the value of the rtind property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRTIND(String value) {
-        this.rtind = value;
-    }
+	public FLOATINGRATEINFO(String rtind, String rtindmdit, String fixprccy, String fixprcrule) {
+		super();
+		this.rtind = rtind;
+		this.rtindmdit = rtindmdit;
+		this.fixprccy = fixprccy;
+		this.fixprcrule = fixprcrule;
+	}
 
-    /**
-     * Gets the value of the rtindmdit property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRTINDMDIT() {
-        return rtindmdit;
-    }
+	/**
+	 * Gets the value of the rtind property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRTIND() {
+		return rtind;
+	}
 
-    /**
-     * Sets the value of the rtindmdit property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRTINDMDIT(String value) {
-        this.rtindmdit = value;
-    }
+	/**
+	 * Sets the value of the rtind property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRTIND(String value) {
+		this.rtind = value;
+	}
 
-    /**
-     * Gets the value of the fixprccy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFIXPRCCY() {
-        return fixprccy;
-    }
+	/**
+	 * Gets the value of the rtindmdit property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRTINDMDIT() {
+		return rtindmdit;
+	}
 
-    /**
-     * Sets the value of the fixprccy property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFIXPRCCY(String value) {
-        this.fixprccy = value;
-    }
+	/**
+	 * Sets the value of the rtindmdit property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRTINDMDIT(String value) {
+		this.rtindmdit = value;
+	}
 
-    /**
-     * Gets the value of the fixprcrule property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFIXPRCRULE() {
-        return fixprcrule;
-    }
+	/**
+	 * Gets the value of the fixprccy property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getFIXPRCCY() {
+		return fixprccy;
+	}
 
-    /**
-     * Sets the value of the fixprcrule property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFIXPRCRULE(String value) {
-        this.fixprcrule = value;
-    }
+	/**
+	 * Sets the value of the fixprccy property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setFIXPRCCY(String value) {
+		this.fixprccy = value;
+	}
+
+	/**
+	 * Gets the value of the fixprcrule property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getFIXPRCRULE() {
+		return fixprcrule;
+	}
+
+	/**
+	 * Sets the value of the fixprcrule property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setFIXPRCRULE(String value) {
+		this.fixprcrule = value;
+	}
 
 }

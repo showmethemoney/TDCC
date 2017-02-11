@@ -5,7 +5,6 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,11 +14,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.Agreer;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -37,61 +39,66 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "AGREER")
-public class AGREER {
+public class AGREER
+{
 
-    @XmlAttribute(name = "AGR_ID", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String agrid;
-    @XmlAttribute(name = "AGRM_REF", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String agrmref;
+	@XmlAttribute(name = "AGR_ID", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String agrid;
+	@XmlAttribute(name = "AGRM_REF", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String agrmref;
 
-    /**
-     * Gets the value of the agrid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAGRID() {
-        return agrid;
-    }
+	public AGREER(Agreer instance) {
+		this( instance.getAgrid(), instance.getAgrmref() );
+	}
 
-    /**
-     * Sets the value of the agrid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAGRID(String value) {
-        this.agrid = value;
-    }
+	public AGREER(String agrid, String agrmref) {
+		super();
+		this.agrid = agrid;
+		this.agrmref = agrmref;
+	}
 
-    /**
-     * Gets the value of the agrmref property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAGRMREF() {
-        return agrmref;
-    }
+	/**
+	 * Gets the value of the agrid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAGRID() {
+		return agrid;
+	}
 
-    /**
-     * Sets the value of the agrmref property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAGRMREF(String value) {
-        this.agrmref = value;
-    }
+	/**
+	 * Sets the value of the agrid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAGRID(String value) {
+		this.agrid = value;
+	}
+
+	/**
+	 * Gets the value of the agrmref property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAGRMREF() {
+		return agrmref;
+	}
+
+	/**
+	 * Sets the value of the agrmref property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAGRMREF(String value) {
+		this.agrmref = value;
+	}
 
 }
