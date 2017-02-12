@@ -41,7 +41,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "ISSUERATEINFO_INST")
 public class ISSUERATEINFOINST {
 
-    @XmlAttribute(name = "PRTY_ID", required = true)
+    public ISSUERATEINFOINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "PRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String prtyid;
     @XmlAttribute(name = "ISIN", required = true)

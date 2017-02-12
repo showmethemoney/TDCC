@@ -46,7 +46,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "SCND_LEG")
 public class SCNDLEG {
 
-    @XmlElements({
+    public SCNDLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
         @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
     })

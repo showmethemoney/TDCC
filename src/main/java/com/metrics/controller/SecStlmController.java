@@ -33,7 +33,7 @@ public class SecStlmController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) SecStlmBean model) {
 		try {
-			SECSTLMMessage message = new SECSTLMMessage();
+			SECSTLMMessage message = new SECSTLMMessage( model );
 
 			message.setBody( new SECSTLM( model.getBody() ) );
 		} catch (Throwable cause) {

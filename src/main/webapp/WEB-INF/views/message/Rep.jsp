@@ -10,7 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/Rep" modelAttribute="model">
+	<form:form method="POST" action="/message/Rep" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>

@@ -81,7 +81,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "LC_NOTIFS")
 public class LCNOTIFS {
 
-    @XmlElements({
+    public LCNOTIFS() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "PRTY", type = PRTY.class),
         @XmlElement(name = "CPRTY", type = CPRTY.class),
         @XmlElement(name = "TSFEPRTY", type = TSFEPRTY.class),

@@ -105,7 +105,12 @@ public class BROSTLM {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String cshsys;
 
-    /**
+    public BROSTLM() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the brokerprtyOrSELLPRTYOrBUYPRTY property.
      * 
      * <p>

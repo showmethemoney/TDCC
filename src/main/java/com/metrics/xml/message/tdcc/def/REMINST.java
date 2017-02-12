@@ -81,7 +81,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "REM_INST")
 public class REMINST {
 
-    @XmlElement(name = "RECEIVER_BANK")
+    public REMINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "RECEIVER_BANK")
     protected List<RECEIVERBANK> receiverbank;
     @XmlAttribute(name = "PSDB_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")

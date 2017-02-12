@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class RepBean
+public class RepBean extends BcssMessageBean
 {
 	private Rep body = null;
 

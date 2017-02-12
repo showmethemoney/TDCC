@@ -85,7 +85,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "VMUN")
 public class VMUN {
 
-    @XmlAttribute(name = "BD_SNDR_REF")
+    public VMUN() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "BD_SNDR_REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String bdsndrref;
     @XmlAttribute(name = "REF")

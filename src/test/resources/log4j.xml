@@ -41,6 +41,12 @@
         <appender-ref ref="STDOUT" />
     </logger>
     
+    <logger name="org.springframework.oxm">
+        <level value="DEBUG"/> 
+        <appender-ref ref="STDOUT" />
+    </logger>
+    
+    
     <root>
         <level value="INFO" /> 
 		<appender-ref ref="STDOUT" />	

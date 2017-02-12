@@ -50,6 +50,11 @@ import com.metrics.bean.RepReq;
 public class REPREQ
 {
 
+	public REPREQ() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElement(name = "CRIT")
 	protected List<CRIT> crit;
 	@XmlAttribute(name = "PRTY_ID", required = true)

@@ -10,7 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CshAdvice" modelAttribute="model">
+	<form:form method="POST" action="CshAdvice" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
@@ -62,7 +62,15 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy" /></td>
+					<td><form:select path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD" />
+							<form:option value="USD" label="USD" />
+							<form:option value="AUD" label="AUD" />
+							<form:option value="EUR" label="EUR" />
+							<form:option value="JPY" label="JPY" />
+							<form:option value="CNY" label="CNY" />
+							<form:option value="ZAR" label="ZAR" />
+						</form:select></td>
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshamt">Ref</form:label></td>
@@ -94,7 +102,15 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy" /></td>
+					<td><form:select path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD" />
+							<form:option value="USD" label="USD" />
+							<form:option value="AUD" label="AUD" />
+							<form:option value="EUR" label="EUR" />
+							<form:option value="JPY" label="JPY" />
+							<form:option value="CNY" label="CNY" />
+							<form:option value="ZAR" label="ZAR" />
+						</form:select></td>
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshamt">Ref</form:label></td>
@@ -155,6 +171,75 @@
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.mgcntrid">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.mgcntrid" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:select path="body.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD" />
+							<form:option value="USD" label="USD" />
+							<form:option value="AUD" label="AUD" />
+							<form:option value="EUR" label="EUR" />
+							<form:option value="JPY" label="JPY" />
+							<form:option value="CNY" label="CNY" />
+							<form:option value="ZAR" label="ZAR" />
+						</form:select></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.cshamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.afttaxamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:input path="body.cshLeg.remitfee" /></td>
+				</tr>
+
+				<tr>
+					<td><form:label path="body.ref">Ref</form:label></td>
+					<td><form:input path="body.ref" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.tsfside">Ref</form:label></td>
+					<td><form:select path="body.tsfside">
+							<form:option value="D" label="D" />
+							<form:option value="R" label="R" />
+						</form:select></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.ftref">Ref</form:label></td>
+					<td><form:input path="body.ftref" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cntrid">Ref</form:label></td>
+					<td><form:input path="body.cntrid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.bndlref">Ref</form:label></td>
+					<td><form:input path="body.bndlref" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.rdmptaxamt">Ref</form:label></td>
+					<td><form:input path="body.rdmptaxamt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshsys">Ref</form:label></td>
+					<td><form:select path="body.cshsys">
+							<form:option value="TWD" label="TWD" />
+							<form:option value="USD" label="USD" />
+							<form:option value="AUD" label="AUD" />
+							<form:option value="EUR" label="EUR" />
+							<form:option value="JPY" label="JPY" />
+							<form:option value="CNY" label="CNY" />
+							<form:option value="ZAR" label="ZAR" />
+						</form:select></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.healinsufee">Ref</form:label></td>
+					<td><form:input path="body.healinsufee" /></td>
 				</tr>
 
 				<tr>

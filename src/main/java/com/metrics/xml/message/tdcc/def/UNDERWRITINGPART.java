@@ -43,6 +43,11 @@ import com.metrics.bean.UnderWritingPart;
 public class UNDERWRITINGPART
 {
 
+	public UNDERWRITINGPART() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlAttribute(name = "DNM_ID", required = true)
 	@XmlSchemaType(name = "anySimpleType")
 	protected String dnmid;

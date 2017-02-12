@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class SecBlkBean
+public class SecBlkBean extends BcssMessageBean
 {
 	private SecBlk body = null;
 

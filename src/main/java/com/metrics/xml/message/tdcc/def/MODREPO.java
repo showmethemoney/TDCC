@@ -55,6 +55,11 @@ import com.metrics.bean.ModRepo;
 public class MODREPO
 {
 
+	public MODREPO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElements({ @XmlElement(name = "CSH_LEG", type = CSHLEG.class), @XmlElement(name = "SEC_LEG", type = SECLEG.class) })
 	protected List<Object> items;
 	@XmlAttribute(name = "REF")

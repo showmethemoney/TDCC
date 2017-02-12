@@ -3,7 +3,7 @@ package com.metrics.bean;
 /**
  * @author Ethan Lee
  */
-public class ErinstBean
+public class ErinstBean extends BcssMessageBean
 {
 	private Erinst body = null;
 

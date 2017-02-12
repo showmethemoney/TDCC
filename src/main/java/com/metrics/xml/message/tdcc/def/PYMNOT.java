@@ -115,7 +115,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "PYM_NOT")
 public class PYMNOT {
 
-    @XmlAttribute(name = "REF")
+    public PYMNOT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "PRTY_ID", required = true)

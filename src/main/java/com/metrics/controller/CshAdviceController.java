@@ -33,7 +33,7 @@ public class CshAdviceController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) CshAdviceBean model) {
 		try {
-			CSHADVICEMessage message = new CSHADVICEMessage();
+			CSHADVICEMessage message = new CSHADVICEMessage( model );
 
 			message.setBody( new CSHADVICE( model.getBody() ) );
 		} catch (Throwable cause) {

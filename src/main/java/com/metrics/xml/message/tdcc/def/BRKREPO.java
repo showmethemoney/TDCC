@@ -79,7 +79,12 @@ public class BRKREPO {
     @XmlSchemaType(name = "anySimpleType")
     protected String brkrpchstlmdt;
 
-    /**
+    public BRKREPO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the brkprtOrREMPRTOrSECLEG property.
      * 
      * <p>

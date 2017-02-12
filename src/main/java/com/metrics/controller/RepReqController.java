@@ -33,7 +33,7 @@ public class RepReqController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) RepReqBean model) {
 		try {
-			REPREQMessage message = new REPREQMessage();
+			REPREQMessage message = new REPREQMessage( model );
 
 			message.setBody( new REPREQ( model.getBody() ) );
 		} catch (Throwable cause) {

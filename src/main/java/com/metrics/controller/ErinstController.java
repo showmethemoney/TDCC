@@ -33,7 +33,7 @@ public class ErinstController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ErinstBean model) {
 		try {
-			ERINSTMessage message = new ERINSTMessage();
+			ERINSTMessage message = new ERINSTMessage( model );
 
 			message.setBody( new ERINST( model.getBody() ) );
 		} catch (Throwable cause) {

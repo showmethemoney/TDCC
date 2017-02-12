@@ -69,7 +69,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "MORTGAGE_SELREG")
 public class MORTGAGESELREG {
 
-    @XmlElements({
+    public MORTGAGESELREG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "PRTY", type = PRTY.class),
         @XmlElement(name = "CPRTY", type = CPRTY.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class),

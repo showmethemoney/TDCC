@@ -43,7 +43,12 @@ import com.metrics.bean.StlmPrty;
 @XmlRootElement(name = "STLM_PRTY")
 public class STLMPRTY {
 
-    @XmlAttribute(name = "PRTY_ID", required = true)
+    public STLMPRTY() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "PRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String prtyid;
     @XmlAttribute(name = "ACCT_ID")

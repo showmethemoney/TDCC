@@ -51,7 +51,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "RM_REGEX")
 public class RMREGEX {
 
-    @XmlElements({
+    public RMREGEX() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "PRTY", type = PRTY.class),
         @XmlElement(name = "CPRTY", type = CPRTY.class)
     })

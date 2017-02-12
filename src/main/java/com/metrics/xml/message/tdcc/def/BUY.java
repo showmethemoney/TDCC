@@ -46,7 +46,12 @@ public class BUY {
     @XmlElement(name = "SEC_LEG")
     protected List<SECLEG> secleg;
 
-    /**
+    public BUY() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the secleg property.
      * 
      * <p>

@@ -10,7 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/OpenRepo" modelAttribute="model">
+	<form:form method="POST" action="OpenRepo" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
@@ -58,7 +58,17 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.pch.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.pch.cshLeg.cshccy" /></td>
+					<td>
+						<form:select path="body.pch.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.pch.cshLeg.cshamt">Ref</form:label></td>
@@ -79,7 +89,17 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.rpch.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.rpch.cshLeg.cshccy" /></td>
+					<td> 
+						<form:select path="body.rpch.cshLeg.cshccy"">
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.rpch.cshLeg.cshamt">Ref</form:label></td>
@@ -105,7 +125,17 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy" /></td>
+					<td> 
+						<form:select path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshamt">Ref</form:label></td>
@@ -137,7 +167,17 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy" /></td>
+					<td> 
+						<form:select path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshamt">Ref</form:label></td>
@@ -218,7 +258,11 @@
 				</tr>	
 				<tr>
 					<td><form:label path="body.dealside">Ref</form:label></td>
-					<td><form:input path="body.dealside" /></td>
+					<td><form:select path="body.dealside">
+							<form:option value="D"  label="D"/>
+							<form:option value="R"  label="R"/> 
+						</form:select>
+					</td>
 				</tr>				
 				<tr>
 					<td><form:label path="body.trddt">Ref</form:label></td>
@@ -230,7 +274,11 @@
 				</tr>				
 				<tr>
 					<td><form:label path="body.rerepoauth">Ref</form:label></td>
-					<td><form:input path="body.rerepoauth" /></td>
+					<td><form:select path="body.rerepoauth">
+							<form:option value="Y"  label="Y"/>
+							<form:option value="N"  label="N"/> 
+						</form:select>
+					</td>
 				</tr>	
 				<tr>
 					<td><form:label path="body.trdrt">Ref</form:label></td>

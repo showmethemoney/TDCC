@@ -70,7 +70,12 @@ import com.metrics.bean.Erinst;
 @XmlRootElement(name = "ER_INST")
 public class ERINST {
 
-    @XmlElement(name = "STLM_PRTY")
+    public ERINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "STLM_PRTY")
     protected List<STLMPRTY> stlmprty;
     @XmlAttribute(name = "ISIN", required = true)
     @XmlSchemaType(name = "anySimpleType")

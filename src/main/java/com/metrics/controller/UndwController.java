@@ -2,6 +2,7 @@ package com.metrics.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.UndwBean;
+import com.metrics.service.message.OXMService;
 import com.metrics.xml.message.tdcc.def.UNDW;
 import com.metrics.xml.message.tdcc.xml.UNDWMessage;
 
@@ -33,7 +35,7 @@ public class UndwController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) UndwBean model) {
 		try {
-			UNDWMessage message = new UNDWMessage();
+			UNDWMessage message = new UNDWMessage( model );
 
 			message.setBody( new UNDW( model.getBody() ) );
 		} catch (Throwable cause) {

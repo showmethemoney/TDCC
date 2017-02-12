@@ -42,6 +42,11 @@ import com.metrics.bean.RepSecVal;
 public class REPSECVAL
 {
 
+	public REPSECVAL() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlAttribute(name = "ITEM_NM")
 	@XmlSchemaType(name = "anySimpleType")
 	protected String itemnm;

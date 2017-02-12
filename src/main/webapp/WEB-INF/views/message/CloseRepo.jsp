@@ -10,7 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CloseRepo" modelAttribute="model">
+	<form:form method="POST" action="CloseRepo" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>

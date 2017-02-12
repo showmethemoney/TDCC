@@ -83,6 +83,11 @@ import com.metrics.bean.SecStlm;
 public class SECSTLM
 {
 
+	public SECSTLM() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElements({ @XmlElement(name = "PRTY", type = PRTY.class), @XmlElement(name = "CPRTY", type = CPRTY.class),
 	        @XmlElement(name = "SEC_LEG", type = SECLEG.class), @XmlElement(name = "CSH_LEG", type = CSHLEG.class) })
 	protected List<Object> items;

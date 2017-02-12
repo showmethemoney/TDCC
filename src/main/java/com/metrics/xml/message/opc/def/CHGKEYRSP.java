@@ -39,7 +39,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CHG_KEY_RSP")
 public class CHGKEYRSP {
 
-    @XmlAttribute(name = "RANDOM_NO", required = true)
+    public CHGKEYRSP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "RANDOM_NO", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String randomno;
     @XmlAttribute(name = "KEY_SYNC_DATA", required = true)

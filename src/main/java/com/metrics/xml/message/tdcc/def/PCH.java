@@ -46,7 +46,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "PCH")
 public class PCH {
 
-    @XmlElements({
+    public PCH() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "STLM_DT", type = String.class),
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
     })

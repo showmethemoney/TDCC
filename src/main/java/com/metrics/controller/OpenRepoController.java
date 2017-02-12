@@ -33,7 +33,7 @@ public class OpenRepoController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) OpenRepoBean model) {
 		try {
-			OPENREPOMessage message = new OPENREPOMessage();
+			OPENREPOMessage message = new OPENREPOMessage( model );
 
 			message.setBody( new OPENREPO( model.getBody() ) );
 		} catch (Throwable cause) {

@@ -40,7 +40,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CHG_KEY")
 public class CHGKEY {
 
-    @XmlAttribute(name = "KEY_ID", required = true)
+    public CHGKEY() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "KEY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String keyid;
     @XmlAttribute(name = "NEW_KEY", required = true)

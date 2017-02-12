@@ -3,7 +3,7 @@ package com.metrics.bean;
 /**
  * @author Ethan Lee
  */
-public class CshAdviceBean
+public class CshAdviceBean extends BcssMessageBean
 {
 	private CshAdvice body = null;
 

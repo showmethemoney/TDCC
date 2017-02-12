@@ -14,7 +14,7 @@ import com.metrics.xml.message.tdcc.def.DEP;
 import com.metrics.xml.message.tdcc.xml.DEPMessage;
 
 /**
- * @author Ethan Lee 
+ * @author Ethan Lee
  */
 @Controller
 @RequestMapping(value = "/message/Dep")
@@ -33,7 +33,7 @@ public class DepController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) DepBean model) {
 		try {
-			DEPMessage message = new DEPMessage();
+			DEPMessage message = new DEPMessage( model );
 
 			message.setBody( new DEP( model.getBody() ) );
 		} catch (Throwable cause) {

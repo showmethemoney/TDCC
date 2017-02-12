@@ -83,7 +83,12 @@ public class CONSIGNTNOTE {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String cshsys;
 
-    /**
+    public CONSIGNTNOTE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the stlmprtyOrSECLEG property.
      * 
      * <p>

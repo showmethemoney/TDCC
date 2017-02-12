@@ -3,7 +3,7 @@ package com.metrics.bean;
 /**
  * @author Ethan Lee
  */
-public class ConsigntInstBean
+public class ConsigntInstBean extends BcssMessageBean
 {
 	private ConsigntInst body = null;
 

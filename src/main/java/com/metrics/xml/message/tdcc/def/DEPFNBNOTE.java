@@ -115,7 +115,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "DEP_FNB_NOTE")
 public class DEPFNBNOTE {
 
-    @XmlElements({
+    public DEPFNBNOTE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "CPRTY", type = CPRTY.class),
         @XmlElement(name = "DENOMINATION", type = DENOMINATION.class),
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class)

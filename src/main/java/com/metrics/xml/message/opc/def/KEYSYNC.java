@@ -35,5 +35,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "KEY_SYNC")
 public class KEYSYNC {
 
+	public KEYSYNC() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 }

@@ -42,6 +42,11 @@ import com.metrics.bean.SecUnitsLeg;
 public class SECUNITSLEG
 {
 
+	public SECUNITSLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlAttribute(name = "UNITS", required = true)
 	@XmlSchemaType(name = "anySimpleType")
 	protected String units;

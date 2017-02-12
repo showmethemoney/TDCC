@@ -48,6 +48,10 @@ public class AGREER
 	@XmlAttribute(name = "AGRM_REF", required = true)
 	@XmlSchemaType(name = "anySimpleType")
 	protected String agrmref;
+	
+	public AGREER() {
+		super();
+	}
 
 	public AGREER(Agreer instance) {
 		this( instance.getAgrid(), instance.getAgrmref() );

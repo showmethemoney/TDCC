@@ -51,7 +51,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "NPWD_INST")
 public class NPWDINST {
 
-    @XmlElement(name = "SEC_LEG")
+    public NPWDINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "SEC_LEG")
     protected List<SECLEG> secleg;
     @XmlAttribute(name = "PRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")

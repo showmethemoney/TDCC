@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.BcssMessageBean;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 import com.metrics.xml.message.tdcc.def.SECSTLM;
 
@@ -20,7 +21,17 @@ import com.metrics.xml.message.tdcc.def.SECSTLM;
 @XmlRootElement(name = "BCSSMESSAGE")
 public class SECSTLMMessage extends BCSSMESSAGE
 {
-    @XmlElement(name = "SEC_STLM")
+    public SECSTLMMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
+    public SECSTLMMessage(BcssMessageBean bcssMessageBean) {
+		super( bcssMessageBean.getOrigin(), bcssMessageBean.getTs(), bcssMessageBean.getBcssbusdt(), bcssMessageBean.getMsgtype(), bcssMessageBean.getNarr(),
+		       bcssMessageBean.getSndrref(), bcssMessageBean.getAction(), bcssMessageBean.getResend() );
+	}
+    
+	@XmlElement(name = "SEC_STLM")
     protected SECSTLM body;
 
 	public SECSTLM getBody() {

@@ -52,7 +52,12 @@ import com.metrics.bean.SecBlk;
 @XmlRootElement(name = "SEC_BLK")
 public class SECBLK {
 
-    @XmlElements({
+    public SECBLK() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class)
     })

@@ -74,6 +74,11 @@ import com.metrics.bean.ReiInst;
 public class REIINST
 {
 
+	public REIINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElements({ @XmlElement(name = "SEC_LEG", type = SECLEG.class), @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 	        @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class), @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class) })
 	protected List<Object> items;

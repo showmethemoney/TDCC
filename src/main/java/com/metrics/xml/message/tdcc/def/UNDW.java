@@ -78,6 +78,11 @@ import com.metrics.bean.Undw;
 public class UNDW
 {
 
+	public UNDW() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElements({ @XmlElement(name = "PRTY", type = PRTY.class), @XmlElement(name = "CPRTY", type = CPRTY.class),
 	        @XmlElement(name = "CSH_LEG", type = CSHLEG.class), @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class),
 	        @XmlElement(name = "UNDERWRITINGPART", type = UNDERWRITINGPART.class) })

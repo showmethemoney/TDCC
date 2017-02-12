@@ -18,7 +18,7 @@ import com.metrics.xml.message.tdcc.xml.OPENREPOMessage;
 import com.metrics.xml.message.tdcc.xml.REIINSTMessage;
 
 /**
- * @author Ethan Lee 
+ * @author Ethan Lee
  */
 @Controller
 @RequestMapping(value = "/message/ReiInst")
@@ -37,7 +37,7 @@ public class ReiInstController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ReiInstBean model) {
 		try {
-			REIINSTMessage message = new REIINSTMessage();
+			REIINSTMessage message = new REIINSTMessage( model );
 
 			message.setBody( new REIINST( model.getBody() ) );
 		} catch (Throwable cause) {

@@ -41,7 +41,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "ST_QUERY")
 public class STQUERY {
 
-    @XmlAttribute(name = "REF")
+    public STQUERY() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ORG_SNDR_REF")

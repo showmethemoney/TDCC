@@ -56,7 +56,12 @@ public class BDLEG {
     @XmlSchemaType(name = "anySimpleType")
     protected String accinttax;
     
-    public BDLEG(BDLeg instance) {
+    public BDLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public BDLEG(BDLeg instance) {
     	this( instance.getPrice(), instance.getIdays(), instance.getAccint(), instance.getAccinttax() );
     }
     

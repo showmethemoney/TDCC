@@ -14,7 +14,7 @@ import com.metrics.xml.message.tdcc.def.MORTGAGERELEX;
 import com.metrics.xml.message.tdcc.xml.MORTGAGERELEXMessage;
 
 /**
- * @author Ethan Lee 
+ * @author Ethan Lee
  */
 @Controller
 @RequestMapping(value = "/message/MortgageRelex")
@@ -33,7 +33,7 @@ public class MortgageRelexController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) MortgageRelexBean model) {
 		try {
-			MORTGAGERELEXMessage message = new MORTGAGERELEXMessage();
+			MORTGAGERELEXMessage message = new MORTGAGERELEXMessage( model );
 
 			message.setBody( new MORTGAGERELEX( model.getBody() ) );
 		} catch (Throwable cause) {

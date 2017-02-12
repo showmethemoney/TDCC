@@ -44,6 +44,11 @@ import com.metrics.bean.TaxImp;
 public class TAXIMP
 {
 
+	public TAXIMP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlAttribute(name = "TAX_AMT")
 	@XmlSchemaType(name = "anySimpleType")
 	protected String taxamt;

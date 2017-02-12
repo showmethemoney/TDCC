@@ -84,7 +84,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "RDMP_NOTE")
 public class RDMPNOTE {
 
-    @XmlAttribute(name = "REF", required = true)
+    public RDMPNOTE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ISIN", required = true)

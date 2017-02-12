@@ -68,6 +68,11 @@ import com.metrics.bean.FloatingRateInfo;
 public class FLOATINGRATEINFO
 {
 
+	public FLOATINGRATEINFO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlAttribute(name = "RT_IND")
 	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
 	protected String rtind;

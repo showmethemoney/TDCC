@@ -14,6 +14,11 @@ import com.metrics.xml.message.opc.def.CHGKEYRSP;
 @XmlRootElement(name = "OPCMESSAGE")
 public class CHGKEYRSPMessage extends OPCMESSAGE
 {
+	public CHGKEYRSPMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElement(name = "CHG_KEY_RSP")
 	protected CHGKEYRSP body;
 

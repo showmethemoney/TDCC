@@ -87,6 +87,11 @@ import com.metrics.xml.message.opc.def.KEYSYNCRSP;
 public abstract class OPCMESSAGE implements Serializable
 {
 
+	public OPCMESSAGE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	// @XmlElement(name = "CHG_KEY_REQ")
 	// protected CHGKEYREQ chgkeyreq;
 	// @XmlElement(name = "CHG_KEY")

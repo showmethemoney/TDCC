@@ -46,7 +46,12 @@ public class BUYPRTY {
     @XmlElement(name = "STLM_PRTY")
     protected List<STLMPRTY> stlmprty;
 
-    /**
+    public BUYPRTY() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the stlmprty property.
      * 
      * <p>

@@ -77,7 +77,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "CSH_TRANSFER")
 public class CSHTRANSFER {
 
-    @XmlElement(name = "RECEIVER_BANK")
+    public CSHTRANSFER() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "RECEIVER_BANK")
     protected List<RECEIVERBANK> receiverbank;
     @XmlAttribute(name = "REF", required = true)
     @XmlSchemaType(name = "anySimpleType")

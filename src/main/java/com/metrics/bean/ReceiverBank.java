@@ -3,7 +3,7 @@ package com.metrics.bean;
 /**
  * @author Ethan Lee
  */
-public class ReceiverBank
+public class ReceiverBank extends BcssMessageBean
 {
 	private CshLeg cshleg = null;
 	private String id = null;

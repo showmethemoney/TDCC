@@ -48,7 +48,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "IM")
 public class IM {
 
-    @XmlElements({
+    public IM() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "SNDR", type = SNDR.class),
         @XmlElement(name = "RCVR", type = RCVR.class)
     })

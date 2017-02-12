@@ -14,7 +14,12 @@ import com.metrics.xml.message.opc.def.CHGKEYCFRM;
 @XmlRootElement(name = "OPCMESSAGE")
 public class CHGKEYCFRMMessage extends OPCMESSAGE
 {
-    @XmlElement(name = "CHG_KEY_CFRM")
+    public CHGKEYCFRMMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "CHG_KEY_CFRM")
     protected CHGKEYCFRM body;
 
 	public CHGKEYCFRM getBody() {

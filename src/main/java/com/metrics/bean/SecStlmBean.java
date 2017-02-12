@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class SecStlmBean
+public class SecStlmBean extends BcssMessageBean
 {
 	private SecStlm body = null;
 

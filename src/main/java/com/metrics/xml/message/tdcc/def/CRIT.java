@@ -49,6 +49,11 @@ public class CRIT
 	@XmlSchemaType(name = "anySimpleType")
 	protected String critval;
 
+	public CRIT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public CRIT(Crit instance) {
 		this( instance.getCritnm(), instance.getCritval() );
 	}

@@ -52,6 +52,11 @@ import com.metrics.bean.ReceiverBank;
 public class RECEIVERBANK
 {
 
+	public RECEIVERBANK() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElement(name = "CSH_LEG")
 	protected List<CSHLEG> cshleg;
 	@XmlAttribute(name = "ID", required = true)

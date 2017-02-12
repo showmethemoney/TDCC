@@ -45,6 +45,11 @@ import com.metrics.bean.Denomination;
 public class DENOMINATION
 {
 
+	public DENOMINATION() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlAttribute(name = "ID", required = true)
 	@XmlSchemaType(name = "anySimpleType")
 	protected String id;

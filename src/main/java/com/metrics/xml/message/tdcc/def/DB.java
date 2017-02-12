@@ -43,7 +43,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "DB")
 public class DB {
 
-    @XmlElement(name = "STLM_PRTY")
+    public DB() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "STLM_PRTY")
     protected List<STLMPRTY> stlmprty;
 
     /**

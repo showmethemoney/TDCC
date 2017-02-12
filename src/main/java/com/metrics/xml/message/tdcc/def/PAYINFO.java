@@ -71,7 +71,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "PAY_INFO")
 public class PAYINFO {
 
-    @XmlAttribute(name = "REF")
+    public PAYINFO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ISIN", required = true)

@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class UndwBean
+public class UndwBean extends BcssMessageBean
 {
 	private Undw body = null;
 

@@ -71,6 +71,11 @@ public class CSHLEG
 	@XmlSchemaType(name = "anySimpleType")
 	protected String remitfee;
 
+	public CSHLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public CSHLEG(CshLeg instance) {
 		this( instance.getCshccy(), instance.getCshamt(), instance.getAfttaxamt(), instance.getRemitfee() );
 	}

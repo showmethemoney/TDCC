@@ -42,6 +42,11 @@ import com.metrics.bean.Endorsee;
 public class ENDORSEE
 {
 
+	public ENDORSEE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlAttribute(name = "END_ID")
 	@XmlSchemaType(name = "anySimpleType")
 	protected String endid;

@@ -98,7 +98,12 @@ public class CONSREINOTE {
     @XmlSchemaType(name = "anySimpleType")
     protected String netcshamt;
 
-    /**
+    public CONSREINOTE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the seclegOrREISSUEINFOOrTXSCSHINFO property.
      * 
      * <p>

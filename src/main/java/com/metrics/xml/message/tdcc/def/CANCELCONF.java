@@ -76,7 +76,12 @@ public class CANCELCONF {
     @XmlSchemaType(name = "anySimpleType")
     protected String rdmpval;
 
-    /**
+    public CANCELCONF() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the denomination property.
      * 
      * <p>

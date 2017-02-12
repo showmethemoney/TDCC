@@ -33,7 +33,7 @@ public class SecBlkController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) SecBlkBean model) {
 		try {
-			SECBLKMessage message = new SECBLKMessage();
+			SECBLKMessage message = new SECBLKMessage( model );
 
 			message.setBody( new SECBLK( model.getBody() ) );
 		} catch (Throwable cause) {

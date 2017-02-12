@@ -58,8 +58,12 @@ public class ACCTMOV {
     @XmlAttribute(name = "TRANS_TYPE", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String transtype;
+    
+    public ACCTMOV() {
+		super();
+	}
 
-    /**
+	/**
      * Gets the value of the prtyOrCPRTYOrSECLEG property.
      * 
      * <p>

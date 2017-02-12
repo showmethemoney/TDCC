@@ -55,7 +55,12 @@ import com.metrics.bean.MortgageRelex;
 @XmlRootElement(name = "MORTGAGE_RELEX")
 public class MORTGAGERELEX {
 
-    @XmlElements({
+    public MORTGAGERELEX() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class)
     })

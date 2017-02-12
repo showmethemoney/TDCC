@@ -110,7 +110,12 @@ public class CSHADVICE1 {
     @XmlSchemaType(name = "anySimpleType")
     protected String healinsufee;
 
-    /**
+    public CSHADVICE1() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the prtyOrCPRTYOrSECLEG1 property.
      * 
      * <p>

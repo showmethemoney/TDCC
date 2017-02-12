@@ -33,7 +33,7 @@ public class ModRepoController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ModRepoBean model) {
 		try {
-			MODREPOMessage message = new MODREPOMessage();
+			MODREPOMessage message = new MODREPOMessage( model );
 
 			message.setBody( new MODREPO( model.getBody() ) );
 		} catch (Throwable cause) {

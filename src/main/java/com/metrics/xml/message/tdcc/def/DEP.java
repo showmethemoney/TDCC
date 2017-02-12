@@ -166,6 +166,11 @@ import com.metrics.bean.Dep;
 public class DEP
 {
 
+	public DEP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElements({ @XmlElement(name = "DENOMINATION", type = DENOMINATION.class), @XmlElement(name = "ENDORSEE", type = ENDORSEE.class),
 	        @XmlElement(name = "AGREER", type = AGREER.class), @XmlElement(name = "FLOATING_RATE_INFO", type = FLOATINGRATEINFO.class) })
 	protected List<Object> items;

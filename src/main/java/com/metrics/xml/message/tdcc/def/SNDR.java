@@ -43,7 +43,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "SNDR")
 public class SNDR {
 
-    @XmlElement(name = "BCSS_USER")
+    public SNDR() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "BCSS_USER")
     protected List<BCSSUSER> bcssuser;
 
     /**

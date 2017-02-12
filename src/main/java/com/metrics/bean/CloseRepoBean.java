@@ -7,7 +7,7 @@ package com.metrics.bean;
  *
  */
 
-public class CloseRepoBean
+public class CloseRepoBean extends BcssMessageBean
 {
 	private CloseRepo body = null;
 

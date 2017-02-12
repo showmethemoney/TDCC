@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.BcssMessageBean;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 import com.metrics.xml.message.tdcc.def.CSHADVICE;
 
@@ -18,7 +19,17 @@ import com.metrics.xml.message.tdcc.def.CSHADVICE;
 @XmlRootElement(name = "BCSSMESSAGE")
 public class CSHADVICEMessage extends BCSSMESSAGE
 {
-    @XmlElement(name = "CSH_ADVICE")
+    public CSHADVICEMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CSHADVICEMessage(BcssMessageBean bcssMessageBean) {
+		super( bcssMessageBean.getOrigin(), bcssMessageBean.getTs(), bcssMessageBean.getBcssbusdt(), bcssMessageBean.getMsgtype(), bcssMessageBean.getNarr(),
+		        bcssMessageBean.getSndrref(), bcssMessageBean.getAction(), bcssMessageBean.getResend() );
+	}
+    
+	@XmlElement(name = "CSH_ADVICE")
     protected CSHADVICE body;
 
 	public CSHADVICE getBody() {

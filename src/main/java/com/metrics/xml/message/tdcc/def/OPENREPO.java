@@ -90,6 +90,11 @@ import com.metrics.bean.OpenRepo;
 public class OPENREPO
 {
 
+	public OPENREPO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElements({ @XmlElement(name = "PRTY", type = PRTY.class), @XmlElement(name = "CPRTY", type = CPRTY.class), @XmlElement(name = "PCH", type = PCH.class),
 	        @XmlElement(name = "RPCH", type = RPCH.class), @XmlElement(name = "SEC_LEG", type = SECLEG.class) })
 	protected List<Object> items;

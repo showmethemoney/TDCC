@@ -83,7 +83,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "PRESENTATION_NOTE")
 public class PRESENTATIONNOTE {
 
-    @XmlAttribute(name = "REF", required = true)
+    public PRESENTATIONNOTE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ISIN", required = true)

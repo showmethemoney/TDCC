@@ -61,7 +61,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "DVP_CSH_TRS")
 public class DVPCSHTRS {
 
-    @XmlAttribute(name = "REF")
+    public DVPCSHTRS() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ISIN", required = true)

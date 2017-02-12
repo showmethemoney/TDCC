@@ -123,7 +123,12 @@ public class CONSIGNTINST {
     @XmlSchemaType(name = "anySimpleType")
     protected String gutfee;
     
-    public CONSIGNTINST(ConsigntInst consignInst) {
+    public CONSIGNTINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CONSIGNTINST(ConsigntInst consignInst) {
     	getItems().add( new STLMPRTY( consignInst.getStlmprty() ) );
     	getItems().add( new CSHLEG( consignInst.getCshLeg() ) );
     	getItems().add( new RECEIVERBANK( consignInst.getReceiverBank() ) );

@@ -110,6 +110,11 @@ public class CSHADVICE
 	@XmlSchemaType(name = "anySimpleType")
 	protected String healinsufee;
 
+	public CSHADVICE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public CSHADVICE(CshAdvice cshAdvice) {
 		// @XmlElement(name = "PRTY", type = PRTY.class),
 		// @XmlElement(name = "CPRTY", type = CPRTY.class),

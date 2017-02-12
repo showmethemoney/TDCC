@@ -54,6 +54,11 @@ import com.metrics.bean.Rep;
 public class REP
 {
 
+	public REP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElement(name = "REP_SEC")
 	protected List<REPSEC> repsec;
 	@XmlAttribute(name = "REP_NM")

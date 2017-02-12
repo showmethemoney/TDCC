@@ -34,9 +34,9 @@ public class ConsigntInstController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ConsigntInstBean model) {
 		try {
-			CONSIGNTINSTMessage message = new CONSIGNTINSTMessage();
+			CONSIGNTINSTMessage message = new CONSIGNTINSTMessage( model );
 
-			message.setBody( new CONSIGNTINST( model.getBody() ) ) );
+			message.setBody( new CONSIGNTINST( model.getBody() ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

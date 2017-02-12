@@ -14,7 +14,7 @@ import com.metrics.xml.message.tdcc.def.REP;
 import com.metrics.xml.message.tdcc.xml.REPMessage;
 
 /**
- * @author Ethan Lee 
+ * @author Ethan Lee
  */
 @Controller
 @RequestMapping(value = "/message/Rep")
@@ -33,7 +33,7 @@ public class RepController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) RepBean model) {
 		try {
-			REPMessage message = new REPMessage();
+			REPMessage message = new REPMessage( model );
 
 			message.setBody( new REP( model.getBody() ) );
 		} catch (Throwable cause) {

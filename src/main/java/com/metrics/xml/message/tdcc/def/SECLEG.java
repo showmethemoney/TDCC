@@ -47,7 +47,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "SEC_LEG")
 public class SECLEG {
 
-    @XmlElement(name = "SEC_GEN_LEG")
+    public SECLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "SEC_GEN_LEG")
     protected List<SECGENLEG> items;
     @XmlAttribute(name = "ISIN", required = true)
     @XmlSchemaType(name = "anySimpleType")

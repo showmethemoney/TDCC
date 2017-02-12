@@ -77,7 +77,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "INHT")
 public class INHT {
 
-    @XmlAttribute(name = "REF")
+    public INHT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "PRTY_ID", required = true)

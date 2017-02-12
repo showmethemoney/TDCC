@@ -40,7 +40,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "RES_REQ")
 public class RESREQ {
 
-    @XmlAttribute(name = "PRTY_ID", required = true)
+    public RESREQ() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "PRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String prtyid;
     @XmlAttribute(name = "START_SNDR_REF", required = true)

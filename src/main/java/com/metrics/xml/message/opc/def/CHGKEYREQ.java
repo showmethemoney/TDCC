@@ -35,5 +35,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CHG_KEY_REQ")
 public class CHGKEYREQ {
 
+	public CHGKEYREQ() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 }

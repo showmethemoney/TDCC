@@ -57,7 +57,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "TXS_CSH_INFO")
 public class TXSCSHINFO {
 
-    @XmlAttribute(name = "CSH_SYS")
+    public TXSCSHINFO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "CSH_SYS")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String cshsys;
     @XmlAttribute(name = "REI_AFT_TAX_AMT", required = true)

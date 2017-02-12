@@ -40,25 +40,25 @@ public class TestDEPMessage
 	@Ignore
 	@Test
 	public void testMarshall() {
-		try {
-			DEPMessage message = new DEPMessage();
-
-			JAXBContext jaxbContext = JAXBContext.newInstance( message.getClass() );
-			Marshaller marshaller = jaxbContext.createMarshaller();
-			// output pretty printed
-			marshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, false );
-
-			message.setORIGIN( "hello" );
-			message.setBody( new DEP() );
-
-			Writer writer = new StringWriter();
-
-			marshaller.marshal( message, writer );
-
-			logger.info( writer.toString() );
-		} catch (Throwable cause) {
-			logger.error( cause.getMessage(), cause );
-		}
+//		try {
+//			DEPMessage message = new DEPMessage();
+//
+//			JAXBContext jaxbContext = JAXBContext.newInstance( message.getClass() );
+//			Marshaller marshaller = jaxbContext.createMarshaller();
+//			// output pretty printed
+//			marshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, false );
+//
+//			message.setORIGIN( "hello" );
+//			message.setBody( new DEP() );
+//
+//			Writer writer = new StringWriter();
+//
+//			marshaller.marshal( message, writer );
+//
+//			logger.info( writer.toString() );
+//		} catch (Throwable cause) {
+//			logger.error( cause.getMessage(), cause );
+//		}
 	}
 
 	/**

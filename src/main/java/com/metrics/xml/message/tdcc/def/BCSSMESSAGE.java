@@ -197,192 +197,192 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "cshadvice",
-    "cshpriority",
-    "cancelconf",
-    "resreq",
-    "repreq",
-    "rep",
-    "lcnotifs",
-    "rtep",
-    "im",
-    "dep",
-    "undw",
-    "cshtransfer",
-    "consigntinst",
-    "consigntnote",
-    "presentationnote",
-    "rdmpnote",
-    "reiinst",
-    "reinote",
-    "erinst",
-    "reminst",
-    "nprdminst",
-    "npwdinst",
-    "invacctinfoinst",
-    "mortgageregex",
-    "mortgagerelex",
-    "mortgageselreg",
-    "mortgagebuysel",
-    "openrepo",
-    "closerepo",
-    "modrepo",
-    "brkrepo",
-    "secstlm",
-    "oat",
-    "secblk",
-    "cshnotice",
-    "lcnotifa",
-    "lcnotifk",
-    "cshadvice1",
-    "fltrans",
-    "stquery",
-    "basinfo",
-    "reginfo",
-    "payinfo",
-    "dvpundw",
-    "dvpcshtrs",
-    "sectrans",
-    "transstnot",
-    "inht",
-    "court",
-    "pymlist",
-    "pymsn",
-    "pymnot",
-    "rmexchange",
-    "rmrelex",
-    "rmregex",
-    "acctmov",
-    "lcnotifrm",
-    "rinfo",
-    "vmun",
-    "hli",
-    "brostlm",
-    "consreiinst",
-    "consreinote",
-    "depfnb",
-    "depfnbnote",
-    "issuerateinfoinst"
-})
-@XmlRootElement(name = "BCSSMESSAGE")
+//@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlType(name = "", propOrder = {
+//    "cshadvice",
+//    "cshpriority",
+//    "cancelconf",
+//    "resreq",
+//    "repreq",
+//    "rep",
+//    "lcnotifs",
+//    "rtep",
+//    "im",
+//    "dep",
+//    "undw",
+//    "cshtransfer",
+//    "consigntinst",
+//    "consigntnote",
+//    "presentationnote",
+//    "rdmpnote",
+//    "reiinst",
+//    "reinote",
+//    "erinst",
+//    "reminst",
+//    "nprdminst",
+//    "npwdinst",
+//    "invacctinfoinst",
+//    "mortgageregex",
+//    "mortgagerelex",
+//    "mortgageselreg",
+//    "mortgagebuysel",
+//    "openrepo",
+//    "closerepo",
+//    "modrepo",
+//    "brkrepo",
+//    "secstlm",
+//    "oat",
+//    "secblk",
+//    "cshnotice",
+//    "lcnotifa",
+//    "lcnotifk",
+//    "cshadvice1",
+//    "fltrans",
+//    "stquery",
+//    "basinfo",
+//    "reginfo",
+//    "payinfo",
+//    "dvpundw",
+//    "dvpcshtrs",
+//    "sectrans",
+//    "transstnot",
+//    "inht",
+//    "court",
+//    "pymlist",
+//    "pymsn",
+//    "pymnot",
+//    "rmexchange",
+//    "rmrelex",
+//    "rmregex",
+//    "acctmov",
+//    "lcnotifrm",
+//    "rinfo",
+//    "vmun",
+//    "hli",
+//    "brostlm",
+//    "consreiinst",
+//    "consreinote",
+//    "depfnb",
+//    "depfnbnote",
+//    "issuerateinfoinst"
+//})
+//@XmlRootElement(name = "BCSSMESSAGE")
 public class BCSSMESSAGE {
 
 
 
-    @XmlElement(name = "CANCEL_CONF")
+//    @XmlElement(name = "CANCEL_CONF")
     protected CANCELCONF cancelconf;
-    @XmlElement(name = "RES_REQ")
+//    @XmlElement(name = "RES_REQ")
     protected RESREQ resreq;
 
 
 
-    @XmlElement(name = "RTEP")
+//    @XmlElement(name = "RTEP")
     protected RTEP rtep;
-    @XmlElement(name = "IM")
+//    @XmlElement(name = "IM")
     protected IM im;
 
 
-    @XmlElement(name = "CSH_TRANSFER")
+//    @XmlElement(name = "CSH_TRANSFER")
     protected CSHTRANSFER cshtransfer;
 
-    @XmlElement(name = "CONSIGNT_NOTE")
+//    @XmlElement(name = "CONSIGNT_NOTE")
     protected CONSIGNTNOTE consigntnote;
-    @XmlElement(name = "PRESENTATION_NOTE")
+//    @XmlElement(name = "PRESENTATION_NOTE")
     protected PRESENTATIONNOTE presentationnote;
-    @XmlElement(name = "RDMP_NOTE")
+//    @XmlElement(name = "RDMP_NOTE")
     protected RDMPNOTE rdmpnote;
 
-    @XmlElement(name = "REI_NOTE")
+//    @XmlElement(name = "REI_NOTE")
     protected REINOTE reinote;
 
-    @XmlElement(name = "REM_INST")
+//    @XmlElement(name = "REM_INST")
     protected REMINST reminst;
-    @XmlElement(name = "NPRDM_INST")
+//    @XmlElement(name = "NPRDM_INST")
     protected NPRDMINST nprdminst;
-    @XmlElement(name = "NPWD_INST")
+//    @XmlElement(name = "NPWD_INST")
     protected NPWDINST npwdinst;
-    @XmlElement(name = "INVACCTINFO_INST")
+//    @XmlElement(name = "INVACCTINFO_INST")
     protected INVACCTINFOINST invacctinfoinst;
 
 
-    @XmlElement(name = "MORTGAGE_SELREG")
+//    @XmlElement(name = "MORTGAGE_SELREG")
     protected MORTGAGESELREG mortgageselreg;
-    @XmlElement(name = "MORTGAGE_BUYSEL")
+//    @XmlElement(name = "MORTGAGE_BUYSEL")
     protected MORTGAGEBUYSEL mortgagebuysel;
 
 
 
-    @XmlElement(name = "BRK_REPO")
+//    @XmlElement(name = "BRK_REPO")
     protected BRKREPO brkrepo;
 
-    @XmlElement(name = "OAT")
+//    @XmlElement(name = "OAT")
     protected OAT oat;
 
-    @XmlElement(name = "CSH_NOTICE")
+//    @XmlElement(name = "CSH_NOTICE")
     protected CSHNOTICE cshnotice;
-    @XmlElement(name = "LC_NOTIFA")
+//    @XmlElement(name = "LC_NOTIFA")
     protected LCNOTIFA lcnotifa;
-    @XmlElement(name = "LC_NOTIFK")
+//    @XmlElement(name = "LC_NOTIFK")
     protected LCNOTIFK lcnotifk;
-    @XmlElement(name = "CSH_ADVICE1")
+//    @XmlElement(name = "CSH_ADVICE1")
     protected CSHADVICE1 cshadvice1;
-    @XmlElement(name = "FL_TRANS")
+//    @XmlElement(name = "FL_TRANS")
     protected FLTRANS fltrans;
-    @XmlElement(name = "ST_QUERY")
+//    @XmlElement(name = "ST_QUERY")
     protected STQUERY stquery;
-    @XmlElement(name = "BAS_INFO")
+//    @XmlElement(name = "BAS_INFO")
     protected BASINFO basinfo;
-    @XmlElement(name = "REG_INFO")
+//    @XmlElement(name = "REG_INFO")
     protected REGINFO reginfo;
-    @XmlElement(name = "PAY_INFO")
+//    @XmlElement(name = "PAY_INFO")
     protected PAYINFO payinfo;
-    @XmlElement(name = "DVP_UNDW")
+//    @XmlElement(name = "DVP_UNDW")
     protected DVPUNDW dvpundw;
-    @XmlElement(name = "DVP_CSH_TRS")
+//    @XmlElement(name = "DVP_CSH_TRS")
     protected DVPCSHTRS dvpcshtrs;
-    @XmlElement(name = "SEC_TRANS")
+//    @XmlElement(name = "SEC_TRANS")
     protected SECTRANS sectrans;
-    @XmlElement(name = "TRANS_STNOT")
+//    @XmlElement(name = "TRANS_STNOT")
     protected TRANSSTNOT transstnot;
-    @XmlElement(name = "INHT")
+//    @XmlElement(name = "INHT")
     protected INHT inht;
-    @XmlElement(name = "COURT")
+//    @XmlElement(name = "COURT")
     protected COURT court;
-    @XmlElement(name = "PYM_LIST")
+//    @XmlElement(name = "PYM_LIST")
     protected PYMLIST pymlist;
-    @XmlElement(name = "PYM_SN")
+//    @XmlElement(name = "PYM_SN")
     protected PYMSN pymsn;
-    @XmlElement(name = "PYM_NOT")
+//    @XmlElement(name = "PYM_NOT")
     protected PYMNOT pymnot;
-    @XmlElement(name = "RM_EXCHANGE")
+//    @XmlElement(name = "RM_EXCHANGE")
     protected RMEXCHANGE rmexchange;
-    @XmlElement(name = "RM_RELEX")
+//    @XmlElement(name = "RM_RELEX")
     protected RMRELEX rmrelex;
-    @XmlElement(name = "RM_REGEX")
+//    @XmlElement(name = "RM_REGEX")
     protected RMREGEX rmregex;
-    @XmlElement(name = "ACCT_MOV")
+//    @XmlElement(name = "ACCT_MOV")
     protected ACCTMOV acctmov;
-    @XmlElement(name = "LC_NOTIFRM")
+//    @XmlElement(name = "LC_NOTIFRM")
     protected LCNOTIFRM lcnotifrm;
-    @XmlElement(name = "R_INFO")
+//    @XmlElement(name = "R_INFO")
     protected RINFO rinfo;
-    @XmlElement(name = "VMUN")
+//    @XmlElement(name = "VMUN")
     protected VMUN vmun;
-    @XmlElement(name = "HLI")
+//    @XmlElement(name = "HLI")
     protected HLI hli;
-    @XmlElement(name = "BRO_STLM")
+//    @XmlElement(name = "BRO_STLM")
     protected BROSTLM brostlm;
     @XmlElement(name = "CONS_REI_INST")
     protected CONSREIINST consreiinst;
-    @XmlElement(name = "CONS_REI_NOTE")
+//    @XmlElement(name = "CONS_REI_NOTE")
     protected CONSREINOTE consreinote;
-    @XmlElement(name = "DEP_FNB")
+//    @XmlElement(name = "DEP_FNB")
     protected DEPFNB depfnb;
-    @XmlElement(name = "DEP_FNB_NOTE")
+//    @XmlElement(name = "DEP_FNB_NOTE")
     protected DEPFNBNOTE depfnbnote;
-    @XmlElement(name = "ISSUERATEINFO_INST")
+//    @XmlElement(name = "ISSUERATEINFO_INST")
     protected ISSUERATEINFOINST issuerateinfoinst;
     
  

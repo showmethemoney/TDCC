@@ -38,7 +38,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CHG_KEY_CFRM")
 public class CHGKEYCFRM {
 
-    @XmlAttribute(name = "RANDOM_NO", required = true)
+    public CHGKEYCFRM() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "RANDOM_NO", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String randomno;
 

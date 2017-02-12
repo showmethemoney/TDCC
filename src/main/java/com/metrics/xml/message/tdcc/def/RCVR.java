@@ -43,7 +43,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "RCVR")
 public class RCVR {
 
-    @XmlElement(name = "BCSS_USER")
+    public RCVR() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "BCSS_USER")
     protected List<BCSSUSER> bcssuser;
 
     /**

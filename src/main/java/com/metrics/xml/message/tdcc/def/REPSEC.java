@@ -51,7 +51,12 @@ import com.metrics.bean.RepSec;
 @XmlRootElement(name = "REP_SEC")
 public class REPSEC {
 
-    @XmlElements({
+    public REPSEC() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "REP_SEC_VAL", type = REPSECVAL.class),
         @XmlElement(name = "REP_SEC", type = REPSEC.class)
     })

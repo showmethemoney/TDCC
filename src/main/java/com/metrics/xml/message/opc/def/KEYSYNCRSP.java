@@ -35,5 +35,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "KEY_SYNC_RSP")
 public class KEYSYNCRSP {
 
+	public KEYSYNCRSP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 }

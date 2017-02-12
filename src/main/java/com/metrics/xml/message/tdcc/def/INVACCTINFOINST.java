@@ -102,7 +102,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "INVACCTINFO_INST")
 public class INVACCTINFOINST {
 
-    @XmlElement(name = "STLM_PRTY")
+    public INVACCTINFOINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "STLM_PRTY")
     protected List<STLMPRTY> stlmprty;
     @XmlAttribute(name = "INVS_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
