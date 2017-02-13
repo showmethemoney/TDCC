@@ -14,7 +14,12 @@ import com.metrics.xml.message.opc.def.KEYSYNCRSP;
 @XmlRootElement(name = "OPCMESSAGE")
 public class KEYSYNCRSPMessage extends OPCMESSAGE
 {
-    @XmlElement(name = "KEY_SYNC_RSP")
+    public KEYSYNCRSPMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "KEY_SYNC_RSP")
     protected KEYSYNCRSP body;
 
 	public KEYSYNCRSP getBody() {

@@ -43,7 +43,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "REM_PRT")
 public class REMPRT {
 
-    @XmlElement(name = "CSH_LEG")
+    public REMPRT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "CSH_LEG")
     protected List<CSHLEG> cshleg;
 
     /**

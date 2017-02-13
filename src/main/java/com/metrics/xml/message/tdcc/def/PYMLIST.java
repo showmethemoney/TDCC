@@ -113,7 +113,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "PYM_LIST")
 public class PYMLIST {
 
-    @XmlAttribute(name = "REF", required = true)
+    public PYMLIST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "PSTB_INV_ACCT", required = true)

@@ -10,7 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/Erinst" modelAttribute="model">
+	<form:form method="POST" action="hello" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
@@ -34,44 +34,12 @@
 					<td><form:label path="body.prty.stlmprty.invscshacct">Ref</form:label></td>
 					<td><form:input path="body.prty.stlmprty.invscshacct" /></td>
 				</tr>
-				
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.prtyid">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.prtyid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctid">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.acctid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctnm">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.acctnm" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprty.stlmprty.invscshacct">Ref</form:label></td>
-					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
-				</tr>
 
 				<tr>
 					<td><form:label path="body.ref">Ref</form:label></td>
 					<td><form:input path="body.ref" /></td>
 				</tr>
-				<tr>
-					<td><form:label path="body.stlmdt">Ref</form:label></td>
-					<td><form:input path="body.stlmdt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cntrid">Ref</form:label></td>
-					<td><form:input path="body.cntrid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.prtyid">Ref</form:label></td>
-					<td><form:input path="body.prtyid" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cprtyid">Ref</form:label></td>
-					<td><form:input path="body.cprtyid" /></td>
-				</tr>
+			 
 
 				<tr>
 					<td><input type="submit" value="Submit" /></td>

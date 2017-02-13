@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class ReiInstBean
+public class ReiInstBean extends BcssMessageBean
 {
 	private ReiInst body = null;
 

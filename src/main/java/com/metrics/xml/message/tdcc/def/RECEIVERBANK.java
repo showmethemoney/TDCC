@@ -5,11 +5,11 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -18,11 +18,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.ReceiverBank;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -44,177 +47,180 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "cshleg"
-})
+@XmlType(name = "", propOrder = { "cshleg" })
 @XmlRootElement(name = "RECEIVER_BANK")
-public class RECEIVERBANK {
+public class RECEIVERBANK
+{
 
-    @XmlElement(name = "CSH_LEG")
-    protected List<CSHLEG> cshleg;
-    @XmlAttribute(name = "ID", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String id;
-    @XmlAttribute(name = "BNFY_NM", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String bnfynm;
-    @XmlAttribute(name = "ACCT_ID", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String acctid;
-    @XmlAttribute(name = "SWIFT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String swift;
-    @XmlAttribute(name = "ORG_SNDR_REF")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String orgsndrref;
+	public RECEIVERBANK() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Gets the value of the cshleg property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the cshleg property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getCSHLEG().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link CSHLEG }
-     * 
-     * 
-     */
-    public List<CSHLEG> getCSHLEG() {
-        if (cshleg == null) {
-            cshleg = new ArrayList<CSHLEG>();
-        }
-        return this.cshleg;
+	@XmlElement(name = "CSH_LEG")
+	protected List<CSHLEG> cshleg;
+	@XmlAttribute(name = "ID", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String id;
+	@XmlAttribute(name = "BNFY_NM", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String bnfynm;
+	@XmlAttribute(name = "ACCT_ID", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String acctid;
+	@XmlAttribute(name = "SWIFT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String swift;
+	@XmlAttribute(name = "ORG_SNDR_REF")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String orgsndrref;
+
+	public RECEIVERBANK(ReceiverBank instance) {
+    	this( null , instance.getId(), instance.getBnfynm(), instance.getAcctid(), instance.getSwift(), instance.getOrgsndrref() );
+    	
+    	getCSHLEG().add( new CSHLEG( instance.getCshLeg() ) );
     }
 
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getID() {
-        return id;
-    }
+	public RECEIVERBANK(List<CSHLEG> cshleg, String id, String bnfynm, String acctid, String swift, String orgsndrref) {
+		super();
+		this.cshleg = cshleg;
+		this.id = id;
+		this.bnfynm = bnfynm;
+		this.acctid = acctid;
+		this.swift = swift;
+		this.orgsndrref = orgsndrref;
+	}
 
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setID(String value) {
-        this.id = value;
-    }
+	/**
+	 * Gets the value of the cshleg property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present
+	 * inside the JAXB object. This is why there is not a <CODE>set</CODE> method for the cshleg property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getCSHLEG().add( newItem );
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link CSHLEG }
+	 * 
+	 * 
+	 */
+	public List<CSHLEG> getCSHLEG() {
+		if (cshleg == null) {
+			cshleg = new ArrayList<CSHLEG>();
+		}
+		return this.cshleg;
+	}
 
-    /**
-     * Gets the value of the bnfynm property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBNFYNM() {
-        return bnfynm;
-    }
+	/**
+	 * Gets the value of the id property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getID() {
+		return id;
+	}
 
-    /**
-     * Sets the value of the bnfynm property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBNFYNM(String value) {
-        this.bnfynm = value;
-    }
+	/**
+	 * Sets the value of the id property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setID(String value) {
+		this.id = value;
+	}
 
-    /**
-     * Gets the value of the acctid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getACCTID() {
-        return acctid;
-    }
+	/**
+	 * Gets the value of the bnfynm property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getBNFYNM() {
+		return bnfynm;
+	}
 
-    /**
-     * Sets the value of the acctid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setACCTID(String value) {
-        this.acctid = value;
-    }
+	/**
+	 * Sets the value of the bnfynm property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setBNFYNM(String value) {
+		this.bnfynm = value;
+	}
 
-    /**
-     * Gets the value of the swift property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSWIFT() {
-        return swift;
-    }
+	/**
+	 * Gets the value of the acctid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getACCTID() {
+		return acctid;
+	}
 
-    /**
-     * Sets the value of the swift property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSWIFT(String value) {
-        this.swift = value;
-    }
+	/**
+	 * Sets the value of the acctid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setACCTID(String value) {
+		this.acctid = value;
+	}
 
-    /**
-     * Gets the value of the orgsndrref property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getORGSNDRREF() {
-        return orgsndrref;
-    }
+	/**
+	 * Gets the value of the swift property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSWIFT() {
+		return swift;
+	}
 
-    /**
-     * Sets the value of the orgsndrref property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setORGSNDRREF(String value) {
-        this.orgsndrref = value;
-    }
+	/**
+	 * Sets the value of the swift property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSWIFT(String value) {
+		this.swift = value;
+	}
+
+	/**
+	 * Gets the value of the orgsndrref property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getORGSNDRREF() {
+		return orgsndrref;
+	}
+
+	/**
+	 * Sets the value of the orgsndrref property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setORGSNDRREF(String value) {
+		this.orgsndrref = value;
+	}
 
 }

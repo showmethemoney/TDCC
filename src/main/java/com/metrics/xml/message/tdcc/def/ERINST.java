@@ -10,6 +10,7 @@ package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -19,6 +20,8 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.metrics.bean.Erinst;
 
 
 /**
@@ -67,7 +70,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "ER_INST")
 public class ERINST {
 
-    @XmlElement(name = "STLM_PRTY")
+    public ERINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "STLM_PRTY")
     protected List<STLMPRTY> stlmprty;
     @XmlAttribute(name = "ISIN", required = true)
     @XmlSchemaType(name = "anySimpleType")
@@ -93,7 +101,19 @@ public class ERINST {
     @XmlAttribute(name = "CSH_SYS")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String cshsys;
-
+    
+    public ERINST(Erinst erinst) {
+    	getSTLMPRTY().add( new STLMPRTY( erinst.getStlmprty() ) );
+    	setBSPRC( erinst.getBsprc() );
+    	setCSHSYS( erinst.getCshsys() );
+    	setFVAL( erinst.getFval() );
+    	setISIN( erinst.getIsin() );
+    	setISSDAYS( erinst.getIssdays() );
+    	setISSRT( erinst.getIssrt() );
+    	setMATDT( erinst.getMatdt() );
+    	setTAXAMT( erinst.getTaxamt() );
+    }
+    
     /**
      * Gets the value of the stlmprty property.
      * 

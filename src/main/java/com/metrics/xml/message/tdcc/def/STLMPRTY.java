@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.StlmPrty;
+
 
 /**
  * <p>Java class for anonymous complex type.
@@ -41,7 +43,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "STLM_PRTY")
 public class STLMPRTY {
 
-    @XmlAttribute(name = "PRTY_ID", required = true)
+    public STLMPRTY() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "PRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String prtyid;
     @XmlAttribute(name = "ACCT_ID")
@@ -53,8 +60,20 @@ public class STLMPRTY {
     @XmlAttribute(name = "INVS_CSH_ACCT")
     @XmlSchemaType(name = "anySimpleType")
     protected String invscshacct;
+    
+    public STLMPRTY(StlmPrty instance) {
+		this( instance.getPrtyid(), instance.getAcctid(), instance.getAcctnm(), instance.getInvscshacct() );
+	}
+    
+    public STLMPRTY(String prtyid, String acctid, String acctnm, String invscshacct) {
+		super();
+		this.prtyid = prtyid;
+		this.acctid = acctid;
+		this.acctnm = acctnm;
+		this.invscshacct = invscshacct;
+	}
 
-    /**
+	/**
      * Gets the value of the prtyid property.
      * 
      * @return

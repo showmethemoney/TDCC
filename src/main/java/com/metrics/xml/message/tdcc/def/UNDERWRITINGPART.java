@@ -5,7 +5,6 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,11 +14,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.UnderWritingPart;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -38,88 +40,96 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "UNDERWRITINGPART")
-public class UNDERWRITINGPART {
+public class UNDERWRITINGPART
+{
 
-    @XmlAttribute(name = "DNM_ID", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String dnmid;
-    @XmlAttribute(name = "RDMP_SEC_AMT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String rdmpsecamt;
-    @XmlAttribute(name = "TAX_AMT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String taxamt;
+	public UNDERWRITINGPART() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Gets the value of the dnmid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDNMID() {
-        return dnmid;
-    }
+	@XmlAttribute(name = "DNM_ID", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String dnmid;
+	@XmlAttribute(name = "RDMP_SEC_AMT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String rdmpsecamt;
+	@XmlAttribute(name = "TAX_AMT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String taxamt;
 
-    /**
-     * Sets the value of the dnmid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDNMID(String value) {
-        this.dnmid = value;
-    }
+	public UNDERWRITINGPART(UnderWritingPart instance) {
+		this( instance.getDnmid(), instance.getRdmpsecamt(), instance.getTaxamt() );
+	}
 
-    /**
-     * Gets the value of the rdmpsecamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRDMPSECAMT() {
-        return rdmpsecamt;
-    }
+	public UNDERWRITINGPART(String dnmid, String rdmpsecamt, String taxamt) {
+		super();
+		this.dnmid = dnmid;
+		this.rdmpsecamt = rdmpsecamt;
+		this.taxamt = taxamt;
+	}
 
-    /**
-     * Sets the value of the rdmpsecamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRDMPSECAMT(String value) {
-        this.rdmpsecamt = value;
-    }
+	/**
+	 * Gets the value of the dnmid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDNMID() {
+		return dnmid;
+	}
 
-    /**
-     * Gets the value of the taxamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTAXAMT() {
-        return taxamt;
-    }
+	/**
+	 * Sets the value of the dnmid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDNMID(String value) {
+		this.dnmid = value;
+	}
 
-    /**
-     * Sets the value of the taxamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTAXAMT(String value) {
-        this.taxamt = value;
-    }
+	/**
+	 * Gets the value of the rdmpsecamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRDMPSECAMT() {
+		return rdmpsecamt;
+	}
+
+	/**
+	 * Sets the value of the rdmpsecamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRDMPSECAMT(String value) {
+		this.rdmpsecamt = value;
+	}
+
+	/**
+	 * Gets the value of the taxamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTAXAMT() {
+		return taxamt;
+	}
+
+	/**
+	 * Sets the value of the taxamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setTAXAMT(String value) {
+		this.taxamt = value;
+	}
 
 }

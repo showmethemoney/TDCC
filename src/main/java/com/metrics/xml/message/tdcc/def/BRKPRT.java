@@ -46,7 +46,12 @@ public class BRKPRT {
     @XmlElement(name = "CSH_LEG")
     protected List<CSHLEG> cshleg;
 
-    /**
+    public BRKPRT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the cshleg property.
      * 
      * <p>

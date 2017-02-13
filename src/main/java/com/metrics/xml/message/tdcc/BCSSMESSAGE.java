@@ -16,6 +16,23 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.NONE)
 public abstract class BCSSMESSAGE implements Serializable
 {
+	public BCSSMESSAGE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public BCSSMESSAGE(String origin, String ts, String bcssbusdt, String msgtype, String narr, String sndrref, String action, String resend) {
+		super();
+		this.origin = origin;
+		this.ts = ts;
+		this.bcssbusdt = bcssbusdt;
+		this.msgtype = msgtype;
+		this.narr = narr;
+		this.sndrref = sndrref;
+		this.action = action;
+		this.resend = resend;
+	}
+
 	@XmlAttribute(name = "ORIGIN", required = true)
 	@XmlSchemaType(name = "anySimpleType")
 	protected String origin;

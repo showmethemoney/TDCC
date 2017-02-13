@@ -66,7 +66,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "LC_NOTIFRM")
 public class LCNOTIFRM {
 
-    @XmlElements({
+    public LCNOTIFRM() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "PRTY", type = PRTY.class),
         @XmlElement(name = "CPRTY", type = CPRTY.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class)

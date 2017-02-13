@@ -39,7 +39,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "REMAIN_PART")
 public class REMAINPART {
 
-    @XmlAttribute(name = "UN_CAP_AMT")
+    public REMAINPART() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "UN_CAP_AMT")
     @XmlSchemaType(name = "anySimpleType")
     protected String uncapamt;
     @XmlAttribute(name = "UN_INT_AMT")

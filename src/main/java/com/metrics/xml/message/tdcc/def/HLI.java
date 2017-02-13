@@ -64,7 +64,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "HLI")
 public class HLI {
 
-    @XmlAttribute(name = "ISIN", required = true)
+    public HLI() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "ISIN", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String isin;
     @XmlAttribute(name = "RDM_DT", required = true)

@@ -52,7 +52,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "SEC_GEN_LEG")
 public class SECGENLEG {
 
-    @XmlElements({
+    public SECGENLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "SEC_UNITS_LEG", type = SECUNITSLEG.class),
         @XmlElement(name = "FRST_LEG", type = FRSTLEG.class),
         @XmlElement(name = "SCND_LEG", type = SCNDLEG.class),
@@ -65,8 +70,15 @@ public class SECGENLEG {
     @XmlAttribute(name = "SEC_AMT")
     @XmlSchemaType(name = "anySimpleType")
     protected String secamt;
+    
+    public SECGENLEG(List<Object> items, String genid, String secamt) {
+		super();
+		this.items = items;
+		this.genid = genid;
+		this.secamt = secamt;
+	}
 
-    /**
+	/**
      * Gets the value of the secunitslegOrFRSTLEGOrSCNDLEG property.
      * 
      * <p>

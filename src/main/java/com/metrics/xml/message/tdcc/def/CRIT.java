@@ -5,7 +5,6 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,11 +14,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.Crit;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -37,61 +39,71 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "CRIT")
-public class CRIT {
+public class CRIT
+{
 
-    @XmlAttribute(name = "CRIT_NM")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String critnm;
-    @XmlAttribute(name = "CRIT_VAL")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String critval;
+	@XmlAttribute(name = "CRIT_NM")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String critnm;
+	@XmlAttribute(name = "CRIT_VAL")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String critval;
 
-    /**
-     * Gets the value of the critnm property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCRITNM() {
-        return critnm;
-    }
+	public CRIT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Sets the value of the critnm property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCRITNM(String value) {
-        this.critnm = value;
-    }
+	public CRIT(Crit instance) {
+		this( instance.getCritnm(), instance.getCritval() );
+	}
 
-    /**
-     * Gets the value of the critval property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCRITVAL() {
-        return critval;
-    }
+	public CRIT(String critnm, String critval) {
+		super();
+		this.critnm = critnm;
+		this.critval = critval;
+	}
 
-    /**
-     * Sets the value of the critval property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCRITVAL(String value) {
-        this.critval = value;
-    }
+	/**
+	 * Gets the value of the critnm property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCRITNM() {
+		return critnm;
+	}
+
+	/**
+	 * Sets the value of the critnm property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCRITNM(String value) {
+		this.critnm = value;
+	}
+
+	/**
+	 * Gets the value of the critval property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCRITVAL() {
+		return critval;
+	}
+
+	/**
+	 * Sets the value of the critval property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCRITVAL(String value) {
+		this.critval = value;
+	}
 
 }

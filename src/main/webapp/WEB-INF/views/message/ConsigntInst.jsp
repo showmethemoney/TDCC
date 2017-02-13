@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,8 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/ConsigntInst"
-		modelAttribute="model">
+	<form:form method="POST" action="ConsigntInst" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
@@ -39,7 +37,16 @@
 
 				<tr>
 					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.cshLeg.cshccy" /></td>
+					<td><form:select path="body.cshLeg.cshccy"> 
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.cshLeg.cshamt">Ref</form:label></td>
@@ -56,7 +63,16 @@
 
 				<tr>
 					<td><form:label path="body.receiverBank.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.receiverBank.cshLeg.cshccy" /></td>
+					<td><form:select path="body.receiverBank.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.receiverBank.cshLeg.cshamt">Ref</form:label></td>

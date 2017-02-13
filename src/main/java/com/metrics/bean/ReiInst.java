@@ -6,7 +6,7 @@ public class ReiInst
 	private SecLeg secLeg = null;
 	private CshLeg cshLeg = null;
 	private ReceiverBank receiverBank = null;
-	private StlmPrty stlmPrty = null;
+	private StlmPrty stlmprty = null;
 	private String reiisin = null;
 	private String stlmdt = null;
 	private String bsprc = null;
@@ -41,12 +41,12 @@ public class ReiInst
 		this.receiverBank = receiverBank;
 	}
 
-	public StlmPrty getStlmPrty() {
-		return stlmPrty;
+	public StlmPrty getStlmprty() {
+		return stlmprty;
 	}
 
-	public void setStlmPrty(StlmPrty stlmPrty) {
-		this.stlmPrty = stlmPrty;
+	public void setStlmprty(StlmPrty stlmprty) {
+		this.stlmprty = stlmprty;
 	}
 
 	public String getReiisin() {

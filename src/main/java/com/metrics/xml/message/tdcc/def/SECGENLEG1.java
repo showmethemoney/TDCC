@@ -50,7 +50,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "SEC_GEN_LEG1")
 public class SECGENLEG1 {
 
-    @XmlElements({
+    public SECGENLEG1() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "SEC_UNITS_LEG", type = SECUNITSLEG.class),
         @XmlElement(name = "FRST_LEG1", type = FRSTLEG1 .class),
         @XmlElement(name = "SCND_LEG", type = SCNDLEG.class)

@@ -14,6 +14,11 @@ import com.metrics.xml.message.opc.def.KEYSYNC;
 @XmlRootElement(name = "OPCMESSAGE")
 public class KEYSYNCMessage extends OPCMESSAGE
 {
+	public KEYSYNCMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@XmlElement(name = "KEY_SYNC")
 	protected KEYSYNC body;
 

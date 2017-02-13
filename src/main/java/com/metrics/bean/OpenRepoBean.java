@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class OpenRepoBean
+public class OpenRepoBean extends BcssMessageBean
 {
 	private OpenRepo body = null;
 

@@ -49,7 +49,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "OAT")
 public class OAT {
 
-    @XmlElement(name = "SEC_LEG")
+    public OAT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "SEC_LEG")
     protected List<SECLEG> secleg;
     @XmlAttribute(name = "PRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")

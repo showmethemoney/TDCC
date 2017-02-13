@@ -5,11 +5,11 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -21,11 +21,15 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.metrics.bean.MortgageRegex;
+
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -55,156 +59,187 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "items"
-})
+@XmlType(name = "", propOrder = { "items" })
 @XmlRootElement(name = "MORTGAGE_REGEX")
-public class MORTGAGEREGEX {
+public class MORTGAGEREGEX
+{
 
-    @XmlElements({
-        @XmlElement(name = "PRTY", type = PRTY.class),
-        @XmlElement(name = "CPRTY", type = CPRTY.class),
-        @XmlElement(name = "SEC_LEG", type = SECLEG.class)
-    })
-    protected List<Object> items;
-    @XmlAttribute(name = "REF")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String ref;
-    @XmlAttribute(name = "STLM_DT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String stlmdt;
-    @XmlAttribute(name = "CNTR_ID")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String cntrid;
-    @XmlAttribute(name = "DEAL_SIDE")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String dealside;
+	public MORTGAGEREGEX() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Gets the value of the prtyOrCPRTYOrSECLEG property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the prtyOrCPRTYOrSECLEG property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPRTYOrCPRTYOrSECLEG().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link PRTY }
-     * {@link CPRTY }
-     * {@link SECLEG }
-     * 
-     * 
-     */
-    public List<Object> getItems() {
-        if (items == null) {
-            items = new ArrayList<Object>();
-        }
-        return this.items;
-    }
+	@XmlElements({ @XmlElement(name = "PRTY", type = PRTY.class), @XmlElement(name = "CPRTY", type = CPRTY.class),
+	        @XmlElement(name = "SEC_LEG", type = SECLEG.class) })
+	protected List<Object> items;
+	@XmlAttribute(name = "REF")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String ref;
+	@XmlAttribute(name = "STLM_DT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String stlmdt;
+	@XmlAttribute(name = "CNTR_ID")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String cntrid;
+	@XmlAttribute(name = "DEAL_SIDE")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String dealside;
 
-    /**
-     * Gets the value of the ref property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getREF() {
-        return ref;
-    }
+	public MORTGAGEREGEX(MortgageRegex mortgageRegex) {
+		// @XmlElement(name = "PRTY", type = PRTY.class),
+		// @XmlElement(name = "CPRTY", type = CPRTY.class),
+		// @XmlElement(name = "SEC_LEG", type = SECLEG.class)
+		PRTY prty = new PRTY();
+		prty.getSTLMPRTY().add( new STLMPRTY( mortgageRegex.getPrty().getStlmprty() ) );
+		CPRTY cprty = new CPRTY();
+		cprty.getSTLMPRTY().add( new STLMPRTY( mortgageRegex.getCprty().getStlmprty() ) );
+		getItems().add( prty );
+		getItems().add( cprty );
 
-    /**
-     * Sets the value of the ref property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setREF(String value) {
-        this.ref = value;
-    }
+		SECLEG secLeg = new SECLEG( null, mortgageRegex.getSecLeg().getIsin(), mortgageRegex.getSecLeg().getMgcntrid() );
 
-    /**
-     * Gets the value of the stlmdt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSTLMDT() {
-        return stlmdt;
-    }
+		// @XmlElement(name = "SEC_UNITS_LEG", type = SECUNITSLEG.class),
+		// @XmlElement(name = "FRST_LEG", type = FRSTLEG.class),
+		// @XmlElement(name = "SCND_LEG", type = SCNDLEG.class),
+		// @XmlElement(name = "BD_LEG", type = BDLEG.class)
+		SECGENLEG secGenLeg = new SECGENLEG( null, mortgageRegex.getSecLeg().getSecGenLeg().getGenid(), mortgageRegex.getSecLeg().getSecGenLeg().getSecamt() );
+		
+		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
+		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
+		FRSTLEG frstLeg = new FRSTLEG();
+		frstLeg.getItems().add( new CSHLEG( mortgageRegex.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
+		frstLeg.getItems().add( new TAXIMP( mortgageRegex.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
 
-    /**
-     * Sets the value of the stlmdt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSTLMDT(String value) {
-        this.stlmdt = value;
-    }
+		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
+		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
+		SCNDLEG scenLeg = new SCNDLEG();
+		scenLeg.getItems().add( new CSHLEG( mortgageRegex.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) );
+		scenLeg.getItems().add( new TAXIMP( mortgageRegex.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) );
+		
+		secGenLeg.getItems().add( new SECUNITSLEG( mortgageRegex.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
+		secGenLeg.getItems().add( frstLeg );
+		secGenLeg.getItems().add( scenLeg );
+		secGenLeg.getItems().add( new BDLEG( mortgageRegex.getSecLeg().getSecGenLeg().getBdLeg() ) );
 
-    /**
-     * Gets the value of the cntrid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCNTRID() {
-        return cntrid;
-    }
+		secLeg.getItems().add( secGenLeg );
 
-    /**
-     * Sets the value of the cntrid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCNTRID(String value) {
-        this.cntrid = value;
-    }
+		getItems().add( secLeg );
 
-    /**
-     * Gets the value of the dealside property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDEALSIDE() {
-        return dealside;
-    }
+		setCNTRID( mortgageRegex.getCntrid() );
+		setDEALSIDE( mortgageRegex.getDealside() );
+		setREF( mortgageRegex.getRef() );
+		setSTLMDT( mortgageRegex.getStlmdt() );
+	}
 
-    /**
-     * Sets the value of the dealside property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDEALSIDE(String value) {
-        this.dealside = value;
-    }
+	/**
+	 * Gets the value of the prtyOrCPRTYOrSECLEG property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present
+	 * inside the JAXB object. This is why there is not a <CODE>set</CODE> method for the prtyOrCPRTYOrSECLEG property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getPRTYOrCPRTYOrSECLEG().add( newItem );
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link PRTY } {@link CPRTY } {@link SECLEG }
+	 * 
+	 * 
+	 */
+	public List<Object> getItems() {
+		if (items == null) {
+			items = new ArrayList<Object>();
+		}
+		return this.items;
+	}
+
+	/**
+	 * Gets the value of the ref property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getREF() {
+		return ref;
+	}
+
+	/**
+	 * Sets the value of the ref property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setREF(String value) {
+		this.ref = value;
+	}
+
+	/**
+	 * Gets the value of the stlmdt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSTLMDT() {
+		return stlmdt;
+	}
+
+	/**
+	 * Sets the value of the stlmdt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSTLMDT(String value) {
+		this.stlmdt = value;
+	}
+
+	/**
+	 * Gets the value of the cntrid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCNTRID() {
+		return cntrid;
+	}
+
+	/**
+	 * Sets the value of the cntrid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCNTRID(String value) {
+		this.cntrid = value;
+	}
+
+	/**
+	 * Gets the value of the dealside property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDEALSIDE() {
+		return dealside;
+	}
+
+	/**
+	 * Sets the value of the dealside property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDEALSIDE(String value) {
+		this.dealside = value;
+	}
 
 }

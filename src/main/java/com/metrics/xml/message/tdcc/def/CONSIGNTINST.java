@@ -10,6 +10,7 @@ package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -20,6 +21,8 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.metrics.bean.ConsigntInst;
 
 
 /**
@@ -120,7 +123,32 @@ public class CONSIGNTINST {
     @XmlAttribute(name = "GUT_FEE")
     @XmlSchemaType(name = "anySimpleType")
     protected String gutfee;
+    
+    public CONSIGNTINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
+	public CONSIGNTINST(ConsigntInst consignInst) {
+    	getItems().add( new STLMPRTY( consignInst.getStlmprty() ) );
+    	getItems().add( new CSHLEG( consignInst.getCshLeg() ) );
+    	getItems().add( new RECEIVERBANK( consignInst.getReceiverBank() ) );
+    	
+    	setBSPRC( consignInst.getBsprc() );
+    	setCBID( consignInst.getCbid() );
+    	setCNSFEE( consignInst.getCnsfee() );
+    	setCNSGFEE( consignInst.getCnsgfee() );
+    	setCSHSYS( consignInst.getCshsys() );
+    	setDBCSHAMT( consignInst.getDbcshamt() );
+    	setGUTFEE( consignInst.getGutfee() );
+    	setISIN( consignInst.getIsin() );
+    	setPRTYID( consignInst.getPrtyid() );
+    	setSTLMDT( consignInst.getStlmdt() );
+    	setTAXAMT( consignInst.getTaxamt() );
+    	setTRDRT( consignInst.getTrdrt() );
+    	setUNDFEE( consignInst.getUndfee() );
+    }
+    
     /**
      * Gets the value of the stlmprtyOrCSHLEGOrRECEIVERBANK property.
      * 

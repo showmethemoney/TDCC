@@ -5,7 +5,6 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,11 +16,14 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.metrics.bean.CshLeg;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -53,115 +55,121 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "CSH_LEG")
-public class CSHLEG {
+public class CSHLEG
+{
 
-    @XmlAttribute(name = "CSH_CCY")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String cshccy;
-    @XmlAttribute(name = "CSH_AMT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String cshamt;
-    @XmlAttribute(name = "AFT_TAX_AMT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String afttaxamt;
-    @XmlAttribute(name = "REMIT_FEE")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String remitfee;
+	@XmlAttribute(name = "CSH_CCY")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String cshccy;
+	@XmlAttribute(name = "CSH_AMT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String cshamt;
+	@XmlAttribute(name = "AFT_TAX_AMT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String afttaxamt;
+	@XmlAttribute(name = "REMIT_FEE")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String remitfee;
 
-    /**
-     * Gets the value of the cshccy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCSHCCY() {
-        return cshccy;
-    }
+	public CSHLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Sets the value of the cshccy property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCSHCCY(String value) {
-        this.cshccy = value;
-    }
+	public CSHLEG(CshLeg instance) {
+		this( instance.getCshccy(), instance.getCshamt(), instance.getAfttaxamt(), instance.getRemitfee() );
+	}
 
-    /**
-     * Gets the value of the cshamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCSHAMT() {
-        return cshamt;
-    }
+	public CSHLEG(String cshccy, String cshamt, String afttaxamt, String remitfee) {
+		super();
+		this.cshccy = cshccy;
+		this.cshamt = cshamt;
+		this.afttaxamt = afttaxamt;
+		this.remitfee = remitfee;
+	}
 
-    /**
-     * Sets the value of the cshamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCSHAMT(String value) {
-        this.cshamt = value;
-    }
+	/**
+	 * Gets the value of the cshccy property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCSHCCY() {
+		return cshccy;
+	}
 
-    /**
-     * Gets the value of the afttaxamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAFTTAXAMT() {
-        return afttaxamt;
-    }
+	/**
+	 * Sets the value of the cshccy property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCSHCCY(String value) {
+		this.cshccy = value;
+	}
 
-    /**
-     * Sets the value of the afttaxamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAFTTAXAMT(String value) {
-        this.afttaxamt = value;
-    }
+	/**
+	 * Gets the value of the cshamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCSHAMT() {
+		return cshamt;
+	}
 
-    /**
-     * Gets the value of the remitfee property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getREMITFEE() {
-        return remitfee;
-    }
+	/**
+	 * Sets the value of the cshamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCSHAMT(String value) {
+		this.cshamt = value;
+	}
 
-    /**
-     * Sets the value of the remitfee property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setREMITFEE(String value) {
-        this.remitfee = value;
-    }
+	/**
+	 * Gets the value of the afttaxamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAFTTAXAMT() {
+		return afttaxamt;
+	}
+
+	/**
+	 * Sets the value of the afttaxamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAFTTAXAMT(String value) {
+		this.afttaxamt = value;
+	}
+
+	/**
+	 * Gets the value of the remitfee property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getREMITFEE() {
+		return remitfee;
+	}
+
+	/**
+	 * Sets the value of the remitfee property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setREMITFEE(String value) {
+		this.remitfee = value;
+	}
 
 }

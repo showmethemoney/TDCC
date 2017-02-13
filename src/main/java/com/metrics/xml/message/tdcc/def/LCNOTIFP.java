@@ -50,7 +50,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "LC_NOTIFP")
 public class LCNOTIFP {
 
-    @XmlAttribute(name = "REF_TYPE", required = true)
+    public LCNOTIFP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@XmlAttribute(name = "REF_TYPE", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String reftype;
     @XmlAttribute(name = "REF")

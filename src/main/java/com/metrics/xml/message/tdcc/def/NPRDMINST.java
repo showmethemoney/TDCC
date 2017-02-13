@@ -87,7 +87,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "NPRDM_INST")
 public class NPRDMINST {
 
-    @XmlElements({
+    public NPRDMINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "STLM_PRTY", type = STLMPRTY.class),
         @XmlElement(name = "SEC_LEG", type = SECLEG.class),
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class)

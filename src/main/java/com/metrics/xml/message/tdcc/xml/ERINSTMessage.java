@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.BcssMessageBean;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 import com.metrics.xml.message.tdcc.def.ERINST;
 
@@ -21,7 +22,17 @@ import com.metrics.xml.message.tdcc.def.ERINST;
 @XmlRootElement(name = "BCSSMESSAGE")
 public class ERINSTMessage extends BCSSMESSAGE
 {
-    @XmlElement(name = "ER_INST")
+    public ERINSTMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
+	public ERINSTMessage(BcssMessageBean bcssMessageBean) {
+		super( bcssMessageBean.getOrigin(), bcssMessageBean.getTs(), bcssMessageBean.getBcssbusdt(), bcssMessageBean.getMsgtype(), bcssMessageBean.getNarr(),
+		        bcssMessageBean.getSndrref(), bcssMessageBean.getAction(), bcssMessageBean.getResend() );
+	}
+
+	@XmlElement(name = "ER_INST")
     protected ERINST body;
 
 	public ERINST getBody() {

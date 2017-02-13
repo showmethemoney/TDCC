@@ -10,7 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/Erinst" modelAttribute="model">
+	<form:form method="POST" action="SecStlm" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
@@ -52,6 +52,7 @@
 					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
 				</tr>
 
+
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.units">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.secUnitsLeg.units" /></td>
@@ -60,10 +61,18 @@
 					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.uval">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.secUnitsLeg.uval" /></td>
 				</tr>
-
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy" /></td>
+					<td><form:select path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy"> 
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshamt">Ref</form:label></td>
@@ -77,8 +86,6 @@
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.remitfee">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.remitfee" /></td>
 				</tr>
-
-
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.taxImp.taxamt">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.frstLeg.taxImp.taxamt" /></td>
@@ -95,10 +102,18 @@
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.taxImp.futtaxamt">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.frstLeg.taxImp.futtaxamt" /></td>
 				</tr>
-
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy" /></td>
+					<td><form:select path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshamt">Ref</form:label></td>
@@ -112,7 +127,6 @@
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.remitfee">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.remitfee" /></td>
 				</tr>
-
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.taxamt">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.taxamt" /></td>
@@ -129,7 +143,6 @@
 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.futtaxamt">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.futtaxamt" /></td>
 				</tr>
-
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.bdLeg.price">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.bdLeg.price" /></td>
@@ -146,28 +159,35 @@
 					<td><form:label path="body.secLeg.secGenLeg.bdLeg.accinttax">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.bdLeg.accinttax" /></td>
 				</tr>
-
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.genidx">Ref</form:label></td>
+					<td><form:label path="body.secLeg.secGenLeg.genid">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.genid" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.secamt">Ref</form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.secamt" /></td>
 				</tr>
-
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.isin">Ref</form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.isin" /></td>
+					<td><form:label path="body.secLeg.isin">Ref</form:label></td>
+					<td><form:input path="body.secLeg.isin" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.mgcntrid">Ref</form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.mgcntrid" /></td>
+					<td><form:label path="body.secLeg.mgcntrid">Ref</form:label></td>
+					<td><form:input path="body.secLeg.mgcntrid" /></td>
 				</tr>
 
 				<tr>
 					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.cshLeg.cshccy" /></td>
+					<td><form:select path="body.cshLeg.cshccy"> 
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.cshLeg.cshamt">Ref</form:label></td>
@@ -221,8 +241,9 @@
 				<tr>
 					<td><form:label path="body.cshsys">Ref</form:label></td>
 					<td><form:input path="body.cshsys" /></td>
-				</tr>
-
+				</tr>												
+				
+				
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>

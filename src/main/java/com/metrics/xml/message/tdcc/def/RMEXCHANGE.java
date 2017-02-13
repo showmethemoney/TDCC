@@ -80,7 +80,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "RM_EXCHANGE")
 public class RMEXCHANGE {
 
-    @XmlElements({
+    public RMEXCHANGE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "PRTY", type = PRTY.class),
         @XmlElement(name = "CPRTY", type = CPRTY.class),
         @XmlElement(name = "PCH", type = PCH.class),

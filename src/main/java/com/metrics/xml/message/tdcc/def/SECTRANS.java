@@ -47,7 +47,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "SEC_TRANS")
 public class SECTRANS {
 
-    @XmlAttribute(name = "REF")
+    public SECTRANS() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ISIN", required = true)

@@ -49,7 +49,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "REISSUE_INFO")
 public class REISSUEINFO {
 
-    @XmlElement(name = "SEC_GEN_LEG")
+    public REISSUEINFO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "SEC_GEN_LEG")
     protected List<SECGENLEG> secgenleg;
     @XmlAttribute(name = "REI_ISIN", required = true)
     @XmlSchemaType(name = "anySimpleType")

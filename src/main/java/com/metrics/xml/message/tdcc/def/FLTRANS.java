@@ -44,7 +44,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "FL_TRANS")
 public class FLTRANS {
 
-    @XmlAttribute(name = "REF")
+    public FLTRANS() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "F_ID")

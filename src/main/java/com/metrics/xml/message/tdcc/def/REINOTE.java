@@ -72,7 +72,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "REI_NOTE")
 public class REINOTE {
 
-    @XmlElements({
+    public REINOTE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "SEC_LEG", type = SECLEG.class),
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
     })

@@ -42,7 +42,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CSH_PRIORITY")
 public class CSHPRIORITY {
 
-    @XmlAttribute(name = "REF_TYPE", required = true)
+    public CSHPRIORITY() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF_TYPE", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String reftype;
     @XmlAttribute(name = "REF")

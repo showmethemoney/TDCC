@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class ModRepoBean
+public class ModRepoBean extends BcssMessageBean
 {
 	private ModRepo body = null;
 

@@ -297,7 +297,11 @@ public class BASINFO {
     @XmlSchemaType(name = "anySimpleType")
     protected String vertype;
 
-    /**
+    public BASINFO() {
+		super();
+	}
+
+	/**
      * Gets the value of the ref property.
      * 
      * @return

@@ -5,7 +5,6 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,11 +14,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.TaxImp;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -39,115 +41,121 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "TAX_IMP")
-public class TAXIMP {
+public class TAXIMP
+{
 
-    @XmlAttribute(name = "TAX_AMT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String taxamt;
-    @XmlAttribute(name = "RDMP_TAX_AMT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String rdmptaxamt;
-    @XmlAttribute(name = "CLSD_TAX_AMT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String clsdtaxamt;
-    @XmlAttribute(name = "FUT_TAX_AMT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String futtaxamt;
+	public TAXIMP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Gets the value of the taxamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTAXAMT() {
-        return taxamt;
-    }
+	@XmlAttribute(name = "TAX_AMT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String taxamt;
+	@XmlAttribute(name = "RDMP_TAX_AMT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String rdmptaxamt;
+	@XmlAttribute(name = "CLSD_TAX_AMT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String clsdtaxamt;
+	@XmlAttribute(name = "FUT_TAX_AMT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String futtaxamt;
 
-    /**
-     * Sets the value of the taxamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTAXAMT(String value) {
-        this.taxamt = value;
-    }
+	public TAXIMP(TaxImp instance) {
+		this( instance.getTaxamt(), instance.getRdmptaxamt(), instance.getClsdtaxamt(), instance.getFuttaxamt() );
+	}
 
-    /**
-     * Gets the value of the rdmptaxamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRDMPTAXAMT() {
-        return rdmptaxamt;
-    }
+	public TAXIMP(String taxamt, String rdmptaxamt, String clsdtaxamt, String futtaxamt) {
+		super();
+		this.taxamt = taxamt;
+		this.rdmptaxamt = rdmptaxamt;
+		this.clsdtaxamt = clsdtaxamt;
+		this.futtaxamt = futtaxamt;
+	}
 
-    /**
-     * Sets the value of the rdmptaxamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRDMPTAXAMT(String value) {
-        this.rdmptaxamt = value;
-    }
+	/**
+	 * Gets the value of the taxamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTAXAMT() {
+		return taxamt;
+	}
 
-    /**
-     * Gets the value of the clsdtaxamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCLSDTAXAMT() {
-        return clsdtaxamt;
-    }
+	/**
+	 * Sets the value of the taxamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setTAXAMT(String value) {
+		this.taxamt = value;
+	}
 
-    /**
-     * Sets the value of the clsdtaxamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCLSDTAXAMT(String value) {
-        this.clsdtaxamt = value;
-    }
+	/**
+	 * Gets the value of the rdmptaxamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRDMPTAXAMT() {
+		return rdmptaxamt;
+	}
 
-    /**
-     * Gets the value of the futtaxamt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFUTTAXAMT() {
-        return futtaxamt;
-    }
+	/**
+	 * Sets the value of the rdmptaxamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRDMPTAXAMT(String value) {
+		this.rdmptaxamt = value;
+	}
 
-    /**
-     * Sets the value of the futtaxamt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFUTTAXAMT(String value) {
-        this.futtaxamt = value;
-    }
+	/**
+	 * Gets the value of the clsdtaxamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCLSDTAXAMT() {
+		return clsdtaxamt;
+	}
+
+	/**
+	 * Sets the value of the clsdtaxamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCLSDTAXAMT(String value) {
+		this.clsdtaxamt = value;
+	}
+
+	/**
+	 * Gets the value of the futtaxamt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getFUTTAXAMT() {
+		return futtaxamt;
+	}
+
+	/**
+	 * Sets the value of the futtaxamt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setFUTTAXAMT(String value) {
+		this.futtaxamt = value;
+	}
 
 }

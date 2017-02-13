@@ -82,7 +82,12 @@ public class COURT {
     @XmlSchemaType(name = "anySimpleType")
     protected String otmem;
 
-    /**
+    public COURT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the ref property.
      * 
      * @return

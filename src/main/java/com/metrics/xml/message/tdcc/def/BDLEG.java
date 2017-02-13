@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.BDLeg;
+
 
 /**
  * <p>Java class for anonymous complex type.
@@ -53,8 +55,25 @@ public class BDLEG {
     @XmlAttribute(name = "ACC_INT_TAX")
     @XmlSchemaType(name = "anySimpleType")
     protected String accinttax;
+    
+    public BDLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
+	public BDLEG(BDLeg instance) {
+    	this( instance.getPrice(), instance.getIdays(), instance.getAccint(), instance.getAccinttax() );
+    }
+    
+    public BDLEG(String price, String idays, String accint, String accinttax) {
+		super();
+		this.price = price;
+		this.idays = idays;
+		this.accint = accint;
+		this.accinttax = accinttax;
+	}
+
+	/**
      * Gets the value of the price property.
      * 
      * @return

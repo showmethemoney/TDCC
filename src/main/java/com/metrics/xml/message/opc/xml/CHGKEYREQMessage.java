@@ -15,7 +15,12 @@ import com.metrics.xml.message.opc.def.CHGKEYREQ;
 @XmlRootElement(name = "OPCMESSAGE")
 public class CHGKEYREQMessage extends OPCMESSAGE
 {
-    @XmlElement(name = "CHG_KEY_REQ")
+    public CHGKEYREQMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "CHG_KEY_REQ")
     protected CHGKEYREQ body;
 
 	public CHGKEYREQ getBody() {

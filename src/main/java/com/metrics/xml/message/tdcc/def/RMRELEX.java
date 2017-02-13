@@ -51,7 +51,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "RM_RELEX")
 public class RMRELEX {
 
-    @XmlElements({
+    public RMRELEX() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "PRTY", type = PRTY.class),
         @XmlElement(name = "CPRTY", type = CPRTY.class)
     })

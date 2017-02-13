@@ -58,7 +58,12 @@ public class BILLFEES {
     @XmlSchemaType(name = "anySimpleType")
     protected String healinsufee;
 
-    /**
+    public BILLFEES() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the undfee property.
      * 
      * @return

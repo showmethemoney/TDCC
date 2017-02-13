@@ -5,11 +5,11 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -18,11 +18,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.Rep;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -46,231 +49,226 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "repsec"
-})
+@XmlType(name = "", propOrder = { "repsec" })
 @XmlRootElement(name = "REP")
-public class REP {
+public class REP
+{
 
-    @XmlElement(name = "REP_SEC")
-    protected List<REPSEC> repsec;
-    @XmlAttribute(name = "REP_NM")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String repnm;
-    @XmlAttribute(name = "REP_ID", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String repid;
-    @XmlAttribute(name = "PRTY_ID", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String prtyid;
-    @XmlAttribute(name = "SNDR_REF", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String sndrref;
-    @XmlAttribute(name = "PAGE", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String page;
-    @XmlAttribute(name = "TTL_PAGE", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String ttlpage;
-    @XmlAttribute(name = "STLM_DT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String stlmdt;
+	public REP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Gets the value of the repsec property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the repsec property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getREPSEC().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link REPSEC }
-     * 
-     * 
-     */
-    public List<REPSEC> getREPSEC() {
-        if (repsec == null) {
-            repsec = new ArrayList<REPSEC>();
-        }
-        return this.repsec;
-    }
+	@XmlElement(name = "REP_SEC")
+	protected List<REPSEC> repsec;
+	@XmlAttribute(name = "REP_NM")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String repnm;
+	@XmlAttribute(name = "REP_ID", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String repid;
+	@XmlAttribute(name = "PRTY_ID", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String prtyid;
+	@XmlAttribute(name = "SNDR_REF", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String sndrref;
+	@XmlAttribute(name = "PAGE", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String page;
+	@XmlAttribute(name = "TTL_PAGE", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String ttlpage;
+	@XmlAttribute(name = "STLM_DT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String stlmdt;
 
-    /**
-     * Gets the value of the repnm property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getREPNM() {
-        return repnm;
-    }
+	public REP(Rep rep) {
+		// @XmlElement(name = "REP_SEC_VAL", type = REPSECVAL.class),
+		// @XmlElement(name = "REP_SEC", type = REPSEC.class) <-- recuisive
+		getREPSEC().add( new REPSEC( rep.getRepsec() ) );
+		
+		setPAGE( rep.getPage() );
+		setPRTYID( rep.getPrtyid() );
+		setREPID( rep.getRepid() );
+		setREPNM( rep.getRepnm() );
+		setSNDRREF( rep.getSndrref() );
+		setSTLMDT( rep.getStlmdt() );
+		setTTLPAGE( rep.getTtlpage() );
+	}
 
-    /**
-     * Sets the value of the repnm property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setREPNM(String value) {
-        this.repnm = value;
-    }
+	/**
+	 * Gets the value of the repsec property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present
+	 * inside the JAXB object. This is why there is not a <CODE>set</CODE> method for the repsec property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getREPSEC().add( newItem );
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link REPSEC }
+	 * 
+	 * 
+	 */
+	public List<REPSEC> getREPSEC() {
+		if (repsec == null) {
+			repsec = new ArrayList<REPSEC>();
+		}
+		return this.repsec;
+	}
 
-    /**
-     * Gets the value of the repid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getREPID() {
-        return repid;
-    }
+	/**
+	 * Gets the value of the repnm property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getREPNM() {
+		return repnm;
+	}
 
-    /**
-     * Sets the value of the repid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setREPID(String value) {
-        this.repid = value;
-    }
+	/**
+	 * Sets the value of the repnm property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setREPNM(String value) {
+		this.repnm = value;
+	}
 
-    /**
-     * Gets the value of the prtyid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPRTYID() {
-        return prtyid;
-    }
+	/**
+	 * Gets the value of the repid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getREPID() {
+		return repid;
+	}
 
-    /**
-     * Sets the value of the prtyid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPRTYID(String value) {
-        this.prtyid = value;
-    }
+	/**
+	 * Sets the value of the repid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setREPID(String value) {
+		this.repid = value;
+	}
 
-    /**
-     * Gets the value of the sndrref property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSNDRREF() {
-        return sndrref;
-    }
+	/**
+	 * Gets the value of the prtyid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPRTYID() {
+		return prtyid;
+	}
 
-    /**
-     * Sets the value of the sndrref property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSNDRREF(String value) {
-        this.sndrref = value;
-    }
+	/**
+	 * Sets the value of the prtyid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setPRTYID(String value) {
+		this.prtyid = value;
+	}
 
-    /**
-     * Gets the value of the page property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPAGE() {
-        return page;
-    }
+	/**
+	 * Gets the value of the sndrref property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSNDRREF() {
+		return sndrref;
+	}
 
-    /**
-     * Sets the value of the page property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPAGE(String value) {
-        this.page = value;
-    }
+	/**
+	 * Sets the value of the sndrref property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSNDRREF(String value) {
+		this.sndrref = value;
+	}
 
-    /**
-     * Gets the value of the ttlpage property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTTLPAGE() {
-        return ttlpage;
-    }
+	/**
+	 * Gets the value of the page property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPAGE() {
+		return page;
+	}
 
-    /**
-     * Sets the value of the ttlpage property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTTLPAGE(String value) {
-        this.ttlpage = value;
-    }
+	/**
+	 * Sets the value of the page property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setPAGE(String value) {
+		this.page = value;
+	}
 
-    /**
-     * Gets the value of the stlmdt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSTLMDT() {
-        return stlmdt;
-    }
+	/**
+	 * Gets the value of the ttlpage property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTTLPAGE() {
+		return ttlpage;
+	}
 
-    /**
-     * Sets the value of the stlmdt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSTLMDT(String value) {
-        this.stlmdt = value;
-    }
+	/**
+	 * Sets the value of the ttlpage property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setTTLPAGE(String value) {
+		this.ttlpage = value;
+	}
+
+	/**
+	 * Gets the value of the stlmdt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSTLMDT() {
+		return stlmdt;
+	}
+
+	/**
+	 * Sets the value of the stlmdt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSTLMDT(String value) {
+		this.stlmdt = value;
+	}
 
 }

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,8 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CloseRepo"
-		modelAttribute="model">
+	<form:form method="POST" action="Dep" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
@@ -61,7 +59,17 @@
 
 				<tr>
 					<td><form:label path="body.floatingRateInfo.rtind">Ref</form:label></td>
-					<td><form:input path="body.floatingRateInfo.rtind" /></td>
+					<td><form:select path="body.floatingRateInfo.rtind">
+							<form:option value="1"  label="1"/>
+							<form:option value="2"  label="2"/>
+							<form:option value="3"  label="3"/>
+							<form:option value="4"  label="4"/>
+							<form:option value="5"  label="5"/>
+							<form:option value="6"  label="6"/>
+							<form:option value="7"  label="7"/>
+							<form:option value="Z"  label="Z"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.floatingRateInfo.rtindmdit">Ref</form:label></td>
@@ -69,7 +77,13 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.floatingRateInfo.fixprccy">Ref</form:label></td>
-					<td><form:input path="body.floatingRateInfo.fixprccy" /></td>
+					<td><form:select path="body.floatingRateInfo.fixprccy"> 
+							<form:option value="1"  label="1"/>
+							<form:option value="2"  label="2"/>
+							<form:option value="3"  label="3"/>
+							<form:option value="9"  label="9"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.floatingRateInfo.fixprcrule">Ref</form:label></td>
@@ -86,7 +100,25 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.isstype">Ref</form:label></td>
-					<td><form:input path="body.isstype" /></td>
+					<td><form:select path="body.isstype"> 
+							<form:option value="1"  label="1"/>
+							<form:option value="2"  label="2"/>
+							<form:option value="3"  label="3"/>
+							<form:option value="4"  label="4"/>
+							<form:option value="5"  label="5"/>
+							<form:option value="6"  label="6"/>
+							<form:option value="7"  label="7"/>
+							<form:option value="8"  label="8"/>
+							<form:option value="9"  label="9"/>
+							<form:option value="10" label="10"/>
+							<form:option value="11" label="11"/>
+							<form:option value="12" label="12"/>
+							<form:option value="13" label="13"/>
+							<form:option value="14" label="14"/>
+							<form:option value="15" label="15"/>
+							<form:option value="31" label="31"/>
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.issrnm">Ref</form:label></td>
@@ -100,9 +132,13 @@
 					<td><form:label path="body.issrbuscode">Ref</form:label></td>
 					<td><form:input path="body.issrbuscode" /></td>
 				</tr>
-								<tr>
+				<tr>
 					<td><form:label path="body.issrgrpid">Ref</form:label></td>
-					<td><form:input path="body.issrgrpid" /></td>
+					<td><form:select path="body.issrgrpid">
+							<form:option value="1"  label="1"/>
+							<form:option value="2"  label="2"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.prtyid">Ref</form:label></td>
@@ -124,13 +160,26 @@
 					<td><form:label path="body.fval">Ref</form:label></td>
 					<td><form:input path="body.fval" /></td>
 				</tr>
-								<tr>
+				<tr>
 					<td><form:label path="body.secccy">Ref</form:label></td>
-					<td><form:input path="body.secccy" /></td>
+					<td><form:select path="body.secccy">
+							<form:option value="TWD"  label="TWD"/>
+							<form:option value="USD"  label="USD"/>
+							<form:option value="AUD"  label="AUD"/>
+							<form:option value="EUR"  label="EUR"/>
+							<form:option value="JPY"  label="JPY"/>
+							<form:option value="CNY"  label="CNY"/>
+							<form:option value="ZAR"  label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.amttype">Ref</form:label></td>
-					<td><form:input path="body.amttype" /></td>
+					<td><form:select path="body.amttype">
+							<form:option value="1"  label="1"/>
+							<form:option value="2"  label="2"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.issdays">Ref</form:label></td>
@@ -148,7 +197,7 @@
 					<td><form:label path="body.selldt">Ref</form:label></td>
 					<td><form:input path="body.selldt" /></td>
 				</tr>
-								<tr>
+				<tr>
 					<td><form:label path="body.matdt">Ref</form:label></td>
 					<td><form:input path="body.matdt" /></td>
 				</tr>
@@ -158,11 +207,20 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.intind">Ref</form:label></td>
-					<td><form:input path="body.intind" /></td>
+					<td><form:select path="body.intind">
+							<form:option value="1"  label="1"/>
+							<form:option value="2"  label="2"/> 
+							<form:option value="3"  label="3"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.regind">Ref</form:label></td>
-					<td><form:input path="body.regind" /></td>
+					<td><form:select path="body.regind"> 
+							<form:option value="Y"  label="Y"/>
+							<form:option value="N"  label="N"/>  
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.ncdno">Ref</form:label></td>
@@ -172,7 +230,7 @@
 					<td><form:label path="body.rdmpamt">Ref</form:label></td>
 					<td><form:input path="body.rdmpamt" /></td>
 				</tr>
-								<tr>
+				<tr>
 					<td><form:label path="body.dayint">Ref</form:label></td>
 					<td><form:input path="body.dayint" /></td>
 				</tr>
@@ -202,9 +260,13 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.issrttype">Ref</form:label></td>
-					<td><form:input path="body.issrttype" /></td>
+					<td><form:input path="body.issrttype">
+							<form:option value="1"  label="1"/>
+							<form:option value="2"  label="2"/> 
+						</form:select>
+					</td>
 				</tr>
-				
+
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>

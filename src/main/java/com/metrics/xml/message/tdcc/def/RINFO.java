@@ -73,7 +73,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "R_INFO")
 public class RINFO {
 
-    @XmlAttribute(name = "CPRTY_ID", required = true)
+    public RINFO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "CPRTY_ID", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String cprtyid;
     @XmlAttribute(name = "REF", required = true)

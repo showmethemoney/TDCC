@@ -10,7 +10,7 @@
 <body>
 <body>
 	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/tdcc/message/CloseRepo" modelAttribute="model">
+	<form:form method="POST" action="Undw" modelAttribute="model">
 		<table>
 			<thead>
 				<tr>
@@ -54,7 +54,16 @@
 
 				<tr>
 					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.cshLeg.cshccy" /></td>
+					<td><form:select path="body.cshLeg.cshccy">
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="body.cshLeg.cshamt">Ref</form:label></td>
@@ -70,20 +79,29 @@
 				</tr>
 
 				<tr>
-					<td><form:label path="body.receiverBank.cshleg.cshccy">Ref</form:label></td>
-					<td><form:input path="body.receiverBank.cshleg.cshccy" /></td>
+					<td><form:label path="body.receiverBank.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:select path="body.receiverBank.cshLeg.cshccy"> 
+							<form:option value="TWD" label="TWD"/>
+							<form:option value="USD" label="USD"/>
+							<form:option value="AUD" label="AUD"/>
+							<form:option value="EUR" label="EUR"/>
+							<form:option value="JPY" label="JPY"/>
+							<form:option value="CNY" label="CNY"/>
+							<form:option value="ZAR" label="ZAR"/> 
+						</form:select>
+					</td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshleg.cshamt">Ref</form:label></td>
-					<td><form:input path="body.receiverBank.cshleg.cshamt" /></td>
+					<td><form:label path="body.receiverBank.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.cshLeg.cshamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshleg.afttaxamt">Ref</form:label></td>
-					<td><form:input path="body.receiverBank.cshleg.afttaxamt" /></td>
+					<td><form:label path="body.receiverBank.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.cshLeg.afttaxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshleg.remitfee">Ref</form:label></td>
-					<td><form:input path="body.receiverBank.cshleg.remitfee" /></td>
+					<td><form:label path="body.receiverBank.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:input path="body.receiverBank.cshLeg.remitfee" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="body.receiverBank.id">Ref</form:label></td>
@@ -107,16 +125,16 @@
 				</tr>
 
 				<tr>
-					<td><form:label path="body.underWritingPart.cshamt">Ref</form:label></td>
-					<td><form:input path="body.underWritingPart.cshamt" /></td>
+					<td><form:label path="body.underWritingPart.dnmid">Ref</form:label></td>
+					<td><form:input path="body.underWritingPart.dnmid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.underWritingPart.afttaxamt">Ref</form:label></td>
-					<td><form:input path="body.underWritingPart.afttaxamt" /></td>
+					<td><form:label path="body.underWritingPart.rdmpsecamt">Ref</form:label></td>
+					<td><form:input path="body.underWritingPart.rdmpsecamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.underWritingPart.remitfee">Ref</form:label></td>
-					<td><form:input path="body.underWritingPart.remitfee" /></td>
+					<td><form:label path="body.underWritingPart.taxamt">Ref</form:label></td>
+					<td><form:input path="body.underWritingPart.taxamt" /></td>
 				</tr>
 
 				<tr>
@@ -126,7 +144,7 @@
 				<tr>
 					<td><form:label path="body.isin">Ref</form:label></td>
 					<td><form:input path="body.isin" /></td>
-				</tr>				 
+				</tr>
 				<tr>
 					<td><form:label path="body.stlmdt">Ref</form:label></td>
 					<td><form:input path="body.stlmdt" /></td>
@@ -134,31 +152,27 @@
 				<tr>
 					<td><form:label path="body.bndlref">Ref</form:label></td>
 					<td><form:input path="body.bndlref" /></td>
-				</tr>	
-					<tr>
+				</tr>
+				<tr>
 					<td><form:label path="body.bndlttl">Ref</form:label></td>
 					<td><form:input path="body.bndlttl" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="body.bsprc">Ref</form:label></td>
 					<td><form:input path="body.bsprc" /></td>
-				</tr>				 
+				</tr>
 				<tr>
 					<td><form:label path="body.taxamt">Ref</form:label></td>
 					<td><form:input path="body.taxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.trdrt">Ref</form:label></td>
-					<td><form:input path="body.trdrt" /></td>
-				</tr>
-								<tr>
 					<td><form:label path="body.cshsys">Ref</form:label></td>
 					<td><form:input path="body.cshsys" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="body.undfee">Ref</form:label></td>
 					<td><form:input path="body.undfee" /></td>
-				</tr>				 
+				</tr>
 				<tr>
 					<td><form:label path="body.cnsfee">Ref</form:label></td>
 					<td><form:input path="body.cnsfee" /></td>
@@ -166,8 +180,8 @@
 				<tr>
 					<td><form:label path="body.gutfee">Ref</form:label></td>
 					<td><form:input path="body.gutfee" /></td>
-				</tr>			
-				
+				</tr>
+
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>

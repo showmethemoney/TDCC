@@ -5,7 +5,6 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,11 +14,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.SecUnitsLeg;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -37,61 +39,71 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "SEC_UNITS_LEG")
-public class SECUNITSLEG {
+public class SECUNITSLEG
+{
 
-    @XmlAttribute(name = "UNITS", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String units;
-    @XmlAttribute(name = "UVAL", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String uval;
+	public SECUNITSLEG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Gets the value of the units property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUNITS() {
-        return units;
-    }
+	@XmlAttribute(name = "UNITS", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String units;
+	@XmlAttribute(name = "UVAL", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String uval;
 
-    /**
-     * Sets the value of the units property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUNITS(String value) {
-        this.units = value;
-    }
+	public SECUNITSLEG(SecUnitsLeg instance) {
+		this( instance.getUnits(), instance.getUval() );
+	}
 
-    /**
-     * Gets the value of the uval property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUVAL() {
-        return uval;
-    }
+	public SECUNITSLEG(String units, String uval) {
+		super();
+		this.units = units;
+		this.uval = uval;
+	}
 
-    /**
-     * Sets the value of the uval property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUVAL(String value) {
-        this.uval = value;
-    }
+	/**
+	 * Gets the value of the units property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getUNITS() {
+		return units;
+	}
+
+	/**
+	 * Sets the value of the units property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setUNITS(String value) {
+		this.units = value;
+	}
+
+	/**
+	 * Gets the value of the uval property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getUVAL() {
+		return uval;
+	}
+
+	/**
+	 * Sets the value of the uval property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setUVAL(String value) {
+		this.uval = value;
+	}
 
 }

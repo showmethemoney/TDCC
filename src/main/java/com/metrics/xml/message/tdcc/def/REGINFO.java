@@ -46,7 +46,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "REG_INFO")
 public class REGINFO {
 
-    @XmlAttribute(name = "REF")
+    public REGINFO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ISIN", required = true)

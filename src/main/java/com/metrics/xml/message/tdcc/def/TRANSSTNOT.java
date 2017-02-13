@@ -70,7 +70,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "TRANS_STNOT")
 public class TRANSSTNOT {
 
-    @XmlAttribute(name = "REF")
+    public TRANSSTNOT() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ORG_REF")

@@ -63,7 +63,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "RTEP")
 public class RTEP {
 
-    @XmlElement(name = "SEC_LEG")
+    public RTEP() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElement(name = "SEC_LEG")
     protected List<SECLEG> secleg;
     @XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")

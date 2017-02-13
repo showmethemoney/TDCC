@@ -65,7 +65,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "CSH_NOTICE")
 public class CSHNOTICE {
 
-    @XmlElements({
+    public CSHNOTICE() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlElements({
         @XmlElement(name = "PRTY", type = PRTY.class),
         @XmlElement(name = "CPRTY", type = CPRTY.class),
         @XmlElement(name = "CSH_LEG", type = CSHLEG.class)

@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class MortgageRegexBean
+public class MortgageRegexBean extends BcssMessageBean
 {
 	private MortgageRegex body = null;
 

@@ -3,7 +3,7 @@ package com.metrics.bean;
 /**
  * @author Ethan Lee
  */
-public class DepBean
+public class DepBean extends BcssMessageBean
 {
 	private Dep body = null;
 

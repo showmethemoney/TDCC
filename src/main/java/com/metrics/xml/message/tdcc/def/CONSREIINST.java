@@ -73,7 +73,12 @@ public class CONSREIINST {
     @XmlSchemaType(name = "anySimpleType")
     protected String cbid;
 
-    /**
+    public CONSREIINST() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Gets the value of the seclegOrREISSUEINFOOrTXSCSHINFO property.
      * 
      * <p>

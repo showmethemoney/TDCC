@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.metrics.bean.BcssMessageBean;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 import com.metrics.xml.message.tdcc.def.OPENREPO;
 
@@ -20,7 +21,17 @@ import com.metrics.xml.message.tdcc.def.OPENREPO;
 @XmlRootElement(name = "BCSSMESSAGE")
 public class OPENREPOMessage extends BCSSMESSAGE
 {
-    @XmlElement(name = "OPEN_REPO")
+    public OPENREPOMessage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
+	public OPENREPOMessage(BcssMessageBean bcssMessageBean) {
+		super( bcssMessageBean.getOrigin(), bcssMessageBean.getTs(), bcssMessageBean.getBcssbusdt(), bcssMessageBean.getMsgtype(), bcssMessageBean.getNarr(),
+		        bcssMessageBean.getSndrref(), bcssMessageBean.getAction(), bcssMessageBean.getResend() );
+	}
+
+	@XmlElement(name = "OPEN_REPO")
     protected OPENREPO body;
 
 	public OPENREPO getBody() {

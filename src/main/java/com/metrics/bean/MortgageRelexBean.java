@@ -1,6 +1,6 @@
 package com.metrics.bean;
 
-public class MortgageRelexBean
+public class MortgageRelexBean extends BcssMessageBean
 {
 	private MortgageRelex body = null;
 

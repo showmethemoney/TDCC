@@ -40,7 +40,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "PYM_SN")
 public class PYMSN {
 
-    @XmlAttribute(name = "REF")
+    public PYMSN() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@XmlAttribute(name = "REF")
     @XmlSchemaType(name = "anySimpleType")
     protected String ref;
     @XmlAttribute(name = "ISIN", required = true)

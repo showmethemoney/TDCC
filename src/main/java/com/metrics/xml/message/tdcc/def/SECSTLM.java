@@ -5,11 +5,11 @@
 // Generated on: 2017.02.03 at 08:32:50 AM CST 
 //
 
-
 package com.metrics.xml.message.tdcc.def;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -21,11 +21,15 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.metrics.bean.SecStlm;
+
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -74,320 +78,340 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "items"
-})
+@XmlType(name = "", propOrder = { "items" })
 @XmlRootElement(name = "SEC_STLM")
-public class SECSTLM {
+public class SECSTLM
+{
 
-    @XmlElements({
-        @XmlElement(name = "PRTY", type = PRTY.class),
-        @XmlElement(name = "CPRTY", type = CPRTY.class),
-        @XmlElement(name = "SEC_LEG", type = SECLEG.class),
-        @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
-    })
-    protected List<Object> items;
-    @XmlAttribute(name = "REF")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String ref;
-    @XmlAttribute(name = "CB_ID")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String cbid;
-    @XmlAttribute(name = "BNDL_REF")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String bndlref;
-    @XmlAttribute(name = "BNDL_TTL")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String bndlttl;
-    @XmlAttribute(name = "DEAL_TYPE", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String dealtype;
-    @XmlAttribute(name = "DEAL_SIDE", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String dealside;
-    @XmlAttribute(name = "STLM_DT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String stlmdt;
-    @XmlAttribute(name = "TRD_DT", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String trddt;
-    @XmlAttribute(name = "TRD_RT")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String trdrt;
-    @XmlAttribute(name = "CSH_SYS")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String cshsys;
+	public SECSTLM() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Gets the value of the prtyOrCPRTYOrSECLEG property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the prtyOrCPRTYOrSECLEG property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPRTYOrCPRTYOrSECLEG().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link PRTY }
-     * {@link CPRTY }
-     * {@link SECLEG }
-     * {@link CSHLEG }
-     * 
-     * 
-     */
-    public List<Object> getItems() {
-        if (items == null) {
-            items = new ArrayList<Object>();
-        }
-        return this.items;
-    }
+	@XmlElements({ @XmlElement(name = "PRTY", type = PRTY.class), @XmlElement(name = "CPRTY", type = CPRTY.class),
+	        @XmlElement(name = "SEC_LEG", type = SECLEG.class), @XmlElement(name = "CSH_LEG", type = CSHLEG.class) })
+	protected List<Object> items;
+	@XmlAttribute(name = "REF")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String ref;
+	@XmlAttribute(name = "CB_ID")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String cbid;
+	@XmlAttribute(name = "BNDL_REF")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String bndlref;
+	@XmlAttribute(name = "BNDL_TTL")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String bndlttl;
+	@XmlAttribute(name = "DEAL_TYPE", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String dealtype;
+	@XmlAttribute(name = "DEAL_SIDE", required = true)
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String dealside;
+	@XmlAttribute(name = "STLM_DT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String stlmdt;
+	@XmlAttribute(name = "TRD_DT", required = true)
+	@XmlSchemaType(name = "anySimpleType")
+	protected String trddt;
+	@XmlAttribute(name = "TRD_RT")
+	@XmlSchemaType(name = "anySimpleType")
+	protected String trdrt;
+	@XmlAttribute(name = "CSH_SYS")
+	@XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+	protected String cshsys;
 
-    /**
-     * Gets the value of the ref property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getREF() {
-        return ref;
-    }
+	public SECSTLM(SecStlm secStlm) {
+		// @XmlElement(name = "PRTY", type = PRTY.class),
+		// @XmlElement(name = "CPRTY", type = CPRTY.class),
+		// @XmlElement(name = "SEC_LEG", type = SECLEG.class),
+		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
+		PRTY prty = new PRTY();
+		prty.getSTLMPRTY().add( new STLMPRTY( secStlm.getPrty().getStlmprty() ) );
+		CPRTY cprty = new CPRTY();
+		cprty.getSTLMPRTY().add( new STLMPRTY( secStlm.getCprty().getStlmprty() ) );
 
-    /**
-     * Sets the value of the ref property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setREF(String value) {
-        this.ref = value;
-    }
+		getItems().add( prty );
+		getItems().add( cprty );
 
-    /**
-     * Gets the value of the cbid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCBID() {
-        return cbid;
-    }
+		SECLEG secLeg = new SECLEG( null, secStlm.getSecLeg().getIsin(), secStlm.getSecLeg().getMgcntrid() );
 
-    /**
-     * Sets the value of the cbid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCBID(String value) {
-        this.cbid = value;
-    }
+		// @XmlElement(name = "SEC_UNITS_LEG", type = SECUNITSLEG.class),
+		// @XmlElement(name = "FRST_LEG", type = FRSTLEG.class),
+		// @XmlElement(name = "SCND_LEG", type = SCNDLEG.class),
+		// @XmlElement(name = "BD_LEG", type = BDLEG.class)
+		SECGENLEG secGenLeg = new SECGENLEG( null, secStlm.getSecLeg().getSecGenLeg().getGenid(), secStlm.getSecLeg().getSecGenLeg().getSecamt() );
 
-    /**
-     * Gets the value of the bndlref property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBNDLREF() {
-        return bndlref;
-    }
+		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
+		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
+		FRSTLEG frstLeg = new FRSTLEG();
+		frstLeg.getItems().add( new CSHLEG( secStlm.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
+		frstLeg.getItems().add( new TAXIMP( secStlm.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
 
-    /**
-     * Sets the value of the bndlref property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBNDLREF(String value) {
-        this.bndlref = value;
-    }
+		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
+		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
+		SCNDLEG scenLeg = new SCNDLEG();
+		scenLeg.getItems().add( new CSHLEG( secStlm.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) );
+		scenLeg.getItems().add( new TAXIMP( secStlm.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) );
 
-    /**
-     * Gets the value of the bndlttl property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBNDLTTL() {
-        return bndlttl;
-    }
+		secGenLeg.getItems().add( new SECUNITSLEG( secStlm.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
+		secGenLeg.getItems().add( frstLeg );
+		secGenLeg.getItems().add( scenLeg );
+		secGenLeg.getItems().add( new BDLEG( secStlm.getSecLeg().getSecGenLeg().getBdLeg() ) );
 
-    /**
-     * Sets the value of the bndlttl property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBNDLTTL(String value) {
-        this.bndlttl = value;
-    }
+		secLeg.getItems().add( secGenLeg );
 
-    /**
-     * Gets the value of the dealtype property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDEALTYPE() {
-        return dealtype;
-    }
+		getItems().add( secLeg );
+		getItems().add( new CSHLEG( secStlm.getCshLeg() ) );
 
-    /**
-     * Sets the value of the dealtype property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDEALTYPE(String value) {
-        this.dealtype = value;
-    }
+		setBNDLREF( secStlm.getBndlref() );
+		setBNDLTTL( secStlm.getBndlttl() );
+		setCBID( secStlm.getCbid() );
+		setCSHSYS( secStlm.getCshsys() );
+		setDEALSIDE( secStlm.getDealside() );
+		setDEALTYPE( secStlm.getDealtype() );
+		setREF( secStlm.getRef() );
+		setSTLMDT( secStlm.getStlmdt() );
+		setTRDDT( secStlm.getTrddt() );
+		setTRDRT( secStlm.getTrdrt() );
+	}
 
-    /**
-     * Gets the value of the dealside property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDEALSIDE() {
-        return dealside;
-    }
+	/**
+	 * Gets the value of the prtyOrCPRTYOrSECLEG property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present
+	 * inside the JAXB object. This is why there is not a <CODE>set</CODE> method for the prtyOrCPRTYOrSECLEG property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getPRTYOrCPRTYOrSECLEG().add( newItem );
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link PRTY } {@link CPRTY } {@link SECLEG } {@link CSHLEG }
+	 * 
+	 * 
+	 */
+	public List<Object> getItems() {
+		if (items == null) {
+			items = new ArrayList<Object>();
+		}
+		return this.items;
+	}
 
-    /**
-     * Sets the value of the dealside property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDEALSIDE(String value) {
-        this.dealside = value;
-    }
+	/**
+	 * Gets the value of the ref property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getREF() {
+		return ref;
+	}
 
-    /**
-     * Gets the value of the stlmdt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSTLMDT() {
-        return stlmdt;
-    }
+	/**
+	 * Sets the value of the ref property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setREF(String value) {
+		this.ref = value;
+	}
 
-    /**
-     * Sets the value of the stlmdt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSTLMDT(String value) {
-        this.stlmdt = value;
-    }
+	/**
+	 * Gets the value of the cbid property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCBID() {
+		return cbid;
+	}
 
-    /**
-     * Gets the value of the trddt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTRDDT() {
-        return trddt;
-    }
+	/**
+	 * Sets the value of the cbid property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCBID(String value) {
+		this.cbid = value;
+	}
 
-    /**
-     * Sets the value of the trddt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTRDDT(String value) {
-        this.trddt = value;
-    }
+	/**
+	 * Gets the value of the bndlref property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getBNDLREF() {
+		return bndlref;
+	}
 
-    /**
-     * Gets the value of the trdrt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTRDRT() {
-        return trdrt;
-    }
+	/**
+	 * Sets the value of the bndlref property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setBNDLREF(String value) {
+		this.bndlref = value;
+	}
 
-    /**
-     * Sets the value of the trdrt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTRDRT(String value) {
-        this.trdrt = value;
-    }
+	/**
+	 * Gets the value of the bndlttl property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getBNDLTTL() {
+		return bndlttl;
+	}
 
-    /**
-     * Gets the value of the cshsys property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCSHSYS() {
-        return cshsys;
-    }
+	/**
+	 * Sets the value of the bndlttl property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setBNDLTTL(String value) {
+		this.bndlttl = value;
+	}
 
-    /**
-     * Sets the value of the cshsys property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCSHSYS(String value) {
-        this.cshsys = value;
-    }
+	/**
+	 * Gets the value of the dealtype property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDEALTYPE() {
+		return dealtype;
+	}
+
+	/**
+	 * Sets the value of the dealtype property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDEALTYPE(String value) {
+		this.dealtype = value;
+	}
+
+	/**
+	 * Gets the value of the dealside property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDEALSIDE() {
+		return dealside;
+	}
+
+	/**
+	 * Sets the value of the dealside property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDEALSIDE(String value) {
+		this.dealside = value;
+	}
+
+	/**
+	 * Gets the value of the stlmdt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSTLMDT() {
+		return stlmdt;
+	}
+
+	/**
+	 * Sets the value of the stlmdt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSTLMDT(String value) {
+		this.stlmdt = value;
+	}
+
+	/**
+	 * Gets the value of the trddt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTRDDT() {
+		return trddt;
+	}
+
+	/**
+	 * Sets the value of the trddt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setTRDDT(String value) {
+		this.trddt = value;
+	}
+
+	/**
+	 * Gets the value of the trdrt property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getTRDRT() {
+		return trdrt;
+	}
+
+	/**
+	 * Sets the value of the trdrt property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setTRDRT(String value) {
+		this.trdrt = value;
+	}
+
+	/**
+	 * Gets the value of the cshsys property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCSHSYS() {
+		return cshsys;
+	}
+
+	/**
+	 * Sets the value of the cshsys property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCSHSYS(String value) {
+		this.cshsys = value;
+	}
 
 }
