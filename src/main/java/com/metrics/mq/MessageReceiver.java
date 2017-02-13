@@ -17,10 +17,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.MapFactoryBean;
-import org.springframework.stereotype.Component;
 
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
-import com.metrics.xml.message.tdcc.xml.DEPMessage;
 
 /**
  * receive message from tdcc
@@ -28,7 +26,7 @@ import com.metrics.xml.message.tdcc.xml.DEPMessage;
  * @author ethan
  *
  */
-@Component
+//@Component
 public class MessageReceiver implements MessageListener
 {
 	protected static final Logger logger = LoggerFactory.getLogger( MessageReceiver.class );
@@ -52,13 +50,13 @@ public class MessageReceiver implements MessageListener
 				String opcCode = null;
 				String txnId = null;
 				
-				// 判斷有無壓碼
+				// ����憯Ⅳ
 				Matcher opcMatcher = Pattern.compile( PATTERN_OPC ).matcher( response );
 				if (opcMatcher.find()) {
 					opcCode = opcMatcher.group( 1 );
 				}
 				
-				// 取得電文代號
+				// �����誨���
 				Matcher totaTxnIdMatcher = Pattern.compile( PATTERN_TOTA_TXN_ID ).matcher( response );
 				if (!opcMatcher.find()) {
 					logger.error( "NOT Found TOTA Definition : {}", response );

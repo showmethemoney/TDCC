@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.metrics.bean.CloseRepoBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.CLOSEREPO;
-import com.metrics.xml.message.tdcc.xml.CLOSEREPOMessage;
+import com.metrics.service.TDCCService;
 
 /**
  * @author Ethan Lee
@@ -26,7 +24,7 @@ public class CloseRepoController extends AbstractController
 	protected static final Logger logger = LoggerFactory.getLogger( CloseRepoController.class );
 	private static final String NAMED_FORM = "/message/CloseRepo";
 	@Autowired
-	private OXMService oxmService = null;
+	private TDCCService tdccService = null;
 	
 	@GetMapping
 	public String view(Model model) {
@@ -38,13 +36,7 @@ public class CloseRepoController extends AbstractController
 	@PostMapping
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) CloseRepoBean model) {
 		try {
-			CLOSEREPOMessage message = new CLOSEREPOMessage( model );
-			
-			CLOSEREPO closeRepo = new CLOSEREPO( model.getBody() );
-			
-			message.setBody( closeRepo );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			 tdccService.sendCloseRepoRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.DepBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.DEP;
-import com.metrics.xml.message.tdcc.xml.DEPMessage;
+import com.metrics.service.TDCCService;
+
 
 /**
  * @author Ethan Lee
@@ -25,8 +24,8 @@ public class DepController
 	protected static final Logger logger = LoggerFactory.getLogger( DepController.class );
 	private static final String NAMED_FORM = "/message/Dep";
 	@Autowired
-	private OXMService oxmService = null;
-	
+	private TDCCService tdccService = null;
+
 	@GetMapping
 	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new DepBean() );
@@ -37,11 +36,7 @@ public class DepController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) DepBean model) {
 		try {
-			DEPMessage message = new DEPMessage( model );
-
-			message.setBody( new DEP( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendDepRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

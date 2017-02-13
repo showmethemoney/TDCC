@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.OpenRepoBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.OPENREPO;
-import com.metrics.xml.message.tdcc.xml.OPENREPOMessage;
+import com.metrics.service.TDCCService;
 
 /**
  * @author Ethan Lee
@@ -25,7 +23,7 @@ public class OpenRepoController
 	protected static final Logger logger = LoggerFactory.getLogger( OpenRepoController.class );
 	private static final String NAMED_FORM = "/message/OpenRepo";
 	@Autowired
-	private OXMService oxmService = null;
+	private TDCCService tdccService = null;
 	
 	@GetMapping
 	public String view(Model model) {
@@ -37,11 +35,7 @@ public class OpenRepoController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) OpenRepoBean model) {
 		try {
-			OPENREPOMessage message = new OPENREPOMessage( model );
-
-			message.setBody( new OPENREPO( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendOpenRepoRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.CshAdviceBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.CSHADVICE;
-import com.metrics.xml.message.tdcc.xml.CSHADVICEMessage;
+import com.metrics.service.TDCCService;
 
 /**
  * @author Ethan Lee
@@ -25,7 +23,7 @@ public class CshAdviceController
 	protected static final Logger logger = LoggerFactory.getLogger( CshAdviceController.class );
 	private static final String NAMED_FORM = "/message/CshAdvice";
 	@Autowired
-	private OXMService oxmService = null;
+	private TDCCService tdccService = null;
 	
 	@GetMapping
 	public String view(Model model) {
@@ -37,11 +35,7 @@ public class CshAdviceController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) CshAdviceBean model) {
 		try {
-			CSHADVICEMessage message = new CSHADVICEMessage( model );
-
-			message.setBody( new CSHADVICE( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendCshAdviceRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

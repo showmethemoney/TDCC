@@ -5,14 +5,13 @@ import javax.jms.ConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.listener.MessageListenerContainer;
 
 import com.metrics.mq.mock.MockMessageReceiver;
 
-@Configuration
+//@Configuration
 public class MockMessageQueueConfig
 {
 	@Autowired
@@ -25,7 +24,7 @@ public class MockMessageQueueConfig
 	public static final String NAMED_MOCK_TDCC_MESSAGE_RECEIVER = "MockTDCCMessageReceiver";
 
 	/*
-	 * JUST FOR T E S T I N G!! Message listener container, used for invoking messageReceiver.onMessage on message reception. 模擬 TDCC 收到訊息
+	 * JUST FOR T E S T I N G!! Message listener container, used for invoking messageReceiver.onMessage on message reception. 璅⊥ TDCC ��閮
 	 */
 	@Qualifier(NAMED_MOCK_TDCC_MESSAGE_RECEIVER)
 	@Bean
@@ -39,7 +38,7 @@ public class MockMessageQueueConfig
 	}
 
 	/*
-	 * JUST FOR T E S T I N G!! Used for Sending Messages. 模擬 TDCC 發送訊息回去
+	 * JUST FOR T E S T I N G!! Used for Sending Messages. 璅⊥ TDCC �����
 	 */
 	@Qualifier(NAMED_MOCK_TDCC_MESSAGE_SENDER)
 	@Bean

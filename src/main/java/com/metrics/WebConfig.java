@@ -31,4 +31,33 @@ public class WebConfig extends WebMvcConfigurerAdapter
 
 		return viewResolver;
 	}
+
+//	@Bean
+//	public ReloadableResourceBundleMessageSource messageSource() {
+//		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+//		messageSource.setBasename( "classpath:messages" );
+//		messageSource.setDefaultEncoding( "UTF-8" );
+//		return messageSource;
+//	}
+//
+//	@Bean
+//	public CookieLocaleResolver localeResolver() {
+//		CookieLocaleResolver localeResolver = new CookieLocaleResolver();
+//		localeResolver.setDefaultLocale( Locale.TRADITIONAL_CHINESE );
+//		localeResolver.setCookieName( "locale-cookie" );
+//		localeResolver.setCookieMaxAge( 3600 );
+//		return localeResolver;
+//	}
+//
+//	@Bean
+//	public LocaleChangeInterceptor localeInterceptor() {
+//		LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+//		interceptor.setParamName( "lang" );
+//		return interceptor;
+//	}
+//
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		registry.addInterceptor( localeInterceptor() );
+//	}
 }

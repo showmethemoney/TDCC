@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.ErinstBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.ERINST;
-import com.metrics.xml.message.tdcc.xml.ERINSTMessage;
+import com.metrics.service.TDCCService;
+
 
 /**
  * @author Ethan Lee
@@ -25,8 +24,8 @@ public class ErinstController
 	protected static final Logger logger = LoggerFactory.getLogger( ErinstController.class );
 	private static final String NAMED_FORM = "/message/Erinst";
 	@Autowired
-	private OXMService oxmService = null;
-	
+	private TDCCService tdccService = null;
+
 	@GetMapping
 	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new ErinstBean() );
@@ -37,11 +36,7 @@ public class ErinstController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ErinstBean model) {
 		try {
-			ERINSTMessage message = new ERINSTMessage( model );
-
-			message.setBody( new ERINST( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendErinstRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.ReiInstBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.REIINST;
-import com.metrics.xml.message.tdcc.xml.REIINSTMessage;
+import com.metrics.service.TDCCService;
+
 
 /**
  * @author Ethan Lee
@@ -25,8 +24,7 @@ public class ReiInstController
 	protected static final Logger logger = LoggerFactory.getLogger( ReiInstController.class );
 	private static final String NAMED_FORM = "/message/ReiInst";
 	@Autowired
-	private OXMService oxmService = null;
-	
+	private TDCCService tdccService = null;
 
 	@GetMapping
 	public String view(Model model) {
@@ -38,11 +36,7 @@ public class ReiInstController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ReiInstBean model) {
 		try {
-			REIINSTMessage message = new REIINSTMessage( model );
-
-			message.setBody( new REIINST( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendReiInstRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

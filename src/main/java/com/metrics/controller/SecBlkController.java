@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.SecBlkBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.SECBLK;
-import com.metrics.xml.message.tdcc.xml.SECBLKMessage;
+import com.metrics.service.TDCCService;
 
 /**
  * @author Ethan Lee
@@ -25,7 +23,7 @@ public class SecBlkController
 	protected static final Logger logger = LoggerFactory.getLogger( SecBlkController.class );
 	private static final String NAMED_FORM = "/message/SecBlk";
 	@Autowired
-	private OXMService oxmService = null;
+	private TDCCService tdccService = null;
 	
 	@GetMapping
 	public String view(Model model) {
@@ -37,11 +35,7 @@ public class SecBlkController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) SecBlkBean model) {
 		try {
-			SECBLKMessage message = new SECBLKMessage( model );
-
-			message.setBody( new SECBLK( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendSecBlkRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

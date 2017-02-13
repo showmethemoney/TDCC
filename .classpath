@@ -23,6 +23,7 @@
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-messaging/4.3.6.RELEASE/spring-messaging-4.3.6.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-oxm/4.3.6.RELEASE/spring-oxm-4.3.6.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-core/5.0.10.Final/hibernate-core-5.0.10.Final.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>

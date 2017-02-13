@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.RepBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.REP;
-import com.metrics.xml.message.tdcc.xml.REPMessage;
+import com.metrics.service.TDCCService;
+
 
 /**
  * @author Ethan Lee
@@ -25,8 +24,8 @@ public class RepController
 	protected static final Logger logger = LoggerFactory.getLogger( RepController.class );
 	private static final String NAMED_FORM = "/message/Rep";
 	@Autowired
-	private OXMService oxmService = null;
-	
+	private TDCCService tdccService = null;
+
 	@GetMapping
 	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new RepBean() );
@@ -37,11 +36,7 @@ public class RepController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) RepBean model) {
 		try {
-			REPMessage message = new REPMessage( model );
-
-			message.setBody( new REP( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendRepRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

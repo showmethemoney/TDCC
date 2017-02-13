@@ -14,11 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
-import org.springframework.stereotype.Component;
 
 import com.metrics.MockMessageQueueConfig;
 
-@Component
+//@Component
 public class MockMessageReceiver implements MessageListener
 {
 	protected static final Logger logger = LoggerFactory.getLogger( MockMessageReceiver.class );

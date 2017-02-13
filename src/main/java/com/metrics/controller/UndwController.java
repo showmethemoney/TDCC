@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.UndwBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.UNDW;
-import com.metrics.xml.message.tdcc.xml.UNDWMessage;
+import com.metrics.service.TDCCService;
 
 /**
  * @author Ethan Lee
@@ -25,7 +23,7 @@ public class UndwController
 	protected static final Logger logger = LoggerFactory.getLogger( UndwController.class );
 	private static final String NAMED_FORM = "/message/Undw";
 	@Autowired
-	private OXMService oxmService = null;
+	private TDCCService tdccService = null;
 	
 	@GetMapping
 	public String view(Model model) {
@@ -37,11 +35,7 @@ public class UndwController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) UndwBean model) {
 		try {
-			UNDWMessage message = new UNDWMessage( model );
-
-			message.setBody( new UNDW( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendUndwRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

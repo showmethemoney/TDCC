@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.MortgageRelexBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.MORTGAGERELEX;
-import com.metrics.xml.message.tdcc.xml.MORTGAGERELEXMessage;
+import com.metrics.service.TDCCService;
+
 
 /**
  * @author Ethan Lee
@@ -25,8 +24,8 @@ public class MortgageRelexController
 	protected static final Logger logger = LoggerFactory.getLogger( MortgageRelexController.class );
 	private static final String NAMED_FORM = "/message/MortgageRelex";
 	@Autowired
-	private OXMService oxmService = null;
-	
+	private TDCCService tdccService = null;
+
 	@GetMapping
 	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new MortgageRelexBean() );
@@ -37,11 +36,7 @@ public class MortgageRelexController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) MortgageRelexBean model) {
 		try {
-			MORTGAGERELEXMessage message = new MORTGAGERELEXMessage( model );
-
-			message.setBody( new MORTGAGERELEX( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendMortgageRelexRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

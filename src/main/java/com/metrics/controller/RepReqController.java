@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.RepReqBean;
-import com.metrics.service.message.OXMService;
-import com.metrics.xml.message.tdcc.def.REPREQ;
-import com.metrics.xml.message.tdcc.xml.REPREQMessage;
+import com.metrics.service.TDCCService;
+
 
 /**
  * @author Ethan Lee
@@ -25,8 +24,8 @@ public class RepReqController
 	protected static final Logger logger = LoggerFactory.getLogger( RepReqController.class );
 	private static final String NAMED_FORM = "/message/RepReq";
 	@Autowired
-	private OXMService oxmService = null;
-	
+	private TDCCService tdccService = null;
+
 	@GetMapping
 	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new RepReqBean() );
@@ -37,11 +36,7 @@ public class RepReqController
 	@RequestMapping(method = RequestMethod.POST)
 	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) RepReqBean model) {
 		try {
-			REPREQMessage message = new REPREQMessage( model );
-
-			message.setBody( new REPREQ( model.getBody() ) );
-			
-			logger.info( "{}", oxmService.marshall( message ) );
+			tdccService.sendRepReqRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
