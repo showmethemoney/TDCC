@@ -6,9 +6,11 @@ import javax.jms.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
+import org.springframework.core.env.Environment;
 import org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
@@ -18,14 +20,21 @@ import com.ibm.mq.jms.MQQueue;
 import com.ibm.mq.jms.MQQueueConnectionFactory;
 import com.metrics.mq.MessageReceiver;
 
-
 /**
  * @author Ethan Lee
  */
-//@Configurable
+// @Configurable
+@PropertySources({ @PropertySource("classpath:TDCCServer.properties") })
 public class IBMMessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageQueueConfig.class );
+	public static final String NAMED_TDCC_SEND_DESTINATION = "";
+	public static final String NAMED_TDCC_RECEIVE_DESTINATION = "";
+	public static final String NAMED_OPC_SEND_DESTINATION = "";
+	public static final String NAMED_OPC_RECEIVE_DESTINATION = "";
+
+	@Autowired
+	Environment env = null;
 	@Qualifier("IBMMessageReceiver")
 	@Autowired
 	MessageReceiver messageReceiver = null;
@@ -58,8 +67,8 @@ public class IBMMessageQueueConfig
 		return adapter;
 	}
 
-	@Bean
-	public MQQueue receiveDestination() {
+	@Bean(NAMED_TDCC_SEND_DESTINATION)
+	public MQQueue receiveTDCCDestination() {
 		MQQueue destination = null;
 
 		try {
@@ -74,8 +83,8 @@ public class IBMMessageQueueConfig
 		return destination;
 	}
 
-	@Bean
-	public MQQueue sendDestination() {
+	@Bean(NAMED_TDCC_SEND_DESTINATION)
+	public MQQueue sendTDCCDestination() {
 		MQQueue destination = null;
 
 		try {
@@ -91,7 +100,7 @@ public class IBMMessageQueueConfig
 	public JmsTemplate jmsTemplate() {
 		JmsTemplate template = new JmsTemplate();
 		template.setConnectionFactory( securityConnectionFactory() );
-		template.setDefaultDestination( sendDestination() );
+		template.setDefaultDestination( sendTDCCDestination() );
 
 		return template;
 	}
@@ -100,7 +109,7 @@ public class IBMMessageQueueConfig
 	public MessageListenerContainer getContainer() {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
 		container.setConnectionFactory( securityConnectionFactory() );
-		container.setDestination( receiveDestination() );
+		container.setDestination( receiveTDCCDestination() );
 		container.setMessageListener( messageReceiver );
 
 		return container;

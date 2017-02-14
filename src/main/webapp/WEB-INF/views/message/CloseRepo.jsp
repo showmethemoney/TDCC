@@ -20,14 +20,14 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><form:label path="msgtype">Ref</form:label></td>
+					<td><form:label path="msgtype"><spring:message code="bcssmessage.msgtype" /></form:label></td>
 					<td><form:select path="msgtype">
 							<form:options items="${msgTypes}" />
 						</form:select>
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="action">Ref</form:label></td>
+					<td><form:label path="action"><spring:message code="bcssmessage.action" /></form:label></td>
 					<td><form:select path="action">
 							<form:options items="${actions}" />
 						</form:select>
@@ -35,36 +35,36 @@
 				</tr>
 							
 				<tr>
-					<td><form:label path="body.prty.stlmprty.prtyid"><spring:message code="prty.stlmprty.prtyid" /></form:label></td>
+					<td><form:label path="body.prty.stlmprty.prtyid"><spring:message code="closeRepo.prty.stlmprty.prtyid" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.acctid"><spring:message code="prty.stlmprty.acctid" /></form:label></td>
+					<td><form:label path="body.prty.stlmprty.acctid"><spring:message code="closeRepo.prty.stlmprty.acctid" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.acctid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.acctnm"><spring:message code="prty.stlmprty.acctnm" /></form:label></td>
+					<td><form:label path="body.prty.stlmprty.acctnm"><spring:message code="closeRepo.prty.stlmprty.acctnm" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.acctnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.invscshacct"><spring:message code="prty.stlmprty.invscshacct" /></form:label></td>
+					<td><form:label path="body.prty.stlmprty.invscshacct"><spring:message code="closeRepo.prty.stlmprty.invscshacct" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.invscshacct" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.prtyid"><spring:message code="cprty.stlmprty.invscshacct" /></form:label></td>
+					<td><form:label path="body.cprty.stlmprty.prtyid"><spring:message code="closeRepo.cprty.stlmprty.prtyid" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctid"><spring:message code="cprty.stlmprty.invscshacct" /></form:label></td>
+					<td><form:label path="body.cprty.stlmprty.acctid"><spring:message code="closeRepo.cprty.stlmprty.acctid" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.acctid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctnm"><spring:message code="cprty.stlmprty.invscshacct" /></form:label></td>
+					<td><form:label path="body.cprty.stlmprty.acctnm"><spring:message code="closeRepo.cprty.stlmprty.acctnm" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.acctnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.invscshacct"><spring:message code="cprty.stlmprty.invscshacct" /></form:label></td>
+					<td><form:label path="body.cprty.stlmprty.invscshacct"><spring:message code="closeRepo.cprty.stlmprty.invscshacct" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
 				</tr>
 

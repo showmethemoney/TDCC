@@ -27,7 +27,7 @@ public class IBMMQReceiver {
 
 			QueueConnection connection = connectionFactory.createQueueConnection("ubsread", "");
 			Session session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
-
+			
 			MQQueue destination = (MQQueue) session.createQueue("ROE.MRTXR.LQ");
 
 			System.out.println("123 ");
@@ -35,7 +35,7 @@ public class IBMMQReceiver {
 			connection.start();
 
 			MessageConsumer consumer = session.createConsumer(destination);
-
+			
 			consumer.setMessageListener(new MessageListener() {
 
 				@Override

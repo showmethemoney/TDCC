@@ -30,6 +30,7 @@ public class OXMConfig
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put( "jaxb.formatted.output", false );
+		map.put( "jaxb.encoding", "UTF-8" );
 		jaxb2Marshaller.setMarshallerProperties( map );
 		
 		return jaxb2Marshaller;

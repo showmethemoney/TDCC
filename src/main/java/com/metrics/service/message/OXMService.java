@@ -22,32 +22,39 @@ import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 public class OXMService
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OXMService.class );
-	private static final String FORMAT_TIMESTAMP = "yyyy-MM-dd'T'hh:mm:ss";
+	private static final String FORMAT_OPC_TIMESTAMP = "yyyyMMddHHmmss";
+	private static final String FORMAT_BCSS_TIMESTAMP = "yyyy-MM-dd'T'HH:mm:ss";
 	private static final String FORMAT_BCSS_BUSINESS_DATE = "yyyy-MM-dd";
-	
+
 	@Autowired
 	private Jaxb2Marshaller marshaller = null;
-	
+
 	public String marshallOPCMessage(OPCMESSAGE instance) {
-		
+		Calendar calendar = Calendar.getInstance();
+		instance.setTS( DateFormatUtils.format( calendar, FORMAT_OPC_TIMESTAMP ) );
+
 		return marshall( instance );
 	}
-	
+
 	public String marshallBCSSMessage(BCSSMESSAGE instance) {
 		Calendar calendar = Calendar.getInstance();
-		instance.setTS( DateFormatUtils.format( calendar, FORMAT_TIMESTAMP ) );
+		instance.setTS( DateFormatUtils.format( calendar, FORMAT_BCSS_TIMESTAMP ) );
 		instance.setBCSSBUSDT( DateFormatUtils.format( calendar, FORMAT_BCSS_BUSINESS_DATE ) );
-		
-		// todo ¬O§_­nÀ£½X 
-		// °£¥æ³Îª¬ºA³qª¾°T®§(°T®§¥N¸¹002¡B012¡B032¤Î040)¤£©ã½X¥~¡A¨ä¥L°T®§¬Ò¶·©ã½X
+
+		// todo
+		// é™¤äº¤å‰²ç‹€æ…‹é€šçŸ¥è¨Šæ¯(è¨Šæ¯ä»£è™Ÿ002ã€012ã€032åŠ040)ä¸æŠ¼ç¢¼å¤–ï¼Œå…¶ä»–è¨Šæ¯çš†é ˆæŠ¼ç¢¼ã€‚
+		if (!"002".equalsIgnoreCase( instance.getMSGTYPE() ) || !"012".equalsIgnoreCase( instance.getMSGTYPE() )
+		        || !"040".equalsIgnoreCase( instance.getMSGTYPE() )) {
+			
+		}
 		
 		return marshall( instance );
 	}
-	
+
 	public <T extends Object> T unMarshallBCSSMessage(T refenceObj, String xmlString) {
 		return unmarshall( refenceObj, xmlString );
 	}
-	
+
 	protected String marshall(Object instance) {
 		String result = null;
 

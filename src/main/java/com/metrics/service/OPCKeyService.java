@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.metrics.config.RAConfig;
+import com.metrics.service.message.OXMService;
 import com.metrics.utils.OpcUtil;
 import com.metrics.xml.message.opc.xml.CHGKEYREQMessage;
 
@@ -14,23 +15,7 @@ import com.metrics.xml.message.opc.xml.CHGKEYREQMessage;
 public class OPCKeyService
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OPCKeyService.class );
-	@Autowired
-	private RAConfig raConfig = null;
-
-	protected void changeKeyRequest() {
-		try {
-			CHGKEYREQMessage message = new CHGKEYREQMessage();
-
-			message.setAUDITNO( OpcUtil.newAuditNo() );
-			message.setORIGIN( "" );
-			
-		} catch (Throwable cause) {
-			logger.error( cause.getMessage(), cause );
-		}
-	}
-
-	protected void changeKey() {
-
-	}
+	
+ 
 
 }

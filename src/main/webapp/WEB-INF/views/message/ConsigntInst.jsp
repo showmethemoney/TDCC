@@ -15,19 +15,19 @@
 		<table>
 			<thead>
 				<tr>
-					<th>ConsigntInst</th>
+					<th><spring:message code="consigntInst" /></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><form:label path="msgtype">Ref</form:label></td>
+					<td><form:label path="msgtype"><spring:message code="bcssmessage.msgtype" /></form:label></td>
 					<td><form:select path="msgtype">
 							<form:options items="${msgTypes}" />
 						</form:select>
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="action">Ref</form:label></td>
+					<td><form:label path="action"><spring:message code="bcssmessage.action" /></form:label></td>
 					<td><form:select path="action">
 							<form:options items="${actions}" />
 						</form:select>
