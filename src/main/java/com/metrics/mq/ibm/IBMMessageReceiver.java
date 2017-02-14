@@ -9,10 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 
-@Component
-public class MessageReceiver implements MessageListener
+@Component("IBMMessageReceiver")
+public class IBMMessageReceiver implements MessageListener
 {
-	protected static final Logger logger = LoggerFactory.getLogger( MessageReceiver.class );
+	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageReceiver.class );
 
 	@Override
 	public void onMessage(Message message) {

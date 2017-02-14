@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter;
 import org.springframework.jms.core.JmsTemplate;
@@ -15,7 +16,7 @@ import org.springframework.jms.listener.MessageListenerContainer;
 
 import com.ibm.mq.jms.MQQueue;
 import com.ibm.mq.jms.MQQueueConnectionFactory;
-import com.metrics.mq.ibm.MessageReceiver;
+import com.metrics.mq.MessageReceiver;
 
 
 /**
@@ -25,6 +26,7 @@ import com.metrics.mq.ibm.MessageReceiver;
 public class IBMMessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageQueueConfig.class );
+	@Qualifier("IBMMessageReceiver")
 	@Autowired
 	MessageReceiver messageReceiver = null;
 

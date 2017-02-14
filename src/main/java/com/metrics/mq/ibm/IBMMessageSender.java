@@ -14,18 +14,19 @@ import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 
 import com.ibm.mq.jms.MQQueue;
+import com.metrics.mq.MessageSender;
 
 
-@Component
-public class MessageSender
+@Component("IBMMessageSender")
+public class IBMMessageSender implements MessageSender
 {
-	protected static final Logger logger = LoggerFactory.getLogger( MessageSender.class );
+	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageSender.class );
 	@Autowired
 	private JmsTemplate jmsTemplate = null;
 
 	public void send(final String context) throws JmsException, JMSException {
 		logger.info( "will send to IBM MQ : {}", context );
-		
+
 		jmsTemplate.send( new MQQueue( "QM.ROET2", "ROE.MRTXR.LQ" ), new MessageCreator() {
 
 			@Override

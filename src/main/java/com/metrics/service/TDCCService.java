@@ -3,6 +3,7 @@ package com.metrics.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.metrics.bean.CloseRepoBean;
@@ -20,7 +21,7 @@ import com.metrics.bean.RepReqBean;
 import com.metrics.bean.SecBlkBean;
 import com.metrics.bean.SecStlmBean;
 import com.metrics.bean.UndwBean;
-import com.metrics.mq.ibm.MessageSender;
+import com.metrics.mq.MessageSender;
 import com.metrics.service.message.OXMService;
 import com.metrics.xml.message.tdcc.def.CLOSEREPO;
 import com.metrics.xml.message.tdcc.def.CONSIGNTINST;
@@ -61,6 +62,7 @@ public class TDCCService
 
 	@Autowired
 	private OXMService oxmService = null;
+	@Qualifier("IBMMessageSender")
 	@Autowired
 	private MessageSender messageSender = null;
 

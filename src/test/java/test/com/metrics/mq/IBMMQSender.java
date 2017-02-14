@@ -1,4 +1,4 @@
-package com.mycompany;
+package test.com.metrics.mq;
 
 import java.util.Calendar;
 

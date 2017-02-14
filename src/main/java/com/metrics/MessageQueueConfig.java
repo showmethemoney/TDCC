@@ -6,6 +6,7 @@ import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.spring.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jms.core.JmsTemplate;
@@ -13,6 +14,7 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.listener.MessageListenerContainer;
 
 import com.metrics.mq.MessageReceiver;
+
 
 /**
  * Message Queue Embedded Server Configuration. ActiveMQ
@@ -22,7 +24,7 @@ import com.metrics.mq.MessageReceiver;
  * @author ethan
  *
  */
-//@Configuration
+// @Configuration
 public class MessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( MessageQueueConfig.class );
@@ -35,11 +37,12 @@ public class MessageQueueConfig
 	public static final String NAMED_QUEUE_TDCC_REQUEST = "queue.tdcc.request";
 	public static final String NAMED_QUEUE_TDCC_RESPONSE = "queue.tdcc.response";
 
-//	@Autowired
+	@Qualifier("JMSMessageReceiver")
+	@Autowired
 	MessageReceiver messageReceiver;
 
 	/**
-	 * Embedded MQ Server 
+	 * Embedded MQ Server
 	 */
 	@Bean(initMethod = "start", destroyMethod = "stop")
 	public BrokerService embeddedBroker() {
@@ -53,7 +56,7 @@ public class MessageQueueConfig
 			broker.setPersistent( false );
 			broker.setUseJmx( false );
 			broker.setUseShutdownHook( false );
-			
+
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage() );
 		}
@@ -65,7 +68,7 @@ public class MessageQueueConfig
 	public ConnectionFactory connectionFactory() {
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
 		connectionFactory.setBrokerURL( DEFAULT_BROKER_URL );
-		
+
 		return connectionFactory;
 	}
 

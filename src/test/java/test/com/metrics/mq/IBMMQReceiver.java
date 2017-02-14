@@ -1,4 +1,4 @@
-package com.mycompany;
+package test.com.metrics.mq;
 
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
