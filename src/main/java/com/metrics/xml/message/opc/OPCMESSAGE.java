@@ -12,19 +12,10 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import com.metrics.xml.message.opc.def.CHGKEY;
-import com.metrics.xml.message.opc.def.CHGKEYCFRM;
-import com.metrics.xml.message.opc.def.CHGKEYREQ;
-import com.metrics.xml.message.opc.def.CHGKEYRSP;
-import com.metrics.xml.message.opc.def.KEYSYNC;
-import com.metrics.xml.message.opc.def.KEYSYNCRSP;
 
 /**
  * <p>
@@ -86,7 +77,14 @@ import com.metrics.xml.message.opc.def.KEYSYNCRSP;
 @XmlAccessorType(XmlAccessType.NONE)
 public abstract class OPCMESSAGE implements Serializable
 {
-
+	
+	@XmlTransient
+	public static final String RESPONSE_SUCCESS = "0001";
+	@XmlTransient
+	public static final String RESPONSE_AR_ERROR = "0304";
+	@XmlTransient
+	public static final String RESPONSE_XML_ERROR = "0106" ;
+	
 	public OPCMESSAGE() {
 		super();
 		// TODO Auto-generated constructor stub

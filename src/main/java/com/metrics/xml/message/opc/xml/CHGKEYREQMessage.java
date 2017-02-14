@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 import com.metrics.xml.message.opc.OPCMESSAGE;
-import com.metrics.xml.message.opc.def.CHGKEY;
 import com.metrics.xml.message.opc.def.CHGKEYREQ;
 
 @XmlAccessorType(XmlAccessType.FIELD)

@@ -74,7 +74,7 @@ public class TDCCService
 
 			message.setBody( closeRepo );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -87,7 +87,7 @@ public class TDCCService
 
 			message.setBody( new CONSIGNTINST( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -100,7 +100,7 @@ public class TDCCService
 
 			message.setBody( new CSHADVICE( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -113,7 +113,7 @@ public class TDCCService
 
 			message.setBody( new DEP( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -126,8 +126,8 @@ public class TDCCService
 
 			message.setBody( new ERINST( instance.getBody() ) );
 
-			// logger.info( "{}", oxmService.marshall( message ) );
-			messageSender.send( oxmService.marshall( message ) );;
+			// logger.info( "{}", oxmService.marshallBCSSMessage( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );;
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -140,7 +140,7 @@ public class TDCCService
 
 			message.setBody( new MODREPO( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -153,7 +153,7 @@ public class TDCCService
 
 			message.setBody( new MORTGAGEREGEX( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -166,7 +166,7 @@ public class TDCCService
 
 			message.setBody( new MORTGAGERELEX( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -179,7 +179,7 @@ public class TDCCService
 
 			message.setBody( new OPENREPO( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -192,7 +192,7 @@ public class TDCCService
 
 			message.setBody( new REIINST( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -205,7 +205,7 @@ public class TDCCService
 
 			message.setBody( new REP( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -218,7 +218,7 @@ public class TDCCService
 
 			message.setBody( new REPREQ( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -231,7 +231,7 @@ public class TDCCService
 
 			message.setBody( new SECBLK( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -244,7 +244,7 @@ public class TDCCService
 
 			message.setBody( new SECSTLM( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -257,7 +257,7 @@ public class TDCCService
 
 			message.setBody( new UNDW( instance.getBody() ) );
 
-			messageSender.send( oxmService.marshall( message ) );
+			messageSender.send( oxmService.marshallBCSSMessage( message ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;

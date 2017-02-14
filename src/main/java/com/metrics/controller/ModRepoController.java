@@ -1,5 +1,8 @@
 package com.metrics.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,14 @@ public class ModRepoController
 
 	@GetMapping
 	public String view(Model model) {
+		Map<String, String> messageTypes = new HashMap<String, String>();
+		messageTypes.put( "303", "303" );
+
+		Map<String, String> actions = new HashMap<String, String>();
+		actions.put( "RCMI ", "RCMI" );
+
+		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 		model.addAttribute( AbstractController.NAMED_MODEL, new ModRepoBean() );
 
 		return NAMED_FORM;

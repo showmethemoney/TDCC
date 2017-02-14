@@ -20,6 +20,15 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td><form:label path="msgtype">Ref</form:label></td>
+					<td><form:input path="msgtype"items="${msgTypes}" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="action">Ref</form:label></td>
+					<td><form:input path="action" items="${actions}" /></td>
+				</tr>
+							
+				<tr>
 					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
 					<td>
 						<form:select path="body.cshLeg.cshccy">
