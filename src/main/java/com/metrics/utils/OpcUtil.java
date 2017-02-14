@@ -16,41 +16,41 @@ import com.formosoft.ra.taica2.RAFacade2;
 
 
 /**
- * ¥»Ãþ§O­t³d´£¨Ñ³B²z OPC °T®§¬ÛÃö¤u¨ã¤èªk¡A ¥]§t:²£¥Í¬y¤ô½s¸¹¡B®É¶¡ÂW°O¡B°T®§½s¸¹¡B³]©wª¬ºAµ¥µ¥¡C
+ * ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½tï¿½dï¿½ï¿½ï¿½Ñ³Bï¿½z OPC ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½kï¿½A ï¿½]ï¿½t:ï¿½ï¿½ï¿½Í¬yï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Bï¿½É¶ï¿½ï¿½Wï¿½Oï¿½Bï¿½Tï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Bï¿½]ï¿½wï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½C
  */
 public class OpcUtil
 {
 
 	/**
-	 * ³]©w¬y¤ô½s¸¹(7½X¡A¤£¥i­«½Æ)
+	 * ï¿½]ï¿½wï¿½yï¿½ï¿½ï¿½sï¿½ï¿½(7ï¿½Xï¿½Aï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½)
 	 * 
-	 * @return ¬y¤ô½s¸¹
+	 * @return ï¿½yï¿½ï¿½ï¿½sï¿½ï¿½
 	 */
 	public static synchronized String newAuditNo() {
 		String seq = String.valueOf( Calendar.getInstance().getTimeInMillis() );
-		// TODO: ½T»{¬y¤ô¸¹°ß¤@©Ê°µªk
+		// TODO: ï¿½Tï¿½{ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ß¤@ï¿½Ê°ï¿½ï¿½k
 		// return "1" + seq.substring(seq.length() - 7);
 		return "1" + seq.substring( seq.length() - 6 );
 	}
 
 	/**
-	 * ¨ú±oOPC°T®§®É¶¡ÂW°O(YYYYMMDDHHMMSS 14½X)
+	 * ï¿½ï¿½oOPCï¿½Tï¿½ï¿½ï¿½É¶ï¿½ï¿½Wï¿½O(YYYYMMDDHHMMSS 14ï¿½X)
 	 * 
-	 * @return OPC °T®§®É¶¡ÂW°O
+	 * @return OPC ï¿½Tï¿½ï¿½ï¿½É¶ï¿½ï¿½Wï¿½O
 	 */
 	public static String getOpcTS() {
 		return new SimpleDateFormat( "yyyyMMddHHmmss" ).format( Calendar.getInstance() );
 	}
 
 	/**
-	 * ¨ú±oMsgId(For MQ)
+	 * ï¿½ï¿½oMsgId(For MQ)
 	 * 
 	 * @param partyid
-	 *            ¨Ï¥Î³æ¦ì¥N¸¹
+	 *            ï¿½Ï¥Î³ï¿½ï¿½Nï¿½ï¿½
 	 * @param audit_no
-	 *            ¬y¤ô½s¸¹
+	 *            ï¿½yï¿½ï¿½ï¿½sï¿½ï¿½
 	 * @param prc_code
-	 *            §@·~¥N¸¹
+	 *            ï¿½@ï¿½~ï¿½Nï¿½ï¿½
 	 * @return MsgId
 	 */
 	public static synchronized String getMsgId(String partyid, String audit_no, String prc_code) {
@@ -61,48 +61,48 @@ public class OpcUtil
 	}
 
 	/**
-	 * ³]©wOPC¥Ø«eª¬ºA¡AOPCª¬ºA·|°O¿ý¦bOPC°O¿ýÀÉ¤º
+	 * ï¿½]ï¿½wOPCï¿½Ø«eï¿½ï¿½ï¿½Aï¿½AOPCï¿½ï¿½ï¿½Aï¿½|ï¿½Oï¿½ï¿½bOPCï¿½Oï¿½ï¿½ï¿½É¤ï¿½
 	 * 
 	 * @param Path
-	 *            OPC°O¿ýÀÉ¦ì¸m
-	 * @return OPC¥Ø«eª¬ºA
+	 *            OPCï¿½Oï¿½ï¿½ï¿½É¦ï¿½m
+	 * @return OPCï¿½Ø«eï¿½ï¿½ï¿½A
 	 */
 	public static synchronized String[] setStatus(String Path) {
 		return setStatus( Path, "" );
 	}
 
 	/**
-	 * ³]©wOPC¥Ø«eª¬ºA¡AOPCª¬ºA·|°O¿ý¦bOPC°O¿ýÀÉ¤º
+	 * ï¿½]ï¿½wOPCï¿½Ø«eï¿½ï¿½ï¿½Aï¿½AOPCï¿½ï¿½ï¿½Aï¿½|ï¿½Oï¿½ï¿½bOPCï¿½Oï¿½ï¿½ï¿½É¤ï¿½
 	 * 
 	 * @param Path
-	 *            OPC°O¿ýÀÉ¦ì¸m
+	 *            OPCï¿½Oï¿½ï¿½ï¿½É¦ï¿½m
 	 * @param isOK
-	 *            ª¬ºA
-	 * @param ®É¶¡°Ñ¼Æ
-	 * @return OPC¥Ø«eª¬ºA
+	 *            ï¿½ï¿½ï¿½A
+	 * @param ï¿½É¶ï¿½ï¿½Ñ¼ï¿½
+	 * @return OPCï¿½Ø«eï¿½ï¿½ï¿½A
 	 */
 	public static synchronized String[] setStatus(String Path, String isOK) {
 		return setStatus( Path, isOK, "" );
 	}
 
 	/**
-	 * ³]©wOPC¥Ø«eª¬ºA¡AOPCª¬ºA·|°O¿ý¦bOPC°O¿ýÀÉ¤º
+	 * ï¿½]ï¿½wOPCï¿½Ø«eï¿½ï¿½ï¿½Aï¿½AOPCï¿½ï¿½ï¿½Aï¿½|ï¿½Oï¿½ï¿½bOPCï¿½Oï¿½ï¿½ï¿½É¤ï¿½
 	 * 
 	 * @param Path
-	 *            OPC°O¿ýÀÉ¦ì¸m
+	 *            OPCï¿½Oï¿½ï¿½ï¿½É¦ï¿½m
 	 * @param isOK
-	 *            ª¬ºA
-	 * @return OPC¥Ø«eª¬ºA
+	 *            ï¿½ï¿½ï¿½A
+	 * @return OPCï¿½Ø«eï¿½ï¿½ï¿½A
 	 */
 	public static synchronized String[] setStatus(String Path, String isOK, String sTime) {
 		boolean hasError = false;
 		String[] sStatus = { "Y", "999999" };
 		String sFileName = Path + "psp.opc.status.conf";
 
-		// ÀË¬dÀÉ®×¬O§_¦s¦b
+		// ï¿½Ë¬dï¿½É®×¬Oï¿½_ï¿½sï¿½b
 		File file = new File( sFileName );
 		if (!file.exists()) {
-			System.out.println( "***** OPC conf ÀÉ®×¤£¦s¦b! sFileName = " + sFileName );
+			System.out.println( "***** OPC conf ï¿½É®×¤ï¿½ï¿½sï¿½b! sFileName = " + sFileName );
 		}
 
 		try {
@@ -142,32 +142,32 @@ public class OpcUtil
 	}
 
 	/**
-	 * µn¤JRA¨t²Î
+	 * ï¿½nï¿½JRAï¿½tï¿½ï¿½
 	 * 
 	 * @param ra
-	 *            RA³B²zª«¥ó
-	 * @return µn¤J¦¨¥\»P§_¡A0->¦¨¥\¡FOthers->¿ù»~¥N½X
+	 *            RAï¿½Bï¿½zï¿½ï¿½ï¿½ï¿½
+	 * @return ï¿½nï¿½Jï¿½ï¿½ï¿½\ï¿½Pï¿½_ï¿½A0->ï¿½ï¿½ï¿½\ï¿½FOthers->ï¿½ï¿½~ï¿½Nï¿½X
 	 * @throws NoSuchAlgorithmException
 	 * @throws OpcException
 	 */
-	public static int loginRA(RAFacade2 ra) throws NoSuchAlgorithmException, OpcException {
-		LogService log = LogFactory.get( LogFactory.LOG_HOST );
-		String pastr = OpcUtil.passwordHash( GWManager.conf.getOpcRAPassword() );
-		int LoginResult = ra.FSRA2_Login( GWManager.conf.getOpcRALoginID(), pastr, "" );
-		if (LoginResult == 0) {
-			return LoginResult;
-		} else {
-			log.error( "ra.FSRA2_GetErrorMsg() = " + ra.FSRA2_GetErrorMsg() );
-			throw new OpcException( "LoginRA()->Error = " + ra.FSRA2_GetErrorMsg() );
-		}
-	}
+//	public static int loginRA(RAFacade2 ra) throws NoSuchAlgorithmException, OpcException {
+//		LogService log = LogFactory.get( LogFactory.LOG_HOST );
+//		String pastr = OpcUtil.passwordHash( GWManager.conf.getOpcRAPassword() );
+////		int LoginResult = ra.FSRA2_Login( GWManager.conf.getOpcRALoginID(), pastr, "" );
+//		if (LoginResult == 0) {
+//			return LoginResult;
+//		} else {
+//			log.error( "ra.FSRA2_GetErrorMsg() = " + ra.FSRA2_GetErrorMsg() );
+//			throw new OpcException( "LoginRA()->Error = " + ra.FSRA2_GetErrorMsg() );
+//		}
+//	}
 
 	/**
-	 * ±N±K½X¸ê®ÆÂà¦¨Hex¦r¦ê¦^¶Ç
+	 * ï¿½Nï¿½Kï¿½Xï¿½ï¿½ï¿½ï¿½à¦¨Hexï¿½rï¿½ï¿½^ï¿½ï¿½
 	 * 
 	 * @param password
-	 *            ±K½X¸ê®Æ
-	 * @return Hex¦r¦ê
+	 *            ï¿½Kï¿½Xï¿½ï¿½ï¿½
+	 * @return Hexï¿½rï¿½ï¿½
 	 * @throws NoSuchAlgorithmException
 	 */
 	public static String passwordHash(String password) throws NoSuchAlgorithmException {
@@ -178,11 +178,11 @@ public class OpcUtil
 	}
 
 	/**
-	 * ±NByte¸ê®ÆÂà¦¨Hex¦r¦ê
+	 * ï¿½NByteï¿½ï¿½ï¿½ï¿½à¦¨Hexï¿½rï¿½ï¿½
 	 * 
 	 * @param s
-	 *            Byte¸ê®Æ
-	 * @return Hex¦r¦ê
+	 *            Byteï¿½ï¿½ï¿½
+	 * @return Hexï¿½rï¿½ï¿½
 	 */
 	public static String toHexString(byte[] s) {
 		String str = "";
@@ -205,13 +205,13 @@ public class OpcUtil
 	}
 
 	/**
-	 * Pack String (HEX->INT)¡AOPC®É¨Ï¥Î
+	 * Pack String (HEX->INT)ï¿½AOPCï¿½É¨Ï¥ï¿½
 	 * 
 	 * @param value
-	 *            ¨Ó·½¦r¦ê
+	 *            ï¿½Ó·ï¿½ï¿½rï¿½ï¿½
 	 * @param len
-	 *            ªø«×
-	 * @return Pack«á¤§­È
+	 *            ï¿½ï¿½ï¿½
+	 * @return Packï¿½á¤§ï¿½ï¿½
 	 */
 	public static byte[] pack(String value, int len) {
 		int i;
@@ -239,8 +239,8 @@ public class OpcUtil
 	}
 
 	/**
-	 * ±N¦r¦êÂà¦¨ Byte Array¡C
-	 * @param str ¸ê®Æ¦r¦ê
+	 * ï¿½Nï¿½rï¿½ï¿½ï¿½à¦¨ Byte Arrayï¿½C
+	 * @param str ï¿½ï¿½Æ¦rï¿½ï¿½
 	 * @return Byte Array
 	 */
 	public static byte[] HexStringToByteArray(String str) {

@@ -22,7 +22,7 @@ import com.metrics.mq.MessageReceiver;
 /**
  * @author Ethan Lee
  */
-@Configurable
+//@Configurable
 public class IBMMessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageQueueConfig.class );

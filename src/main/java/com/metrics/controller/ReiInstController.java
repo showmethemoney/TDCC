@@ -29,16 +29,24 @@ public class ReiInstController
 	@Autowired
 	private TDCCService tdccService = null;
 
-	@GetMapping
-	public String view(Model model) {
+	@ModelAttribute
+	public void getMessageTypes(Model model) {
 		Map<String, String> messageTypes = new HashMap<String, String>();
 		messageTypes.put( "123", "123" );
 
+		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+	}
+
+	@ModelAttribute
+	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
 		actions.put( "RI", "RI" );
-
-		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
+	}
+	
+	@GetMapping
+	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new ReiInstBean() );
 
 		return NAMED_FORM;

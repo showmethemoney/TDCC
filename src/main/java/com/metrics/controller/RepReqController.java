@@ -29,16 +29,24 @@ public class RepReqController
 	@Autowired
 	private TDCCService tdccService = null;
 
-	@GetMapping
-	public String view(Model model) {
+	@ModelAttribute
+	public void getMessageTypes(Model model) {
 		Map<String, String> messageTypes = new HashMap<String, String>();
 		messageTypes.put( "005", "005" );
+	
+		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+	}
 
+	@ModelAttribute
+	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
 		actions.put( "RPRQ", "RPRQ" );
-
-		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+		
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
+	}
+	
+	@GetMapping
+	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new RepReqBean() );
 
 		return NAMED_FORM;

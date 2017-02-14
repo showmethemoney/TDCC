@@ -29,16 +29,24 @@ public class ConsigntInstController
 	@Autowired
 	private TDCCService tdccService = null;
 
-	@GetMapping
-	public String view(Model model) {
+	@ModelAttribute
+	public void getMessageTypes(Model model) {
 		Map<String, String> messageTypes = new HashMap<String, String>();
 		messageTypes.put( "112", "112" );
 
-		Map<String, String> actions = new HashMap<String, String>();
-		messageTypes.put( "CI", "CI" );
-
 		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+	}
+
+	@ModelAttribute
+	public void getActions(Model model) {
+		Map<String, String> actions = new HashMap<String, String>();
+		actions.put( "CI", "CI" );
+	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
+	}
+	
+	@GetMapping
+	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new ConsigntInstBean() );
 
 		return NAMED_FORM;

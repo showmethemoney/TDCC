@@ -29,17 +29,25 @@ public class SecBlkController
 	@Autowired
 	private TDCCService tdccService = null;
 
-	@GetMapping
-	public String view(Model model) {
+	@ModelAttribute
+	public void getMessageTypes(Model model) {
 		Map<String, String> messageTypes = new HashMap<String, String>();
 		messageTypes.put( "403", "403" );
+		
+		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+	}
 
+	@ModelAttribute
+	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
 		actions.put( "BI", "BI" );
 		actions.put( "UI", "UI" );
-
-		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+		
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
+	}
+	
+	@GetMapping
+	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new SecBlkBean() );
 
 		return NAMED_FORM;

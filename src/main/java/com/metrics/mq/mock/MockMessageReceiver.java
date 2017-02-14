@@ -1,7 +1,5 @@
 package com.metrics.mq.mock;
 
-import java.util.Calendar;
-
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -14,10 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Component;
 
 import com.metrics.MockMessageQueueConfig;
 
-//@Component
+@Component
 public class MockMessageReceiver implements MessageListener
 {
 	protected static final Logger logger = LoggerFactory.getLogger( MockMessageReceiver.class );
@@ -35,9 +34,8 @@ public class MockMessageReceiver implements MessageListener
 			jmsTemplate.send( new MessageCreator() {
 				@Override
 				public Message createMessage(Session session) throws JMSException {
-					String response = Calendar.getInstance().getTimeInMillis() + " " + ((TextMessage) message).getText();
-					logger.info( "TDCC Will response : {}", response );
-					return session.createTextMessage( response );
+					logger.info( "TDCC Will response : {}", ((TextMessage) message).getText() );
+					return session.createTextMessage( ((TextMessage) message).getText() );
 				}
 			} );
 		} catch (Throwable cause) {

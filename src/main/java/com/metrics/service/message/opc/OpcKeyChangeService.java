@@ -61,7 +61,7 @@ public class OpcKeyChangeService
 
 			new CHGKEYMessage();
 
-			OpcUtil.loginRA( ra );
+//			OpcUtil.loginRA( ra );
 
 //			int rst = ra.FSSS_ImportKeyAndRandom( ra.FSRA2_GetKey1(), this.conf.getOpcCDKey(), this.conf.getOpcWorkingKeyNew(),
 //			        OpcUtil.pack( message.getBody().getNEWKEY(), 32 ), a, OpcUtil.pack( message.getBody().getRANDOMNO(), 16 ), 544 );

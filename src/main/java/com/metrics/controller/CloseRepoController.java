@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.metrics.bean.CloseRepoBean;
 import com.metrics.service.TDCCService;
 
-
 /**
  * @author Ethan Lee
  * 
@@ -30,16 +29,24 @@ public class CloseRepoController extends AbstractController
 	@Autowired
 	private TDCCService tdccService = null;
 
-	@GetMapping
-	public String view(Model model) {
+	@ModelAttribute
+	public void getMessageTypes(Model model) {
 		Map<String, String> messageTypes = new HashMap<String, String>();
 		messageTypes.put( "302", "302" );
+		
+		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+	}
 
+	@ModelAttribute
+	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
 		actions.put( "RCI", "RCI" );
-
-		model.addAttribute( AbstractController.NAMED_MESSAGE_TYPES, messageTypes );
+		
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
+	}
+
+	@GetMapping
+	public String view(Model model) {
 		model.addAttribute( AbstractController.NAMED_MODEL, new CloseRepoBean() );
 
 		return NAMED_FORM;

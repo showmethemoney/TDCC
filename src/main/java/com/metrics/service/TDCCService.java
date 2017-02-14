@@ -62,8 +62,10 @@ public class TDCCService
 
 	@Autowired
 	private OXMService oxmService = null;
-	@Qualifier("IBMMessageSender")
+
 	@Autowired
+//	@Qualifier("IBMMessageSender")
+	@Qualifier("JMSMessageSender")
 	private MessageSender messageSender = null;
 
 	public void sendCloseRepoRequest(CloseRepoBean instance) throws Throwable {

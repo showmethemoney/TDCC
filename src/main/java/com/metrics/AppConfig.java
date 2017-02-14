@@ -15,8 +15,9 @@ import com.metrics.config.RAConfig;
 @Configuration
 @ComponentScan(basePackages = "com.metrics")
 @Import(
-// { DatabaseConfig.class, MessageQueueConfig.class, OXMConfig.class, MockMessageQueueConfig.class }
-{ DatabaseConfig.class, IBMMessageQueueConfig.class, OXMConfig.class })
+ { DatabaseConfig.class, MessageQueueConfig.class, OXMConfig.class, MockMessageQueueConfig.class }
+//{ DatabaseConfig.class, IBMMessageQueueConfig.class, OXMConfig.class }
+ )
 @PropertySources({ @PropertySource("classpath:RA.properties") })
 public class AppConfig
 {

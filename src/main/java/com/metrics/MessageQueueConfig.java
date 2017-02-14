@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.listener.MessageListenerContainer;
 
 import com.metrics.mq.MessageReceiver;
-
 
 /**
  * Message Queue Embedded Server Configuration. ActiveMQ
@@ -24,7 +24,7 @@ import com.metrics.mq.MessageReceiver;
  * @author ethan
  *
  */
-// @Configuration
+@Configuration
 public class MessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( MessageQueueConfig.class );
