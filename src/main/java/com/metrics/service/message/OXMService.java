@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Component;
 
+import com.metrics.xml.message.opc.OPCMESSAGE;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 
 @Component
@@ -27,6 +28,11 @@ public class OXMService
 	@Autowired
 	private Jaxb2Marshaller marshaller = null;
 	
+	public String marshallOPCMessage(OPCMESSAGE instance) {
+		
+		return marshall( instance );
+	}
+	
 	public String marshallBCSSMessage(BCSSMESSAGE instance) {
 		Calendar calendar = Calendar.getInstance();
 		instance.setTS( DateFormatUtils.format( calendar, FORMAT_TIMESTAMP ) );
@@ -34,8 +40,6 @@ public class OXMService
 		
 		// todo 是否要壓碼 
 		// 除交割狀態通知訊息(訊息代號002、012、032及040)不押碼外，其他訊息皆須押碼
-		
-		
 		
 		return marshall( instance );
 	}
