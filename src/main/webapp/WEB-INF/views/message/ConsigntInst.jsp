@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Close Repo</title>
+<title><spring:message code="consigntInst" /></title>
 </head>
 <body>
 <body>
@@ -35,24 +35,24 @@
 				</tr>
 							
 				<tr>
-					<td><form:label path="body.stlmprty.prtyid">Ref</form:label></td>
+					<td><form:label path="body.stlmprty.prtyid"><spring:message code="consigntInst.stlmprty.prtyid" /></form:label></td>
 					<td><form:input path="body.stlmprty.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmprty.acctid">Ref</form:label></td>
+					<td><form:label path="body.stlmprty.acctid"><spring:message code="consigntInst.stlmprty.acctid" /></form:label></td>
 					<td><form:input path="body.stlmprty.acctid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmprty.acctnm">Ref</form:label></td>
+					<td><form:label path="body.stlmprty.acctnm"><spring:message code="consigntInst.stlmprty.acctnm" /></form:label></td>
 					<td><form:input path="body.stlmprty.acctnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmprty.invscshacct">Ref</form:label></td>
+					<td><form:label path="body.stlmprty.invscshacct"><spring:message code="consigntInst.stlmprty.invscshacct" /></form:label></td>
 					<td><form:input path="body.stlmprty.invscshacct" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:label path="body.cshLeg.cshccy"><spring:message code="consigntInst.cshLeg.cshccy" /></form:label></td>
 					<td><form:select path="body.cshLeg.cshccy"> 
 							<form:option value="TWD" label="TWD"/>
 							<form:option value="USD" label="USD"/>
@@ -65,20 +65,20 @@
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:label path="body.cshLeg.cshamt"><spring:message code="consigntInst.cshLeg.cshamt" /></form:label></td>
 					<td><form:input path="body.cshLeg.cshamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:label path="body.cshLeg.afttaxamt"><spring:message code="consigntInst.cshLeg.afttaxamt" /></form:label></td>
 					<td><form:input path="body.cshLeg.afttaxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:label path="body.cshLeg.remitfee"><spring:message code="consigntInst.cshLeg.remitfee" /></form:label></td>
 					<td><form:input path="body.cshLeg.remitfee" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.receiverBank.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.cshLeg.cshccy"><spring:message code="consigntInst.receiverBank.cshLeg.cshccy" /></form:label></td>
 					<td><form:select path="body.receiverBank.cshLeg.cshccy">
 							<form:option value="TWD" label="TWD"/>
 							<form:option value="USD" label="USD"/>
@@ -91,88 +91,88 @@
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.cshLeg.cshamt"><spring:message code="consigntInst.receiverBank.cshLeg.cshamt" /></form:label></td>
 					<td><form:input path="body.receiverBank.cshLeg.cshamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.cshLeg.afttaxamt"><spring:message code="consigntInst.receiverBank.cshLeg.afttaxamt" /></form:label></td>
 					<td><form:input path="body.receiverBank.cshLeg.afttaxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.cshLeg.remitfee"><spring:message code="consigntInst.receiverBank.cshLeg.remitfee" /></form:label></td>
 					<td><form:input path="body.receiverBank.cshLeg.remitfee" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.id">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.id"><spring:message code="consigntInst.receiverBank.id" /></form:label></td>
 					<td><form:input path="body.receiverBank.id" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.bnfynm">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.bnfynm"><spring:message code="consigntInst.receiverBank.bnfynm" /></form:label></td>
 					<td><form:input path="body.receiverBank.bnfynm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.acctid">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.acctid"><spring:message code="consigntInst.receiverBank.acctid" /></form:label></td>
 					<td><form:input path="body.receiverBank.acctid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.swift">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.swift"><spring:message code="consigntInst.receiverBank.swift" /></form:label></td>
 					<td><form:input path="body.receiverBank.swift" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.orgsndrref">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.orgsndrref"><spring:message code="consigntInst.receiverBank.orgsndrref" /></form:label></td>
 					<td><form:input path="body.receiverBank.orgsndrref" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.prtyid">Ref</form:label></td>
+					<td><form:label path="body.prtyid"><spring:message code="consigntInst.prtyid" /></form:label></td>
 					<td><form:input path="body.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.isin">Ref</form:label></td>
+					<td><form:label path="body.isin"><spring:message code="consigntInst.isin" /></form:label></td>
 					<td><form:input path="body.isin" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.dbcshamt">Ref</form:label></td>
+					<td><form:label path="body.dbcshamt"><spring:message code="consigntInst.dbcshamt" /></form:label></td>
 					<td><form:input path="body.dbcshamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cnsgfee">Ref</form:label></td>
+					<td><form:label path="body.cnsgfee"><spring:message code="consigntInst.cnsgfee" /></form:label></td>
 					<td><form:input path="body.cnsgfee" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmdt">Ref</form:label></td>
+					<td><form:label path="body.stlmdt"><spring:message code="consigntInst.stlmdt" /></form:label></td>
 					<td><form:input path="body.stlmdt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cbid">Ref</form:label></td>
+					<td><form:label path="body.cbid"><spring:message code="consigntInst.cbid" /></form:label></td>
 					<td><form:input path="body.cbid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.bsprc">Ref</form:label></td>
+					<td><form:label path="body.bsprc"><spring:message code="consigntInst.bsprc" /></form:label></td>
 					<td><form:input path="body.bsprc" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.taxamt">Ref</form:label></td>
+					<td><form:label path="body.taxamt"><spring:message code="consigntInst.taxamt" /></form:label></td>
 					<td><form:input path="body.taxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.trdrt">Ref</form:label></td>
+					<td><form:label path="body.trdrt"><spring:message code="consigntInst.trdrt" /></form:label></td>
 					<td><form:input path="body.trdrt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshsys">Ref</form:label></td>
+					<td><form:label path="body.cshsys"><spring:message code="consigntInst.cshsys" /></form:label></td>
 					<td><form:input path="body.cshsys" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.undfee">Ref</form:label></td>
+					<td><form:label path="body.undfee"><spring:message code="consigntInst.undfee" /></form:label></td>
 					<td><form:input path="body.undfee" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cnsfee">Ref</form:label></td>
+					<td><form:label path="body.cnsfee"><spring:message code="consigntInst.cnsfee" /></form:label></td>
 					<td><form:input path="body.cnsfee" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.gutfee">Ref</form:label></td>
+					<td><form:label path="body.gutfee"><spring:message code="consigntInst.gutfee" /></form:label></td>
 					<td><form:input path="body.gutfee" /></td>
 				</tr>
 

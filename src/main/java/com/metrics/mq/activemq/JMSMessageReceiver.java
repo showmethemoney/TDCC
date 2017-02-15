@@ -9,6 +9,8 @@ import javax.jms.Message;
 import javax.jms.TextMessage;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -17,10 +19,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.MapFactoryBean;
 import org.springframework.stereotype.Component;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.InputSource;
 
 import com.metrics.mq.MessageReceiver;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
-
 
 /**
  * receive message from tdcc
@@ -34,7 +38,6 @@ public class JMSMessageReceiver implements MessageReceiver
 	protected static final Logger logger = LoggerFactory.getLogger( JMSMessageReceiver.class );
 
 	final static String PATTERN_OPC = "</BCSSMESSAGE>(.+)";
-	final static String PATTERN_TOTA_TXN_ID = "<BCSSMESSAGE .*><(\\w+) ";
 
 	@Qualifier("tdccMessages")
 	@Autowired
@@ -52,34 +55,31 @@ public class JMSMessageReceiver implements MessageReceiver
 				String opcCode = null;
 				String txnId = null;
 
-				// ����憯Ⅳ
 				Matcher opcMatcher = Pattern.compile( PATTERN_OPC ).matcher( response );
 				if (opcMatcher.find()) {
 					opcCode = opcMatcher.group( 1 );
 				}
 
-				// �����誨���
-				Matcher totaTxnIdMatcher = Pattern.compile( PATTERN_TOTA_TXN_ID ).matcher( response );
-				if (!opcMatcher.find()) {
-					logger.error( "NOT Found TOTA Definition : {}", response );
-				} else {
-					txnId = totaTxnIdMatcher.group( 1 );
+				if (StringUtils.isNotBlank( opcCode )) {
+					response = StringUtils.removeEnd( response, opcCode );
 				}
 
+				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder builder = factory.newDocumentBuilder();
+
+				Document document = builder.parse( new InputSource( new StringReader( response ) ) );
+
+				txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
+
 				// unmarshall
-				if (StringUtils.isNotBlank( opcCode )) {
-					Map<Object, Object> messages = tdccMessages.getObject();
+				Map<Object, Object> messages = tdccMessages.getObject();
 
-					if (messages.containsKey( txnId )) {
+				if (messages.containsKey( txnId )) {
 
-						JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
+					JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
 
-						Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-						BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( StringUtils.removeEnd( response, opcCode ) ) );
-
-						// save
-					}
-
+					Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+					BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
 				}
 			}
 		} catch (Throwable cause) {

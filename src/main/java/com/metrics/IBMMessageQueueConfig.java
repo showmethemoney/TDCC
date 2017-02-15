@@ -30,6 +30,7 @@ public class IBMMessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageQueueConfig.class );
 	public static final String NAMED_TDCC_CONNECTION_FACTORY = "";
+	public static final String NAMED_OPC_CONNECTION_FACTORY = "";
 	public static final String NAMED_TDCC_SEND_DESTINATION = "";
 	public static final String NAMED_TDCC_RECEIVE_DESTINATION = "";
 	public static final String NAMED_OPC_SEND_DESTINATION = "";
@@ -42,7 +43,7 @@ public class IBMMessageQueueConfig
 	MessageReceiver messageReceiver = null;
 
 	@Bean(NAMED_TDCC_CONNECTION_FACTORY)
-	public MQQueueConnectionFactory connectionFactory() {
+	public MQQueueConnectionFactory tdccConnectionFactory() {
 		MQQueueConnectionFactory connectionFactory = null;
 
 		try {
@@ -59,10 +60,29 @@ public class IBMMessageQueueConfig
 
 		return connectionFactory;
 	}
+	
+	@Bean(NAMED_OPC_CONNECTION_FACTORY)
+	public MQQueueConnectionFactory opcConnectionFactory() {
+		MQQueueConnectionFactory connectionFactory = null;
 
-	public UserCredentialsConnectionFactoryAdapter securityConnectionFactory() {
+		try {
+			connectionFactory = new MQQueueConnectionFactory();
+
+			connectionFactory.setHostName( "172.17.240.15" );
+			connectionFactory.setPort( 1415 );
+			connectionFactory.setQueueManager( "QM.ROET2" );
+			connectionFactory.setChannel( "ROE.MRV3.CHL" );
+			connectionFactory.setTransportType( 1 );
+		} catch (Throwable cause) {
+			logger.error( cause.getMessage(), cause );
+		}
+
+		return connectionFactory;	
+	}
+	
+	public UserCredentialsConnectionFactoryAdapter securityTDCCConnectionFactory() {
 		UserCredentialsConnectionFactoryAdapter adapter = new UserCredentialsConnectionFactoryAdapter();
-		adapter.setTargetConnectionFactory( connectionFactory() );
+		adapter.setTargetConnectionFactory( tdccConnectionFactory() );
 		adapter.setUsername( "ubsread" );
 		adapter.setPassword( "" );
 
@@ -74,7 +94,7 @@ public class IBMMessageQueueConfig
 		MQQueue destination = null;
 
 		try {
-			QueueConnection connection = securityConnectionFactory().createQueueConnection();
+			QueueConnection connection = securityTDCCConnectionFactory().createQueueConnection();
 			Session session = connection.createQueueSession( false, Session.AUTO_ACKNOWLEDGE );
 
 			destination = (MQQueue) session.createQueue( "ROE.MRTXR.LQ" );
@@ -98,12 +118,12 @@ public class IBMMessageQueueConfig
 		return destination;
 	}
 
-	@Bean(NAMED_TDCC_SEND_DESTINATION)
+	@Bean(NAMED_TDCC_RECEIVE_DESTINATION)
 	public MQQueue receiveTDCCDestination() {
 		MQQueue destination = null;
 
 		try {
-			QueueConnection connection = securityConnectionFactory().createQueueConnection();
+			QueueConnection connection = securityTDCCConnectionFactory().createQueueConnection();
 			Session session = connection.createQueueSession( false, Session.AUTO_ACKNOWLEDGE );
 
 			destination = (MQQueue) session.createQueue( "ROE.MRTXR.LQ" );
@@ -130,7 +150,7 @@ public class IBMMessageQueueConfig
 	@Bean
 	public JmsTemplate jmsTemplate() {
 		JmsTemplate template = new JmsTemplate();
-		template.setConnectionFactory( securityConnectionFactory() );
+		template.setConnectionFactory( securityTDCCConnectionFactory() );
 		template.setDefaultDestination( sendTDCCDestination() );
 
 		return template;
@@ -139,7 +159,7 @@ public class IBMMessageQueueConfig
 	@Bean
 	public MessageListenerContainer getContainer() {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
-		container.setConnectionFactory( securityConnectionFactory() );
+		container.setConnectionFactory( securityTDCCConnectionFactory() );
 		container.setDestination( receiveTDCCDestination() );
 		container.setMessageListener( messageReceiver );
 

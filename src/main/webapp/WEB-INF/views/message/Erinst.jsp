@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Close Repo</title>
+<title><spring:message code="erinst" /></title>
 </head>
 <body>
 <body>
@@ -15,19 +15,19 @@
 		<table>
 			<thead>
 				<tr>
-					<th>CloseRepo</th>
+					<th><spring:message code="erinst" /></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><form:label path="msgtype">Ref</form:label></td>
+					<td><form:label path="msgtype"><spring:message code="bcssmessage.msgtype" /></form:label></td>
 					<td><form:select path="msgtype">
 							<form:options items="${msgTypes}" />
 						</form:select>
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="action">Ref</form:label></td>
+					<td><form:label path="action"><spring:message code="bcssmessage.action" /></form:label></td>
 					<td><form:select path="action">
 							<form:options items="${actions}" />
 						</form:select>
@@ -35,52 +35,52 @@
 				</tr>	
 			
 				<tr>
-					<td><form:label path="body.stlmprty.prtyid">Ref</form:label></td>
+					<td><form:label path="body.stlmprty.prtyid"><spring:message code="erinst.stlmprty.prtyid" /></form:label></td>
 					<td><form:input path="body.stlmprty.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmprty.acctid">Ref</form:label></td>
+					<td><form:label path="body.stlmprty.acctid"><spring:message code="erinst.stlmprty.acctid" /></form:label></td>
 					<td><form:input path="body.stlmprty.acctid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmprty.acctnm">Ref</form:label></td>
+					<td><form:label path="body.stlmprty.acctnm"><spring:message code="erinst.stlmprty.acctnm" /></form:label></td>
 					<td><form:input path="body.stlmprty.acctnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmprty.invscshacct">Ref</form:label></td>
+					<td><form:label path="body.stlmprty.invscshacct"><spring:message code="erinst.stlmprty.invscshacct" /></form:label></td>
 					<td><form:input path="body.stlmprty.invscshacct" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.isin">Ref</form:label></td>
+					<td><form:label path="body.isin"><spring:message code="erinst.isin" /></form:label></td>
 					<td><form:input path="body.isin" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.fval">Ref</form:label></td>
+					<td><form:label path="body.fval"><spring:message code="erinst.fval" /></form:label></td>
 					<td><form:input path="body.fval" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.issdays">Ref</form:label></td>
+					<td><form:label path="body.issdays"><spring:message code="erinst.issdays" /></form:label></td>
 					<td><form:input path="body.issdays" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.matdt">Ref</form:label></td>
+					<td><form:label path="body.matdt"><spring:message code="erinst.matdt" /></form:label></td>
 					<td><form:input path="body.matdt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.issrt">Ref</form:label></td>
+					<td><form:label path="body.issrt"><spring:message code="erinst.issrt" /></form:label></td>
 					<td><form:input path="body.issrt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.bsprc">Ref</form:label></td>
+					<td><form:label path="body.bsprc"><spring:message code="erinst.bsprc" /></form:label></td>
 					<td><form:input path="body.bsprc" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.taxamt">Ref</form:label></td>
+					<td><form:label path="body.taxamt"><spring:message code="erinst.taxamt" /></form:label></td>
 					<td><form:input path="body.taxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshsys">Ref</form:label></td>
+					<td><form:label path="body.cshsys"><spring:message code="erinst.cshsys" /></form:label></td>
 					<td><form:input path="body.cshsys" /></td>
 				</tr>
 
