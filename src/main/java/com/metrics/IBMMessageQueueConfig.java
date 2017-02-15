@@ -20,6 +20,7 @@ import com.ibm.mq.jms.MQQueue;
 import com.ibm.mq.jms.MQQueueConnectionFactory;
 import com.metrics.mq.MessageReceiver;
 
+
 /**
  * @author Ethan Lee
  */
@@ -28,6 +29,7 @@ import com.metrics.mq.MessageReceiver;
 public class IBMMessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageQueueConfig.class );
+	public static final String NAMED_TDCC_CONNECTION_FACTORY = "";
 	public static final String NAMED_TDCC_SEND_DESTINATION = "";
 	public static final String NAMED_TDCC_RECEIVE_DESTINATION = "";
 	public static final String NAMED_OPC_SEND_DESTINATION = "";
@@ -39,7 +41,7 @@ public class IBMMessageQueueConfig
 	@Autowired
 	MessageReceiver messageReceiver = null;
 
-	@Bean
+	@Bean(NAMED_TDCC_CONNECTION_FACTORY)
 	public MQQueueConnectionFactory connectionFactory() {
 		MQQueueConnectionFactory connectionFactory = null;
 
@@ -65,6 +67,35 @@ public class IBMMessageQueueConfig
 		adapter.setPassword( "" );
 
 		return adapter;
+	}
+	
+	@Bean(NAMED_OPC_RECEIVE_DESTINATION)
+	public MQQueue receiveOPCDestination() {
+		MQQueue destination = null;
+
+		try {
+			QueueConnection connection = securityConnectionFactory().createQueueConnection();
+			Session session = connection.createQueueSession( false, Session.AUTO_ACKNOWLEDGE );
+
+			destination = (MQQueue) session.createQueue( "ROE.MRTXR.LQ" );
+		} catch (Throwable cause) {
+			logger.error( cause.getMessage(), cause );
+		}
+
+		return destination;
+	}
+
+	@Bean(NAMED_OPC_SEND_DESTINATION)
+	public MQQueue sendOPCDestination() {
+		MQQueue destination = null;
+
+		try {
+			destination = new MQQueue( "QM.ROET2", "ROE.MRTXR.LQ" );
+		} catch (Throwable cause) {
+			logger.error( cause.getMessage(), cause );
+		}
+
+		return destination;
 	}
 
 	@Bean(NAMED_TDCC_SEND_DESTINATION)
