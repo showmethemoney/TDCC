@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Close Repo</title>
+<title><spring:message code="modRepo" /></title>
 </head>
 <body>
 <body>
@@ -15,7 +15,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th>CloseRepo</th>
+					<th><spring:message code="modRepo" /></th>
 				</tr>
 			</thead>
 			<tbody>
