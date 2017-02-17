@@ -69,9 +69,9 @@ public class REPREQ
 
 	public REPREQ(RepReq repReq) {
 		getCRIT().add( new CRIT( repReq.getCrit() ) );
-		setPRTYID( repReq.getPrtyidt() );
-		setREPID( repReq.getRepnmt() );
-		setREPID( repReq.getRepidt() );
+		setPRTYID( repReq.getPrtyid() );
+		setREPID( repReq.getRepnm() );
+		setREPID( repReq.getRepid() );
 	}
 
 	/**

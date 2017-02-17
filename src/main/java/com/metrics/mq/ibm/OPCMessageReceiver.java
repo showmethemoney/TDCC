@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.ibm.mq.jms.MQQueue;
 import com.ibm.mq.jms.MQQueueConnectionFactory;
-import com.metrics.IBMMessageQueueConfig;
+import com.metrics.TDCCMessageQueueConfig;
 
 
 public class OPCMessageReceiver
@@ -21,9 +21,9 @@ public class OPCMessageReceiver
 	protected static final Logger logger = LoggerFactory.getLogger( OPCMessageReceiver.class );
 
 	@Autowired
-	@Qualifier(IBMMessageQueueConfig.NAMED_TDCC_CONNECTION_FACTORY)
+	@Qualifier(TDCCMessageQueueConfig.NAMED_TDCC_CONNECTION_FACTORY)
 	private MQQueueConnectionFactory connectionFactory = null;
-	@Qualifier(IBMMessageQueueConfig.NAMED_OPC_RECEIVE_DESTINATION)
+	@Qualifier(TDCCMessageQueueConfig.NAMED_OPC_RECEIVE_DESTINATION)
 	@Autowired
 	private MQQueue receiveOPCDestination = null;
 

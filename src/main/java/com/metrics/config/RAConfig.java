@@ -1,6 +1,8 @@
 package com.metrics.config;
 
-public class RAConfig
+import java.io.Serializable;
+
+public class RAConfig implements Serializable
 {
 	private String cdKey = null;
 	private String workingKey = null;

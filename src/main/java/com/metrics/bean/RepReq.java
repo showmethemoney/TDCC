@@ -4,40 +4,40 @@ public class RepReq
 {
 
 	private Crit crit = null;
-	private String prtyidt = null;
-	private String repnmt = null;
-	private String repidt = null;
+	private String prtyid = null;
+	private String repnm = null;
+	private String repid = null;
 
 	public Crit getCrit() {
 		return crit;
+	}
+
+	public String getPrtyid() {
+		return prtyid;
+	}
+
+	public String getRepnm() {
+		return repnm;
+	}
+
+	public String getRepid() {
+		return repid;
 	}
 
 	public void setCrit(Crit crit) {
 		this.crit = crit;
 	}
 
-	public String getPrtyidt() {
-		return prtyidt;
+	public void setPrtyid(String prtyid) {
+		this.prtyid = prtyid;
 	}
 
-	public void setPrtyidt(String prtyidt) {
-		this.prtyidt = prtyidt;
+	public void setRepnm(String repnm) {
+		this.repnm = repnm;
 	}
 
-	public String getRepnmt() {
-		return repnmt;
-	}
-
-	public void setRepnmt(String repnmt) {
-		this.repnmt = repnmt;
-	}
-
-	public String getRepidt() {
-		return repidt;
-	}
-
-	public void setRepidt(String repidt) {
-		this.repidt = repidt;
+	public void setRepid(String repid) {
+		this.repid = repid;
 	}
 
 }

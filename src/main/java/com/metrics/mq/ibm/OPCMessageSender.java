@@ -14,7 +14,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
 import com.ibm.mq.jms.MQQueue;
-import com.metrics.IBMMessageQueueConfig;
+import com.metrics.TDCCMessageQueueConfig;
 
 
 public class OPCMessageSender
@@ -22,7 +22,7 @@ public class OPCMessageSender
 	protected static final Logger logger = LoggerFactory.getLogger( OPCMessageSender.class );
 	@Autowired
 	private JmsTemplate jmsTemplate = null;
-	@Qualifier(IBMMessageQueueConfig.NAMED_OPC_SEND_DESTINATION)
+	@Qualifier(TDCCMessageQueueConfig.NAMED_OPC_SEND_DESTINATION)
 	@Autowired
 	private MQQueue sendTDCCDestination = null;
 

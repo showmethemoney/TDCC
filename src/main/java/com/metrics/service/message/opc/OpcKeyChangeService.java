@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.metrics.config.RAConfig;
+import com.metrics.config.TCBConfig;
 import com.metrics.service.message.OXMService;
 import com.metrics.utils.OpcUtil;
 import com.metrics.xml.message.opc.xml.CHGKEYCFRMMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYREQMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYRSPMessage;
+
 
 /**
  * @author Ethan Lee
@@ -24,7 +26,10 @@ public class OpcKeyChangeService
 	private RAConfig raConfig = null;
 	@Autowired
 	private OXMService oxmService = null;
-	
+	@Autowired
+	private TCBConfig tcbConfig = null;
+	private String auditNo = null;
+
 	public void start() {
 		try {
 
@@ -34,7 +39,7 @@ public class OpcKeyChangeService
 	}
 
 	/**
-	 * 1. 要求變更基碼通知交易請求
+	 * 1. 閬���蝣潮�鈭斗����
 	 * 
 	 * send : <?xml version = "1.0" encoding = "UTF-8"?>
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0101" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085000" RSP_CODE="0001" ><CHG_KEY_REQ/></OPCMESSAGE>
@@ -46,17 +51,22 @@ public class OpcKeyChangeService
 		try {
 			CHGKEYREQMessage message = new CHGKEYREQMessage();
 
-			message.setAUDITNO( OpcUtil.newAuditNo() );
-			message.setORIGIN( "" );
-			
-//			oxmService.marshallOPCMessage( message );
+			// set current audit no
+			setAuditNo( OpcUtil.newAuditNo() );
+
+			message.setMSGTYPE( CHGKEYREQMessage.MESSAGE_TYPE );
+			message.setPRCCODE( CHGKEYREQMessage.PRC_CODE );
+			message.setAUDITNO( getAuditNo() );
+			message.setORIGIN( tcbConfig.getParticipantId() );
+
+			oxmService.marshallOPCMessage( message );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
 	}
 
 	/**
-	 * 2. 要求變更基碼通知交易回應
+	 * 2. 閬���蝣潮�鈭斗����
 	 * 
 	 * send : <?xml version = "1.0" encoding = "UTF-8"?>
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0102" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085013" RSP_CODE="0001"><CHG_KEY KEY_ID="02" NEW_KEY=
@@ -68,10 +78,10 @@ public class OpcKeyChangeService
 
 			new CHGKEYMessage();
 
-//			OpcUtil.loginRA( ra );
+			// OpcUtil.loginRA( ra );
 
-//			int rst = ra.FSSS_ImportKeyAndRandom( ra.FSRA2_GetKey1(), this.conf.getOpcCDKey(), this.conf.getOpcWorkingKeyNew(),
-//			        OpcUtil.pack( message.getBody().getNEWKEY(), 32 ), a, OpcUtil.pack( message.getBody().getRANDOMNO(), 16 ), 544 );
+			// int rst = ra.FSSS_ImportKeyAndRandom( ra.FSRA2_GetKey1(), this.conf.getOpcCDKey(), this.conf.getOpcWorkingKeyNew(),
+			// OpcUtil.pack( message.getBody().getNEWKEY(), 32 ), a, OpcUtil.pack( message.getBody().getRANDOMNO(), 16 ), 544 );
 
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
@@ -79,7 +89,7 @@ public class OpcKeyChangeService
 	}
 
 	/**
-	 * 3. 變更基碼通知交易回應
+	 * 3. 霈�蝣潮�鈭斗����
 	 * 
 	 * send : <?xml version = "1.0" encoding = "UTF-8"?>
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0103" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085013" RSP_CODE="0001" ><CHG_KEY_RSP RANDOM_NO=
@@ -97,7 +107,7 @@ public class OpcKeyChangeService
 	}
 
 	/**
-	 * 4. 變更基碼通知交易確認 send :
+	 * 4. 霈�蝣潮�鈭斗�Ⅱ隤� send :
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0104" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085019" RSP_CODE="0001"><CHG_KEY_CFRM RANDOM_NO=
 	 * "374952B249A831A9"/></OPCMESSAGE>
 	 */
@@ -109,4 +119,13 @@ public class OpcKeyChangeService
 			logger.error( cause.getMessage(), cause );
 		}
 	}
+
+	public String getAuditNo() {
+		return auditNo;
+	}
+
+	public void setAuditNo(String auditNo) {
+		this.auditNo = auditNo;
+	}
+
 }

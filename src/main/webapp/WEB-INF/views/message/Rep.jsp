@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Close Repo</title>
+<title><spring:message code="rep" /></title>
 </head>
 <body>
 <body>
@@ -15,19 +15,19 @@
 		<table>
 			<thead>
 				<tr>
-					<th>CloseRepo</th>
+					<th><spring:message code="rep" /></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><form:label path="msgtype">Ref</form:label></td>
+					<td><form:label path="msgtype"><spring:message code="bcssmessage.msgtype" /></form:label></td>
 					<td><form:select path="msgtype">
 							<form:options items="${msgTypes}" />
 						</form:select>
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="action">Ref</form:label></td>
+					<td><form:label path="action"><spring:message code="bcssmessage.action" /></form:label></td>
 					<td><form:select path="action">
 							<form:options items="${actions}" />
 						</form:select>
@@ -35,45 +35,45 @@
 				</tr>
 							
 				<tr>
-					<td><form:label path="body.repsec.repSecVal.itemnm">Ref</form:label></td>
+					<td><form:label path="body.repsec.repSecVal.itemnm"><spring:message code="rep.repsec.repSecVal.itemnm" /></form:label></td>
 					<td><form:input path="body.repsec.repSecVal.itemnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.repsec.repSecVal.itemval">Ref</form:label></td>
+					<td><form:label path="body.repsec.repSecVal.itemval"><spring:message code="rep.repsec.repSecVal.itemval" /></form:label></td>
 					<td><form:input path="body.repsec.repSecVal.itemval" /></td>
 				</tr>
 				<!-- recursive RepSec -->
 				<tr>
-					<td><form:label path="body.repsec.secnm">Ref</form:label></td>
+					<td><form:label path="body.repsec.secnm"><spring:message code="rep.repsec.secnm" /></form:label></td>
 					<td><form:input path="body.repsec.secnm" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.repnm">Ref</form:label></td>
+					<td><form:label path="body.repnm"><spring:message code="rep.repnm" /></form:label></td>
 					<td><form:input path="body.repnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.repid">Ref</form:label></td>
+					<td><form:label path="body.repid"><spring:message code="rep.repid" /></form:label></td>
 					<td><form:input path="body.repid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prtyid">Ref</form:label></td>
+					<td><form:label path="body.prtyid"><spring:message code="rep.prtyid" /></form:label></td>
 					<td><form:input path="body.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.sndrref">Ref</form:label></td>
+					<td><form:label path="body.sndrref"><spring:message code="rep.sndrref" /></form:label></td>
 					<td><form:input path="body.sndrref" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.page">Ref</form:label></td>
+					<td><form:label path="body.page"><spring:message code="rep.page" /></form:label></td>
 					<td><form:input path="body.page" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.ttlpage">Ref</form:label></td>
+					<td><form:label path="body.ttlpage"><spring:message code="rep.ttlpage" /></form:label></td>
 					<td><form:input path="body.ttlpage" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmdt">Ref</form:label></td>
+					<td><form:label path="body.stlmdt"><spring:message code="rep.stlmdt" /></form:label></td>
 					<td><form:input path="body.stlmdt" /></td>
 				</tr>
 

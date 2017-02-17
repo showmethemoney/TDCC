@@ -26,15 +26,12 @@ import com.metrics.mq.MessageReceiver;
  */
 // @Configurable
 @PropertySources({ @PropertySource("classpath:TDCCServer.properties") })
-public class IBMMessageQueueConfig
+public class TDCCMessageQueueConfig
 {
-	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageQueueConfig.class );
+	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageQueueConfig.class );
 	public static final String NAMED_TDCC_CONNECTION_FACTORY = "";
-	public static final String NAMED_OPC_CONNECTION_FACTORY = "";
 	public static final String NAMED_TDCC_SEND_DESTINATION = "";
 	public static final String NAMED_TDCC_RECEIVE_DESTINATION = "";
-	public static final String NAMED_OPC_SEND_DESTINATION = "";
-	public static final String NAMED_OPC_RECEIVE_DESTINATION = "";
 
 	@Autowired
 	Environment env = null;
@@ -49,10 +46,10 @@ public class IBMMessageQueueConfig
 		try {
 			connectionFactory = new MQQueueConnectionFactory();
 
-			connectionFactory.setHostName( "172.17.240.15" );
-			connectionFactory.setPort( 1415 );
-			connectionFactory.setQueueManager( "QM.ROET2" );
-			connectionFactory.setChannel( "ROE.MRV3.CHL" );
+			connectionFactory.setHostName( env.getProperty( "tdcc.ip" ) );
+			connectionFactory.setPort( Integer.parseInt( env.getProperty( "tdcc.port" ) ) );
+			connectionFactory.setQueueManager( env.getProperty( "tdcc.queueManager" ) );
+			connectionFactory.setChannel( env.getProperty( "tdcc.channel" ) );
 			connectionFactory.setTransportType( 1 );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
@@ -60,62 +57,14 @@ public class IBMMessageQueueConfig
 
 		return connectionFactory;
 	}
-	
-	@Bean(NAMED_OPC_CONNECTION_FACTORY)
-	public MQQueueConnectionFactory opcConnectionFactory() {
-		MQQueueConnectionFactory connectionFactory = null;
 
-		try {
-			connectionFactory = new MQQueueConnectionFactory();
-
-			connectionFactory.setHostName( "172.17.240.15" );
-			connectionFactory.setPort( 1415 );
-			connectionFactory.setQueueManager( "QM.ROET2" );
-			connectionFactory.setChannel( "ROE.MRV3.CHL" );
-			connectionFactory.setTransportType( 1 );
-		} catch (Throwable cause) {
-			logger.error( cause.getMessage(), cause );
-		}
-
-		return connectionFactory;	
-	}
-	
 	public UserCredentialsConnectionFactoryAdapter securityTDCCConnectionFactory() {
 		UserCredentialsConnectionFactoryAdapter adapter = new UserCredentialsConnectionFactoryAdapter();
 		adapter.setTargetConnectionFactory( tdccConnectionFactory() );
-		adapter.setUsername( "ubsread" );
-		adapter.setPassword( "" );
+		adapter.setUsername( env.getProperty( "tdcc.username" ) );
+		adapter.setPassword( env.getProperty( "tdcc.password" ) );
 
 		return adapter;
-	}
-	
-	@Bean(NAMED_OPC_RECEIVE_DESTINATION)
-	public MQQueue receiveOPCDestination() {
-		MQQueue destination = null;
-
-		try {
-			QueueConnection connection = securityTDCCConnectionFactory().createQueueConnection();
-			Session session = connection.createQueueSession( false, Session.AUTO_ACKNOWLEDGE );
-
-			destination = (MQQueue) session.createQueue( "ROE.MRTXR.LQ" );
-		} catch (Throwable cause) {
-			logger.error( cause.getMessage(), cause );
-		}
-
-		return destination;
-	}
-
-	@Bean(NAMED_OPC_SEND_DESTINATION)
-	public MQQueue sendOPCDestination() {
-		MQQueue destination = null;
-
-		try {
-			destination = new MQQueue( "QM.ROET2", "ROE.MRTXR.LQ" );
-		} catch (Throwable cause) {
-			logger.error( cause.getMessage(), cause );
-		}
-
-		return destination;
 	}
 
 	@Bean(NAMED_TDCC_RECEIVE_DESTINATION)
@@ -126,7 +75,7 @@ public class IBMMessageQueueConfig
 			QueueConnection connection = securityTDCCConnectionFactory().createQueueConnection();
 			Session session = connection.createQueueSession( false, Session.AUTO_ACKNOWLEDGE );
 
-			destination = (MQQueue) session.createQueue( "ROE.MRTXR.LQ" );
+			destination = (MQQueue) session.createQueue( env.getProperty( "tdcc.remote.queue" ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
@@ -139,7 +88,7 @@ public class IBMMessageQueueConfig
 		MQQueue destination = null;
 
 		try {
-			destination = new MQQueue( "QM.ROET2", "ROE.MRTXR.LQ" );
+			destination = new MQQueue( env.getProperty( "tdcc.queueManager" ), env.getProperty( "tdcc.local.queue" ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

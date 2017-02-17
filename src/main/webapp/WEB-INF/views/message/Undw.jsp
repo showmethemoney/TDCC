@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Close Repo</title>
+<title><spring:message code="undw" /></title>
 </head>
 <body>
 <body>
@@ -15,19 +15,19 @@
 		<table>
 			<thead>
 				<tr>
-					<th>CloseRepo</th>
+					<th><spring:message code="undw" /></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><form:label path="msgtype">Ref</form:label></td>
+					<td><form:label path="msgtype"><spring:message code="bcssmessage.msgtype" /></form:label></td>
 					<td><form:select path="msgtype">
 							<form:options items="${msgTypes}" />
 						</form:select>
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="action">Ref</form:label></td>
+					<td><form:label path="action"><spring:message code="bcssmessage.action" /></form:label></td>
 					<td><form:select path="action">
 							<form:options items="${actions}" />
 						</form:select>
@@ -35,41 +35,41 @@
 				</tr>
 			
 				<tr>
-					<td><form:label path="body.prty.stlmprty.prtyid">Ref</form:label></td>
+					<td><form:label path="body.prty.stlmprty.prtyid"><spring:message code="undw.prty.stlmprty.prtyid" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.acctid">Ref</form:label></td>
+					<td><form:label path="body.prty.stlmprty.acctid"><spring:message code="undw.prty.stlmprty.acctid" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.acctid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.acctnm">Ref</form:label></td>
+					<td><form:label path="body.prty.stlmprty.acctnm"><spring:message code="undw.prty.stlmprty.acctnm" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.acctnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.invscshacct">Ref</form:label></td>
+					<td><form:label path="body.prty.stlmprty.invscshacct"><spring:message code="undw.prty.stlmprty.invscshacct" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.invscshacct" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.prtyid">Ref</form:label></td>
+					<td><form:label path="body.cprty.stlmprty.prtyid"><spring:message code="undw.cprty.stlmprty.prtyid" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctid">Ref</form:label></td>
+					<td><form:label path="body.cprty.stlmprty.acctid"><spring:message code="undw.cprty.stlmprty.acctid" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.acctid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctnm">Ref</form:label></td>
+					<td><form:label path="body.cprty.stlmprty.acctnm"><spring:message code="undw.cprty.stlmprty.acctnm" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.acctnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.invscshacct">Ref</form:label></td>
+					<td><form:label path="body.cprty.stlmprty.invscshacct"><spring:message code="undw.cprty.stlmprty.invscshacct" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:label path="body.cshLeg.cshccy"><spring:message code="undw.cshLeg.cshccy" /></form:label></td>
 					<td><form:select path="body.cshLeg.cshccy">
 							<form:option value="TWD" label="TWD"/>
 							<form:option value="USD" label="USD"/>
@@ -82,20 +82,20 @@
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:label path="body.cshLeg.cshamt"><spring:message code="undw.cshLeg.cshamt" /></form:label></td>
 					<td><form:input path="body.cshLeg.cshamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:label path="body.cshLeg.afttaxamt"><spring:message code="undw.cshLeg.afttaxamt" /></form:label></td>
 					<td><form:input path="body.cshLeg.afttaxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:label path="body.cshLeg.remitfee"><spring:message code="undw.cshLeg.remitfee" /></form:label></td>
 					<td><form:input path="body.cshLeg.remitfee" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.receiverBank.cshLeg.cshccy">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.cshLeg.cshccy"><spring:message code="undw.receiverBank.cshLeg.cshccy" /></form:label></td>
 					<td><form:select path="body.receiverBank.cshLeg.cshccy"> 
 							<form:option value="TWD" label="TWD"/>
 							<form:option value="USD" label="USD"/>
@@ -108,93 +108,97 @@
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshLeg.cshamt">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.cshLeg.cshamt"><spring:message code="undw.receiverBank.cshLeg.cshamt" /></form:label></td>
 					<td><form:input path="body.receiverBank.cshLeg.cshamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshLeg.afttaxamt">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.cshLeg.afttaxamt"><spring:message code="undw.receiverBank.cshLeg.afttaxamt" /></form:label></td>
 					<td><form:input path="body.receiverBank.cshLeg.afttaxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.cshLeg.remitfee">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.cshLeg.remitfee"><spring:message code="undw.receiverBank.cshLeg.remitfee" /></form:label></td>
 					<td><form:input path="body.receiverBank.cshLeg.remitfee" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.id">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.id"><spring:message code="undw.receiverBank.id" /></form:label></td>
 					<td><form:input path="body.receiverBank.id" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.bnfynm">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.bnfynm"><spring:message code="undw.receiverBank.bnfynm" /></form:label></td>
 					<td><form:input path="body.receiverBank.bnfynm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.acctid">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.acctid"><spring:message code="undw.receiverBank.acctid" /></form:label></td>
 					<td><form:input path="body.receiverBank.acctid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.swift">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.swift"><spring:message code="undw.receiverBank.swift" /></form:label></td>
 					<td><form:input path="body.receiverBank.swift" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.receiverBank.orgsndrref">Ref</form:label></td>
+					<td><form:label path="body.receiverBank.orgsndrref"><spring:message code="undw.receiverBank.orgsndrref" /></form:label></td>
 					<td><form:input path="body.receiverBank.orgsndrref" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.underWritingPart.dnmid">Ref</form:label></td>
+					<td><form:label path="body.underWritingPart.dnmid"><spring:message code="undw.underWritingPart.dnmid" /></form:label></td>
 					<td><form:input path="body.underWritingPart.dnmid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.underWritingPart.rdmpsecamt">Ref</form:label></td>
+					<td><form:label path="body.underWritingPart.rdmpsecamt"><spring:message code="undw.underWritingPart.rdmpsecamt" /></form:label></td>
 					<td><form:input path="body.underWritingPart.rdmpsecamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.underWritingPart.taxamt">Ref</form:label></td>
+					<td><form:label path="body.underWritingPart.taxamt"><spring:message code="undw.underWritingPart.taxamt" /></form:label></td>
 					<td><form:input path="body.underWritingPart.taxamt" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="body.ref">Ref</form:label></td>
+					<td><form:label path="body.ref"><spring:message code="undw.ref" /></form:label></td>
 					<td><form:input path="body.ref" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.isin">Ref</form:label></td>
+					<td><form:label path="body.isin"><spring:message code="undw.isin" /></form:label></td>
 					<td><form:input path="body.isin" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.stlmdt">Ref</form:label></td>
+					<td><form:label path="body.stlmdt"><spring:message code="undw.stlmdt" /></form:label></td>
 					<td><form:input path="body.stlmdt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.bndlref">Ref</form:label></td>
+					<td><form:label path="body.bndlref"><spring:message code="undw.bndlref" /></form:label></td>
 					<td><form:input path="body.bndlref" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.bndlttl">Ref</form:label></td>
+					<td><form:label path="body.bndlttl"><spring:message code="undw.bndlttl" /></form:label></td>
 					<td><form:input path="body.bndlttl" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.bsprc">Ref</form:label></td>
+					<td><form:label path="body.bsprc"><spring:message code="undw.bsprc" /></form:label></td>
 					<td><form:input path="body.bsprc" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.taxamt">Ref</form:label></td>
+					<td><form:label path="body.taxamt"><spring:message code="undw.taxamt" /></form:label></td>
 					<td><form:input path="body.taxamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshsys">Ref</form:label></td>
+					<td><form:label path="body.trdrt"><spring:message code="undw.trdrt" /></form:label></td>
+					<td><form:input path="body.trdrt" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cshsys"><spring:message code="undw.cshsys" /></form:label></td>
 					<td><form:input path="body.cshsys" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.undfee">Ref</form:label></td>
+					<td><form:label path="body.undfee"><spring:message code="undw.undfee" /></form:label></td>
 					<td><form:input path="body.undfee" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cnsfee">Ref</form:label></td>
+					<td><form:label path="body.cnsfee"><spring:message code="undw.cnsfee" /></form:label></td>
 					<td><form:input path="body.cnsfee" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.gutfee">Ref</form:label></td>
+					<td><form:label path="body.gutfee"><spring:message code="undw.gutfee" /></form:label></td>
 					<td><form:input path="body.gutfee" /></td>
 				</tr>
 
