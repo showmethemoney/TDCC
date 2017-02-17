@@ -50,7 +50,11 @@ public class OXMService
 		
 		return marshall( instance );
 	}
-
+	
+	public <T extends Object> T unMarshallOPCMessage(T refenceObj, String xmlString) {
+		return unmarshall( refenceObj, xmlString );
+	}
+	
 	public <T extends Object> T unMarshallBCSSMessage(T refenceObj, String xmlString) {
 		return unmarshall( refenceObj, xmlString );
 	}

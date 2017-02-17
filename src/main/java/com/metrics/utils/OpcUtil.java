@@ -14,7 +14,6 @@ import java.util.Calendar;
 
 import com.formosoft.ra.taica2.RAFacade2;
 
-
 /**
  * �����O�t�d���ѳB�z OPC �T�������u���k�A �]�t:���ͬy���s���B�ɶ��W�O�B�T���s���B�]�w���A�����C
  */
@@ -56,7 +55,7 @@ public class OpcUtil
 	public static synchronized String getMsgId(String partyid, String audit_no, String prc_code) {
 		String data = new java.text.SimpleDateFormat( "yyyyMMdd" ).format( new java.util.Date() );
 		String msgid = partyid + data + audit_no + prc_code; // 8+6+7+4=25
-		
+
 		return msgid;
 	}
 
@@ -150,15 +149,17 @@ public class OpcUtil
 	 * @throws NoSuchAlgorithmException
 	 * @throws OpcException
 	 */
-//	public static int loginRA(RAFacade2 ra) throws NoSuchAlgorithmException, OpcException {
-//		LogService log = LogFactory.get( LogFactory.LOG_HOST );
-//		String pastr = OpcUtil.passwordHash( GWManager.conf.getOpcRAPassword() );
-////		int LoginResult = ra.FSRA2_Login( GWManager.conf.getOpcRALoginID(), pastr, "" );
+//	public static int loginRA(RAFacade2 ra, String raLoginId, String raPassword) throws NoSuchAlgorithmException {
+//		
+//		// LogService log = LogFactory.get( LogFactory.LOG_HOST );
+//		String pastr = OpcUtil.passwordHash( raPassword );
+//		
+//		int LoginResult = ra.FSRA2_Login( raLoginId, pastr, "" );
 //		if (LoginResult == 0) {
 //			return LoginResult;
 //		} else {
-//			log.error( "ra.FSRA2_GetErrorMsg() = " + ra.FSRA2_GetErrorMsg() );
-//			throw new OpcException( "LoginRA()->Error = " + ra.FSRA2_GetErrorMsg() );
+//			// log.error( "ra.FSRA2_GetErrorMsg() = " + ra.FSRA2_GetErrorMsg() );
+//			// throw new OpcException( "LoginRA()->Error = " + ra.FSRA2_GetErrorMsg() );
 //		}
 //	}
 
@@ -240,13 +241,15 @@ public class OpcUtil
 
 	/**
 	 * �N�r���ন Byte Array�C
-	 * @param str ��Ʀr��
+	 * 
+	 * @param str
+	 *            ��Ʀr��
 	 * @return Byte Array
 	 */
 	public static byte[] HexStringToByteArray(String str) {
-		byte[] buf = new byte[str.length()/2];
-		for(int i=0;i<str.length()/2;i++) {
-			buf[i] = (byte)Integer.parseInt(str.substring(i*2,(i+1)*2),16);
+		byte[] buf = new byte[str.length() / 2];
+		for (int i = 0; i < str.length() / 2; i++) {
+			buf[i] = (byte) Integer.parseInt( str.substring( i * 2, (i + 1) * 2 ), 16 );
 		}
 		return buf;
 	}
