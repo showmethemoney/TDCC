@@ -24,20 +24,17 @@ public class OPCMessageSender
 	private JmsTemplate jmsTemplate = null;
 	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_SEND_DESTINATION)
 	@Autowired
-	private MQQueue sendTDCCDestination = null;
+	private MQQueue sendOPCDestination = null;
 
 	public void send(final String context) throws JmsException, JMSException {
 		logger.info( "will send to IBM MQ : {}", context );
 
-		jmsTemplate.send( sendTDCCDestination, new MessageCreator() {
+		jmsTemplate.send( sendOPCDestination, new MessageCreator() {
 
 			@Override
 			public Message createMessage(Session session) throws JMSException {
 				TextMessage message = session.createTextMessage();
-				
-				//set message id
-//				message.setJMSMessageID( "" );
-				
+
 				message.setText( context );
 
 				return message;

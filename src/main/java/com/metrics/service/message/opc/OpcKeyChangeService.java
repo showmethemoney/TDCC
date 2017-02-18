@@ -1,31 +1,30 @@
 package com.metrics.service.message.opc;
 
-import javax.management.RuntimeErrorException;
-
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.formosoft.ra.taica2.RAFacade2;
 import com.metrics.config.RAConfig;
 import com.metrics.config.TCBConfig;
+import com.metrics.exception.OPCException;
 import com.metrics.mq.ibm.OPCMessageReceiver;
 import com.metrics.mq.ibm.OPCMessageSender;
 import com.metrics.service.message.OXMService;
 import com.metrics.utils.OpcUtil;
 import com.metrics.xml.message.opc.OPCMESSAGE;
+import com.metrics.xml.message.opc.def.CHGKEYREQ;
 import com.metrics.xml.message.opc.def.CHGKEYRSP;
 import com.metrics.xml.message.opc.xml.CHGKEYCFRMMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYREQMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYRSPMessage;
 
+
 /**
  * @author Ethan Lee
  */
-@Service
+//@Service
 public class OpcKeyChangeService
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OpcKeyChangeService.class );
@@ -47,20 +46,25 @@ public class OpcKeyChangeService
 
 	public void start() {
 		// set current audit no
-		setAuditNo( OpcUtil.newAuditNo() );
+		auditNo = OpcUtil.newAuditNo();
 
 		try {
 			if (null == raFacade) {
 				// throw a exception
 				throw new RuntimeException( "please set RAFacade2 instance" );
 			}
+
+			sendChangeKeyRequest();
+			sendChangeKey();
+			sendChangeKeyResponse();
+			sendChangeKeyConfirm();
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
 	}
 
 	/**
-	 * 1. 閬���蝣潮�鈭斗����
+	 * 步驟1: 要求變更基碼通知交易請求
 	 * 
 	 * send : <?xml version = "1.0" encoding = "UTF-8"?>
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0101" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085000" RSP_CODE="0001" ><CHG_KEY_REQ/></OPCMESSAGE>
@@ -68,65 +72,81 @@ public class OpcKeyChangeService
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0102" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085013" RSP_CODE="0001"><CHG_KEY KEY_ID="02" NEW_KEY=
 	 * "7B111F157B396BAF80EC30A0071A47B6" RANDOM_NO="B6E9BC3BA229C61D"/></OPCMESSAGE>
 	 */
-	protected void sendChangeKeyRequest() {
+	protected void sendChangeKeyRequest() throws Throwable {
 		try {
 			CHGKEYREQMessage message = new CHGKEYREQMessage();
 
 			message.setMSGTYPE( CHGKEYREQMessage.MESSAGE_TYPE );
 			message.setPRCCODE( CHGKEYREQMessage.PRC_CODE );
-			message.setAUDITNO( getAuditNo() );
+			message.setAUDITNO( auditNo );
 			message.setORIGIN( tcbConfig.getParticipantId() );
-
+			message.setRSPCODE( OPCMESSAGE.RESPONSE_SUCCESS );
+			message.setBody( new CHGKEYREQ() );
+			
 			String result = oxmService.marshallOPCMessage( message );
 
-			logger.info( "step 1. send change key request to OPC : {}", result );
+			logger.info( "step 1. CHGKEYREQMessage => send change key request to OPC : {}", result );
 
 			opcMessageSender.send( result );
-			// todo write database ?
+
+			logger.info( "step 1. CHGKEYREQMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ", 
+				new Object[] { message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(), result } );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
+			
+			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
 	}
 
 	/**
-	 * 2. 閬���蝣潮�鈭斗����
-	 * 
-	 * send : <?xml version = "1.0" encoding = "UTF-8"?>
+	 * 步驟2: 要求變更基碼通知交易回應 1.等待集保傳回回應訊息 2.確認訊息後登入RA 3.將取得的KEY匯入RA send : <?xml version = "1.0" encoding = "UTF-8"?>
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0102" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085013" RSP_CODE="0001"><CHG_KEY KEY_ID="02" NEW_KEY=
 	 * "7B111F157B396BAF80EC30A0071A47B6" RANDOM_NO="B6E9BC3BA229C61D"/></OPCMESSAGE>
 	 */
-	protected void sendChangeKey() {
+	protected void sendChangeKey() throws Throwable {
 		CHGKEYMessage message = null;
+		
 		try {
 			String result = opcMessageReceiver.receive();
 
-			logger.info( "step 2. receive change key from OPC : {}", result );
+			logger.info( "step 2. CHGKEYMessage => receive change key from OPC : {}", result );
 			message = oxmService.unMarshallOPCMessage( new CHGKEYMessage(), result );
 
 			if (!OPCMESSAGE.RESPONSE_SUCCESS.equalsIgnoreCase( message.getRSPCODE() )) {
 				// todo throw a exception
+				logger.error( "step 2. CHGKEYMessage => OPC change key response code : {}", message.getRSPCODE() );
+				throw new OPCException( "CHGKEYMessage => CHGKEYMessage : " + message.getPRCCODE() );
 			}
 
-			if (0 != raFacade.FSRA2_Login( raConfig.getLoginId(), OpcUtil.passwordHash( raConfig.getPassword() ), "" )) {
-				// todo throw a exception
+			int loginResult = raFacade.FSRA2_Login( raConfig.getLoginId(), OpcUtil.passwordHash( raConfig.getPassword() ), "" );
+			if (0 != loginResult) {
+				logger.warn( "step 2. CHGKEYMessage => RaFacade Login result : {}, {}", loginResult, raFacade.FSRA2_GetErrorMsg() );
+				throw new OPCException( "CHGKEYMessage => RaFacade Login result : " + loginResult + ", +" + raFacade.FSRA2_GetErrorMsg() );
 			}
 
-			int importResult = raFacade.FSSS_ImportKeyAndRandom( raFacade.FSRA2_GetKey1(), raConfig.getCdKey(), raConfig.getNewWorkingKey(),
-			        OpcUtil.pack( message.getBody().getNEWKEY(), 32 ), a, OpcUtil.pack( message.getBody().getRANDOMNO(), 16 ), 544 );
+			int importResult = 0;
+//			int importResult = raFacade.FSSS_ImportKeyAndRandom( raFacade.FSRA2_GetKey1(), raConfig.getCdKey(), raConfig.getNewWorkingKey(),
+//			        OpcUtil.pack( message.getBody().getNEWKEY(), 32 ), a, OpcUtil.pack( message.getBody().getRANDOMNO(), 16 ), 544 );
 
 			if (0 != importResult) {
-				// todo throw a exception
+				logger.warn( "step 2. CHGKEYMessage => import key and random : {}, message : {}", importResult, raFacade.FSRA2_GetErrorMsg() );
+				throw new OPCException( "CHGKEYMessage => import key and random : " + importResult + ", message : " + raFacade.FSRA2_GetErrorMsg() );
 			} else {
 				randomPlusOne = raFacade.FSSS_GetEncryptedRandomPlusOne(); // RN + 1
 				randomPlusTwo = raFacade.FSSS_GetEncryptedRandomPlusTwo(); // RN + 2
 			}
+
+			logger.info( "step 2. CHGKEYMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ", new Object[] {
+			        message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(), result } );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
+			
+			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
 	}
 
 	/**
-	 * 3. 霈�蝣潮�鈭斗����
+	 * 步驟3: 變更基碼通知交易回應
 	 * 
 	 * send : <?xml version = "1.0" encoding = "UTF-8"?>
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0103" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085013" RSP_CODE="0001" ><CHG_KEY_RSP RANDOM_NO=
@@ -134,7 +154,7 @@ public class OpcKeyChangeService
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0104" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085019" RSP_CODE="0001"><CHG_KEY_CFRM RANDOM_NO=
 	 * "374952B249A831A9"/></OPCMESSAGE>
 	 */
-	protected void sendChangeKeyResponse() {
+	protected void sendChangeKeyResponse() throws Throwable {
 		try {
 			if (null == raFacade) {
 				// throw a exception
@@ -144,6 +164,7 @@ public class OpcKeyChangeService
 			CHGKEYRSPMessage message = new CHGKEYRSPMessage();
 			message.setMSGTYPE( CHGKEYRSPMessage.MESSAGE_TYPE );
 			message.setPRCCODE( CHGKEYRSPMessage.PRC_CODE );
+			message.setAUDITNO( auditNo );
 			message.setORIGIN( tcbConfig.getParticipantId() );
 			message.setRSPCODE( OPCMESSAGE.RESPONSE_SUCCESS );
 
@@ -153,65 +174,55 @@ public class OpcKeyChangeService
 
 			String result = oxmService.marshallOPCMessage( message );
 
-			logger.info( "step 3. send change key response to OPC : {}", result );
+			logger.info( "step 3. CHGKEYRSPMessage => send change key response to OPC : {}", result );
 
 			opcMessageSender.send( result );
+
+			logger.info( "STEP 3 CHGKEYRSPMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ", new Object[] {
+			        message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(), result } );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
+			
+			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
 	}
 
 	/**
-	 * 4. 霈�蝣潮�鈭斗�Ⅱ隤� send :
+	 * 步驟4: 變更基碼通知交易確認
+	 * 
 	 * <OPCMESSAGE MSG_TYPE="0100" PRC_CODE="0104" AUDIT_NO="0000001" ORIGIN="B0060000" TS="20161123085019" RSP_CODE="0001"><CHG_KEY_CFRM RANDOM_NO=
 	 * "374952B249A831A9"/></OPCMESSAGE>
 	 */
-	protected void sendChangeKeyConfirm() {
+	protected void sendChangeKeyConfirm() throws Throwable {
 		CHGKEYCFRMMessage message = null;
 		try {
 			String result = opcMessageReceiver.receive();
 
-			logger.info( "step 4. receive change key confirm from OPC : {}", result );
+			logger.info( "step 4. CHGKEYCFRMMessage => receive change key confirm from OPC : {}", result );
 			message = oxmService.unMarshallOPCMessage( new CHGKEYCFRMMessage(), result );
 
 			if (!OPCMESSAGE.RESPONSE_SUCCESS.equalsIgnoreCase( message.getRSPCODE() )) {
 				// todo throw a exception
+				logger.error( "step 4. CHGKEYCFRMMessage => OPC receive change key confirm response code : {}", message.getRSPCODE() );
+				throw new OPCException( "CHGKEYCFRMMessage => CHGKEYCFRMMessage : " + message.getPRCCODE() );
 			} else if (!message.getBody().getRANDOMNO().toUpperCase().equals( randomPlusTwo.toUpperCase() )) {
-
+				throw new OPCException( " CHGKEYCFRMMessage => RN3 Error : " + message.getBody().getRANDOMNO() );
 			}
 
 			// login RA
-			logger.info( "Login RA : {}", raFacade.FSRA2_Login( raConfig.getLoginId(), OpcUtil.passwordHash( raConfig.getPassword() ), "" ) );
+			logger.info( "step 4. CHGKEYCFRMMessage => Login RA : {}", raFacade.FSRA2_Login( raConfig.getLoginId(), OpcUtil.passwordHash( raConfig.getPassword() ), "" ) );
 
-			logger.info( "RA replace key : {}", raFacade.FSSS_ReplaceKey( raFacade.FSRA2_GetKey1(), raConfig.getNewWorkingKey(), raConfig.getWorkingKey(), 0 ) );
+			logger.info( "step 4. CHGKEYCFRMMessage => RA replace key result : {}",
+			        raFacade.FSSS_ReplaceKey( raFacade.FSRA2_GetKey1(), raConfig.getNewWorkingKey(), raConfig.getWorkingKey(), 0 ) );
+
+			logger.info( "step 4. CHGKEYCFRMMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ", new Object[] {
+			        message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(), result } );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
+			
+			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
-	}
-
-	public String getAuditNo() {
-		return auditNo;
-	}
-
-	public void setAuditNo(String auditNo) {
-		this.auditNo = auditNo;
-	}
-
-	public String getRandomPlusOne() {
-		return randomPlusOne;
-	}
-
-	public void setRandomPlusOne(String randomPlusOne) {
-		this.randomPlusOne = randomPlusOne;
-	}
-
-	public String getRandomPlusTwo() {
-		return randomPlusTwo;
-	}
-
-	public void setRandomPlusTwo(String randomPlusTwo) {
-		this.randomPlusTwo = randomPlusTwo;
-	}
+	} 
 
 	public RAFacade2 getRaFacade() {
 		return raFacade;

@@ -6,13 +6,12 @@ import javax.jms.TextMessage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 
-//@Component("IBMMessageReceiver")
-public class IBMMessageReceiver implements MessageListener
+//@Component
+public class TDCCMessageReceiver implements MessageListener
 {
-	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageReceiver.class );
+	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageReceiver.class );
 
 	@Override
 	public void onMessage(Message message) {

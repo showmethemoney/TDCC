@@ -18,7 +18,7 @@ import org.springframework.jms.listener.MessageListenerContainer;
 
 import com.ibm.mq.jms.MQQueue;
 import com.ibm.mq.jms.MQQueueConnectionFactory;
-import com.metrics.mq.MessageReceiver;
+import com.metrics.mq.ibm.TDCCMessageReceiver;
 
 
 /**
@@ -29,15 +29,17 @@ import com.metrics.mq.MessageReceiver;
 public class TDCCMessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageQueueConfig.class );
-	public static final String NAMED_TDCC_CONNECTION_FACTORY = "";
-	public static final String NAMED_TDCC_SEND_DESTINATION = "";
-	public static final String NAMED_TDCC_RECEIVE_DESTINATION = "";
+	public static final String NAMED_TDCC_CONNECTION_FACTORY = "TDCCConnectionFactory";
+	public static final String NAMED_TDCC_SEND_DESTINATION = "TDCCSendDestination";
+	public static final String NAMED_TDCC_RECEIVE_DESTINATION = "TDCCReceiveDestination";
+//	public static final String NAMED_TDCC_MESSAGE_SENDER = "TDCCMessageSender";
+//	public static final String NAMED_TDCC_MESSAGE_RECEIVER = "TDCCMessageReceiver";
 
 	@Autowired
 	Environment env = null;
-	@Qualifier("IBMMessageReceiver")
+	@Qualifier("TDCCMessageSender")
 	@Autowired
-	MessageReceiver messageReceiver = null;
+	TDCCMessageReceiver messageReceiver = null;
 
 	@Bean(NAMED_TDCC_CONNECTION_FACTORY)
 	public MQQueueConnectionFactory tdccConnectionFactory() {

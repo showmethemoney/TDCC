@@ -22,9 +22,9 @@ public class OPCMessageQueueConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OPCMessageQueueConfig.class );
 
-	public static final String NAMED_OPC_CONNECTION_FACTORY = "";
-	public static final String NAMED_OPC_SEND_DESTINATION = "";
-	public static final String NAMED_OPC_RECEIVE_DESTINATION = "";
+	public static final String NAMED_OPC_CONNECTION_FACTORY = "OPCConnectionFactory";
+	public static final String NAMED_OPC_SEND_DESTINATION = "OPCSendDestination";
+	public static final String NAMED_OPC_RECEIVE_DESTINATION = "OPCReceiveDestination";
 
 	@Autowired
 	Environment env = null;
@@ -78,7 +78,7 @@ public class OPCMessageQueueConfig
 		MQQueue destination = null;
 
 		try {
-			destination = new MQQueue( env.getProperty( "opc.remote.queue" ), env.getProperty( "opc.remote.queue" ) );
+			destination = new MQQueue( env.getProperty( "opc.queueManager" ), env.getProperty( "opc.local.queue" ) );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

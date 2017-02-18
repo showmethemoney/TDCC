@@ -12,17 +12,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
-import org.springframework.stereotype.Component;
 
 import com.ibm.mq.jms.MQQueue;
 import com.metrics.TDCCMessageQueueConfig;
 import com.metrics.mq.MessageSender;
 
 
-//@Component("IBMMessageSender")
-public class IBMMessageSender implements MessageSender
+//@Component
+public class TDCCMessageSender implements MessageSender
 {
-	protected static final Logger logger = LoggerFactory.getLogger( IBMMessageSender.class );
+	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageSender.class );
 	@Autowired
 	private JmsTemplate jmsTemplate = null;
 	@Qualifier(TDCCMessageQueueConfig.NAMED_TDCC_SEND_DESTINATION)
@@ -33,7 +32,7 @@ public class IBMMessageSender implements MessageSender
 		logger.info( "will send to IBM MQ : {}", context );
 
 		jmsTemplate.send( sendTDCCDestination, new MessageCreator() {
-
+//
 			@Override
 			public Message createMessage(Session session) throws JMSException {
 				TextMessage message = session.createTextMessage();

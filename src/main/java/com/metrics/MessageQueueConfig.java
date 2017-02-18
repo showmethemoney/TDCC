@@ -31,12 +31,11 @@ public class MessageQueueConfig
 
 	private static final String DEFAULT_BROKER_URL = "vm://localhost";
 
-	public static final String NAMED_TDCC_MESSAGE_SENDER = "TDCCMessageSender";
-	public static final String NAMED_TDCC_MESSAGE_RECEIVER = "TDCCMessageReceiver";
-
-	public static final String NAMED_QUEUE_TDCC_REQUEST = "queue.tdcc.request";
-	public static final String NAMED_QUEUE_TDCC_RESPONSE = "queue.tdcc.response";
-
+	public static final String NAMED_QUEUE_JMS_REQUEST = "queue.tdcc.request";
+	public static final String NAMED_QUEUE_JMS_RESPONSE = "queue.tdcc.response";
+	public static final String NAMED_JMS_MESSAGE_SENDER = "TDCCMessageSender";
+	public static final String NAMED_JMS_MESSAGE_RECEIVER = "TDCCMessageReceiver";
+	
 	@Qualifier("JMSMessageReceiver")
 	@Autowired
 	MessageReceiver messageReceiver;
@@ -75,12 +74,12 @@ public class MessageQueueConfig
 	/*
 	 * Message listener container, used for invoking messageReceiver.onMessage on message reception.
 	 */
-	@Qualifier(NAMED_TDCC_MESSAGE_RECEIVER)
+	@Qualifier(NAMED_JMS_MESSAGE_RECEIVER)
 	@Bean
 	public MessageListenerContainer getContainer() {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
 		container.setConnectionFactory( connectionFactory() );
-		container.setDestinationName( NAMED_QUEUE_TDCC_RESPONSE );
+		container.setDestinationName( NAMED_QUEUE_JMS_RESPONSE );
 		container.setMessageListener( messageReceiver );
 
 		return container;
@@ -89,12 +88,12 @@ public class MessageQueueConfig
 	/*
 	 * Used for Sending Messages.
 	 */
-	@Qualifier(NAMED_TDCC_MESSAGE_SENDER)
+	@Qualifier(NAMED_JMS_MESSAGE_SENDER)
 	@Bean
 	public JmsTemplate jmsTemplate() {
 		JmsTemplate template = new JmsTemplate();
 		template.setConnectionFactory( connectionFactory() );
-		template.setDefaultDestinationName( NAMED_QUEUE_TDCC_REQUEST );
+		template.setDefaultDestinationName( NAMED_QUEUE_JMS_REQUEST );
 
 		return template;
 	}

@@ -81,9 +81,15 @@ public abstract class OPCMESSAGE implements Serializable
 	@XmlTransient
 	public static final String RESPONSE_SUCCESS = "0001";
 	@XmlTransient
-	public static final String RESPONSE_AR_ERROR = "0304";
+	public static final String RESPONSE_TIMEOUT = "0103" ;
+	@XmlTransient
+	public static final String RESPONSE_UNKNOWN_ERROR = "0104" ;
 	@XmlTransient
 	public static final String RESPONSE_XML_ERROR = "0106" ;
+	@XmlTransient
+	public static final String RESPONSE_MAC_ERROR = "0302";
+	@XmlTransient
+	public static final String RESPONSE_AR_ERROR = "0304";
 	
 	public OPCMESSAGE() {
 		super();

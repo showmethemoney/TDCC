@@ -21,12 +21,12 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 public class OXMConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OXMConfig.class );
-	private static final String NAMED_REFLECTION_TDCC_MESSAGE_PACKAGE = "com.metrics.xml.message.tdcc.xml";
+	private static final String NAMED_REFLECTION_TDCC_MESSAGE_PACKAGE = "com.metrics.xml.message";
 	
 	@Bean
 	public Jaxb2Marshaller getCastorMarshaller() {
 		Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
-		jaxb2Marshaller.setPackagesToScan( "com.metrics.xml.message" );
+		jaxb2Marshaller.setPackagesToScan( NAMED_REFLECTION_TDCC_MESSAGE_PACKAGE );
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put( "jaxb.formatted.output", false );
@@ -55,11 +55,19 @@ public class OXMConfig
 
 			for (Iterator<Class<?>> iterator = annotated.iterator(); iterator.hasNext();) {
 				Class<?> clazz = iterator.next();
-
-				Field field = clazz.getDeclaredField( "body" );
-				if (null != field) {
-					messages.put( ((XmlElement) field.getAnnotation( XmlElement.class )).name(), clazz );
+				
+				for(Field field : clazz.getDeclaredFields()) {
+					if (field.getName().equalsIgnoreCase( "body" )) {
+						messages.put( ((XmlElement) field.getAnnotation( XmlElement.class )).name(), clazz );
+					}
+					
 				}
+				
+//				Field field = clazz.getDeclaredField( "body" );
+				
+//				if (null != field) {
+//					messages.put( ((XmlElement) field.getAnnotation( XmlElement.class )).name(), clazz );
+//				}
 			}
 
 			result.setTargetMapClass( HashMap.class );
