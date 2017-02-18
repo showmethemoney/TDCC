@@ -41,6 +41,8 @@ public class TestOPCMessage
 			message.setBody( new CHGKEYREQ() );
 			
 			logger.info( "{}", oxmService.marshallOPCMessage( message ) );
+			
+			while(true) {}
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

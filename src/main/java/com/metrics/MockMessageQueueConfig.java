@@ -32,7 +32,7 @@ public class MockMessageQueueConfig
 	public MessageListenerContainer getMockContainer() {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
 		container.setConnectionFactory( connectionFactory );
-		container.setDestinationName( MessageQueueConfig.NAMED_QUEUE_TDCC_REQUEST );
+		container.setDestinationName( MessageQueueConfig.NAMED_QUEUE_JMS_REQUEST );
 		container.setMessageListener( mockMessageReceiver );
 
 		return container;
@@ -46,7 +46,7 @@ public class MockMessageQueueConfig
 	public JmsTemplate mockJmsTemplate() {
 		JmsTemplate template = new JmsTemplate();
 		template.setConnectionFactory( connectionFactory );
-		template.setDefaultDestinationName( MessageQueueConfig.NAMED_QUEUE_TDCC_RESPONSE );
+		template.setDefaultDestinationName( MessageQueueConfig.NAMED_QUEUE_JMS_RESPONSE );
 
 		return template;
 	}
