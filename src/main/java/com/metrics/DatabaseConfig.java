@@ -44,7 +44,7 @@ public class DatabaseConfig
 	@Bean
 	public DataSource dataSource() {
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		EmbeddedDatabase dataSource = builder.setType( EmbeddedDatabaseType.DERBY ).addScript( "derby/sequence.sql" ).build();
+		EmbeddedDatabase dataSource = builder.setType( EmbeddedDatabaseType.DERBY ).addScript( "derby/sequence.sql" ).addScript( "derby/tables.sql" ).build();
 
 		// DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		//
@@ -71,7 +71,7 @@ public class DatabaseConfig
 
 	Properties additionalProperties() {
 		Properties properties = new Properties();
-		properties.setProperty( "hibernate.hbm2ddl.auto", "create-drop" );
+		properties.setProperty( "hibernate.hbm2ddl.auto", "update" );
 		properties.setProperty( "hibernate.dialect", "org.hibernate.dialect.DerbyDialect" );
 		properties.setProperty( "hibernate.show_sql", "true" );
 

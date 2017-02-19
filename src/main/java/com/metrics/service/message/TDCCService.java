@@ -1,4 +1,4 @@
-package com.metrics.service;
+package com.metrics.service.message;
 
 import java.util.Calendar;
 
@@ -26,7 +26,7 @@ import com.metrics.bean.SecStlmBean;
 import com.metrics.bean.UndwBean;
 import com.metrics.config.TCBConfig;
 import com.metrics.mq.MessageSender;
-import com.metrics.service.message.OXMService;
+import com.metrics.service.SequenceService;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 import com.metrics.xml.message.tdcc.def.CLOSEREPO;
 import com.metrics.xml.message.tdcc.def.CONSIGNTINST;

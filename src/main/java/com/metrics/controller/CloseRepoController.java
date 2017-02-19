@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.metrics.bean.CloseRepoBean;
-import com.metrics.service.TDCCService;
+import com.metrics.service.message.TDCCService;
 
 /**
  * @author Ethan Lee

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.metrics.bean.MortgageRegexBean;
-import com.metrics.service.TDCCService;
+import com.metrics.service.message.TDCCService;
 
 
 /**
