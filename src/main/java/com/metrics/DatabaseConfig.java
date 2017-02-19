@@ -44,7 +44,7 @@ public class DatabaseConfig
 	@Bean
 	public DataSource dataSource() {
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		EmbeddedDatabase dataSource = builder.setType( EmbeddedDatabaseType.DERBY ).build();
+		EmbeddedDatabase dataSource = builder.setType( EmbeddedDatabaseType.DERBY ).addScript( "derby/sequence.sql" ).build();
 
 		// DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		//

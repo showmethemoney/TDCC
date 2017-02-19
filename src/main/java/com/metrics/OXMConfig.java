@@ -21,6 +21,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 public class OXMConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OXMConfig.class );
+	public static final String DEFUALT_ENCODING = "CNS11643";
 	private static final String NAMED_REFLECTION_TDCC_MESSAGE_PACKAGE = "com.metrics.xml.message";
 	
 	@Bean
@@ -30,7 +31,7 @@ public class OXMConfig
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put( "jaxb.formatted.output", false );
-		map.put( "jaxb.encoding", "UTF-8" );
+		map.put( "jaxb.encoding", DEFUALT_ENCODING );
 		jaxb2Marshaller.setMarshallerProperties( map );
 		
 		return jaxb2Marshaller;

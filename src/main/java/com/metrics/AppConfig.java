@@ -10,6 +10,7 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
+import com.formosoft.ra.taica2.RAFacade2;
 import com.metrics.config.RAConfig;
 import com.metrics.config.TCBConfig;
 
@@ -24,11 +25,12 @@ public class AppConfig
 {
 	@Autowired
 	private Environment env = null;
-
+	
 	@Bean
 	public RAConfig raConfig() {
 		RAConfig config = new RAConfig( env.getProperty( "OPC.CD.KEY" ), env.getProperty( "OPC.WORKING.KEY" ), env.getProperty( "OPC.WORKING.KEY.NEW" ),
-		        env.getProperty( "OPC.RA.SERVERAP" ), env.getProperty( "OPC.RA.LOGINID" ), env.getProperty( "OPC.RA.PASSWORD" ) );
+		        env.getProperty( "OPC.RA.SERVERAP" ), env.getProperty( "OPC.RA.LOGINID" ), env.getProperty( "OPC.RA.PASSWORD" ),
+		        env.getProperty( "OPC.RUN.TIMES") , env.getProperty( "OPC.RUN.TIMES.SLEEP" ) );
 
 		return config;
 	}
@@ -39,7 +41,12 @@ public class AppConfig
 
 		return config;
 	}
-
+	
+	@Bean
+	public RAFacade2 raFacade() {
+		return new RAFacade2( raConfig().getServerIP() );
+	}
+	
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();

@@ -43,6 +43,7 @@ public class TestTDCC
 		}
 	}
 
+	@Ignore
 	@Test
 	public void testParsing() {
 
@@ -61,5 +62,10 @@ public class TestTDCC
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+	}
+	
+	@Test
+	public void testFormat() {
+		logger.info( String.format( "%1$s%2$06d", "20170219", 1 ) );
 	}
 }

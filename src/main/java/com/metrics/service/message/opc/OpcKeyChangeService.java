@@ -1,5 +1,8 @@
 package com.metrics.service.message.opc;
 
+import java.util.Calendar;
+
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +23,15 @@ import com.metrics.xml.message.opc.xml.CHGKEYMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYREQMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYRSPMessage;
 
-
 /**
  * @author Ethan Lee
  */
-//@Service
+// @Service
 public class OpcKeyChangeService
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OpcKeyChangeService.class );
+	private static final String FORMAT_OPC_TIMESTAMP = "yyyyMMddHHmmss";
+	
 	@Autowired
 	private RAConfig raConfig = null;
 	@Autowired
@@ -38,29 +42,30 @@ public class OpcKeyChangeService
 	private OPCMessageSender opcMessageSender = null;
 	@Autowired
 	private OPCMessageReceiver opcMessageReceiver = null;
+	@Autowired
+	private RAFacade2 raFacade = null;
 
 	private String auditNo = null;
 	private String randomPlusOne = null;
 	private String randomPlusTwo = null;
-	private RAFacade2 raFacade = null;
 
-	public void start() {
+	public boolean start() {
+		boolean result = false;
 		// set current audit no
 		auditNo = OpcUtil.newAuditNo();
 
 		try {
-			if (null == raFacade) {
-				// throw a exception
-				throw new RuntimeException( "please set RAFacade2 instance" );
-			}
-
 			sendChangeKeyRequest();
 			sendChangeKey();
 			sendChangeKeyResponse();
 			sendChangeKeyConfirm();
+
+			result = true;
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+
+		return result;
 	}
 
 	/**
@@ -82,18 +87,19 @@ public class OpcKeyChangeService
 			message.setORIGIN( tcbConfig.getParticipantId() );
 			message.setRSPCODE( OPCMESSAGE.RESPONSE_SUCCESS );
 			message.setBody( new CHGKEYREQ() );
-			
-			String result = oxmService.marshallOPCMessage( message );
+
+			String result = oxmService.marshallOPCMessage( setOPCMessageInfo( message ) );
 
 			logger.info( "step 1. CHGKEYREQMessage => send change key request to OPC : {}", result );
 
 			opcMessageSender.send( result );
 
-			logger.info( "step 1. CHGKEYREQMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ", 
-				new Object[] { message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(), result } );
+			logger.info( "step 1. CHGKEYREQMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ",
+			        new Object[] { message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(),
+			                result } );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
-			
+
 			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
 	}
@@ -105,7 +111,7 @@ public class OpcKeyChangeService
 	 */
 	protected void sendChangeKey() throws Throwable {
 		CHGKEYMessage message = null;
-		
+
 		try {
 			String result = opcMessageReceiver.receive();
 
@@ -118,15 +124,10 @@ public class OpcKeyChangeService
 				throw new OPCException( "CHGKEYMessage => CHGKEYMessage : " + message.getPRCCODE() );
 			}
 
-			int loginResult = raFacade.FSRA2_Login( raConfig.getLoginId(), OpcUtil.passwordHash( raConfig.getPassword() ), "" );
-			if (0 != loginResult) {
-				logger.warn( "step 2. CHGKEYMessage => RaFacade Login result : {}, {}", loginResult, raFacade.FSRA2_GetErrorMsg() );
-				throw new OPCException( "CHGKEYMessage => RaFacade Login result : " + loginResult + ", +" + raFacade.FSRA2_GetErrorMsg() );
-			}
+			logger.info( "step 2. CHGKEYMessage => Login RA : {}", OpcUtil.loginRA( raFacade, raConfig.getLoginId(), raConfig.getPassword() ) );
 
-			int importResult = 0;
-//			int importResult = raFacade.FSSS_ImportKeyAndRandom( raFacade.FSRA2_GetKey1(), raConfig.getCdKey(), raConfig.getNewWorkingKey(),
-//			        OpcUtil.pack( message.getBody().getNEWKEY(), 32 ), a, OpcUtil.pack( message.getBody().getRANDOMNO(), 16 ), 544 );
+			int importResult = raFacade.FSSS_ImportKeyAndRandom( raFacade.FSRA2_GetKey1(), raConfig.getCdKey(), raConfig.getNewWorkingKey(),
+			        OpcUtil.pack( message.getBody().getNEWKEY(), 32 ), new byte[8], OpcUtil.pack( message.getBody().getRANDOMNO(), 16 ), 544 );
 
 			if (0 != importResult) {
 				logger.warn( "step 2. CHGKEYMessage => import key and random : {}, message : {}", importResult, raFacade.FSRA2_GetErrorMsg() );
@@ -140,7 +141,7 @@ public class OpcKeyChangeService
 			        message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(), result } );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
-			
+
 			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
 	}
@@ -156,11 +157,6 @@ public class OpcKeyChangeService
 	 */
 	protected void sendChangeKeyResponse() throws Throwable {
 		try {
-			if (null == raFacade) {
-				// throw a exception
-				throw new RuntimeException( "please set RAFacade2 instance" );
-			}
-
 			CHGKEYRSPMessage message = new CHGKEYRSPMessage();
 			message.setMSGTYPE( CHGKEYRSPMessage.MESSAGE_TYPE );
 			message.setPRCCODE( CHGKEYRSPMessage.PRC_CODE );
@@ -172,17 +168,18 @@ public class OpcKeyChangeService
 			body.setRANDOMNO( this.randomPlusOne.toLowerCase() );
 			message.setBody( body );
 
-			String result = oxmService.marshallOPCMessage( message );
+			String result = oxmService.marshallOPCMessage( setOPCMessageInfo( message ) );
 
 			logger.info( "step 3. CHGKEYRSPMessage => send change key response to OPC : {}", result );
 
 			opcMessageSender.send( result );
 
-			logger.info( "STEP 3 CHGKEYRSPMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ", new Object[] {
-			        message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(), result } );
+			logger.info( "STEP 3 CHGKEYRSPMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ",
+			        new Object[] { message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(),
+			                result } );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
-			
+
 			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
 	}
@@ -210,20 +207,28 @@ public class OpcKeyChangeService
 			}
 
 			// login RA
-			logger.info( "step 4. CHGKEYCFRMMessage => Login RA : {}", raFacade.FSRA2_Login( raConfig.getLoginId(), OpcUtil.passwordHash( raConfig.getPassword() ), "" ) );
+			logger.info( "step 4. CHGKEYCFRMMessage => Login RA : {}", OpcUtil.loginRA( raFacade, raConfig.getLoginId(), raConfig.getPassword() ) );
 
 			logger.info( "step 4. CHGKEYCFRMMessage => RA replace key result : {}",
 			        raFacade.FSSS_ReplaceKey( raFacade.FSRA2_GetKey1(), raConfig.getNewWorkingKey(), raConfig.getWorkingKey(), 0 ) );
 
-			logger.info( "step 4. CHGKEYCFRMMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ", new Object[] {
-			        message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(), result } );
+			logger.info( "step 4. CHGKEYCFRMMessage => msgtype : {}, prccode : {}, origin : {}, ts : {}, auditno : {}, rspcode : {}, result : {}  ",
+			        new Object[] { message.getMSGTYPE(), message.getPRCCODE(), message.getORIGIN(), message.getTS(), message.getAUDITNO(), message.getRSPCODE(),
+			                result } );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
-			
+
 			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
-	} 
-
+	}
+	
+	private OPCMESSAGE setOPCMessageInfo(OPCMESSAGE instance) {
+		Calendar calendar = Calendar.getInstance();
+		instance.setTS( DateFormatUtils.format( calendar, FORMAT_OPC_TIMESTAMP ) );
+		
+		return instance;
+	}
+	
 	public RAFacade2 getRaFacade() {
 		return raFacade;
 	}
