@@ -1,6 +1,8 @@
 package com.metrics.bean;
 
-public class ResultBean
+import java.io.Serializable;
+
+public class ResultBean implements Serializable
 {
 	private String reqOrigin = null;
 	private String reqTs = null;
@@ -18,6 +20,28 @@ public class ResultBean
 	private String respSndrRef = null;
 	private String respAction = null;
 	private String respResend = null;
+
+	public ResultBean(String reqOrigin, String reqTs, String reqBcssBusDt, String reqMsgType, String reqNarr, String reqSndrRef, String reqAction,
+	        String reqResend, String respOrigin, String respTs, String respBcssBusDt, String respMsgType, String respNarr, String respSndrRef,
+	        String respAction, String respResend) {
+		super();
+		this.reqOrigin = reqOrigin;
+		this.reqTs = reqTs;
+		this.reqBcssBusDt = reqBcssBusDt;
+		this.reqMsgType = reqMsgType;
+		this.reqNarr = reqNarr;
+		this.reqSndrRef = reqSndrRef;
+		this.reqAction = reqAction;
+		this.reqResend = reqResend;
+		this.respOrigin = respOrigin;
+		this.respTs = respTs;
+		this.respBcssBusDt = respBcssBusDt;
+		this.respMsgType = respMsgType;
+		this.respNarr = respNarr;
+		this.respSndrRef = respSndrRef;
+		this.respAction = respAction;
+		this.respResend = respResend;
+	}
 
 	public String getReqOrigin() {
 		return reqOrigin;

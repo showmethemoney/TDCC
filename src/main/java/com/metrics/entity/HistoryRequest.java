@@ -1,15 +1,35 @@
 package com.metrics.entity;
 
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SqlResultSetMapping;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.metrics.bean.ResultBean;
+
 @Entity
 @Table(name = "HISTORY_REQUEST")
+@SqlResultSetMapping(name = "ResultBean", 
+	classes = @ConstructorResult(
+		targetClass = ResultBean.class,		
+		columns = {
+			@ColumnResult(name = "req_origin"), @ColumnResult(name = "req_ts"),
+			@ColumnResult(name = "req_bcssBusDt"), @ColumnResult(name = "req_msgType"),
+			@ColumnResult(name = "req_narr"), @ColumnResult(name = "req_sndrRef"),
+			@ColumnResult(name = "req_msgAction"), @ColumnResult(name = "req_resend"),
+			@ColumnResult(name = "res_origin"), @ColumnResult(name = "res_ts"),
+			@ColumnResult(name = "res_bcssBusDt"), @ColumnResult(name = "res_msgType"),
+			@ColumnResult(name = "res_narr"), @ColumnResult(name = "res_sndrRef"),
+			@ColumnResult(name = "res_msgAction"), @ColumnResult(name = "res_resend")
+		}			
+	)
+)
 public class HistoryRequest
 {
 	@Id
