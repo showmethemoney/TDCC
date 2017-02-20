@@ -61,7 +61,7 @@ public class HistoryResponseService
 				folder.mkdirs();
 			}
 
-			FileUtils.write( new File( folder, message.getSNDRREF() + ".xml" ), (CharSequence) message );
+			FileUtils.write( new File( folder, message.getSNDRREF() + ".xml" ), (CharSequence) content );
 			save( message );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );

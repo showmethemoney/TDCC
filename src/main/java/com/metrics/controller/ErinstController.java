@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/Erinst")
-public class ErinstController
+public class ErinstController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( ErinstController.class );
 	private static final String NAMED_FORM = "/message/Erinst";
@@ -40,7 +40,7 @@ public class ErinstController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "ER", "ER" );
+		actions.put( "ER", "提早兌償指令" );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -53,11 +53,13 @@ public class ErinstController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ErinstBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) ErinstBean model) {
 		try {
 			tdccService.sendErinstRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

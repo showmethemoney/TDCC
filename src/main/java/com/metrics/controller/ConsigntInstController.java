@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/ConsigntInst")
-public class ConsigntInstController
+public class ConsigntInstController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( ConsigntInstController.class );
 	private static final String NAMED_FORM = "/message/ConsigntInst";
@@ -40,7 +40,7 @@ public class ConsigntInstController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "CI", "CI" );
+		actions.put( "CI", "代銷指令" );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -53,11 +53,13 @@ public class ConsigntInstController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ConsigntInstBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) ConsigntInstBean model) {
 		try {
 			tdccService.sendConsigntInstRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT;
 	}
 }

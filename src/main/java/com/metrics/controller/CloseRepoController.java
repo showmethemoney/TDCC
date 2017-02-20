@@ -40,7 +40,7 @@ public class CloseRepoController extends AbstractController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "RCI", "RCI" );
+		actions.put( "RCI", "附條件交易到期履約指令" );
 		
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -53,11 +53,13 @@ public class CloseRepoController extends AbstractController
 	}
 
 	@PostMapping
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) CloseRepoBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) CloseRepoBean model) {
 		try {
 			tdccService.sendCloseRepoRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT;
 	}
 }

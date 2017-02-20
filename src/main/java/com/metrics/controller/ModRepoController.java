@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/ModRepo")
-public class ModRepoController
+public class ModRepoController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( ModRepoController.class );
 	private static final String NAMED_FORM = "/message/ModRepo";
@@ -40,7 +40,7 @@ public class ModRepoController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "RCMI ", "RCMI" );
+		actions.put( "RCMI", "附條件交易中途解約指令 " );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -53,11 +53,13 @@ public class ModRepoController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ModRepoBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) ModRepoBean model) {
 		try {
 			tdccService.sendModRepoRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

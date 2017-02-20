@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/ReiInst")
-public class ReiInstController
+public class ReiInstController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( ReiInstController.class );
 	private static final String NAMED_FORM = "/message/ReiInst";
@@ -40,7 +40,7 @@ public class ReiInstController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "RI", "RI" );
+		actions.put( "RI", "續發指令" );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -53,11 +53,13 @@ public class ReiInstController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) ReiInstBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) ReiInstBean model) {
 		try {
 			tdccService.sendReiInstRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

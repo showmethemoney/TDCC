@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/RepReq")
-public class RepReqController
+public class RepReqController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( RepReqController.class );
 	private static final String NAMED_FORM = "/message/RepReq";
@@ -40,7 +40,7 @@ public class RepReqController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "RPRQ", "RPRQ" );
+		actions.put( "RPRQ", "報表查詢指令" );
 		
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -53,11 +53,13 @@ public class RepReqController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) RepReqBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) RepReqBean model) {
 		try {
 			tdccService.sendRepReqRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

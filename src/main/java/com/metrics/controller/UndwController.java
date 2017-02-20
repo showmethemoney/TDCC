@@ -21,7 +21,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/Undw")
-public class UndwController
+public class UndwController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( UndwController.class );
 	private static final String NAMED_FORM = "/message/Undw";
@@ -39,7 +39,7 @@ public class UndwController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "UI", "UI" );
+		actions.put( "UI", "包銷/首買指令" );
 		
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -52,11 +52,13 @@ public class UndwController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) UndwBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) UndwBean model) {
 		try {
 			tdccService.sendUndwRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

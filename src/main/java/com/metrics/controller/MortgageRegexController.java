@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/MortgageRegex")
-public class MortgageRegexController
+public class MortgageRegexController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( MortgageRegexController.class );
 	private static final String NAMED_FORM = "/message/MortgageRegex";
@@ -40,8 +40,8 @@ public class MortgageRegexController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "MRI", "MRI" );
-		actions.put( "CEI", "CEI" );
+		actions.put( "MRI", "設定質權指令" );
+		actions.put( "CEI", "更換擔保品(不含買賣)指令" );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -54,11 +54,13 @@ public class MortgageRegexController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) MortgageRegexBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) MortgageRegexBean model) {
 		try {
 			tdccService.sendMortgageRegexRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

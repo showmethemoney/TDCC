@@ -21,7 +21,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/CshAdvice")
-public class CshAdviceController
+public class CshAdviceController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( CshAdviceController.class );
 	private static final String NAMED_FORM = "/message/CshAdvice";
@@ -39,11 +39,11 @@ public class CshAdviceController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "RDM", "RDM" );
-		actions.put( "BC", "BC" );
-		actions.put( "CNSG", "CNSG" );
-		actions.put( "RRM", "RRM" );
-		actions.put( "RBC", "RBC" );
+		actions.put( "RDM", "兌償入帳通知" );
+		actions.put( "BC", "退票通知" );
+		actions.put( "CNSG", "代銷費入帳通知" );
+		actions.put( "RRM", "退票重提示兌償通知" );
+		actions.put( "RBC", "退票重提示退票通知" );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -56,11 +56,13 @@ public class CshAdviceController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) CshAdviceBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) CshAdviceBean model) {
 		try {
 			tdccService.sendCshAdviceRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

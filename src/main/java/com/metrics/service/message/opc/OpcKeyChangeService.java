@@ -23,6 +23,7 @@ import com.metrics.xml.message.opc.xml.CHGKEYMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYREQMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYRSPMessage;
 
+
 /**
  * @author Ethan Lee
  */
@@ -31,7 +32,7 @@ public class OpcKeyChangeService
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OpcKeyChangeService.class );
 	private static final String FORMAT_OPC_TIMESTAMP = "yyyyMMddHHmmss";
-	
+
 	@Autowired
 	private RAConfig raConfig = null;
 	@Autowired
@@ -221,14 +222,15 @@ public class OpcKeyChangeService
 			throw new OPCException( "OPC換KEY時失敗！" + cause.toString() );
 		}
 	}
-	
+
 	private OPCMESSAGE setOPCMessageInfo(OPCMESSAGE instance) {
 		Calendar calendar = Calendar.getInstance();
 		instance.setTS( DateFormatUtils.format( calendar, FORMAT_OPC_TIMESTAMP ) );
-		
+		instance.setORIGIN( tcbConfig.getParticipantId() );
+
 		return instance;
 	}
-	
+
 	public RAFacade2 getRaFacade() {
 		return raFacade;
 	}

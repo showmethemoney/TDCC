@@ -8,4 +8,5 @@ public abstract class AbstractController
 	protected static final String NAMED_MODEL = "model";
 	protected static final String NAMED_MESSAGE_TYPES = "msgTypes";
 	protected static final String NAMED_ACTIONS = "actions";
+	protected static final String NAMED_RESULT = "/message/Result";
 }

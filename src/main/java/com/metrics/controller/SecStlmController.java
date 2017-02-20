@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/SecStlm")
-public class SecStlmController
+public class SecStlmController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( SecStlmController.class );
 	private static final String NAMED_FORM = "/message/SecStlm";
@@ -40,7 +40,7 @@ public class SecStlmController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "SSI", "SSI" );
+		actions.put( "SSI", "買賣斷/存券匯撥指令" );
 		
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -53,11 +53,13 @@ public class SecStlmController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) SecStlmBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) SecStlmBean model) {
 		try {
 			tdccService.sendSecStlmRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

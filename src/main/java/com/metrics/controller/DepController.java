@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/Dep")
-public class DepController
+public class DepController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( DepController.class );
 	private static final String NAMED_FORM = "/message/Dep";
@@ -40,10 +40,10 @@ public class DepController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "DI", "DI" );
-		actions.put( "AI", "AI" );
-		actions.put( "ADI", "ADI" );
-		actions.put( "NDI", "NDI" );
+		actions.put( "DI", "送存指令" );
+		actions.put( "AI", "保證/承兌/發行指令" );
+		actions.put( "ADI", "無實體ABCP登錄指令" );
+		actions.put( "NDI", "無實體NCD/市庫券登錄指令" );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -56,11 +56,13 @@ public class DepController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) DepBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) DepBean model) {
 		try {
 			tdccService.sendDepRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

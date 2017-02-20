@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/OpenRepo")
-public class OpenRepoController
+public class OpenRepoController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OpenRepoController.class );
 	private static final String NAMED_FORM = "/message/OpenRepo";
@@ -41,7 +41,7 @@ public class OpenRepoController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "ROI", "ROI" );
+		actions.put( "ROI", "附條件交易指令" );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -54,11 +54,13 @@ public class OpenRepoController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) OpenRepoBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) OpenRepoBean model) {
 		try {
 			tdccService.sendOpenRepoRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

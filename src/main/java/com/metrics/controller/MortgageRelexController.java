@@ -22,7 +22,7 @@ import com.metrics.service.message.TDCCService;
  */
 @Controller
 @RequestMapping(value = "/message/MortgageRelex")
-public class MortgageRelexController
+public class MortgageRelexController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( MortgageRelexController.class );
 	private static final String NAMED_FORM = "/message/MortgageRelex";
@@ -40,8 +40,8 @@ public class MortgageRelexController
 	@ModelAttribute
 	public void getActions(Model model) {
 		Map<String, String> actions = new HashMap<String, String>();
-		actions.put( "MR", "MR" );
-		actions.put( "MEI", "MEI" );
+		actions.put( "MR", "質權塗銷指令" );
+		actions.put( "MEI", "實行質權指令" );
 	
 		model.addAttribute( AbstractController.NAMED_ACTIONS, actions );
 	}
@@ -54,11 +54,13 @@ public class MortgageRelexController
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void submit(@ModelAttribute(AbstractController.NAMED_MODEL) MortgageRelexBean model) {
+	public String submit(@ModelAttribute(AbstractController.NAMED_MODEL) MortgageRelexBean model) {
 		try {
 			tdccService.sendMortgageRelexRequest( model );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
+		
+		return NAMED_RESULT; 
 	}
 }

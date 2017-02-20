@@ -16,7 +16,6 @@ import com.metrics.service.ResultService;
 public class ResultController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( ResultController.class );
-	private static final String NAMED_FORM = "/message/Result";
 	@Autowired
 	private ResultService resultService = null;
 
@@ -25,6 +24,6 @@ public class ResultController extends AbstractController
 
 		model.addAttribute( NAMED_MODEL, resultService.selectResult() );
 
-		return NAMED_FORM;
+		return NAMED_RESULT; 
 	}
 }
