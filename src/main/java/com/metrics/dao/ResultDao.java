@@ -8,6 +8,8 @@ import javax.persistence.PersistenceContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.metrics.bean.ResultBean;
 
@@ -21,16 +23,17 @@ public class ResultDao
 	@PersistenceContext
 	EntityManager entityManager = null;
 
+	@Transactional(propagation = Propagation.NEVER)
 	public List<ResultBean> select() {
 		List<ResultBean> result = null;
-		
+
 		try {
-			//ResultBean @SqlResultSetMapping define at @Entity HistoryRequest
+			// ResultBean @SqlResultSetMapping define at @Entity HistoryRequest
 			result = (List<ResultBean>) entityManager.createNativeQuery( NAMED_QUERY_SELECT_NATVIE, "ResultBean" ).getResultList();
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
-		
+
 		return result;
 	}
 }

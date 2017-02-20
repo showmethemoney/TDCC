@@ -26,6 +26,7 @@ import com.metrics.bean.SecStlmBean;
 import com.metrics.bean.UndwBean;
 import com.metrics.config.TCBConfig;
 import com.metrics.mq.MessageSender;
+import com.metrics.service.HistoryRequestService;
 import com.metrics.service.SequenceService;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 import com.metrics.xml.message.tdcc.def.CLOSEREPO;
@@ -67,25 +68,35 @@ public class TDCCService
 	private static final String FORMAT_BCSS_TIMESTAMP = "yyyy-MM-dd'T'HH:mm:ss";
 	private static final String FORMAT_BCSS_BUSINESS_DATE = "yyyy-MM-dd";
 	@Autowired
+	private TCBConfig tcbConfig = null;
+	@Autowired
+	private HistoryRequestService historyRequestService = null;
+	@Autowired
 	private SequenceService sequenceService = null;
 	@Autowired
 	private OXMService oxmService = null;
 	@Autowired
-	private TCBConfig tcbConfig = null;
-	@Autowired
-//	@Qualifier("IBMMessageSender")
+	// @Qualifier("IBMMessageSender")
 	@Qualifier("JMSMessageSender")
 	private MessageSender messageSender = null;
 
 	public void sendCloseRepoRequest(CloseRepoBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			CLOSEREPOMessage message = new CLOSEREPOMessage( instance );
+			message = new CLOSEREPOMessage( instance );
 
 			CLOSEREPO closeRepo = new CLOSEREPO( instance.getBody() );
 
-			message.setBody( closeRepo );
+			((CLOSEREPOMessage) message).setBody( closeRepo );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
+
+			messageSender.send( content );
+			
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -93,12 +104,19 @@ public class TDCCService
 	}
 
 	public void sendConsigntInstRequest(ConsigntInstBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			CONSIGNTINSTMessage message = new CONSIGNTINSTMessage( instance );
+			message = new CONSIGNTINSTMessage( instance );
 
-			message.setBody( new CONSIGNTINST( instance.getBody() ) );
+			((CONSIGNTINSTMessage) message).setBody( new CONSIGNTINST( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -106,12 +124,19 @@ public class TDCCService
 	}
 
 	public void sendCshAdviceRequest(CshAdviceBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			CSHADVICEMessage message = new CSHADVICEMessage( instance );
+			message = new CSHADVICEMessage( instance );
 
-			message.setBody( new CSHADVICE( instance.getBody() ) );
+			((CSHADVICEMessage) message).setBody( new CSHADVICE( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -119,12 +144,19 @@ public class TDCCService
 	}
 
 	public void sendDepRequest(DepBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			DEPMessage message = new DEPMessage( instance );
+			message = new DEPMessage( instance );
 
-			message.setBody( new DEP( instance.getBody() ) );
+			((DEPMessage) message).setBody( new DEP( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -132,12 +164,19 @@ public class TDCCService
 	}
 
 	public void sendErinstRequest(ErinstBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			ERINSTMessage message = new ERINSTMessage( instance );
+			message = new ERINSTMessage( instance );
 
-			message.setBody( new ERINST( instance.getBody() ) );
+			((ERINSTMessage) message).setBody( new ERINST( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );;
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -145,12 +184,19 @@ public class TDCCService
 	}
 
 	public void sendModRepoRequest(ModRepoBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			MODREPOMessage message = new MODREPOMessage( instance );
+			message = new MODREPOMessage( instance );
 
-			message.setBody( new MODREPO( instance.getBody() ) );
+			((MODREPOMessage) message).setBody( new MODREPO( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -158,12 +204,19 @@ public class TDCCService
 	}
 
 	public void sendMortgageRegexRequest(MortgageRegexBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			MORTGAGEREGEXMessage message = new MORTGAGEREGEXMessage( instance );
+			message = new MORTGAGEREGEXMessage( instance );
 
-			message.setBody( new MORTGAGEREGEX( instance.getBody() ) );
+			((MORTGAGEREGEXMessage) message).setBody( new MORTGAGEREGEX( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -171,12 +224,19 @@ public class TDCCService
 	}
 
 	public void sendMortgageRelexRequest(MortgageRelexBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			MORTGAGERELEXMessage message = new MORTGAGERELEXMessage( instance );
+			message = new MORTGAGERELEXMessage( instance );
 
-			message.setBody( new MORTGAGERELEX( instance.getBody() ) );
+			((MORTGAGERELEXMessage) message).setBody( new MORTGAGERELEX( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -184,12 +244,19 @@ public class TDCCService
 	}
 
 	public void sendOpenRepoRequest(OpenRepoBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			OPENREPOMessage message = new OPENREPOMessage( instance );
+			message = new OPENREPOMessage( instance );
 
-			message.setBody( new OPENREPO( instance.getBody() ) );
+			((OPENREPOMessage) message).setBody( new OPENREPO( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -197,12 +264,19 @@ public class TDCCService
 	}
 
 	public void sendReiInstRequest(ReiInstBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			REIINSTMessage message = new REIINSTMessage( instance );
+			message = new REIINSTMessage( instance );
 
-			message.setBody( new REIINST( instance.getBody() ) );
+			((REIINSTMessage) message).setBody( new REIINST( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -210,12 +284,19 @@ public class TDCCService
 	}
 
 	public void sendRepRequest(RepBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			REPMessage message = new REPMessage( instance );
+			message = new REPMessage( instance );
 
-			message.setBody( new REP( instance.getBody() ) );
+			((REPMessage) message).setBody( new REP( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -223,12 +304,19 @@ public class TDCCService
 	}
 
 	public void sendRepReqRequest(RepReqBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			REPREQMessage message = new REPREQMessage( instance );
+			message = new REPREQMessage( instance );
 
-			message.setBody( new REPREQ( instance.getBody() ) );
+			((REPREQMessage) message).setBody( new REPREQ( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -236,12 +324,19 @@ public class TDCCService
 	}
 
 	public void sendSecBlkRequest(SecBlkBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			SECBLKMessage message = new SECBLKMessage( instance );
+			message = new SECBLKMessage( instance );
 
-			message.setBody( new SECBLK( instance.getBody() ) );
+			((SECBLKMessage) message).setBody( new SECBLK( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -249,12 +344,19 @@ public class TDCCService
 	}
 
 	public void sendSecStlmRequest(SecStlmBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			SECSTLMMessage message = new SECSTLMMessage( instance );
+			message = new SECSTLMMessage( instance );
 
-			message.setBody( new SECSTLM( instance.getBody() ) );
+			((SECSTLMMessage) message).setBody( new SECSTLM( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
@@ -262,26 +364,34 @@ public class TDCCService
 	}
 
 	public void sendUndwRequest(UndwBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
 		try {
-			UNDWMessage message = new UNDWMessage( instance );
+			message = new UNDWMessage( instance );
 
-			message.setBody( new UNDW( instance.getBody() ) );
+			((UNDWMessage) message).setBody( new UNDW( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( oxmService.marshallBCSSMessage( setBCSSMessage( message ) ) );
+			messageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 			throw cause;
 		}
 	}
-	
+
 	private BCSSMESSAGE setBCSSMessage(BCSSMESSAGE instance) {
 		Calendar calendar = Calendar.getInstance();
 		instance.setTS( DateFormatUtils.format( calendar, FORMAT_BCSS_TIMESTAMP ) );
 		instance.setBCSSBUSDT( DateFormatUtils.format( calendar, FORMAT_BCSS_BUSINESS_DATE ) );
 		instance.setORIGIN( tcbConfig.getParticipantId() );
 		instance.setSNDRREF( sequenceService.getSequence() );
-		
+
 		return instance;
 	}
-	
+
+
 }

@@ -37,7 +37,7 @@ public class AppConfig
 
 	@Bean
 	public TCBConfig tcbConfig() {
-		TCBConfig config = new TCBConfig( env.getProperty( "participantId" ) );
+		TCBConfig config = new TCBConfig( env.getProperty( "participantId" ), env.getProperty( "request.save.xml.path" ), env.getProperty( "response.save.xml.path" ) );
 
 		return config;
 	}

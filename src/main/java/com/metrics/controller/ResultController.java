@@ -12,7 +12,7 @@ import com.metrics.service.ResultService;
 
 
 @Controller
-@RequestMapping(value = "/message/result")
+@RequestMapping(value = "/message/Result")
 public class ResultController extends AbstractController
 {
 	protected static final Logger logger = LoggerFactory.getLogger( ResultController.class );

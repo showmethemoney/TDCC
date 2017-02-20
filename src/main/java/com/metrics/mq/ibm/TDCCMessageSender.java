@@ -32,7 +32,7 @@ public class TDCCMessageSender implements MessageSender
 		logger.info( "will send to IBM MQ : {}", context );
 
 		jmsTemplate.send( sendTDCCDestination, new MessageCreator() {
-//
+
 			@Override
 			public Message createMessage(Session session) throws JMSException {
 				TextMessage message = session.createTextMessage();

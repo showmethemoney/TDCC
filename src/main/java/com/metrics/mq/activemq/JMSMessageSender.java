@@ -26,7 +26,6 @@ import com.metrics.mq.MessageSender;
 public class JMSMessageSender implements MessageSender
 {
 	protected static final Logger logger = LoggerFactory.getLogger( JMSMessageSender.class );
-
 	@Qualifier(MessageQueueConfig.NAMED_JMS_MESSAGE_SENDER)
 	@Autowired
 	JmsTemplate jmsTemplate;

@@ -2,8 +2,6 @@ package com.metrics.mq.activemq;
 
 import java.io.StringReader;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.jms.Message;
 import javax.jms.TextMessage;
@@ -24,7 +22,9 @@ import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 
 import com.metrics.mq.MessageReceiver;
+import com.metrics.service.HistoryResponseService;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
+
 
 /**
  * receive message from tdcc
@@ -37,8 +37,9 @@ public class JMSMessageReceiver implements MessageReceiver
 {
 	protected static final Logger logger = LoggerFactory.getLogger( JMSMessageReceiver.class );
 
-	final static String PATTERN_OPC = "</BCSSMESSAGE>(.+)";
-
+	// final static String PATTERN_OPC = "</BCSSMESSAGE>(.+)";
+	@Autowired
+	HistoryResponseService historyResponseService = null;
 	@Qualifier("tdccMessages")
 	@Autowired
 	MapFactoryBean tdccMessages = null;
@@ -52,24 +53,21 @@ public class JMSMessageReceiver implements MessageReceiver
 			if (StringUtils.isBlank( response )) {
 				// todo
 			} else {
-				String opcCode = null;
-				String txnId = null;
-
-				Matcher opcMatcher = Pattern.compile( PATTERN_OPC ).matcher( response );
-				if (opcMatcher.find()) {
-					opcCode = opcMatcher.group( 1 );
-				}
-
-				if (StringUtils.isNotBlank( opcCode )) {
-					response = StringUtils.removeEnd( response, opcCode );
-				}
+//				String opcCode = null;
+				// Matcher opcMatcher = Pattern.compile( PATTERN_OPC ).matcher( response );
+				// if (opcMatcher.find()) {
+				// opcCode = opcMatcher.group( 1 );
+				// }
+				// if (StringUtils.isNotBlank( opcCode )) {
+				// response = StringUtils.removeEnd( response, opcCode );
+				// }
 
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder builder = factory.newDocumentBuilder();
 
 				Document document = builder.parse( new InputSource( new StringReader( response ) ) );
 
-				txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
+				String txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
 
 				// unmarshall
 				Map<Object, Object> messages = tdccMessages.getObject();
@@ -80,6 +78,8 @@ public class JMSMessageReceiver implements MessageReceiver
 
 					Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 					BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
+
+					historyResponseService.writeLog( entity, response );
 				}
 			}
 		} catch (Throwable cause) {

@@ -14,12 +14,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.ibm.mq.jms.MQQueue;
 import com.ibm.mq.jms.MQQueueConnectionFactory;
 import com.metrics.OPCMessageQueueConfig;
+import com.metrics.config.TCBConfig;
+
 
 //@Component
 public class OPCMessageReceiver
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OPCMessageReceiver.class );
-
+	@Autowired
+	private TCBConfig tcbConfig = null;
 	@Autowired
 	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_CONNECTION_FACTORY)
 	private MQQueueConnectionFactory connectionFactory = null;
@@ -38,7 +41,7 @@ public class OPCMessageReceiver
 			connection = connectionFactory.createConnection();
 			session = connection.createSession( false, Session.AUTO_ACKNOWLEDGE );
 			consumer = session.createConsumer( receiveOPCDestination );
-			//todo timeout ?
+			// todo timeout ?
 			message = consumer.receive( 3 * 1000 );
 
 			result = ((TextMessage) message).getText();

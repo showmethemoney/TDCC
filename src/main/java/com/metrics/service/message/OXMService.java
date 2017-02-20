@@ -7,7 +7,6 @@ import java.io.Writer;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import com.metrics.utils.OpcMacUtil;
 import com.metrics.xml.message.opc.OPCMESSAGE;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 
+
 @Component
 public class OXMService
 {
@@ -29,7 +29,15 @@ public class OXMService
 	private Jaxb2Marshaller marshaller = null;
 
 	public String marshallOPCMessage(OPCMESSAGE instance) {
-		return marshall( instance );
+		String result = null;
+
+		try {
+			result = marshall( instance );
+		} catch (Throwable cause) {
+			logger.error( cause.getMessage(), cause );
+		}
+
+		return result;
 	}
 
 	public String marshallBCSSMessage(BCSSMESSAGE instance) {
@@ -37,11 +45,12 @@ public class OXMService
 
 		try {
 			result = marshall( instance );
-			
+
 			// 除交割狀態通知訊息(訊息代號002、012、032及040)不押碼外，其他訊息皆須押碼。
 			if (!"002".equalsIgnoreCase( instance.getMSGTYPE() ) || !"012".equalsIgnoreCase( instance.getMSGTYPE() )
 			        || !"040".equalsIgnoreCase( instance.getMSGTYPE() )) {
-				result = result + opcMacUtil.generateMAC( result.getBytes( OXMConfig.DEFUALT_ENCODING ) );			}
+				result = result + opcMacUtil.generateMAC( result.getBytes( OXMConfig.DEFUALT_ENCODING ) );
+			}
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

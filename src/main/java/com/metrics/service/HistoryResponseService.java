@@ -1,12 +1,17 @@
 package com.metrics.service;
 
+import java.io.File;
+import java.util.Calendar;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.metrics.config.TCBConfig;
 import com.metrics.dao.HistoryResponseDao;
 import com.metrics.entity.HistoryResponse;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
@@ -15,6 +20,9 @@ import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 public class HistoryResponseService
 {
 	protected static final Logger logger = LoggerFactory.getLogger( HistoryResponseService.class );
+	private static final String FORMAT_FOLDER_DATE = "yyyyMMdd";
+	@Autowired
+	private TCBConfig tcbConfig = null;
 	@Autowired
 	private HistoryResponseDao historyResponseDao = null;
 
@@ -43,5 +51,20 @@ public class HistoryResponseService
 	
 	public List<HistoryResponse> queryBySndrRef(String sndrRef) {
 		return historyResponseDao.queryBySndrRef( sndrRef );
+	}
+	
+	public void writeLog(BCSSMESSAGE message, String content) {
+		try {
+			File folder = new File( tcbConfig.getResponseSaveXmlPath(), DateFormatUtils.format( Calendar.getInstance(), FORMAT_FOLDER_DATE ) );
+
+			if (!folder.exists()) {
+				folder.mkdirs();
+			}
+
+			FileUtils.write( new File( folder, message.getSNDRREF() + ".xml" ), (CharSequence) message );
+			save( message );
+		} catch (Throwable cause) {
+			logger.error( cause.getMessage(), cause );
+		}
 	}
 }
