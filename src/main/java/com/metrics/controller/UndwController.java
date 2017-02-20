@@ -59,6 +59,6 @@ public class UndwController extends AbstractController
 			logger.error( cause.getMessage(), cause );
 		}
 		
-		return NAMED_RESULT; 
+		return NAMED_REDIRECT_RESULT; 
 	}
 }

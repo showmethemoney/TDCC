@@ -26,6 +26,7 @@
 		<li><a href="message/SecStlm"><spring:message code="secStlm" /></a></li>
 		<li><a href="message/Undw"><spring:message code="undw" /></a></li>
 		
+		<li><a href="message/OpcKeyChange"><spring:message code="opcKeyChange" /></a></li>
 		<li><a href="message/Result"><spring:message code="result" /></a></li>
 	</ul>
 </body>

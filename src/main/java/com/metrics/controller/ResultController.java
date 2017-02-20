@@ -24,6 +24,6 @@ public class ResultController extends AbstractController
 
 		model.addAttribute( NAMED_MODEL, resultService.selectResult() );
 
-		return NAMED_RESULT; 
+		return "/message/Result"; 
 	}
 }
