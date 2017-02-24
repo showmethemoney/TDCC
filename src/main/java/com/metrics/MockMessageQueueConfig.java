@@ -12,42 +12,43 @@ import org.springframework.jms.listener.MessageListenerContainer;
 
 import com.metrics.mq.mock.MockMessageReceiver;
 
-@Configuration
+@Deprecated
+//@Configuration
 public class MockMessageQueueConfig
 {
-	@Autowired
-	ConnectionFactory connectionFactory;
+//	@Autowired
+//	ConnectionFactory connectionFactory;
 
-	@Autowired
-	MockMessageReceiver mockMessageReceiver;
+//	@Autowired
+//	MockMessageReceiver mockMessageReceiver;
 
-	public static final String NAMED_MOCK_TDCC_MESSAGE_SENDER = "MockTDCCMessageSender";
-	public static final String NAMED_MOCK_TDCC_MESSAGE_RECEIVER = "MockTDCCMessageReceiver";
+//	public static final String NAMED_MOCK_TDCC_MESSAGE_SENDER = "MockTDCCMessageSender";
+//	public static final String NAMED_MOCK_TDCC_MESSAGE_RECEIVER = "MockTDCCMessageReceiver";
 
 	/*
 	 * JUST FOR T E S T I N G!! Message listener container, used for invoking messageReceiver.onMessage on message reception. 璅⊥ TDCC ��閮
 	 */
-	@Qualifier(NAMED_MOCK_TDCC_MESSAGE_RECEIVER)
-	@Bean
-	public MessageListenerContainer getMockContainer() {
-		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
-		container.setConnectionFactory( connectionFactory );
-		container.setDestinationName( MessageQueueConfig.NAMED_QUEUE_JMS_REQUEST );
-		container.setMessageListener( mockMessageReceiver );
-
-		return container;
-	}
+//	@Qualifier(NAMED_MOCK_TDCC_MESSAGE_RECEIVER)
+//	@Bean
+//	public MessageListenerContainer getMockContainer() {
+//		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
+//		container.setConnectionFactory( connectionFactory );
+//		container.setDestinationName( MessageQueueConfig.NAMED_QUEUE_JMS_REQUEST );
+//		container.setMessageListener( mockMessageReceiver );
+//
+//		return container;
+//	}
 
 	/*
 	 * JUST FOR T E S T I N G!! Used for Sending Messages. 璅⊥ TDCC �����
 	 */
-	@Qualifier(NAMED_MOCK_TDCC_MESSAGE_SENDER)
-	@Bean
-	public JmsTemplate mockJmsTemplate() {
-		JmsTemplate template = new JmsTemplate();
-		template.setConnectionFactory( connectionFactory );
-		template.setDefaultDestinationName( MessageQueueConfig.NAMED_QUEUE_JMS_RESPONSE );
-
-		return template;
-	}
+//	@Qualifier(NAMED_MOCK_TDCC_MESSAGE_SENDER)
+//	@Bean
+//	public JmsTemplate mockJmsTemplate() {
+//		JmsTemplate template = new JmsTemplate();
+//		template.setConnectionFactory( connectionFactory );
+//		template.setDefaultDestinationName( MessageQueueConfig.NAMED_QUEUE_JMS_RESPONSE );
+//
+//		return template;
+//	}
 }

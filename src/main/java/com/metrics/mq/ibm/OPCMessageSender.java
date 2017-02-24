@@ -16,22 +16,23 @@ import org.springframework.stereotype.Component;
 
 import com.ibm.mq.jms.MQQueue;
 import com.metrics.OPCMessageQueueConfig;
+import com.metrics.TDCCMessageQueueConfig;
 
 @Component
 public class OPCMessageSender
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OPCMessageSender.class );
-	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_MESSAGE_SENDER)
+	@Qualifier(TDCCMessageQueueConfig.NAMED_OPC_MESSAGE_SENDER)
 	@Autowired
-	private JmsTemplate jmsTemplate = null;
-	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_SEND_DESTINATION)
+	private JmsTemplate jmsOPCTemplate = null;
+	@Qualifier(TDCCMessageQueueConfig.NAMED_OPC_SEND_DESTINATION)
 	@Autowired
 	private MQQueue sendOPCDestination = null;
 
 	public void send(final String context) throws JmsException, JMSException {
-		logger.info( "will send to IBM MQ : {}", context );
+//		logger.info( "will send to IBM MQ : {}", context );
 
-		jmsTemplate.send( sendOPCDestination, new MessageCreator() {
+		jmsOPCTemplate.send( sendOPCDestination, new MessageCreator() {
 
 			@Override
 			public Message createMessage(Session session) throws JMSException {

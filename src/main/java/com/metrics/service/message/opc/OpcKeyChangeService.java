@@ -24,11 +24,10 @@ import com.metrics.xml.message.opc.xml.CHGKEYMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYREQMessage;
 import com.metrics.xml.message.opc.xml.CHGKEYRSPMessage;
 
-
 /**
  * @author Ethan Lee
  */
- @Service
+@Service
 public class OpcKeyChangeService
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OpcKeyChangeService.class );
@@ -231,13 +230,4 @@ public class OpcKeyChangeService
 
 		return instance;
 	}
-
-	public RAFacade2 getRaFacade() {
-		return raFacade;
-	}
-
-	public void setRaFacade(RAFacade2 raFacade) {
-		this.raFacade = raFacade;
-	}
-
 }

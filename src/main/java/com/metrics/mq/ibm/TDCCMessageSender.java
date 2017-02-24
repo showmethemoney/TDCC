@@ -25,7 +25,7 @@ public class TDCCMessageSender implements MessageSender
 	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageSender.class );
 	@Qualifier(TDCCMessageQueueConfig.NAMED_TDCC_MESSAGE_SENDER)
 	@Autowired
-	private JmsTemplate jmsTemplate = null;
+	private JmsTemplate jmsTDCCTemplate = null;
 	@Qualifier(TDCCMessageQueueConfig.NAMED_TDCC_SEND_DESTINATION)
 	@Autowired
 	private MQQueue sendTDCCDestination = null;
@@ -33,7 +33,7 @@ public class TDCCMessageSender implements MessageSender
 	public void send(final String context) throws JmsException, JMSException {
 		logger.info( "will send to IBM MQ : {}", context );
 
-		jmsTemplate.send( sendTDCCDestination, new MessageCreator() {
+		jmsTDCCTemplate.send( sendTDCCDestination, new MessageCreator() {
 
 			@Override
 			public Message createMessage(Session session) throws JMSException {

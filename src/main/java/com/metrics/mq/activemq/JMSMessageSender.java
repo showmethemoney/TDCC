@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Component;
 
 import com.metrics.MessageQueueConfig;
 import com.metrics.mq.MessageSender;
-
 
 /**
  * send message to tdcc
@@ -21,7 +21,7 @@ import com.metrics.mq.MessageSender;
  * @author ethan
  *
  */
-//@Component("JMSMessageSender")
+@Component
 public class JMSMessageSender implements MessageSender
 {
 	protected static final Logger logger = LoggerFactory.getLogger( JMSMessageSender.class );
@@ -31,7 +31,7 @@ public class JMSMessageSender implements MessageSender
 
 	public void send(final String content) {
 		try {
-			logger.info( "send to TDCC : {}", content );
+			logger.info( "send to jms : {}", content );
 
 			jmsTemplate.send( new MessageCreator() {
 				@Override

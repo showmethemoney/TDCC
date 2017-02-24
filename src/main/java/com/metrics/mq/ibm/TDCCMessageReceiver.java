@@ -22,9 +22,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 
+import com.metrics.mq.activemq.JMSMessageSender;
 import com.metrics.service.HistoryResponseService;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
-
 
 @Component
 public class TDCCMessageReceiver implements MessageListener
@@ -32,10 +32,12 @@ public class TDCCMessageReceiver implements MessageListener
 	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageReceiver.class );
 	@Qualifier("tdccMessages")
 	@Autowired
-	MapFactoryBean tdccMessages = null;
+	private MapFactoryBean tdccMessages = null;
 	@Autowired
-	HistoryResponseService historyResponseService = null;
-	
+	private JMSMessageSender jMSMessageSender = null;
+	@Autowired
+	private HistoryResponseService historyResponseService = null;
+
 	@Override
 	public void onMessage(Message message) {
 		try {
@@ -45,25 +47,54 @@ public class TDCCMessageReceiver implements MessageListener
 			if (StringUtils.isBlank( response )) {
 				logger.warn( "message is empty..." );
 			} else {
+				// 判斷 是否為 OPCMessage，如果是，丟到 activemq
+				// 由於 BCSSMessage 與 OPCMessage 回送同一個 queue。而 OPCMessage 是要取得資訊 for POC
+
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder builder = factory.newDocumentBuilder();
 
 				Document document = builder.parse( new InputSource( new StringReader( response ) ) );
 
-				String txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
-
-				// unmarshall
-				Map<Object, Object> messages = tdccMessages.getObject();
-
-				if (messages.containsKey( txnId )) {
-
-					JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
-
-					Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-					BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
+				if ("OPCMESSAGE".equalsIgnoreCase( ((Element) document.getFirstChild()).getTagName() )) {
+					// send to active mq 
+					jMSMessageSender.send( response );
+				} else {
+					// BCSSMessage
+					String txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
 					
-					historyResponseService.writeLog( entity, response );
+					 // unmarshall
+					 Map<Object, Object> messages = tdccMessages.getObject();
+					
+					 if (messages.containsKey( txnId )) {
+						 JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
+						 Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+						 
+						 BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
+						 
+						 historyResponseService.writeLog( entity, response );
+					 }
+					
 				}
+
+				// DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				// DocumentBuilder builder = factory.newDocumentBuilder();
+				//
+				// Document document = builder.parse( new InputSource( new StringReader( response ) ) );
+				//
+				// String txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
+				//
+				// // unmarshall
+				// Map<Object, Object> messages = tdccMessages.getObject();
+				//
+				// if (messages.containsKey( txnId )) {
+				//
+				// JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
+				//
+				// Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+				// BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
+				//
+				// historyResponseService.writeLog( entity, response );
+				// }
 			}
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
