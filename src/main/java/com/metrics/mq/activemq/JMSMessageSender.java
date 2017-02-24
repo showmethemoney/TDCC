@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
-import org.springframework.stereotype.Component;
 
 import com.metrics.MessageQueueConfig;
 import com.metrics.mq.MessageSender;
@@ -22,7 +21,7 @@ import com.metrics.mq.MessageSender;
  * @author ethan
  *
  */
-@Component("JMSMessageSender")
+//@Component("JMSMessageSender")
 public class JMSMessageSender implements MessageSender
 {
 	protected static final Logger logger = LoggerFactory.getLogger( JMSMessageSender.class );

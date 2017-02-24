@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.MapFactoryBean;
-import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
@@ -32,7 +31,7 @@ import com.metrics.xml.message.tdcc.BCSSMESSAGE;
  * @author ethan
  *
  */
-@Component("JMSMessageReceiver")
+//@Component("JMSMessageReceiver")
 public class JMSMessageReceiver implements MessageReceiver
 {
 	protected static final Logger logger = LoggerFactory.getLogger( JMSMessageReceiver.class );

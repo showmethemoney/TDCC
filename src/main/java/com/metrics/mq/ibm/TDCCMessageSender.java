@@ -12,22 +12,24 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Component;
 
 import com.ibm.mq.jms.MQQueue;
 import com.metrics.TDCCMessageQueueConfig;
 import com.metrics.mq.MessageSender;
 
 
-//@Component
+@Component
 public class TDCCMessageSender implements MessageSender
 {
 	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageSender.class );
+	@Qualifier(TDCCMessageQueueConfig.NAMED_TDCC_MESSAGE_SENDER)
 	@Autowired
 	private JmsTemplate jmsTemplate = null;
 	@Qualifier(TDCCMessageQueueConfig.NAMED_TDCC_SEND_DESTINATION)
 	@Autowired
 	private MQQueue sendTDCCDestination = null;
-	
+
 	public void send(final String context) throws JmsException, JMSException {
 		logger.info( "will send to IBM MQ : {}", context );
 

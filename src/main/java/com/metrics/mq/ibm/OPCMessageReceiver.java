@@ -10,22 +10,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter;
+import org.springframework.stereotype.Component;
 
 import com.ibm.mq.jms.MQQueue;
-import com.ibm.mq.jms.MQQueueConnectionFactory;
 import com.metrics.OPCMessageQueueConfig;
 import com.metrics.config.TCBConfig;
 
 
-//@Component
+@Component
 public class OPCMessageReceiver
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OPCMessageReceiver.class );
 	@Autowired
 	private TCBConfig tcbConfig = null;
 	@Autowired
-	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_CONNECTION_FACTORY)
-	private MQQueueConnectionFactory connectionFactory = null;
+	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_SECURITY_CONNECTION_FACTORY)
+	private UserCredentialsConnectionFactoryAdapter connectionFactory = null;
 	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_RECEIVE_DESTINATION)
 	@Autowired
 	private MQQueue receiveOPCDestination = null;

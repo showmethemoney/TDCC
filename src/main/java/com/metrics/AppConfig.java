@@ -17,8 +17,9 @@ import com.metrics.config.TCBConfig;
 
 @Configuration
 @ComponentScan(basePackages = "com.metrics")
-@Import({ DatabaseConfig.class, MessageQueueConfig.class, OXMConfig.class, ScheduleConfig.class, MockMessageQueueConfig.class }
-// { DatabaseConfig.class, TDCCMessageQueueConfig.class, OPCMessageQueueConfig.class, OXMConfig.class, ScheduleConfig.class }
+@Import(
+	//{ DatabaseConfig.class, MessageQueueConfig.class, OXMConfig.class, ScheduleConfig.class, MockMessageQueueConfig.class }
+	{ DatabaseConfig.class, TDCCMessageQueueConfig.class, OPCMessageQueueConfig.class, OXMConfig.class, ScheduleConfig.class }
 )
 @PropertySources({ @PropertySource("classpath:RA.properties"), @PropertySource("classpath:tcb.properties") })
 public class AppConfig

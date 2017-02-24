@@ -6,7 +6,7 @@ import javax.jms.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
@@ -24,7 +24,7 @@ import com.metrics.mq.ibm.TDCCMessageReceiver;
 /**
  * @author Ethan Lee
  */
-// @Configurable
+@Configurable
 @PropertySources({ @PropertySource("classpath:TDCCServer.properties") })
 public class TDCCMessageQueueConfig
 {
@@ -32,12 +32,11 @@ public class TDCCMessageQueueConfig
 	public static final String NAMED_TDCC_CONNECTION_FACTORY = "TDCCConnectionFactory";
 	public static final String NAMED_TDCC_SEND_DESTINATION = "TDCCSendDestination";
 	public static final String NAMED_TDCC_RECEIVE_DESTINATION = "TDCCReceiveDestination";
-//	public static final String NAMED_TDCC_MESSAGE_SENDER = "TDCCMessageSender";
-//	public static final String NAMED_TDCC_MESSAGE_RECEIVER = "TDCCMessageReceiver";
+	public static final String NAMED_TDCC_MESSAGE_SENDER = "TDCCMessageSender";
+	public static final String NAMED_TDCC_MESSAGE_RECEIVER = "TDCCMessageReceiver";
 
 	@Autowired
 	Environment env = null;
-	@Qualifier("TDCCMessageSender")
 	@Autowired
 	TDCCMessageReceiver messageReceiver = null;
 
@@ -98,7 +97,7 @@ public class TDCCMessageQueueConfig
 		return destination;
 	}
 
-	@Bean
+	@Bean(NAMED_TDCC_MESSAGE_SENDER)
 	public JmsTemplate jmsTemplate() {
 		JmsTemplate template = new JmsTemplate();
 		template.setConnectionFactory( securityTDCCConnectionFactory() );

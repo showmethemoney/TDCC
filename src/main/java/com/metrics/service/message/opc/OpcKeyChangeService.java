@@ -6,6 +6,7 @@ import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.formosoft.ra.taica2.RAFacade2;
 import com.metrics.config.RAConfig;
@@ -27,7 +28,7 @@ import com.metrics.xml.message.opc.xml.CHGKEYRSPMessage;
 /**
  * @author Ethan Lee
  */
-// @Service
+ @Service
 public class OpcKeyChangeService
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OpcKeyChangeService.class );

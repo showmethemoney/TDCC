@@ -12,14 +12,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Component;
 
 import com.ibm.mq.jms.MQQueue;
 import com.metrics.OPCMessageQueueConfig;
 
-//@Component
+@Component
 public class OPCMessageSender
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OPCMessageSender.class );
+	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_MESSAGE_SENDER)
 	@Autowired
 	private JmsTemplate jmsTemplate = null;
 	@Qualifier(OPCMessageQueueConfig.NAMED_OPC_SEND_DESTINATION)
