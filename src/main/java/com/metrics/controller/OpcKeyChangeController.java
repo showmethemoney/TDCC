@@ -26,7 +26,6 @@ public class OpcKeyChangeController
 	
 	@PostMapping
 	public void submit() {
-		opcKeyChangeService.setRaFacade( new RAFacade2() );
 		opcKeyChangeService.start();
 	}
 }
