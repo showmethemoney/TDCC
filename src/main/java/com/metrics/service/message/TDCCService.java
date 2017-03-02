@@ -6,7 +6,6 @@ import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.metrics.bean.CloseRepoBean;
@@ -25,7 +24,7 @@ import com.metrics.bean.SecBlkBean;
 import com.metrics.bean.SecStlmBean;
 import com.metrics.bean.UndwBean;
 import com.metrics.config.TCBConfig;
-import com.metrics.mq.MessageSender;
+import com.metrics.mq.ibm.TDCCMessageSender;
 import com.metrics.service.HistoryRequestService;
 import com.metrics.service.SequenceService;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
@@ -77,8 +76,8 @@ public class TDCCService
 	private OXMService oxmService = null;
 	@Autowired
 	// @Qualifier("IBMMessageSender")
-	@Qualifier("JMSMessageSender")
-	private MessageSender messageSender = null;
+//	@Qualifier("JMSMessageSender")
+	private TDCCMessageSender messageSender = null;
 
 	public void sendCloseRepoRequest(CloseRepoBean instance) throws Throwable {
 		BCSSMESSAGE message = null;
