@@ -26,7 +26,8 @@ import com.metrics.mq.activemq.JMSMessageSender;
 import com.metrics.service.HistoryResponseService;
 import com.metrics.xml.message.tdcc.BCSSMESSAGE;
 
-@Component
+
+@Component("TDCCMessageReceiver")
 public class TDCCMessageReceiver implements MessageListener
 {
 	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageReceiver.class );
@@ -56,24 +57,24 @@ public class TDCCMessageReceiver implements MessageListener
 				Document document = builder.parse( new InputSource( new StringReader( response ) ) );
 
 				if ("OPCMESSAGE".equalsIgnoreCase( ((Element) document.getFirstChild()).getTagName() )) {
-					// send to active mq 
+					// send to active mq
 					jMSMessageSender.send( response );
 				} else {
 					// BCSSMessage
 					String txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
-					
-					 // unmarshall
-					 Map<Object, Object> messages = tdccMessages.getObject();
-					
-					 if (messages.containsKey( txnId )) {
-						 JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
-						 Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-						 
-						 BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
-						 
-						 historyResponseService.writeLog( entity, response );
-					 }
-					
+
+					// unmarshall
+					Map<Object, Object> messages = tdccMessages.getObject();
+
+					if (messages.containsKey( txnId )) {
+						JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
+						Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+
+						BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
+
+						historyResponseService.writeLog( entity, response );
+					}
+
 				}
 
 				// DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

@@ -6,6 +6,7 @@ import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.metrics.bean.CloseRepoBean;
@@ -75,8 +76,7 @@ public class TDCCService
 	@Autowired
 	private OXMService oxmService = null;
 	@Autowired
-	// @Qualifier("IBMMessageSender")
-//	@Qualifier("JMSMessageSender")
+	@Qualifier("TDCCMessageSender")
 	private TDCCMessageSender messageSender = null;
 
 	public void sendCloseRepoRequest(CloseRepoBean instance) throws Throwable {
@@ -94,7 +94,7 @@ public class TDCCService
 			content = oxmService.marshallBCSSMessage( message );
 
 			messageSender.send( content );
-			
+
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
@@ -391,6 +391,5 @@ public class TDCCService
 
 		return instance;
 	}
-
 
 }
