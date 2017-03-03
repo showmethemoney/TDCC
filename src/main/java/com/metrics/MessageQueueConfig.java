@@ -30,8 +30,8 @@ public class MessageQueueConfig
 	public static final String NAMED_QUEUE_INTERNAL_OPC = "queue.internal.opc";
 //	public static final String NAMED_QUEUE_JMS_REQUEST = "queue.opc.request";
 //	public static final String NAMED_QUEUE_JMS_RESPONSE = "queue.opc.response";
-	public static final String NAMED_JMS_MESSAGE_SENDER = "JMSMessageSender";
-	public static final String NAMED_JMS_MESSAGE_RECEIVER = "JMSMessageReceiver";
+	public static final String NAMED_JMS_MESSAGE_SENDER = "ActiveMQJMSMessageSender";
+	public static final String NAMED_JMS_MESSAGE_RECEIVER = "ActiveMQJMSMessageReceiver";
 
 	// @Qualifier(NAMED_JMS_MESSAGE_RECEIVER)
 	// @Autowired

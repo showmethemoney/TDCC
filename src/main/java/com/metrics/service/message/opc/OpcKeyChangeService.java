@@ -230,4 +230,13 @@ public class OpcKeyChangeService
 
 		return instance;
 	}
+
+	public RAFacade2 getRaFacade() {
+		return raFacade;
+	}
+
+	public void setRaFacade(RAFacade2 raFacade) {
+		this.raFacade = raFacade;
+	}
+
 }

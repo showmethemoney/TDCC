@@ -19,7 +19,7 @@ import com.metrics.TDCCMessageQueueConfig;
 import com.metrics.mq.MessageSender;
 
 
-@Component("TDCCMessageSender")
+@Component
 public class TDCCMessageSender implements MessageSender
 {
 	protected static final Logger logger = LoggerFactory.getLogger( TDCCMessageSender.class );

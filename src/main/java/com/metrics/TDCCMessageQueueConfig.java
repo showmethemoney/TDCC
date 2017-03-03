@@ -33,9 +33,9 @@ public class TDCCMessageQueueConfig
 	public static final String NAMED_OPC_SEND_DESTINATION = "OPCSendDestination";
 	public static final String NAMED_TDCC_SEND_DESTINATION = "TDCCSendDestination";
 	public static final String NAMED_TDCC_RECEIVE_DESTINATION = "TDCCReceiveDestination";
-	public static final String NAMED_OPC_MESSAGE_SENDER = "OPCMessageSender";
-	public static final String NAMED_TDCC_MESSAGE_SENDER = "TDCCMessageSender";
-	public static final String NAMED_TDCC_MESSAGE_RECEIVER = "TDCCMessageReceiver";
+	public static final String NAMED_OPC_MESSAGE_SENDER = "OPCJMSMessageSender";
+	public static final String NAMED_TDCC_MESSAGE_SENDER = "TDCCJMSMessageSender";
+	public static final String NAMED_TDCC_MESSAGE_RECEIVER = "TDCCJMSMessageReceiver";
 
 	@Autowired
 	Environment env = null;

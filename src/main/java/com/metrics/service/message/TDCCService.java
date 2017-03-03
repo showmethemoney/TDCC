@@ -76,8 +76,7 @@ public class TDCCService
 	@Autowired
 	private OXMService oxmService = null;
 	@Autowired
-	@Qualifier("TDCCMessageSender")
-	private TDCCMessageSender messageSender = null;
+	private TDCCMessageSender tDCCMessageSender = null;
 
 	public void sendCloseRepoRequest(CloseRepoBean instance) throws Throwable {
 		BCSSMESSAGE message = null;
@@ -93,7 +92,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -113,7 +112,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -133,7 +132,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -153,7 +152,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -173,7 +172,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -193,7 +192,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -213,7 +212,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -233,7 +232,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -253,7 +252,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -273,7 +272,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -293,7 +292,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -313,7 +312,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -333,7 +332,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -353,7 +352,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
@@ -373,7 +372,7 @@ public class TDCCService
 			message = setBCSSMessage( message );
 			content = oxmService.marshallBCSSMessage( message );
 
-			messageSender.send( content );
+			tDCCMessageSender.send( content );
 
 			historyRequestService.writeLog( message, content );
 		} catch (Throwable cause) {
