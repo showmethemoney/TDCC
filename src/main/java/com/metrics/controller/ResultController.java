@@ -21,7 +21,6 @@ public class ResultController extends AbstractController
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
 	public String query(Model model) {
-
 		model.addAttribute( NAMED_MODEL, resultService.selectResult() );
 
 		return "/message/Result"; 

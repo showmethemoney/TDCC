@@ -1,5 +1,6 @@
 package com.metrics.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,7 @@ public class ResultDao
 
 	@Transactional(propagation = Propagation.NEVER)
 	public List<ResultBean> select() {
-		List<ResultBean> result = null;
+		List<ResultBean> result = new ArrayList<ResultBean>();
 
 		try {
 			// ResultBean @SqlResultSetMapping define at @Entity HistoryRequest

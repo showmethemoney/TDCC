@@ -63,6 +63,6 @@ public class DepController extends AbstractController
 			logger.error( cause.getMessage(), cause );
 		}
 		
-		return NAMED_REDIRECT_RESULT; 
+		return NAMED_FORWARD_RESULT; 
 	}
 }

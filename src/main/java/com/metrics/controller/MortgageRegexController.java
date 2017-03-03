@@ -61,6 +61,6 @@ public class MortgageRegexController extends AbstractController
 			logger.error( cause.getMessage(), cause );
 		}
 		
-		return NAMED_REDIRECT_RESULT; 
+		return NAMED_FORWARD_RESULT; 
 	}
 }
