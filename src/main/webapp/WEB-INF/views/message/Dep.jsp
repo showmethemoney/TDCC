@@ -5,12 +5,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title><spring:message code="dep" /></title>
 </head>
 <body>
 <body>
-	<h3>Welcome, Enter The Employee Details</h3>
 	<form:form method="POST" action="Dep" modelAttribute="model">
 		<table>
 			<thead>
@@ -276,7 +275,7 @@
 				</tr>
 				<tr>
 					<td><form:label path="body.issrttype"><spring:message code="dep.issrttype" /></form:label></td>
-					<td><form:input path="body.issrttype">
+					<td><form:select path="body.issrttype">
 							<form:option value="1"  label="1"/>
 							<form:option value="2"  label="2"/> 
 						</form:select>

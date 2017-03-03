@@ -5,12 +5,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title><spring:message code="cshAdvice" /></title>
 </head>
 <body>
 <body>
-	<h3>Welcome, Enter The Employee Details</h3>
 	<form:form method="POST" action="CshAdvice" modelAttribute="model">
 		<table>
 			<thead>
@@ -181,12 +180,12 @@
 					<td><form:input path="body.secLeg.secGenLeg.secamt" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.isin"><spring:message code="cshAdvice.secLeg.secGenLeg.isin" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.isin" /></td>
+					<td><form:label path="body.secLeg.isin"><spring:message code="cshAdvice.secLeg.isin" /></form:label></td>
+					<td><form:input path="body.secLeg.isin" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.mgcntrid"><spring:message code="cshAdvice.secLeg.secGenLeg.mgcntrid" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.mgcntrid" /></td>
+					<td><form:label path="body.secLeg.mgcntrid"><spring:message code="cshAdvice.secLeg.mgcntrid" /></form:label></td>
+					<td><form:input path="body.secLeg.mgcntrid" /></td>
 				</tr>
 
 				<tr>
