@@ -4,6 +4,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 
+import javax.xml.bind.Marshaller;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
@@ -20,8 +21,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.metrics.OXMConfig;
-import com.metrics.xml.message.tdcc.def.DEP;
+import com.metrics.bean.Crit;
+import com.metrics.bean.RepReq;
+import com.metrics.bean.RepReqBean;
+import com.metrics.xml.message.tdcc.def.REPREQ;
 import com.metrics.xml.message.tdcc.xml.DEPMessage;
+import com.metrics.xml.message.tdcc.xml.REPREQMessage;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = OXMConfig.class, loader = AnnotationConfigContextLoader.class)
@@ -32,19 +37,20 @@ public class TestOXMConfig
 	@Autowired
 	Jaxb2Marshaller marshaller = null;
 
-	@Ignore
 	@Test
 	public void marshall() {
 		try {
-			DEPMessage message = new DEPMessage();
+			RepReqBean instance = new RepReqBean();
+			RepReq body = new RepReq();
+			Crit crit = new Crit();
+			crit.setCritnm( "" );
+			crit.setCritval( " " );
 
-			message.setORIGIN( "hello" );
+			body.setCrit( crit );
+			instance.setBody( body );
 
-			DEP dep = new DEP();
-			dep.setAMTTYPE( "123" );
-			dep.setBRNCHID( "ABC" );
-			dep.setCOUNTRYID( "xxx" );
-			message.setBody( dep );
+			REPREQMessage message = new REPREQMessage( instance );
+			message.setBody( new REPREQ( instance.getBody() ) );
 
 			Writer writer = new StringWriter();
 
@@ -57,6 +63,7 @@ public class TestOXMConfig
 		}
 	}
 
+	@Ignore
 	@Test
 	public void unmarshall() {
 		try {
