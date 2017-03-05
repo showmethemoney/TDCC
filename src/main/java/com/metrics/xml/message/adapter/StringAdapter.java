@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 public class StringAdapter extends XmlAdapter<String, String>
 {
 	protected static final Logger logger = LoggerFactory.getLogger( StringAdapter.class );
+
 	@Override
 	public String unmarshal(String v) throws Exception {
 		return v;
@@ -16,12 +17,8 @@ public class StringAdapter extends XmlAdapter<String, String>
 
 	@Override
 	public String marshal(String v) throws Exception {
-		// if the value's length = 0 return null, else do nothing
-		if (null != v) {
-			return 0 == StringUtils.trim( v ).length() ? null : v;
-		} else {
-			return v;
-		}
+		// Checks if a CharSequence is whitespace, empty ("") or null.
+		return StringUtils.isBlank( v ) ? null : v;
 	}
 
 }
