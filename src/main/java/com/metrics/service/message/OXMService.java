@@ -57,7 +57,7 @@ public class OXMService
 			// 除交割狀態通知訊息(訊息代號002、012、032及040)不押碼外，其他訊息皆須押碼。
 			if (!"002".equalsIgnoreCase( instance.getMSGTYPE() ) || !"012".equalsIgnoreCase( instance.getMSGTYPE() )
 			        || !"040".equalsIgnoreCase( instance.getMSGTYPE() )) {
-				result = result + opcMacUtil.generateMAC( result.getBytes( OXMConfig.DEFUALT_ENCODING ) );
+				result = result + instance.getORIGIN() + opcMacUtil.generateMAC( result.getBytes( OXMConfig.DEFUALT_ENCODING ) );
 			}
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
