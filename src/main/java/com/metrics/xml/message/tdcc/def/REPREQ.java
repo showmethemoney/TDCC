@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.metrics.bean.RepReq;
 
 /**
@@ -68,7 +70,10 @@ public class REPREQ
 	protected String repid;
 
 	public REPREQ(RepReq repReq) {
-		getCRIT().add( new CRIT( repReq.getCrit() ) );
+		if (!StringUtils.isBlank( repReq.getCrit().getCritnm() ) &&
+			!StringUtils.isBlank( repReq.getCrit().getCritval() ) ) {
+			getCRIT().add( new CRIT( repReq.getCrit() ) );
+		}
 		setPRTYID( repReq.getPrtyid() );
 		setREPID( repReq.getRepnm() );
 		setREPID( repReq.getRepid() );
