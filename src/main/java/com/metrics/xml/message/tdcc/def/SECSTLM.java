@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.SecStlm;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -127,13 +128,19 @@ public class SECSTLM
 		// @XmlElement(name = "CPRTY", type = CPRTY.class),
 		// @XmlElement(name = "SEC_LEG", type = SECLEG.class),
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
-		PRTY prty = new PRTY();
-		prty.getSTLMPRTY().add( new STLMPRTY( secStlm.getPrty().getStlmprty() ) );
-		CPRTY cprty = new CPRTY();
-		cprty.getSTLMPRTY().add( new STLMPRTY( secStlm.getCprty().getStlmprty() ) );
+		STLMPRTY stlmPrty = new STLMPRTY( secStlm.getPrty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmPrty )) {
+			PRTY prty = new PRTY();
+			prty.getSTLMPRTY().add( stlmPrty );
+			getItems().add( prty );
+		}
 
-		getItems().add( prty );
-		getItems().add( cprty );
+		STLMPRTY stlmCPrty = new STLMPRTY( secStlm.getCprty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmCPrty )) {
+			CPRTY cprty = new CPRTY();
+			cprty.getSTLMPRTY().add( stlmCPrty );
+			getItems().add( cprty );
+		}
 
 		SECLEG secLeg = new SECLEG( null, secStlm.getSecLeg().getIsin(), secStlm.getSecLeg().getMgcntrid() );
 
@@ -146,24 +153,24 @@ public class SECSTLM
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		FRSTLEG frstLeg = new FRSTLEG();
-		frstLeg.getItems().add( new CSHLEG( secStlm.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
-		frstLeg.getItems().add( new TAXIMP( secStlm.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( secStlm.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( secStlm.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) ) );
 
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		SCNDLEG scenLeg = new SCNDLEG();
-		scenLeg.getItems().add( new CSHLEG( secStlm.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) );
-		scenLeg.getItems().add( new TAXIMP( secStlm.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( secStlm.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( secStlm.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) ) );
 
-		secGenLeg.getItems().add( new SECUNITSLEG( secStlm.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new SECUNITSLEG( secStlm.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) ) );
 		secGenLeg.getItems().add( frstLeg );
 		secGenLeg.getItems().add( scenLeg );
-		secGenLeg.getItems().add( new BDLEG( secStlm.getSecLeg().getSecGenLeg().getBdLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new BDLEG( secStlm.getSecLeg().getSecGenLeg().getBdLeg() ) ) );
 
 		secLeg.getItems().add( secGenLeg );
 
 		getItems().add( secLeg );
-		getItems().add( new CSHLEG( secStlm.getCshLeg() ) );
+		getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( secStlm.getCshLeg() ) ) );
 
 		setBNDLREF( secStlm.getBndlref() );
 		setBNDLTTL( secStlm.getBndlttl() );

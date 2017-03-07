@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.Dep;
+import com.metrics.utils.EmptyObjectUtil;
 
 /**
  * <p>
@@ -276,10 +277,13 @@ public class DEP
 		// @XmlElement(name = "ENDORSEE", type = ENDORSEE.class),
 		// @XmlElement(name = "AGREER", type = AGREER.class),
 		// @XmlElement(name = "FLOATING_RATE_INFO", type = FLOATINGRATEINFO.class)
-		getItems().add( new DENOMINATION( dep.getDenomination() ) );
-		getItems().add( new ENDORSEE( dep.getEndorsee() ) );
-		getItems().add( new AGREER( dep.getAgreer() ) );
-		getItems().add( new FLOATINGRATEINFO( dep.getFloatingRateInfo() ) );
+		DENOMINATION denomination = new DENOMINATION( dep.getDenomination() );
+		if (null != EmptyObjectUtil.isEmptyObject( denomination )) {
+			getItems().add( denomination );
+		}
+		getItems().add( EmptyObjectUtil.isEmptyObject( new ENDORSEE( dep.getEndorsee() ) ) );
+		getItems().add( EmptyObjectUtil.isEmptyObject( new AGREER( dep.getAgreer() ) ) );
+		getItems().add( EmptyObjectUtil.isEmptyObject( new FLOATINGRATEINFO( dep.getFloatingRateInfo() ) ) );
 		
 		setAMTTYPE( dep.getAmttype() );
 		setBRNCHID( dep.getBrnchid() );

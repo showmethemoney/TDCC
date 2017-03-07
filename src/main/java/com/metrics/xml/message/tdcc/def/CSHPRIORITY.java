@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@Deprecated
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "CSH_PRIORITY")

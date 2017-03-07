@@ -19,6 +19,8 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.metrics.bean.ReceiverBank;
+import com.metrics.utils.EmptyObjectUtil;
+
 
 /**
  * <p>
@@ -76,10 +78,13 @@ public class RECEIVERBANK
 	protected String orgsndrref;
 
 	public RECEIVERBANK(ReceiverBank instance) {
-    	this( null , instance.getId(), instance.getBnfynm(), instance.getAcctid(), instance.getSwift(), instance.getOrgsndrref() );
-    	
-    	getCSHLEG().add( new CSHLEG( instance.getCshLeg() ) );
-    }
+		this( null, instance.getId(), instance.getBnfynm(), instance.getAcctid(), instance.getSwift(), instance.getOrgsndrref() );
+
+		CSHLEG cshLeg = new CSHLEG( instance.getCshLeg() );
+		if (null != EmptyObjectUtil.isEmptyObject( cshLeg )) {
+			getCSHLEG().add( cshLeg );
+		}
+	}
 
 	public RECEIVERBANK(List<CSHLEG> cshleg, String id, String bnfynm, String acctid, String swift, String orgsndrref) {
 		super();

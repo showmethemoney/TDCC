@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.MortgageRegex;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -89,12 +90,19 @@ public class MORTGAGEREGEX
 		// @XmlElement(name = "PRTY", type = PRTY.class),
 		// @XmlElement(name = "CPRTY", type = CPRTY.class),
 		// @XmlElement(name = "SEC_LEG", type = SECLEG.class)
-		PRTY prty = new PRTY();
-		prty.getSTLMPRTY().add( new STLMPRTY( mortgageRegex.getPrty().getStlmprty() ) );
-		CPRTY cprty = new CPRTY();
-		cprty.getSTLMPRTY().add( new STLMPRTY( mortgageRegex.getCprty().getStlmprty() ) );
-		getItems().add( prty );
-		getItems().add( cprty );
+		STLMPRTY stlmPrty = new STLMPRTY( mortgageRegex.getPrty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmPrty )) {
+			PRTY prty = new PRTY();
+			prty.getSTLMPRTY().add( stlmPrty );
+			getItems().add( prty );
+		}
+		
+		STLMPRTY stlmCPrty = new STLMPRTY( mortgageRegex.getCprty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmCPrty )) {
+			CPRTY cprty = new CPRTY();
+			cprty.getSTLMPRTY().add( stlmCPrty );
+			getItems().add( cprty );
+		}
 
 		SECLEG secLeg = new SECLEG( null, mortgageRegex.getSecLeg().getIsin(), mortgageRegex.getSecLeg().getMgcntrid() );
 
@@ -107,19 +115,19 @@ public class MORTGAGEREGEX
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		FRSTLEG frstLeg = new FRSTLEG();
-		frstLeg.getItems().add( new CSHLEG( mortgageRegex.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
-		frstLeg.getItems().add( new TAXIMP( mortgageRegex.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( mortgageRegex.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( mortgageRegex.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) ) );
 
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		SCNDLEG scenLeg = new SCNDLEG();
-		scenLeg.getItems().add( new CSHLEG( mortgageRegex.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) );
-		scenLeg.getItems().add( new TAXIMP( mortgageRegex.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( mortgageRegex.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( mortgageRegex.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) ) );
 		
-		secGenLeg.getItems().add( new SECUNITSLEG( mortgageRegex.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new SECUNITSLEG( mortgageRegex.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) ) );
 		secGenLeg.getItems().add( frstLeg );
 		secGenLeg.getItems().add( scenLeg );
-		secGenLeg.getItems().add( new BDLEG( mortgageRegex.getSecLeg().getSecGenLeg().getBdLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new BDLEG( mortgageRegex.getSecLeg().getSecGenLeg().getBdLeg() ) ) );
 
 		secLeg.getItems().add( secGenLeg );
 

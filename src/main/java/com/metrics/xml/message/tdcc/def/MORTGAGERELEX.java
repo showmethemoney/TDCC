@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.metrics.bean.MortgageRelex;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -94,19 +95,19 @@ public class MORTGAGERELEX
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		FRSTLEG frstLeg = new FRSTLEG();
-		frstLeg.getItems().add( new CSHLEG( mortgageRelex.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
-		frstLeg.getItems().add( new TAXIMP( mortgageRelex.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( mortgageRelex.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( mortgageRelex.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) ) );
 
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		SCNDLEG scenLeg = new SCNDLEG();
-		scenLeg.getItems().add( new CSHLEG( mortgageRelex.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) );
-		scenLeg.getItems().add( new TAXIMP( mortgageRelex.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( mortgageRelex.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( mortgageRelex.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) ) );
 
-		secGenLeg.getItems().add( new SECUNITSLEG( mortgageRelex.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new SECUNITSLEG( mortgageRelex.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) ) );
 		secGenLeg.getItems().add( frstLeg );
 		secGenLeg.getItems().add( scenLeg );
-		secGenLeg.getItems().add( new BDLEG( mortgageRelex.getSecLeg().getSecGenLeg().getBdLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new BDLEG( mortgageRelex.getSecLeg().getSecGenLeg().getBdLeg() ) ) );
 
 		secLeg.getItems().add( secGenLeg );
 

@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.metrics.bean.RepSec;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -66,7 +67,11 @@ public class REPSEC {
     protected String secnm;
     
     public REPSEC(RepSec instance) {
-    	getItems().add( new REPSECVAL( instance.getRepSecVal() ) );
+    	REPSECVAL repSecVal = new REPSECVAL( instance.getRepSecVal() );
+    	
+    	if (null != EmptyObjectUtil.isEmptyObject( repSecVal )) {
+    		getItems().add( repSecVal );
+    	}
     	//recuisive REPSEC..
     	
     	setSECNM( instance.getSecnm() );

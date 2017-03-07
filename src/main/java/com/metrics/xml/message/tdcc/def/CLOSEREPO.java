@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.CloseRepo;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -101,13 +102,19 @@ public class CLOSEREPO
 	}
 
 	public CLOSEREPO(CloseRepo closeRepo) {
-		PRTY prty = new PRTY();
-		prty.getSTLMPRTY().add( new STLMPRTY( closeRepo.getPrty().getStlmprty() ) );
-		CPRTY cprty = new CPRTY();
-		cprty.getSTLMPRTY().add( new STLMPRTY( closeRepo.getCprty().getStlmprty() ) );
-
-		getItems().add( prty );
-		getItems().add( cprty );
+		STLMPRTY stlmPrty = new STLMPRTY( closeRepo.getPrty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmPrty )) {
+			PRTY prty = new PRTY();
+			prty.getSTLMPRTY().add( stlmPrty );
+			getItems().add( prty );
+		}
+		
+		STLMPRTY stlmCPrty = new STLMPRTY( closeRepo.getCprty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmCPrty )) {
+			CPRTY cprty = new CPRTY();
+			cprty.getSTLMPRTY().add( stlmCPrty );
+			getItems().add( cprty );
+		}
 
 		setREF( closeRepo.getRef() );
 		setCNTRID( closeRepo.getCntrid() );

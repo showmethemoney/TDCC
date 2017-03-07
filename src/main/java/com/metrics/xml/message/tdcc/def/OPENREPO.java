@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.OpenRepo;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -136,18 +137,25 @@ public class OPENREPO
 		// @XmlElement(name = "PCH", type = PCH.class),
 		// @XmlElement(name = "RPCH", type = RPCH.class),
 		// @XmlElement(name = "SEC_LEG", type = SECLEG.class)
-		PRTY prty = new PRTY();
-		prty.getSTLMPRTY().add( new STLMPRTY( openRepo.getPrty().getStlmprty() ) );
-		CPRTY cprty = new CPRTY();
-		cprty.getSTLMPRTY().add( new STLMPRTY( openRepo.getCprty().getStlmprty() ) );
-		getItems().add( prty );
-		getItems().add( cprty );
+		STLMPRTY stlmPrty = new STLMPRTY( openRepo.getPrty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmPrty )) {
+			PRTY prty = new PRTY();
+			prty.getSTLMPRTY().add( stlmPrty );
+			getItems().add( prty );
+		}
+
+		STLMPRTY stlmCPrty = new STLMPRTY( openRepo.getCprty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmCPrty )) {
+			CPRTY cprty = new CPRTY();
+			cprty.getSTLMPRTY().add( stlmCPrty );
+			getItems().add( cprty );
+		}
 
 		// @XmlElement(name = "STLM_DT", type = String.class),
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
 		PCH pch = new PCH();
 		pch.getItems().add( openRepo.getPch().getStlmdt() );
-		pch.getItems().add( new CSHLEG( openRepo.getPch().getCshLeg() ) );
+		pch.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( openRepo.getPch().getCshLeg() ) ) );
 		getItems().add( pch );
 
 		SECLEG secLeg = new SECLEG( null, openRepo.getSecLeg().getIsin(), openRepo.getSecLeg().getMgcntrid() );
@@ -157,23 +165,23 @@ public class OPENREPO
 		// @XmlElement(name = "SCND_LEG", type = SCNDLEG.class),
 		// @XmlElement(name = "BD_LEG", type = BDLEG.class)
 		SECGENLEG secGenLeg = new SECGENLEG( null, openRepo.getSecLeg().getSecGenLeg().getGenid(), openRepo.getSecLeg().getSecGenLeg().getSecamt() );
-		
+
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		FRSTLEG frstLeg = new FRSTLEG();
-		frstLeg.getItems().add( new CSHLEG( openRepo.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
-		frstLeg.getItems().add( new TAXIMP( openRepo.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( openRepo.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( openRepo.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) ) );
 
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		SCNDLEG scenLeg = new SCNDLEG();
-		scenLeg.getItems().add( new CSHLEG( openRepo.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) );
-		scenLeg.getItems().add( new TAXIMP( openRepo.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( openRepo.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( openRepo.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) ) );
 
-		secGenLeg.getItems().add( new SECUNITSLEG( openRepo.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new SECUNITSLEG( openRepo.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) ) );
 		secGenLeg.getItems().add( frstLeg );
 		secGenLeg.getItems().add( scenLeg );
-		secGenLeg.getItems().add( new BDLEG( openRepo.getSecLeg().getSecGenLeg().getBdLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new BDLEG( openRepo.getSecLeg().getSecGenLeg().getBdLeg() ) ) );
 
 		secLeg.getItems().add( secGenLeg );
 

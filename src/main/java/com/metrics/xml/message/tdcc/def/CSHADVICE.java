@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.CshAdvice;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -119,16 +120,22 @@ public class CSHADVICE
 		// @XmlElement(name = "CPRTY", type = CPRTY.class),
 		// @XmlElement(name = "SEC_LEG", type = SECLEG.class),
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class)
-		PRTY prty = new PRTY();
-		prty.getSTLMPRTY().add( new STLMPRTY( cshAdvice.getPrty().getStlmprty() ) );
-		CPRTY cprty = new CPRTY();
-		cprty.getSTLMPRTY().add( new STLMPRTY( cshAdvice.getCprty().getStlmprty() ) );
-
-		getItems().add( prty );
-		getItems().add( cprty );
-
+		STLMPRTY stlmPrty = new STLMPRTY( cshAdvice.getPrty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmPrty )) {
+			PRTY prty = new PRTY();
+			prty.getSTLMPRTY().add( stlmPrty );
+			getItems().add( prty );
+		}
+		
+		STLMPRTY stlmCPrty = new STLMPRTY( cshAdvice.getCprty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmCPrty )) {
+			CPRTY cprty = new CPRTY();
+			cprty.getSTLMPRTY().add( stlmCPrty );
+			getItems().add( cprty );
+		}
+		
 		SECLEG secLeg = new SECLEG( null, cshAdvice.getSecLeg().getIsin(), cshAdvice.getSecLeg().getMgcntrid() );
-
+		 
 		// @XmlElement(name = "SEC_UNITS_LEG", type = SECUNITSLEG.class),
 		// @XmlElement(name = "FRST_LEG", type = FRSTLEG.class),
 		// @XmlElement(name = "SCND_LEG", type = SCNDLEG.class),
@@ -138,24 +145,24 @@ public class CSHADVICE
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		FRSTLEG frstLeg = new FRSTLEG();
-		frstLeg.getItems().add( new CSHLEG( cshAdvice.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) );
-		frstLeg.getItems().add( new TAXIMP( cshAdvice.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( cshAdvice.getSecLeg().getSecGenLeg().getFrstLeg().getCshLeg() ) ) );
+		frstLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( cshAdvice.getSecLeg().getSecGenLeg().getFrstLeg().getTaxImp() ) ) );
 
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "TAX_IMP", type = TAXIMP.class)
 		SCNDLEG scenLeg = new SCNDLEG();
-		scenLeg.getItems().add( new CSHLEG( cshAdvice.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) );
-		scenLeg.getItems().add( new TAXIMP( cshAdvice.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( cshAdvice.getSecLeg().getSecGenLeg().getScndLeg().getCshLeg() ) ) );
+		scenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new TAXIMP( cshAdvice.getSecLeg().getSecGenLeg().getScndLeg().getTaxImp() ) ) );
 
-		secGenLeg.getItems().add( new SECUNITSLEG( cshAdvice.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new SECUNITSLEG( cshAdvice.getSecLeg().getSecGenLeg().getSecUnitsLeg() ) ) );
 		secGenLeg.getItems().add( frstLeg );
 		secGenLeg.getItems().add( scenLeg );
-		secGenLeg.getItems().add( new BDLEG( cshAdvice.getSecLeg().getSecGenLeg().getBdLeg() ) );
+		secGenLeg.getItems().add( EmptyObjectUtil.isEmptyObject( new BDLEG( cshAdvice.getSecLeg().getSecGenLeg().getBdLeg() ) ) );
 
 		secLeg.getItems().add( secGenLeg );
 
 		getItems().add( secLeg );
-		getItems().add( new CSHLEG( cshAdvice.getCshLeg() ) );
+		getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( cshAdvice.getCshLeg() ) ) );
 
 		setBNDLREF( cshAdvice.getBndlref() );
 		setCNTRID( cshAdvice.getCntrid() );

@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.ConsigntInst;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -130,8 +131,8 @@ public class CONSIGNTINST {
 	}
 
 	public CONSIGNTINST(ConsigntInst consignInst) {
-    	getItems().add( new STLMPRTY( consignInst.getStlmprty() ) );
-    	getItems().add( new CSHLEG( consignInst.getCshLeg() ) );
+    	getItems().add( EmptyObjectUtil.isEmptyObject( new STLMPRTY( consignInst.getStlmprty() ) ) );
+    	getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( consignInst.getCshLeg() ) ) );
     	getItems().add( new RECEIVERBANK( consignInst.getReceiverBank() ) );
     	
     	setBSPRC( consignInst.getBsprc() );

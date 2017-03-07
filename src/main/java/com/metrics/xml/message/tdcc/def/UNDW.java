@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.Undw;
+import com.metrics.utils.EmptyObjectUtil;
+
 
 /**
  * <p>
@@ -129,17 +131,25 @@ public class UNDW
 		// @XmlElement(name = "CPRTY", type = CPRTY.class),
 		// @XmlElement(name = "CSH_LEG", type = CSHLEG.class),
 		// @XmlElement(name = "RECEIVER_BANK", type = RECEIVERBANK.class),
-		// @XmlElement(name = "UNDERWRITINGPART", type = UNDERWRITINGPART.class)		
-		PRTY prty = new PRTY();
-		prty.getSTLMPRTY().add( new STLMPRTY( undw.getPrty().getStlmprty() ) );
-		CPRTY cprty = new CPRTY();
-		cprty.getSTLMPRTY().add( new STLMPRTY( undw.getCprty().getStlmprty() ) );
-		getItems().add( prty );
-		getItems().add( cprty );
-		getItems().add( new CSHLEG( undw.getCshLeg() ) );
+		// @XmlElement(name = "UNDERWRITINGPART", type = UNDERWRITINGPART.class)
+		STLMPRTY stlmPrty = new STLMPRTY( undw.getPrty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmPrty )) {
+			PRTY prty = new PRTY();
+			prty.getSTLMPRTY().add( stlmPrty );
+			getItems().add( prty );
+		}
+
+		STLMPRTY stlmCPrty = new STLMPRTY( undw.getCprty().getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmCPrty )) {
+			CPRTY cprty = new CPRTY();
+			cprty.getSTLMPRTY().add( stlmCPrty );
+			getItems().add( cprty );
+		}
+
+		getItems().add( EmptyObjectUtil.isEmptyObject( new CSHLEG( undw.getCshLeg() ) ) );
 		getItems().add( new RECEIVERBANK( undw.getReceiverBank() ) );
-		getItems().add( new UNDERWRITINGPART( undw.getUnderWritingPart() ) );
-		
+		getItems().add( EmptyObjectUtil.isEmptyObject( new UNDERWRITINGPART( undw.getUnderWritingPart() ) ) );
+
 		setBNDLREF( undw.getBndlref() );
 		setBNDLREF( undw.getBndlttl() );
 		setBSPRC( undw.getBsprc() );

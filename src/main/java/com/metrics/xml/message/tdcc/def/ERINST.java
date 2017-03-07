@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.metrics.bean.Erinst;
+import com.metrics.utils.EmptyObjectUtil;
 
 
 /**
@@ -103,7 +104,11 @@ public class ERINST {
     protected String cshsys;
     
     public ERINST(Erinst erinst) {
-    	getSTLMPRTY().add( new STLMPRTY( erinst.getStlmprty() ) );
+    	STLMPRTY stlmPrty = new STLMPRTY( erinst.getStlmprty() );
+		if (null != EmptyObjectUtil.isEmptyObject( stlmPrty )) {
+			getSTLMPRTY().add( stlmPrty );
+		}
+		
     	setBSPRC( erinst.getBsprc() );
     	setCSHSYS( erinst.getCshsys() );
     	setFVAL( erinst.getFval() );
