@@ -16,7 +16,7 @@ public class EmptyObjectUtil
 	protected static final Logger logger = LoggerFactory.getLogger( EmptyObjectUtil.class );
 	
 	public static Object isEmptyObject(Object instance) {
-		Object result = instance;
+		Object result = null;
 		
 		for (Method method : instance.getClass().getMethods()) {
 			String name = method.getName();
@@ -27,8 +27,8 @@ public class EmptyObjectUtil
 				try {
 					value = (String) method.invoke( instance );
 					
-					if (StringUtils.isBlank( value )) {
-						result = null;
+					if (StringUtils.isNotBlank( value )) {
+						result = instance;
 						break;
 					}
 				} catch (Throwable cause) {
