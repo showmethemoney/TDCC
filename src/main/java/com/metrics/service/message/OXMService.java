@@ -4,6 +4,9 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.transform.stax.StAXSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
@@ -97,7 +100,14 @@ public class OXMService
 
 		try {
 			marshaller.setMappedClass( refenceObj.getClass() );
-			result = (T) marshaller.unmarshal( new StreamSource( new StringReader( xmlString ) ) );
+
+			XMLInputFactory xmlInputFactory = XMLInputFactory.newFactory();
+			xmlInputFactory.setProperty( XMLInputFactory.SUPPORT_DTD, false );
+			XMLStreamReader reader = xmlInputFactory.createXMLStreamReader( new StreamSource( new StringReader( xmlString ) ) );
+
+			result = (T) marshaller.unmarshal( new StAXSource( reader ) );
+
+			// result = (T) marshaller.unmarshal( new StreamSource( new StringReader( xmlString ) ) );
 
 			// JAXBContext jaxbContext = JAXBContext.newInstance( T );
 			//
