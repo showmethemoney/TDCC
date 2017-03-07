@@ -7,6 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title><spring:message code="secStlm" /></title>
+<style>
+.required {
+	color: red;
+}
+</style>
 </head>
 <body>
 <body>
@@ -34,11 +39,27 @@
 				</tr>
 				
 				<tr>
-					<td><form:label path="body.prty.stlmprty.prtyid"><spring:message code="secStlm.prty.stlmprty.prtyid" /></form:label></td>
+					<td><form:label path="body.ref"><spring:message code="secStlm.ref" /></form:label></td>
+					<td><form:input path="body.ref" /></td>
+				</tr>				
+				<tr>
+					<td><form:label path="body.dealtype"><span class="required">＊</span><spring:message code="secStlm.dealtype" /></form:label></td>
+					<td><form:input path="body.dealtype" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.dealside"><span class="required">＊</span><spring:message code="secStlm.dealside" /></form:label></td>
+					<td><form:input path="body.dealside" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.cbid"><spring:message code="secStlm.cbid" /></form:label></td>
+					<td><form:input path="body.cbid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.prty.stlmprty.prtyid"><span class="required">＊</span><spring:message code="secStlm.prty.stlmprty.prtyid" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.prty.stlmprty.acctid"><spring:message code="secStlm.prty.stlmprty.acctid" /></form:label></td>
+					<td><form:label path="body.prty.stlmprty.acctid"><span class="required">＊</span><spring:message code="secStlm.prty.stlmprty.acctid" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.acctid" /></td>
 				</tr>
 				<tr>
@@ -48,14 +69,17 @@
 				<tr>
 					<td><form:label path="body.prty.stlmprty.invscshacct"><spring:message code="secStlm.prty.stlmprty.invscshacct" /></form:label></td>
 					<td><form:input path="body.prty.stlmprty.invscshacct" /></td>
-				</tr>
-
+				</tr>				
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.prtyid"><spring:message code="secStlm.cprty.stlmprty.prtyid" /></form:label></td>
+					<td><form:label path="body.cshsys"><spring:message code="secStlm.cshsys" /></form:label></td>
+					<td><form:input path="body.cshsys" /></td>
+				</tr>		
+				<tr>
+					<td><form:label path="body.cprty.stlmprty.prtyid"><span class="required">＊</span><spring:message code="secStlm.cprty.stlmprty.prtyid" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.prtyid" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cprty.stlmprty.acctid"><spring:message code="secStlm.cprty.stlmprty.acctid" /></form:label></td>
+					<td><form:label path="body.cprty.stlmprty.acctid"><span class="required">＊</span><spring:message code="secStlm.cprty.stlmprty.acctid" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.acctid" /></td>
 				</tr>
 				<tr>
@@ -65,44 +89,29 @@
 				<tr>
 					<td><form:label path="body.cprty.stlmprty.invscshacct"><spring:message code="secStlm.cprty.stlmprty.invscshacct" /></form:label></td>
 					<td><form:input path="body.cprty.stlmprty.invscshacct" /></td>
-				</tr>
-
-
+				</tr>								
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.units"><spring:message code="secStlm.secLeg.secGenLeg.secUnitsLeg.units" /></form:label></td>
+					<td><form:label path="body.secLeg.isin"><span class="required">＊</span><spring:message code="secStlm.secLeg.isin" /></form:label></td>
+					<td><form:input path="body.secLeg.isin" /></td>
+				</tr>				
+				<tr>
+					<td><form:label path="body.secLeg.secGenLeg.genid"><span class="required">＊</span><spring:message code="secStlm.secLeg.secGenLeg.genid" /></form:label></td>
+					<td><form:input path="body.secLeg.secGenLeg.genid" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.secLeg.secGenLeg.secamt"><span class="required">＊</span><spring:message code="secStlm.secLeg.secGenLeg.secamt" /></form:label></td>
+					<td><form:input path="body.secLeg.secGenLeg.secamt" /></td>
+				</tr>				
+				<tr>
+					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.units"><span class="required">＊</span><spring:message code="secStlm.secLeg.secGenLeg.secUnitsLeg.units" /></form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.secUnitsLeg.units" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.uval"><spring:message code="secStlm.secLeg.secGenLeg.secUnitsLeg.uval" /></form:label></td>
+					<td><form:label path="body.secLeg.secGenLeg.secUnitsLeg.uval"><span class="required">＊</span><spring:message code="secStlm.secLeg.secGenLeg.secUnitsLeg.uval" /></form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.secUnitsLeg.uval" /></td>
-				</tr>
+				</tr>				
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.cshLeg.cshccy" /></form:label></td>
-					<td><form:select path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy"> 
-							<form:option value="TWD" label="TWD"/>
-							<form:option value="USD" label="USD"/>
-							<form:option value="AUD" label="AUD"/>
-							<form:option value="EUR" label="EUR"/>
-							<form:option value="JPY" label="JPY"/>
-							<form:option value="CNY" label="CNY"/>
-							<form:option value="ZAR" label="ZAR"/> 
-						</form:select>
-					</td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshamt"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.cshLeg.cshamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.afttaxamt"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.cshLeg.afttaxamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.afttaxamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.remitfee"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.cshLeg.remitfee" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.remitfee" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.frstLeg.taxImp.taxamt"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.taxImp.taxamt" /></form:label></td>
+					<td><form:label path="body.secLeg.secGenLeg.frstLeg.taxImp.taxamt"><span class="required">＊</span><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.taxImp.taxamt" /></form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.frstLeg.taxImp.taxamt" /></td>
 				</tr>
 				<tr>
@@ -116,10 +125,10 @@
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.taxImp.futtaxamt"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.taxImp.futtaxamt" /></form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.frstLeg.taxImp.futtaxamt" /></td>
-				</tr>
+				</tr>	
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.cshLeg.cshccy" /></form:label></td>
-					<td><form:select path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy">
+					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy"><span class="required">＊</span><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.cshLeg.cshccy" /></form:label></td>
+					<td><form:select path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshccy"> 
 							<form:option value="TWD" label="TWD"/>
 							<form:option value="USD" label="USD"/>
 							<form:option value="AUD" label="AUD"/>
@@ -129,35 +138,11 @@
 							<form:option value="ZAR" label="ZAR"/> 
 						</form:select>
 					</td>
-				</tr>
+				</tr>	
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.cshLeg.cshamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.afttaxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.cshLeg.afttaxamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.afttaxamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.remitfee"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.cshLeg.remitfee" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.remitfee" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.taxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.taxImp.taxamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.taxamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.rdmptaxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.taxImp.rdmptaxamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.rdmptaxamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.clsdtaxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.taxImp.clsdtaxamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.clsdtaxamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.futtaxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.taxImp.futtaxamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.futtaxamt" /></td>
-				</tr>
+					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.afttaxamt"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.cshLeg.afttaxamt" /></form:label></td>
+					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.afttaxamt" /></td>
+				</tr>	
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.bdLeg.price"><spring:message code="secStlm.secLeg.secGenLeg.bdLeg.price" /></form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.bdLeg.price" /></td>
@@ -173,24 +158,15 @@
 				<tr>
 					<td><form:label path="body.secLeg.secGenLeg.bdLeg.accinttax"><spring:message code="secStlm.secLeg.secGenLeg.bdLeg.accinttax" /></form:label></td>
 					<td><form:input path="body.secLeg.secGenLeg.bdLeg.accinttax" /></td>
-				</tr>
+				</tr>	
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.genid"><spring:message code="secStlm.secLeg.secGenLeg.genid" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.genid" /></td>
-				</tr>
+					<td><form:label path="body.stlmdt"><span class="required">＊</span><spring:message code="secStlm.stlmdt" /></form:label></td>
+					<td><form:input path="body.stlmdt" /></td>
+				</tr>	
 				<tr>
-					<td><form:label path="body.secLeg.secGenLeg.secamt"><spring:message code="secStlm.secLeg.secGenLeg.secamt" /></form:label></td>
-					<td><form:input path="body.secLeg.secGenLeg.secamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.isin"><spring:message code="secStlm.secLeg.isin" /></form:label></td>
-					<td><form:input path="body.secLeg.isin" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.secLeg.mgcntrid"><spring:message code="secStlm.secLeg.mgcntrid" /></form:label></td>
-					<td><form:input path="body.secLeg.mgcntrid" /></td>
-				</tr>
-
+					<td><form:label path="body.trddt"><span class="required">＊</span><spring:message code="secStlm.trddt" /></form:label></td>
+					<td><form:input path="body.trddt" /></td>
+				</tr>	
 				<tr>
 					<td><form:label path="body.cshLeg.cshccy"><spring:message code="secStlm.cshLeg.cshccy" /></form:label></td>
 					<td><form:select path="body.cshLeg.cshccy"> 
@@ -205,60 +181,85 @@
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="body.cshLeg.cshamt"><spring:message code="secStlm.cshLeg.cshamt" /></form:label></td>
+					<td><form:label path="body.cshLeg.cshamt"><span class="required">＊</span><spring:message code="secStlm.cshLeg.cshamt" /></form:label></td>
 					<td><form:input path="body.cshLeg.cshamt" /></td>
-				</tr>
+				</tr>	
 				<tr>
-					<td><form:label path="body.cshLeg.afttaxamt"><spring:message code="secStlm.cshLeg.afttaxamt" /></form:label></td>
-					<td><form:input path="body.cshLeg.afttaxamt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cshLeg.remitfee"><spring:message code="secStlm.cshLeg.remitfee" /></form:label></td>
-					<td><form:input path="body.cshLeg.remitfee" /></td>
-				</tr>
-
-				<tr>
-					<td><form:label path="body.ref"><spring:message code="secStlm.ref" /></form:label></td>
-					<td><form:input path="body.ref" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cbid"><spring:message code="secStlm.cbid" /></form:label></td>
-					<td><form:input path="body.cbid" /></td>
+					<td><form:label path="body.trdrt"><span class="required">＊</span><spring:message code="secStlm.trdrt" /></form:label></td>
+					<td><form:input path="body.trdrt" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="body.bndlref"><spring:message code="secStlm.bndlref" /></form:label></td>
 					<td><form:input path="body.bndlref" /></td>
-				</tr>
+				</tr>										
 				<tr>
 					<td><form:label path="body.bndlttl"><spring:message code="secStlm.bndlttl" /></form:label></td>
 					<td><form:input path="body.bndlttl" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.dealtype"><spring:message code="secStlm.dealtype" /></form:label></td>
-					<td><form:input path="body.dealtype" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.dealside"><spring:message code="secStlm.dealside" /></form:label></td>
-					<td><form:input path="body.dealside" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.stlmdt"><spring:message code="secStlm.stlmdt" /></form:label></td>
-					<td><form:input path="body.stlmdt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.trddt"><spring:message code="secStlm.trddt" /></form:label></td>
-					<td><form:input path="body.trddt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.trdrt"><spring:message code="secStlm.trdrt" /></form:label></td>
-					<td><form:input path="body.trdrt" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.cshsys"><spring:message code="secStlm.cshsys" /></form:label></td>
-					<td><form:input path="body.cshsys" /></td>
-				</tr>												
-				
-				
+				</tr>		
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshamt"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.cshLeg.cshamt" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.cshamt" /></td> --%>
+<!-- 				</tr> -->
+
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.frstLeg.cshLeg.remitfee"><spring:message code="secStlm.secLeg.secGenLeg.frstLeg.cshLeg.remitfee" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.frstLeg.cshLeg.remitfee" /></td> --%>
+<!-- 				</tr> -->
+
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.cshLeg.cshccy" /></form:label></td> --%>
+<%-- 					<td><form:select path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshccy"> --%>
+<%-- 							<form:option value="TWD" label="TWD"/> --%>
+<%-- 							<form:option value="USD" label="USD"/> --%>
+<%-- 							<form:option value="AUD" label="AUD"/> --%>
+<%-- 							<form:option value="EUR" label="EUR"/> --%>
+<%-- 							<form:option value="JPY" label="JPY"/> --%>
+<%-- 							<form:option value="CNY" label="CNY"/> --%>
+<%-- 							<form:option value="ZAR" label="ZAR"/>  --%>
+<%-- 						</form:select> --%>
+<!-- 					</td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.cshLeg.cshamt" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.cshamt" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.afttaxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.cshLeg.afttaxamt" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.afttaxamt" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.cshLeg.remitfee"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.cshLeg.remitfee" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.cshLeg.remitfee" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.taxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.taxImp.taxamt" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.taxamt" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.rdmptaxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.taxImp.rdmptaxamt" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.rdmptaxamt" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.clsdtaxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.taxImp.clsdtaxamt" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.clsdtaxamt" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.secGenLeg.scndLeg.taxImp.futtaxamt"><spring:message code="secStlm.secLeg.secGenLeg.scndLeg.taxImp.futtaxamt" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.secGenLeg.scndLeg.taxImp.futtaxamt" /></td> --%>
+<!-- 				</tr> -->
+
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.secLeg.mgcntrid"><spring:message code="secStlm.secLeg.mgcntrid" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.secLeg.mgcntrid" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.cshLeg.afttaxamt"><spring:message code="secStlm.cshLeg.afttaxamt" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.cshLeg.afttaxamt" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<%-- 					<td><form:label path="body.cshLeg.remitfee"><spring:message code="secStlm.cshLeg.remitfee" /></form:label></td> --%>
+<%-- 					<td><form:input path="body.cshLeg.remitfee" /></td> --%>
+<!-- 				</tr> -->
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>

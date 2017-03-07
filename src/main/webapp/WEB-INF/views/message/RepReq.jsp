@@ -7,6 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title><spring:message code="repReq" /></title>
+<style>
+.required {
+	color: red;
+}
+</style>
 </head>
 <body>
 <body>
@@ -34,16 +39,7 @@
 				</tr>
 							
 				<tr>
-					<td><form:label path="body.crit.critnm"><spring:message code="repReq.crit.critnm" /></form:label></td>
-					<td><form:input path="body.crit.critnm" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="body.crit.critval"><spring:message code="repReq.crit.critval" /></form:label></td>
-					<td><form:input path="body.crit.critval" /></td>
-				</tr>
-
-				<tr>
-					<td><form:label path="body.prtyid"><spring:message code="repReq.prtyid" /></form:label></td>
+					<td><form:label path="body.prtyid"><span class="required">＊</span><spring:message code="repReq.prtyid" /></form:label></td>
 					<td><form:input path="body.prtyid" /></td>
 				</tr>
 				<tr>
@@ -51,9 +47,17 @@
 					<td><form:input path="body.repnm" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="body.repid"><spring:message code="repReq.repid" /></form:label></td>
+					<td><form:label path="body.repid"><span class="required">＊</span><spring:message code="repReq.repid" /></form:label></td>
 					<td><form:input path="body.repid" /></td>
 				</tr>
+				<tr>
+					<td><form:label path="body.crit.critnm"><span class="required">＊</span><spring:message code="repReq.crit.critnm" /></form:label></td>
+					<td><form:input path="body.crit.critnm" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="body.crit.critval"><span class="required">＊</span><spring:message code="repReq.crit.critval" /></form:label></td>
+					<td><form:input path="body.crit.critval" /></td>
+				</tr>				
 				
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
