@@ -17,15 +17,33 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
+
 @Configuration
 public class OXMConfig
 {
 	protected static final Logger logger = LoggerFactory.getLogger( OXMConfig.class );
+	public static final String NAMED_BCSS_MARSHALLER = "BCSSMarshaller";
+	public static final String NAMED_OPC_MARSHALLER = "OPCMarshaller";
 	public static final String DEFUALT_ENCODING = "CNS11643";
+	private static final String DEFAULT_XML_HEADER = "<!DOCTYPE BCSSMESSAGE SYSTEM \"FiscBCSS.dtd\">";
 	private static final String NAMED_REFLECTION_TDCC_MESSAGE_PACKAGE = "com.metrics.xml.message";
 
-	@Bean
-	public Jaxb2Marshaller getCastorMarshaller() {
+	@Bean(NAMED_BCSS_MARSHALLER)
+	public Jaxb2Marshaller getBCSSMarshaller() {
+		Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
+		jaxb2Marshaller.setPackagesToScan( NAMED_REFLECTION_TDCC_MESSAGE_PACKAGE );
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put( "jaxb.formatted.output", false );
+		map.put( "jaxb.encoding", DEFUALT_ENCODING );
+		map.put( "com.sun.xml.internal.bind.xmlHeaders", DEFAULT_XML_HEADER );
+		jaxb2Marshaller.setMarshallerProperties( map );
+
+		return jaxb2Marshaller;
+	}
+
+	@Bean(NAMED_OPC_MARSHALLER)
+	public Jaxb2Marshaller getOPCMarshaller() {
 		Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
 		jaxb2Marshaller.setPackagesToScan( NAMED_REFLECTION_TDCC_MESSAGE_PACKAGE );
 

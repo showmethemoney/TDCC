@@ -10,6 +10,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Component;
 
@@ -25,14 +26,18 @@ public class OXMService
 	protected static final Logger logger = LoggerFactory.getLogger( OXMService.class );
 	@Autowired
 	private OpcMacUtil opcMacUtil = null;
+	@Qualifier(OXMConfig.NAMED_BCSS_MARSHALLER)
 	@Autowired
-	private Jaxb2Marshaller marshaller = null;
+	private Jaxb2Marshaller bcssMarshaller = null;
+	@Qualifier(OXMConfig.NAMED_OPC_MARSHALLER)
+	@Autowired
+	private Jaxb2Marshaller opcMarshaller = null;
 
 	public String marshallOPCMessage(OPCMESSAGE instance) {
 		String result = null;
 
 		try {
-			result = marshall( instance );
+			result = marshall( instance, opcMarshaller );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
@@ -44,7 +49,7 @@ public class OXMService
 		String result = null;
 
 		try {
-			result = marshall( instance );
+			result = marshall( instance, bcssMarshaller );
 
 			// 除交割狀態通知訊息(訊息代號002、012、032及040)不押碼外，其他訊息皆須押碼。
 			if (!"002".equalsIgnoreCase( instance.getMSGTYPE() ) || !"012".equalsIgnoreCase( instance.getMSGTYPE() )
@@ -59,14 +64,14 @@ public class OXMService
 	}
 
 	public <T extends Object> T unMarshallOPCMessage(T refenceObj, String xmlString) {
-		return unmarshall( refenceObj, xmlString );
+		return unmarshall( refenceObj, xmlString, opcMarshaller );
 	}
 
 	public <T extends Object> T unMarshallBCSSMessage(T refenceObj, String xmlString) {
-		return unmarshall( refenceObj, xmlString );
+		return unmarshall( refenceObj, xmlString, bcssMarshaller );
 	}
 
-	protected String marshall(Object instance) {
+	protected String marshall(Object instance, Jaxb2Marshaller marshaller) {
 		String result = null;
 
 		try {
@@ -87,7 +92,7 @@ public class OXMService
 		return result;
 	}
 
-	protected <T extends Object> T unmarshall(T refenceObj, String xmlString) {
+	protected <T extends Object> T unmarshall(T refenceObj, String xmlString, Jaxb2Marshaller marshaller) {
 		T result = null;
 
 		try {
