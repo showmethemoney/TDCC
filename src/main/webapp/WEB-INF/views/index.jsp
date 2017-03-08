@@ -25,6 +25,7 @@
 		<li><a href="message/SecBlk"><spring:message code="setBlk" /></a></li>
 		<li><a href="message/SecStlm"><spring:message code="secStlm" /></a></li>
 		<li><a href="message/Undw"><spring:message code="undw" /></a></li>
+		<li><a href="message/RMRegex"><spring:message code="rmRegex" /></a></li>		
 		
 		<li><a href="message/OpcKeyChange"><spring:message code="opcKeyChange" /></a></li>
 		<li><a href="message/Result"><spring:message code="result" /></a></li>

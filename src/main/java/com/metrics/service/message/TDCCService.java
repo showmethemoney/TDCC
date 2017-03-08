@@ -6,7 +6,6 @@ import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.metrics.bean.CloseRepoBean;
@@ -18,6 +17,7 @@ import com.metrics.bean.ModRepoBean;
 import com.metrics.bean.MortgageRegexBean;
 import com.metrics.bean.MortgageRelexBean;
 import com.metrics.bean.OpenRepoBean;
+import com.metrics.bean.RMRegexBean;
 import com.metrics.bean.ReiInstBean;
 import com.metrics.bean.RepBean;
 import com.metrics.bean.RepReqBean;
@@ -41,6 +41,7 @@ import com.metrics.xml.message.tdcc.def.OPENREPO;
 import com.metrics.xml.message.tdcc.def.REIINST;
 import com.metrics.xml.message.tdcc.def.REP;
 import com.metrics.xml.message.tdcc.def.REPREQ;
+import com.metrics.xml.message.tdcc.def.RMREGEX;
 import com.metrics.xml.message.tdcc.def.SECBLK;
 import com.metrics.xml.message.tdcc.def.SECSTLM;
 import com.metrics.xml.message.tdcc.def.UNDW;
@@ -56,6 +57,7 @@ import com.metrics.xml.message.tdcc.xml.OPENREPOMessage;
 import com.metrics.xml.message.tdcc.xml.REIINSTMessage;
 import com.metrics.xml.message.tdcc.xml.REPMessage;
 import com.metrics.xml.message.tdcc.xml.REPREQMessage;
+import com.metrics.xml.message.tdcc.xml.RMREGEXMessage;
 import com.metrics.xml.message.tdcc.xml.SECBLKMessage;
 import com.metrics.xml.message.tdcc.xml.SECSTLMMessage;
 import com.metrics.xml.message.tdcc.xml.UNDWMessage;
@@ -321,6 +323,26 @@ public class TDCCService
 		}
 	}
 
+	public void sendRMRegexRequest(RMRegexBean instance) throws Throwable {
+		BCSSMESSAGE message = null;
+		String content = null;
+
+		try {
+			message = new RMREGEXMessage( instance );
+
+			((RMREGEXMessage) message).setBody( new RMREGEX( instance.getBody() ) );
+			message = setBCSSMessage( message );
+			content = oxmService.marshallBCSSMessage( message );
+
+			tDCCMessageSender.send( content );
+
+			historyRequestService.writeLog( message, content );
+		} catch (Throwable cause) {
+			logger.error( cause.getMessage(), cause );
+			throw cause;
+		}
+	}
+	
 	public void sendSecBlkRequest(SecBlkBean instance) throws Throwable {
 		BCSSMESSAGE message = null;
 		String content = null;
