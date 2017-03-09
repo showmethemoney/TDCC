@@ -70,14 +70,18 @@ public class TDCCMessageReceiver implements MessageListener
 
 					// unmarshall
 					Map<Object, Object> messages = tdccMessages.getObject();
-
+					
+					logger.info( "txnid is : {}, contains in messages ? {}", txnId, messages.containsKey( txnId ) );
+					
 					if (messages.containsKey( txnId )) {
 						JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
 						Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
 						BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
-
+						
+						logger.info( "start - history response write to log {}", txnId );
 						historyResponseService.writeLog( entity, response );
+						logger.info( "end - history response write to log {}", txnId );
 					}
 
 				}
