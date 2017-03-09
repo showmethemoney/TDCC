@@ -63,7 +63,6 @@ public class TDCCMessageReceiver implements MessageListener
 
 				// 判斷 是否為 OPCMessage，如果是，丟到 activemq
 				// 由於 BCSSMessage 與 OPCMessage 回送同一個 queue。而 OPCMessage 是要取得資訊 for POC
-
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 				// ignore dtd definition in xml
 				factory.setFeature( "http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false );
@@ -93,14 +92,16 @@ public class TDCCMessageReceiver implements MessageListener
 					if (messages.containsKey( txnId )) {
 						//取得 Request 送過去的 SNDR_REF
 						XPathExpression sndrRef = xpath.compile( "/BCSSMESSAGE/*/@SNDR_REF" );
-						String requestSNDRREF = (String) sndrRef.evaluate( document, XPathConstants.STRING );
+						String reqSndrRef = (String) sndrRef.evaluate( document, XPathConstants.STRING );
 						
 						JAXBContext jaxbContext = JAXBContext.newInstance( (Class) messages.get( txnId ) );
 						Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 						
 						BCSSMESSAGE entity = (BCSSMESSAGE) unmarshaller.unmarshal( new StringReader( response ) );
-
-						historyResponseService.writeLog( entity, requestSNDRREF, response );
+						
+						logger.info("txnId : {}, reqSndrRef : {}", txnId, reqSndrRef);
+						
+						historyResponseService.writeLog( entity, reqSndrRef, response );
 					}
 
 				}

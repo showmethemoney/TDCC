@@ -26,7 +26,7 @@ public class HistoryResponseService
 	@Autowired
 	private HistoryResponseDao historyResponseDao = null;
 
-	public void save(String requestSNDRREF, BCSSMESSAGE message) {
+	public void save(String reqSndrRef, BCSSMESSAGE message) {
 		try {
 			HistoryResponse entity = new HistoryResponse();
 			
@@ -38,6 +38,7 @@ public class HistoryResponseService
 			entity.setResend( message.getRESEND() );
 			entity.setSndrRef( message.getSNDRREF() );
 			entity.setTs( message.getTS() );
+			entity.setReqSndrRef( reqSndrRef );
 		
 			historyResponseDao.save( entity );
 		} catch (Throwable cause) {
@@ -53,7 +54,7 @@ public class HistoryResponseService
 		return historyResponseDao.queryBySndrRef( sndrRef );
 	}
 	
-	public void writeLog(BCSSMESSAGE message, String requestSNDRREF, String content) {
+	public void writeLog(BCSSMESSAGE message, String reqSndrRef, String content) {
 		try {
 			File folder = new File( tcbConfig.getResponseSaveXmlPath(), DateFormatUtils.format( Calendar.getInstance(), FORMAT_FOLDER_DATE ) );
 
@@ -61,8 +62,8 @@ public class HistoryResponseService
 				folder.mkdirs();
 			}
 
-			FileUtils.write( new File( folder, message.getSNDRREF() + ".xml" ), (CharSequence) content );
-			save( requestSNDRREF, message );
+			FileUtils.write( new File( folder, reqSndrRef + "-" + message.getSNDRREF() + ".xml" ), (CharSequence) content );
+			save( reqSndrRef, message );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}

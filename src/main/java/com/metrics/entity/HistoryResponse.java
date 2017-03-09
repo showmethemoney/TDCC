@@ -33,12 +33,14 @@ public class HistoryResponse
 	private String action = null;
 	@Column(name = "RESEND")
 	private String resend = null;
-
+	@Column(name = "REQ_SNDR_REF")
+	private String reqSndrRef = null;
+	
 	public HistoryResponse() {
 		super();
 	}
 
-	public HistoryResponse(String origin, String ts, String bcssBusDt, String msgType, String narr, String sndrRef, String action, String resend) {
+	public HistoryResponse(String origin, String ts, String bcssBusDt, String msgType, String narr, String sndrRef, String action, String resend, String reqSndrRef) {
 		super();
 		this.origin = origin;
 		this.ts = ts;
@@ -48,6 +50,7 @@ public class HistoryResponse
 		this.sndrRef = sndrRef;
 		this.action = action;
 		this.resend = resend;
+		this.reqSndrRef = reqSndrRef;
 	}
 
 	public String getId() {
@@ -122,4 +125,13 @@ public class HistoryResponse
 		this.resend = resend;
 	}
 
+	public String getReqSndrRef() {
+		return reqSndrRef;
+	}
+
+	public void setReqSndrRef(String reqSndrRef) {
+		this.reqSndrRef = reqSndrRef;
+	}
+
+	
 }
