@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.MapFactoryBean;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 
 import com.metrics.mq.activemq.JMSMessageSender;
@@ -52,16 +51,22 @@ public class TDCCMessageReceiver implements MessageListener
 				// 由於 BCSSMessage 與 OPCMessage 回送同一個 queue。而 OPCMessage 是要取得資訊 for POC
 
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				// ignore dtd definition in xml
+				factory.setFeature( "http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false );
+				factory.setFeature( "http://apache.org/xml/features/nonvalidating/load-external-dtd", false );
+
 				DocumentBuilder builder = factory.newDocumentBuilder();
 
 				Document document = builder.parse( new InputSource( new StringReader( response ) ) );
-
-				if ("OPCMESSAGE".equalsIgnoreCase( ((Element) document.getFirstChild()).getTagName() )) {
+				
+				// avoid java.lang.ClassCastException: com.sun.org.apache.xerces.internal.dom.DeferredDocumentTypeImpl cannot be cast to org.w3c.dom.Element
+				if ("OPCMESSAGE".equalsIgnoreCase( document.getFirstChild().getNodeName() )) {
 					// send to active mq
 					jMSMessageSender.send( response );
 				} else {
 					// BCSSMessage
-					String txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
+					// String txnId = ((Element) document.getFirstChild().getFirstChild()).getTagName();
+					String txnId = document.getFirstChild().getFirstChild().getNodeName();
 
 					// unmarshall
 					Map<Object, Object> messages = tdccMessages.getObject();
