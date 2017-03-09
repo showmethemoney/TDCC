@@ -3,8 +3,8 @@ package com.metrics.bean;
 public class RepSec
 {
 
-	private RepSecVal repSecVal = null;
-	private RepSec repSec = null;
+	private RepSecVal repSecVal = new RepSecVal();
+	private RepSec repSec = new RepSec();
 	private String secnm = null;
 
 	public RepSecVal getRepSecVal() {

@@ -5,8 +5,8 @@ package com.metrics.bean;
  */
 public class ScndLeg
 {
-	private CshLeg cshLeg = null;
-	private TaxImp taxImp = null;
+	private CshLeg cshLeg = new CshLeg();
+	private TaxImp taxImp = new TaxImp();
 
 	public CshLeg getCshLeg() {
 		return cshLeg;

@@ -5,10 +5,10 @@ package com.metrics.bean;
  */
 public class SecGenLeg
 {
-	private SecUnitsLeg secUnitsLeg = null;
-	private FrstLeg frstLeg = null;
-	private ScndLeg scndLeg = null;
-	private BDLeg bdLeg = null;
+	private SecUnitsLeg secUnitsLeg = new SecUnitsLeg();
+	private FrstLeg frstLeg = new FrstLeg();
+	private ScndLeg scndLeg = new ScndLeg();
+	private BDLeg bdLeg = new BDLeg();
 	private String genid = null;
 	private String secamt = null;
 

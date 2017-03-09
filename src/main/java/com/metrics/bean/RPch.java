@@ -3,7 +3,7 @@ package com.metrics.bean;
 public class RPch
 {
 	private String stlmDt = null;
-	private CshLeg cshLeg = null;
+	private CshLeg cshLeg = new CshLeg();
 
 	public String getStlmDt() {
 		return stlmDt;

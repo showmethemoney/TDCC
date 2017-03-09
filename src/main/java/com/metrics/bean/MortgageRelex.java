@@ -3,8 +3,8 @@ package com.metrics.bean;
 public class MortgageRelex
 {
 
-	private StlmPrty stlmprty = null;
-	private SecLeg secLeg = null;
+	private StlmPrty stlmprty = new StlmPrty();
+	private SecLeg secLeg = new SecLeg();
 	private String ref = null;
 	private String stlmdt = null;
 	private String cntrid = null;

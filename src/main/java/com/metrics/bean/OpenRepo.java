@@ -2,11 +2,11 @@ package com.metrics.bean;
 
 public class OpenRepo
 {
-	private Prty prty = null;
-	private Cprty cprty = null;
-	private Pch pch = null;
-	private RPch rpch = null;
-	private SecLeg secLeg = null;
+	private Prty prty = new Prty();
+	private Cprty cprty = new Cprty();
+	private Pch pch = new Pch();
+	private RPch rpch = new RPch();
+	private SecLeg secLeg = new SecLeg();
 	private String ref = null;
 	private String cbid = null;
 	private String bndlref = null;

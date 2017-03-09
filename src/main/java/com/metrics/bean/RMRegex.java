@@ -2,8 +2,8 @@ package com.metrics.bean;
 
 public class RMRegex
 {
-	private Prty prty = null;
-	private Cprty cprty = null;
+	private Prty prty = new Prty();
+	private Cprty cprty = new Cprty();
 	protected String ref = null;
 	protected String stlmdt = null;
 	protected String trddt = null;

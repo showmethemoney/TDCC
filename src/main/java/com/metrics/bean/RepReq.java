@@ -3,7 +3,7 @@ package com.metrics.bean;
 public class RepReq
 {
 
-	private Crit crit = null;
+	private Crit crit = new Crit();
 	private String prtyid = null;
 	private String repnm = null;
 	private String repid = null;

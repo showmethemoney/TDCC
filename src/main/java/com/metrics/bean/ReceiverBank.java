@@ -5,7 +5,7 @@ package com.metrics.bean;
  */
 public class ReceiverBank extends BcssMessageBean
 {
-	private CshLeg cshLeg = null;
+	private CshLeg cshLeg = new CshLeg();
 	private String id = null;
 	private String bnfynm = null;
 	private String acctid = null;

@@ -3,10 +3,10 @@ package com.metrics.bean;
 public class ReiInst
 {
 
-	private SecLeg secLeg = null;
-	private CshLeg cshLeg = null;
-	private ReceiverBank receiverBank = null;
-	private StlmPrty stlmprty = null;
+	private SecLeg secLeg = new SecLeg();
+	private CshLeg cshLeg = new CshLeg();
+	private ReceiverBank receiverBank = new ReceiverBank();
+	private StlmPrty stlmprty = new StlmPrty();
 	private String reiisin = null;
 	private String stlmdt = null;
 	private String bsprc = null;

@@ -5,10 +5,10 @@ package com.metrics.bean;
  */
 public class Dep
 {
-	private Denomination denomination = null;
-	private Endorsee endorsee = null;
-	private Agreer agreer = null;
-	private FloatingRateInfo floatingRateInfo = null;
+	private Denomination denomination = new Denomination();
+	private Endorsee endorsee = new Endorsee();
+	private Agreer agreer = new Agreer();
+	private FloatingRateInfo floatingRateInfo = new FloatingRateInfo();
 	private String isin = null;
 	private String ref = null;
 	private String isstype = null;

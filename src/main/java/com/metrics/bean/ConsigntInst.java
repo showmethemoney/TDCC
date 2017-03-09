@@ -5,9 +5,9 @@ package com.metrics.bean;
  */
 public class ConsigntInst
 {
-	private StlmPrty stlmprty = null;
-	private CshLeg cshLeg = null;
-	private ReceiverBank receiverBank = null;
+	private StlmPrty stlmprty = new StlmPrty();
+	private CshLeg cshLeg = new CshLeg();
+	private ReceiverBank receiverBank = new ReceiverBank();
 	private String prtyid = null;
 	private String isin = null;
 	private String dbcshamt = null;

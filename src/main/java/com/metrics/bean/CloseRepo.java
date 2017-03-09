@@ -6,8 +6,8 @@ package com.metrics.bean;
 
 public class CloseRepo
 {
-	private Prty prty = null;
-	private Cprty cprty = null;
+	private Prty prty = new Prty();
+	private Cprty cprty = new Cprty();
 	private String ref = null;
 	private String cntrid = null;
 	private String cshamt = null;

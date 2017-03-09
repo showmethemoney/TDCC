@@ -2,7 +2,7 @@ package com.metrics.bean;
 
 public class Rep
 {
-	private RepSec repsec = null;
+	private RepSec repsec = new RepSec();
 	private String repnm = null;
 	private String repid = null;
 	private String prtyid = null;

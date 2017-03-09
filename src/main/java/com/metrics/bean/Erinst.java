@@ -5,7 +5,7 @@ package com.metrics.bean;
  */
 public class Erinst
 {
-	private StlmPrty stlmprty = null;
+	private StlmPrty stlmprty = new StlmPrty();
 	private String isin = null;
 	private String fval = null;
 	private String issdays = null;

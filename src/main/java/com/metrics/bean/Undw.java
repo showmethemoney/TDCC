@@ -2,11 +2,11 @@ package com.metrics.bean;
 
 public class Undw
 {
-	private Prty prty = null;
-	private Cprty cprty = null;
-	private CshLeg cshLeg = null;
-	private ReceiverBank receiverBank = null;
-	private UnderWritingPart underWritingPart = null;
+	private Prty prty = new Prty();
+	private Cprty cprty = new Cprty();
+	private CshLeg cshLeg = new CshLeg();
+	private ReceiverBank receiverBank = new ReceiverBank();
+	private UnderWritingPart underWritingPart = new UnderWritingPart();
 	private String ref = null;
 	private String isin = null;
 	private String stlmdt = null;

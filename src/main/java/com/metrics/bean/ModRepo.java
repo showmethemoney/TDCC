@@ -2,8 +2,8 @@ package com.metrics.bean;
 
 public class ModRepo
 {
-	private CshLeg cshLeg = null;
-	private SecLeg secLeg = null;
+	private CshLeg cshLeg = new CshLeg();
+	private SecLeg secLeg = new SecLeg();
 	private String ref = null;
 	private String prtyid = null;
 	private String cprtyid = null;

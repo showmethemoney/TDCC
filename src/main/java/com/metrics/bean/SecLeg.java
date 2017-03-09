@@ -5,7 +5,7 @@ package com.metrics.bean;
  */
 public class SecLeg
 {
-	private SecGenLeg secGenLeg = null;
+	private SecGenLeg secGenLeg = new SecGenLeg();
 	private String isin = null;
 	private String mgcntrid = null;
 

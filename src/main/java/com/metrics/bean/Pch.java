@@ -3,7 +3,7 @@ package com.metrics.bean;
 public class Pch
 {
 	private String stlmdt = null;
-	private CshLeg cshLeg = null;
+	private CshLeg cshLeg = new CshLeg();
 
 	public String getStlmdt() {
 		return stlmdt;

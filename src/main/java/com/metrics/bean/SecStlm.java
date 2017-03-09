@@ -3,10 +3,10 @@ package com.metrics.bean;
 public class SecStlm
 {
 
-	private Prty prty = null;
-	private Cprty cprty = null;
-	private SecLeg secLeg = null;
-	private CshLeg cshLeg = null;
+	private Prty prty = new Prty();
+	private Cprty cprty = new Cprty();
+	private SecLeg secLeg = new SecLeg();
+	private CshLeg cshLeg = new CshLeg();
 	private String ref = null;
 	private String cbid = null;
 	private String bndlref = null;

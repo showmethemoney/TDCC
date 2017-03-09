@@ -2,9 +2,9 @@ package com.metrics.bean;
 
 public class MortgageRegex
 {
-	private Prty prty = null;
-	private Cprty cprty = null;
-	private SecLeg secLeg = null;
+	private Prty prty = new Prty();
+	private Cprty cprty = new Cprty();
+	private SecLeg secLeg = new SecLeg();
 	private String ref = null;
 	private String stlmdt = null;
 	private String cntrid = null;
