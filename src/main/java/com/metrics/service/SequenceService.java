@@ -23,6 +23,6 @@ public class SequenceService
 	 * @return
 	 */	
 	public String getSequence() {
-		return String.format( "%1$s%2$06d", DateFormatUtils.format( Calendar.getInstance(), "yyyyMMdd" ), sequenceDao.getSequence() );
+		return String.format( "%1$s%2$05d", DateFormatUtils.format( Calendar.getInstance(), "yyyyMMdd" ), sequenceDao.getSequence() );
 	}
 }
