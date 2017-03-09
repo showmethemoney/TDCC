@@ -26,7 +26,7 @@ public class HistoryResponseService
 	@Autowired
 	private HistoryResponseDao historyResponseDao = null;
 
-	public void save(BCSSMESSAGE message) {
+	public void save(String requestSNDRREF, BCSSMESSAGE message) {
 		try {
 			HistoryResponse entity = new HistoryResponse();
 			
@@ -53,7 +53,7 @@ public class HistoryResponseService
 		return historyResponseDao.queryBySndrRef( sndrRef );
 	}
 	
-	public void writeLog(BCSSMESSAGE message, String content) {
+	public void writeLog(BCSSMESSAGE message, String requestSNDRREF, String content) {
 		try {
 			File folder = new File( tcbConfig.getResponseSaveXmlPath(), DateFormatUtils.format( Calendar.getInstance(), FORMAT_FOLDER_DATE ) );
 
@@ -62,7 +62,7 @@ public class HistoryResponseService
 			}
 
 			FileUtils.write( new File( folder, message.getSNDRREF() + ".xml" ), (CharSequence) content );
-			save( message );
+			save( requestSNDRREF, message );
 		} catch (Throwable cause) {
 			logger.error( cause.getMessage(), cause );
 		}
